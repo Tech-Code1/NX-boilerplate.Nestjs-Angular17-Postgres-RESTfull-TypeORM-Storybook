@@ -1,7 +1,7 @@
 {
   "name": "api",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "api/src",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "backend/api/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,12 +11,12 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/api",
-        "main": "api/src/main.ts",
-        "tsConfig": "api/tsconfig.app.json",
-        "assets": ["api/src/assets"],
+        "outputPath": "dist/backend/api",
+        "main": "backend/api/src/main.ts",
+        "tsConfig": "backend/api/tsconfig.app.json",
+        "assets": ["backend/api/src/assets"],
         "isolatedConfig": true,
-        "webpackConfig": "api/webpack.config.js"
+        "webpackConfig": "backend/api/webpack.config.js"
       },
       "configurations": {
         "development": {},
@@ -49,7 +49,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "api/jest.config.ts",
+        "jestConfig": "backend/api/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
