@@ -1,0 +1,4 @@
+[init]
+	defaultBranch = main
+[alias]
+  c = "!npx cz"

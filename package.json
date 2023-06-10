@@ -33,5 +33,12 @@
     "vite-tsconfig-paths": "~4.2.0",
     "vitest": "^0.31.0"
   },
-  "dependencies": {}
+  "config": {
+    "commitizen": {
+      "path": "./cz.config.js"
+    }
+  },
+  "dependencies": {
+    "commitizen": "^4.3.0"
+  }
 }
