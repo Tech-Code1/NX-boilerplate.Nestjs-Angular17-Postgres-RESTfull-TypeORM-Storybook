@@ -1,4 +1,6 @@
-# OrgWorkspace
+# My CV App
+
+![image_22](https://user-images.githubusercontent.com/10075532/227379966-f688681c-ea72-44e3-afb9-357b4c05178d.png)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
