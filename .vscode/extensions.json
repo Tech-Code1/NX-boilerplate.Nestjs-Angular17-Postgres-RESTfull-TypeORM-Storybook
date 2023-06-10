@@ -3,6 +3,7 @@
     "nrwl.angular-console",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "firsttris.vscode-jest-runner"
   ]
 }
