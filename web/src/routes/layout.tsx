@@ -1,11 +1,11 @@
 import { component$, Slot } from '@builder.io/qwik';
-import Header from '../components/header/header';
+import Navbar from '../components/shared/navbar/navbar';
 
 export default component$(() => {
   return (
     <>
       <main class="flex flex-col items-center justify-center">
-        <Header />
+        <Navbar />
         <section>
           <Slot />
         </section>

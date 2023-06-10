@@ -3,6 +3,9 @@
   "compilerOptions": {
     "outDir": "../dist/out-tsc",
     "types": ["vitest/globals", "node"],
+    "composite": true,
+    "declaration": true,
+    "noEmit": false,
   },
   "include": [
     "vite.config.ts",

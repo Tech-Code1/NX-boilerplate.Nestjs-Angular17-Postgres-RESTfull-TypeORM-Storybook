@@ -2,6 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "composite": true,
+    "declaration": true,
+    "noEmit": false,
     "outDir": "../../dist/out-tsc",
   },
   "files": [],
