@@ -23,9 +23,11 @@
     "@nx/vite": "16.3.2",
     "@nx/webpack": "16.3.2",
     "@nx/workspace": "16.3.2",
+    "@types/bcrypt": "^5.0.0",
     "@types/jest": "^29.4.0",
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.16.1",
+    "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "@vitest/ui": "^0.31.0",
@@ -70,11 +72,13 @@
     "commitizen": "^4.3.0",
     "joi": "^17.9.2",
     "morgan": "^1.10.0",
+    "pg": "^8.11.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0",
     "typeorm": "^0.3.16",
     "typeorm-extension": "^2.8.1",
+    "typeorm-naming-strategies": "^4.1.0",
     "uuid": "^9.0.0"
   }
 }

@@ -1,9 +1,14 @@
-import { CreateDateColumn, DeleteDateColumn, UpdateDateColumn } from 'typeorm';
+import { CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 /**
  * BaseEntity class.
  */
 export abstract class BaseEntity {
+
+	/** @member {Date} id - the id date */
+	@PrimaryGeneratedColumn('uuid')
+	id!: string;
+
 	/** @member {Date} createdAt - the create date */
 	@CreateDateColumn({
 		name: 'created_at',

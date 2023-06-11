@@ -1,51 +1,60 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { EValidRoles } from '../interfaces/interfaces.entities';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { ROLES } from '../../constants/interfaces.entities';
 import { BaseEntity } from './base.entity';
+import { IUser } from '../interfaces/user.interface';
+import { UsersProjects } from './usersProjects.entity';
 
 @Entity({ name: 'users' })
-export class User extends BaseEntity {
+export class Users extends BaseEntity implements IUser {	
 	@ApiProperty({
-		example: 'ef549097-0214-43bb-9cce-ff1390e76d02',
-		description: 'Id del usuario',
-		uniqueItems: true,
-		required: false,
-		type: String
+		example: 'jhon',
+		description: 'User name'
 	})
-	@PrimaryGeneratedColumn('uuid')
-	id!: string;
+	@Column('text')
+	firstName!: string;
+
+	@ApiProperty({
+		example: 'Doe',
+		description: 'User last name'
+	})
+	@Column('text')
+	lastName!: string;
+
+	@ApiProperty({
+		example: '18',
+		description: 'User age'
+	})
+	@Column('number')
+	age!: number;
 
 	@ApiProperty({
 		example: 'jhondoe@hotmail.com',
-		description: 'Correo del usuario'
+		description: 'User mail'
 	})
 	@Column('text', {
 		unique: true
 	})
 	email!: string;
+	
+	@ApiProperty({
+		example: 'jhonDee',
+		description: 'User nickname'
+	})
+	@Column('text', { unique: true })
+	username!: string;
 
 	@ApiProperty({
 		example: '123456',
-		description: 'Contraseña del usuario'
+		description: 'User password'
 	})
 	@Column('text', { select: false })
 	password!: string;
 
-	@ApiProperty({
-		example: 'jhonDoe',
-		description: 'Apodo del usuario'
-	})
-	@Column('text', { unique: true })
-	nick!: string;
-
-	@ApiProperty({
-		example: 'Informatica',
-		description: 'Area en el que se especializa el usuario'
-	})
 
 	@ApiProperty({
 		example: true,
-		description: 'Usuario activo o eliminado',
+		description: 'Active or deleted user',
 		uniqueItems: false,
 		default: true,
 		required: false,
@@ -56,13 +65,16 @@ export class User extends BaseEntity {
 
 	@ApiProperty({
 		example: 'user',
-		description: 'Roles del usuario',
+		description: 'User roles',
 		uniqueItems: false,
 		default: ['user'],
 		required: false,
-		enum: EValidRoles,
+		enum: ROLES,
 		isArray: true
 	})
-	@Column('text', { array: true, default: ['user'] })
-	roles!: string[];
+	@Column({ type: 'enum',  enum: ROLES })
+	role!: ROLES[];
+
+	@OneToMany(() => UsersProjects, (usersProjects) => usersProjects.user)
+	projectsIncludes!: UsersProjects[]
 }

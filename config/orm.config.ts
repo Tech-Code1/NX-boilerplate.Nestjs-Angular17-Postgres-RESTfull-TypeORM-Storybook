@@ -4,6 +4,7 @@ import { SeederOptions } from 'typeorm-extension';
 
 import InitSeeder from '../backend/database/seeders/init.seeders';
 import { DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER } from './constants';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 export const options = {
 		type: 'postgres',
@@ -12,9 +13,10 @@ export const options = {
 		database: DB_NAME,
 		username: DB_USER,
 		password: DB_PASS,
-		entities: [join(__dirname, '/libs/database/src/lib/entities/**/*.entity.ts')],
+		entities: [join(__dirname, '/backend/database/src/lib/entities/**/*.entity.ts')],
 		migrationsRun: true,
-		migrations: [join(__dirname, '/../libs/database/migrations/**/*.ts')],
+		migrations: [join(__dirname, '/../backend/database/migrations/**/*.ts')],
+		namingStrategy: new SnakeNamingStrategy(),
 		migrationsTableName: 'migrations',
 		seeds: [InitSeeder],
 		// Activar SOLO MANUALMENTE en DESARROLLO SI ES NECESARIO (DESACTIVAR EN PRODUCCION).

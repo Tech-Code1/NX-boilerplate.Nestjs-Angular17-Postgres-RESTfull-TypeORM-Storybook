@@ -3,7 +3,7 @@ import { DataSource } from 'typeorm';
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
 import { v4 as uuidv4 } from 'uuid';
 import { User } from '../src/lib/entities/user.entity';
-import { EValidRoles} from '../src/lib/interfaces/interfaces.entities';
+import { EValidRoles} from '../src/constants/interfaces.entities';
 
 export default class UserSeeder implements Seeder {
   public async run(
