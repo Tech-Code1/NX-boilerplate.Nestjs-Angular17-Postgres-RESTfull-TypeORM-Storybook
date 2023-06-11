@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@org-workspace/database": ["database/src/index.ts"]
+      "@db/entities": ["backend/database/src/lib/entities"]
     }
   },
   "exclude": ["node_modules", "tmp"]

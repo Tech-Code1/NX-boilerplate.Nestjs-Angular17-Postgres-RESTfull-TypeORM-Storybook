@@ -3,7 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
@@ -18,6 +18,13 @@ async function bootstrap() {
   const port = configService.get('PORT');
   
   app.use(morgan('dev'));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transformOptions: {
+        enableImplicitConversion: true,
+      }
+    })
+  )
   app.enableCors(CORS);
   app.setGlobalPrefix(globalPrefix);
 
