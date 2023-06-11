@@ -19,8 +19,22 @@
         "webpackConfig": "backend/api/webpack.config.js"
       },
       "configurations": {
-        "development": {},
-        "production": {}
+        "development": {
+          "fileReplacements": [
+            {
+              "replace": "/.develop.env",
+              "with": "/.production.env"
+            }
+          ]
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "/.production.env",
+              "with": "/.production.env"
+            }
+          ]
+        }
       }
     },
     "serve": {
