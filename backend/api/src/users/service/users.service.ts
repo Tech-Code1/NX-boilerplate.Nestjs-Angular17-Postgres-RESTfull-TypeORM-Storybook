@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Users } from '@db/entities';
 import { UserDTO, UserUpdateDTO } from '../dto/user.dto';
 import { Repository, UpdateResult, DeleteResult } from 'typeorm';
+import { ErrorManager } from '../../utils/error.manager';
 
 @Injectable()
 export class UsersService {
@@ -14,27 +15,43 @@ export class UsersService {
     public async createUser(body: UserDTO): Promise<Users> {
         try {
             return await this.userRepository.save(body);
-        } catch (err) {
-            throw new Error(err);
+        } catch (error) {
+            throw ErrorManager.createSignatureError(error.message);
         }
     }
 
-    public async findUsers(body: UserDTO): Promise<Users[]> {
+    public async findUsers(): Promise<Users[]> {
         try {
-            return await this.userRepository.find();
-        } catch (err) {
-            throw new Error(err);
+            const users: Users[] = await this.userRepository.find();
+
+            if(users.length === 0) {
+                throw new ErrorManager({
+                    type: 'BAD_REQUEST',
+                    message: 'No result found'
+                })
+            }
+            return users;
+        } catch (error) {
+            throw ErrorManager.createSignatureError(error.message);
         }
     }
 
     public async findUserById(id: string): Promise<Users> {
         try {
-            return await this.userRepository
+            const user: Users = await this.userRepository
             .createQueryBuilder('user')
             .where({ id })
             .getOne();
-        } catch (err) {
-            throw new Error(err);
+
+            if(!user) {
+                throw new ErrorManager({
+                    type: 'BAD_REQUEST',
+                    message: 'No result found'
+                })
+            }
+            return user;
+        } catch (error) {
+            throw ErrorManager.createSignatureError(error.message);
         }
     }
 
@@ -43,12 +60,15 @@ export class UsersService {
             const user: UpdateResult = await this.userRepository.update(id, body);
 
             if(user.affected === 0) {
-                return undefined;
+                throw new ErrorManager({
+                    type: 'BAD_REQUEST',
+                    message: 'Failed to update'
+                })
             }
 
             return user;
-        } catch (err) {
-            throw new Error(err);
+        } catch (error) {
+            throw ErrorManager.createSignatureError(error);
         }
     }
 
@@ -57,12 +77,15 @@ export class UsersService {
             const user: DeleteResult = await this.userRepository.delete(id);
 
             if(user.affected === 0) {
-                return undefined;
+                throw new ErrorManager({
+                    type: 'BAD_REQUEST',
+                    message: 'Could not delete'
+                })
             }
 
             return user;
-        } catch (err) {
-            throw new Error(err);
+        } catch (error) {
+            throw ErrorManager.createSignatureError(error);
         }
     }
 }
