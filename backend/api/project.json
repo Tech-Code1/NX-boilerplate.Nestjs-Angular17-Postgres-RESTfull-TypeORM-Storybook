@@ -72,6 +72,10 @@
           "codeCoverage": true
         }
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f backend/api/Dockerfile . -t api"
     }
   },
   "tags": []
