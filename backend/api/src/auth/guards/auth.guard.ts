@@ -1,23 +1,15 @@
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
-import { Observable } from 'rxjs';
-import { UsersService } from '../../users/service/users.service';
 import { Reflector } from '@nestjs/core';
+import { Request } from 'express';
 import { PUBLIC_KEY } from '../../constants/key-decorators';
-import { IUseToken } from '../interface/auth.interface';
+import { UsersService } from '../../users/service/users.service';
 import { useToken } from '../../utils/use.token';
-// import { Request, Response } from 'express';
-
-// declare module 'express-serve-static-core' {
-//   interface Request {
-//     idUser: string;
-//     rolUser: string[];
-//   }
-// }
+import { IUseToken } from '../interface/auth.interface';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor( 
+  constructor(
     private readonly userService: UsersService,
     private readonly reflector: Reflector,
 

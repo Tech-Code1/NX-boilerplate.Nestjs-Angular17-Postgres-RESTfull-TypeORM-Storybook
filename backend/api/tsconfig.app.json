@@ -4,11 +4,11 @@
     "composite": true,
     "outDir": "../dist/out-tsc",
     "module": "commonjs",
-    "types": ["node"],
+    "types": ["node", "express-custom", "nodejs"],
     "emitDecoratorMetadata": true,
     "target": "es2015",
+    "typeRoots": ["../../types", "../../node_modules/@types"]
   },
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
   "include": ["src/**/*.ts"],
-  "files": ["../../types/express/index.d.ts"]
 }

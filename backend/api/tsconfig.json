@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "files": [],
-  "include": [],
+  "include": ["**/*.ts", "./types/express/index.d.ts"],
   "references": [
     {
       "path": "./tsconfig.app.json"
@@ -11,6 +11,6 @@
     }
   ],
   "compilerOptions": {
-    "esModuleInterop": true
+    "esModuleInterop": true,
   }
 }
