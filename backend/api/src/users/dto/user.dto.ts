@@ -1,5 +1,6 @@
-import { IsBoolean, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
-import { ROLES } from "backend/database/src/constants/interfaces.entities";
+import { IsBoolean, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, IsUUID } from 'class-validator';
+import { ACCES_LEVEL, ROLES } from "backend/database/src/constants/interfaces.entities";
+import { Projects, Users } from '@db/entities';
 
 export class UserDTO {
     @IsNotEmpty()
@@ -35,7 +36,6 @@ export class UserDTO {
 	role!: ROLES[];
 }
 
-
 export class UserUpdateDTO {
     @IsOptional()
     @IsString()
@@ -68,4 +68,18 @@ export class UserUpdateDTO {
     @IsOptional()
     @IsEnum(ROLES)
 	role!: ROLES[];
+}
+
+export class UserToProjectDTO {
+    @IsNotEmpty()
+    @IsUUID()
+    user: Users;
+
+    @IsNotEmpty()
+    @IsUUID()
+    project: Projects;
+
+    @IsNotEmpty()
+    @IsEnum(ACCES_LEVEL)
+    accesLevel: ACCES_LEVEL[];
 }
