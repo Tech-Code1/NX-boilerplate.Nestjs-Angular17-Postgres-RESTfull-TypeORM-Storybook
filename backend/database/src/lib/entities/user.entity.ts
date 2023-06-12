@@ -4,6 +4,7 @@ import { ROLES } from '../../constants/interfaces.entities';
 import { BaseEntity } from './base.entity';
 import { IUser } from '../interfaces/user.interface';
 import { UsersProjects } from './usersProjects.entity';
+import { Exclude } from 'class-transformer'
 
 @Entity({ name: 'users' })
 export class Users extends BaseEntity implements IUser {	
@@ -48,6 +49,7 @@ export class Users extends BaseEntity implements IUser {
 		example: '123456',
 		description: 'User password'
 	})
+	@Exclude()
 	@Column('text', { select: false })
 	password!: string;
 

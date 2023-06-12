@@ -9,6 +9,7 @@ import { DatabaseModule } from '../../database/src';
 import { validation } from './shared/utils/validationSchema';
 import { UsersModule } from './users/users.module';
 import { ProjectsModule } from './projects/projects.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { ProjectsModule } from './projects/projects.module';
     UsersModule,
     DatabaseModule,
     ProjectsModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

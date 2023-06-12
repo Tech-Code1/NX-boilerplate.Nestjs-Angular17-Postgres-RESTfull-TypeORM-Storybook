@@ -4,6 +4,7 @@ import { Users, UsersProjects } from '@db/entities';
 import { UserDTO, UserToProjectDTO, UserUpdateDTO } from '../dto/user.dto';
 import { Repository, UpdateResult, DeleteResult } from 'typeorm';
 import { ErrorManager } from '../../utils/error.manager';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -15,6 +16,7 @@ export class UsersService {
 
     public async createUser(body: UserDTO): Promise<Users> {
         try {
+            body.password = bcrypt.hashSync(body.password, process.env.HASH_SALT);
             return await this.userRepository.save(body);
         } catch (error) {
             throw ErrorManager.createSignatureError(error.message);
@@ -61,6 +63,24 @@ export class UsersService {
     public async relationToProject(body: UserToProjectDTO) {
         try {
             return await this.userProjectRepository.save(body);
+        } catch (error) {
+            throw ErrorManager.createSignatureError(error.message);
+        }
+    }
+
+    public async findBy({key, value}: {
+        key: keyof UserDTO;
+        value: any;
+    }) {
+        try {
+            const user: Users = await this.userRepository
+            .createQueryBuilder()
+            .addSelect('user.password')
+            .where({[key]: value})
+            .getOne();
+
+
+            return user;
         } catch (error) {
             throw ErrorManager.createSignatureError(error.message);
         }

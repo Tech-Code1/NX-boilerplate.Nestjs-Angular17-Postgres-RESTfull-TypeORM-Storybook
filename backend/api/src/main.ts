@@ -3,8 +3,8 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger, ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
+import { ClassSerializerInterceptor, Logger, ValidationPipe } from '@nestjs/common';
+import { NestFactory, Reflector } from '@nestjs/core';
 
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
@@ -16,6 +16,7 @@ async function bootstrap() {
   const globalPrefix = 'api';
   const configService = app.get(ConfigService);
   const port = configService.get('PORT');
+  const reflector = app.get(Reflector);
   
   app.use(morgan('dev'));
   app.useGlobalPipes(
@@ -24,7 +25,8 @@ async function bootstrap() {
         enableImplicitConversion: true,
       }
     })
-  )
+  );
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
   app.enableCors(CORS);
   app.setGlobalPrefix(globalPrefix);
 
