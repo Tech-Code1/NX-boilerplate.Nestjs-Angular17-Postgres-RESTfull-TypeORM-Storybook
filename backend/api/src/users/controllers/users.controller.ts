@@ -1,10 +1,13 @@
-import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Post, Put, UseGuards } from '@nestjs/common';
 import { UsersService } from '../service/users.service'
 import { UserDTO, UserToProjectDTO, UserUpdateDTO } from '../dto/user.dto';
 import { Users } from '@db/entities';
 import { DeleteResult, UpdateResult } from 'typeorm';
+import { PublicAccess } from '../../auth/decorators/public.decorator';
+import { AuthGuard } from '../../auth/guards/auth.guard';
 
 @Controller('users')
+@UseGuards(AuthGuard)
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
@@ -18,6 +21,7 @@ export class UsersController {
         return await this.usersService.findUsers();
     }
 
+    //@PublicAccess()
     @Get(':id')
     public async findUserById(@Param('id', new ParseUUIDPipe()) id: string): Promise<Users> {
         return await this.usersService.findUserById(id);
