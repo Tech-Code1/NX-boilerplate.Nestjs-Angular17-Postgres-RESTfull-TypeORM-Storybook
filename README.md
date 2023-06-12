@@ -1,4 +1,4 @@
-# My CV App
+# Nx boilerplate Qwik/Nest/GraphQL
 
 ![image_22](https://user-images.githubusercontent.com/10075532/227379966-f688681c-ea72-44e3-afb9-357b4c05178d.png)
 
