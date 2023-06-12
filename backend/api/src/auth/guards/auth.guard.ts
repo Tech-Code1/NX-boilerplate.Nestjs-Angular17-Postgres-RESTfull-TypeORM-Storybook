@@ -5,14 +5,14 @@ import { Reflector } from '@nestjs/core';
 import { PUBLIC_KEY } from '../../constants/key-decorators';
 import { IUseToken } from '../interface/auth.interface';
 import { useToken } from '../../utils/use.token';
-import { Request, Response } from 'express';
+// import { Request, Response } from 'express';
 
-declare module 'express-serve-static-core' {
-  interface Request {
-    idUser: string;
-    rolUser: string[];
-  }
-}
+// declare module 'express-serve-static-core' {
+//   interface Request {
+//     idUser: string;
+//     rolUser: string[];
+//   }
+// }
 
 @Injectable()
 export class AuthGuard implements CanActivate {
