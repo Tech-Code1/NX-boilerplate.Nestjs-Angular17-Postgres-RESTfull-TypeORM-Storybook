@@ -8,15 +8,20 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { Roles } from '../../auth/decorators/roles.decorator';
 import { ProjectDTO, ProjectUpdateDTO } from '../dto/projects.dto';
 import { ProjectsService } from '../services/projects.service';
 
   @Controller('projects')
   export class ProjectsController {
+
+
     constructor(private readonly projectService: ProjectsService) {}
-    @Post('create')
-    public async createProject(@Body() body: ProjectDTO) {
-      return await this.projectService.createProject(body);
+
+    @Roles('CREATOR')
+    @Post('create/userOwner/:userId')
+    public async createProject(@Body() body: ProjectDTO, @Param() userId: string) {
+      return await this.projectService.createProject(body, userId);
     }
 
     @Get('all')

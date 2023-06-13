@@ -1,7 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
   "files": [],
-  "include": ["**/*.ts", "./types/express/index.d.ts"],
+  "include": [
+    "**/*.ts",
+    "./types/express/index.d.ts",
+    "../shared/constants/status-tasks.ts"
+  ],
   "references": [
     {
       "path": "./tsconfig.app.json"
@@ -11,6 +15,6 @@
     }
   ],
   "compilerOptions": {
-    "esModuleInterop": true,
+    "esModuleInterop": true
   }
 }

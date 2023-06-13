@@ -10,5 +10,5 @@
     "typeRoots": ["../../types", "../../node_modules/@types"]
   },
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "../shared/constants/status-tasks.ts"]
 }
