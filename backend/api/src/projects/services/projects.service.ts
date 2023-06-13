@@ -23,10 +23,10 @@ export class ProjectsService {
       const project = await this.projectRepository.save(body);
 
       return await this.userProjectRepository.save({
-        accesLevel: [ACCES_LEVEL.OWNER],
+        accesLevel: ACCES_LEVEL.OWNER,
         user,
-        project
-      })
+        project,
+      });
     } catch (error) {
       throw ErrorManager.createSignatureError(error.message);
     }
@@ -52,8 +52,8 @@ export class ProjectsService {
       const project = await this.projectRepository
         .createQueryBuilder('project')
         .where({ id })
-        .leftJoinAndSelect('project.usersIncludes','usersIncludes')
-        .leftJoinAndSelect('usersIncludes.user','user')
+        .leftJoinAndSelect('project.usersIncludes', 'usersIncludes')
+        .leftJoinAndSelect('usersIncludes.user', 'user')
         .getOne();
       if (!project) {
         throw new ErrorManager({
@@ -69,12 +69,12 @@ export class ProjectsService {
 
   public async updateProject(
     body: ProjectUpdateDTO,
-    id: string,
+    id: string
   ): Promise<UpdateResult | undefined> {
     try {
       const project: UpdateResult = await this.projectRepository.update(
         id,
-        body,
+        body
       );
       if (project.affected === 0) {
         throw new ErrorManager({
