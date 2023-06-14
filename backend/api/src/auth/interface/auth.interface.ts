@@ -1,24 +1,24 @@
-import { ROLES } from "backend/database/src/constants/interfaces.entities";
+import { ROLES } from 'backend/database/src/constants/interfaces.entities';
 
 export interface IPayloadToken {
-    id: string;
-    role: ROLES[];
+  id: string;
+  role: ROLES;
 }
 
 export interface IAuthBody {
-    username: string;
-    password: string;
+  username: string;
+  password: string;
 }
 
 export interface IAuthTokenResult {
-    role: string;
-    sub: string;
-    iat: number;
-    exp: number;
+  role: string;
+  sub: string;
+  iat: number;
+  exp: number;
 }
 
 export interface IUseToken {
-    role: string;
-    sub: string;
-    isExpired: boolean;
+  role: string;
+  sub: string;
+  isExpired: boolean;
 }

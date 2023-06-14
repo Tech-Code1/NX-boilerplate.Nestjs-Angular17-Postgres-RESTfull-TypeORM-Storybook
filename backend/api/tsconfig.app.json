@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "composite": true,
     "outDir": "../dist/out-tsc",
     "module": "commonjs",
     "types": ["node", "express-custom", "nodejs"],
@@ -10,5 +9,5 @@
     "typeRoots": ["../../types", "../../node_modules/@types"]
   },
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
-  "include": ["src/**/*.ts", "../shared/constants/status-tasks.ts"]
+  "include": ["src/**/*.ts"]
 }

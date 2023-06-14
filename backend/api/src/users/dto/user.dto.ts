@@ -78,7 +78,7 @@ export class UserUpdateDTO {
 
   @IsOptional()
   @IsEnum(ROLES)
-  role!: ROLES[];
+  role!: ROLES;
 }
 
 export class UserToProjectDTO {

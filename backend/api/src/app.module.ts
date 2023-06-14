@@ -1,15 +1,17 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import Joi from 'joi';
-import { join } from 'path';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { DatabaseModule } from '../../database/src';
-import { validation } from './shared/utils/validationSchema';
-import { UsersModule } from './users/users.module';
-import { ProjectsModule } from './projects/projects.module';
-import { AuthModule } from './auth/auth.module';
-// import { configs } from '../../../config/backend.config';
+import { configs } from '../../../config/backend.config';
 import { TYPEORM_CONFIG } from '../../../config/constants';
+import { DatabaseModule } from '../../database/src/lib/database.module';
+import { AuthModule } from './auth/auth.module';
+import { ProjectsModule } from './projects/projects.module';
+import { validation } from './shared/utils/validationSchema';
+import { TasksModule } from './tasks/tasks.module';
+import { UsersModule } from './users/users.module';
+
+console.log();
 
 @Module({
   imports: [
@@ -21,14 +23,15 @@ import { TYPEORM_CONFIG } from '../../../config/constants';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      // load: [configs],
+      load: [configs],
       envFilePath: `.${process.env.NODE_ENV}.env`,
-      //validationSchema: Joi.object<typeof validation>(validation)
+      validationSchema: Joi.object<typeof validation>(validation),
     }),
     UsersModule,
-    DatabaseModule,
     ProjectsModule,
     AuthModule,
+    TasksModule,
+    DatabaseModule,
   ],
   controllers: [],
   providers: [],

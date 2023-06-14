@@ -43,7 +43,7 @@
     "jest-environment-node": "^29.4.1",
     "jsdom": "~20.0.3",
     "node-fetch": "~3.3.0",
-    "nx": "16.3.2"
+    "nx": "^16.3.2"
   },
   "config": {
     "commitizen": {
