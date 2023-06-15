@@ -5,8 +5,8 @@ import {
 } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 
+import { PORT } from '@environments';
 import morgan from 'morgan';
-import { PORT } from '../../../config/constants';
 import { AppModule } from './app.module';
 import { initSwagger } from './app.swagger';
 import { CORS } from './constants';

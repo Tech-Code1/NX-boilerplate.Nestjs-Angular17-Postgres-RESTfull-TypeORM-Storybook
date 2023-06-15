@@ -51,9 +51,12 @@
     }
   },
   "dependencies": {
+    "@apollo/server": "^4.7.3",
+    "@nestjs/apollo": "^11.0.6",
     "@nestjs/common": "^9.1.1",
     "@nestjs/config": "^2.3.2",
     "@nestjs/core": "^9.1.1",
+    "@nestjs/graphql": "^11.0.6",
     "@nestjs/platform-express": "^9.1.1",
     "@nestjs/swagger": "^6.3.0",
     "@nestjs/typeorm": "^9.0.1",
@@ -62,6 +65,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "commitizen": "^4.3.0",
+    "graphql": "^16.6.0",
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
