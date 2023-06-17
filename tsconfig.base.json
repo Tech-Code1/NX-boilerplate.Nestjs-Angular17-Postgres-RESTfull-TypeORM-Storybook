@@ -16,24 +16,17 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "commonjs",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@db/entities": [
-        "backend/database/src/lib/entities"
+      "@db/entities": ["backend/database/src/lib/entities"],
+      "@db/constants": [
+        "backend/database/src/constants/interfaces.entities.ts"
       ],
-      "@environments": [
-        "config/constants.ts"
-      ]
+      "@environments": ["config/constants.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

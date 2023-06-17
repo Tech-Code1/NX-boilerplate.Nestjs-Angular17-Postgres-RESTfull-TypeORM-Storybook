@@ -7,9 +7,8 @@ import {
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
 import { PUBLIC_KEY } from '../../constants/key-decorators';
-import { UsersService } from '../../users/service/users.service';
+import { UsersService } from '../../users/users.service';
 import { useToken } from '../../utils/use.token';
-import { IUseToken } from '../interface/auth.interface';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -35,7 +34,7 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Invalid token');
     }
 
-    const manageToken: IUseToken | string = useToken(token);
+    const manageToken = useToken(token);
 
     if (typeof manageToken === 'string') {
       throw new UnauthorizedException(manageToken);
@@ -45,15 +44,15 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Token is expired');
     }
 
-    const { sub } = manageToken;
-    const user = await this.userService.findUserById(sub);
+    /* const { sub } = manageToken;
+    const user = await this.userService.findUserById(sub); */
 
-    if (!user) {
+    /* if (!user) {
       throw new UnauthorizedException('Invalid User');
-    }
+    } */
 
-    req.idUser = user.id;
-    req.roleUser = user.role;
+    /* req.idUser = user.id;
+    req.roleUser = user.role; */
     return true;
   }
 }

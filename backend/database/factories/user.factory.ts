@@ -1,13 +1,12 @@
 import { hashSync } from 'bcrypt';
 import { setSeederFactory } from 'typeorm-extension';
-import { v4 as uuidv4 } from 'uuid';
 import { Users } from '../src';
 import { ROLES } from '../src/constants/interfaces.entities';
 
 export default setSeederFactory(Users, async (faker) => {
   const user = new Users();
 
-  user.id = faker.helpers.fake(uuidv4());
+  //user.id = faker.helpers.fake(uuidv4());
   user.email = faker.internet.email();
   user.password = hashSync(faker.internet.password(), 10);
   user.username = faker.name.firstName();

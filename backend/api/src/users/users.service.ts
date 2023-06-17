@@ -3,8 +3,14 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { ErrorManager } from '../../utils/error.manager';
-import { UserDTO, UserToProjectDTO, UserUpdateDTO } from '../dto/user.dto';
+import { ErrorManager } from '../utils/error.manager';
+import {
+  IdArgs,
+  UserArgs,
+  UserToProjectArgs,
+  UserUpdateArgs,
+} from './dto/args';
+import { UserDTO } from './dto/inputs';
 
 @Injectable()
 export class UsersService {
@@ -14,7 +20,7 @@ export class UsersService {
     private readonly userProjectRepository: Repository<UsersProjects>
   ) {}
 
-  public async createUser(body: UserDTO): Promise<Users> {
+  public async createUser(body: UserArgs): Promise<Users> {
     try {
       body.password = bcrypt.hashSync(body.password, process.env.HASH_SALT);
       return await this.userRepository.save(body);
@@ -39,7 +45,7 @@ export class UsersService {
     }
   }
 
-  public async findUserById(id: string): Promise<Users> {
+  public async findUserById(id: IdArgs): Promise<Users> {
     try {
       const user: Users = await this.userRepository
         .createQueryBuilder('user')
@@ -60,7 +66,7 @@ export class UsersService {
     }
   }
 
-  public async relationToProject(body: UserToProjectDTO) {
+  public async relationToProject(body: UserToProjectArgs) {
     try {
       return await this.userProjectRepository.save(body);
     } catch (error) {
@@ -83,8 +89,8 @@ export class UsersService {
   }
 
   public async updateUser(
-    body: UserUpdateDTO,
-    id: string
+    body: UserUpdateArgs,
+    id: IdArgs
   ): Promise<UpdateResult | undefined> {
     try {
       const user: UpdateResult = await this.userRepository.update(id, body);
@@ -102,7 +108,7 @@ export class UsersService {
     }
   }
 
-  public async deleteUser(id: string): Promise<DeleteResult | undefined> {
+  public async deleteUser(id: IdArgs): Promise<DeleteResult | undefined> {
     try {
       const user: DeleteResult = await this.userRepository.delete(id);
 

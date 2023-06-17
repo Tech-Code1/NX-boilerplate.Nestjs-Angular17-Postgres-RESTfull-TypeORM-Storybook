@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { ACCES_LEVEL } from '../../../../database/src/constants/interfaces.entities';
-import { UsersService } from '../../users/service/users.service';
+import { UsersService } from '../../users/users.service';
 import { ErrorManager } from '../../utils/error.manager';
 import { ProjectDTO, ProjectUpdateDTO } from '../dto/projects.dto';
 
@@ -17,14 +17,14 @@ export class ProjectsService {
     private readonly userService: UsersService
   ) {}
 
-  public async createProject(body: ProjectDTO, userId: string) {
+  public async createProject(body: ProjectDTO, userId: number) {
     try {
-      const user = await this.userService.findUserById(userId);
+      // const user = await this.userService.findUserById(userId);
       const project = await this.projectRepository.save(body);
 
       return await this.userProjectRepository.save({
         accesLevel: ACCES_LEVEL.OWNER,
-        user,
+        // user,
         project,
       });
     } catch (error) {

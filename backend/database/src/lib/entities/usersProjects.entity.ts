@@ -1,26 +1,25 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { Projects, Users } from '@db/entities';
+import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { ACCES_LEVEL } from '../../constants/interfaces.entities';
 import { BaseEntity } from './base.entity';
-import { Projects } from './projects.entity';
-import { Users } from './user.entity';
 
+registerEnumType(ACCES_LEVEL, {
+  name: 'ACCES_LEVEL',
+});
+
+@ObjectType()
 @Entity({ name: 'users_projects' })
 export class UsersProjects extends BaseEntity {
-  @ApiProperty({
-    example: 'OWNER',
-    description: 'User acces level',
-    uniqueItems: false,
-    default: ['OWNER'],
-    required: false,
-    enum: ACCES_LEVEL,
-  })
+  @Field(() => ACCES_LEVEL)
   @Column({ type: 'enum', enum: ACCES_LEVEL })
   accesLevel!: ACCES_LEVEL;
 
+  @Field(() => Users)
   @ManyToOne(() => Users, (user) => user.projectsIncludes)
   user!: Users;
 
+  @Field(() => Projects)
   @ManyToOne(() => Projects, (project) => project.usersIncludes)
   project!: Projects;
 }

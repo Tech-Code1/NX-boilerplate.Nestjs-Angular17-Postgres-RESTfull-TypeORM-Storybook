@@ -2,8 +2,7 @@ import { Users } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
-import { UsersService } from '../../users/service/users.service';
-import { IPayloadToken } from '../interface/auth.interface';
+import { UsersService } from '../../users/users.service';
 
 @Injectable()
 export class AuthService {
@@ -45,19 +44,19 @@ export class AuthService {
   }
 
   public async generateJWT(user: Users): Promise<any> {
-    const getUser = await this.userService.findUserById(user.id);
+    // const getUser = await this.userService.findUserById(user.id);
 
-    const payload: IPayloadToken = {
+    /* const payload: IPayloadToken = {
       id: getUser.id,
       role: getUser.role,
-    };
+    }; */
 
     return {
-      accesToken: this.signJWT({
+      /* accesToken: this.signJWT({
         payload,
         secret: process.env.JWT_SECRET,
         expires: '1h',
-      }),
+      }), */
       user,
     };
   }

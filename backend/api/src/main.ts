@@ -19,6 +19,8 @@ async function bootstrap() {
   app.use(morgan('dev'));
   app.useGlobalPipes(
     new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
       transformOptions: {
         enableImplicitConversion: true,
       },

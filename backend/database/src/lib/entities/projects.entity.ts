@@ -1,29 +1,25 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { Tasks, UsersProjects } from '@db/entities';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, OneToMany } from 'typeorm';
 import { IProject } from '../interfaces/project.interface';
 import { BaseEntity } from './base.entity';
-import { Tasks } from './tasks.entity';
-import { UsersProjects } from './usersProjects.entity';
 
+@ObjectType()
 @Entity({ name: 'projects' })
 export class Projects extends BaseEntity implements IProject {
-  @ApiProperty({
-    example: 'Comfeco',
-    description: 'Project name',
-  })
+  @Field(() => String)
   @Column('text')
   name!: string;
 
-  @ApiProperty({
-    example: 'Comfeco is a programming event...',
-    description: 'Project description',
-  })
+  @Field(() => String)
   @Column('text')
   description!: string;
 
+  @Field(() => [UsersProjects], { nullable: 'itemsAndList' })
   @OneToMany(() => UsersProjects, (usersProjects) => usersProjects.project)
   usersIncludes!: UsersProjects[];
 
+  @Field(() => [Tasks], { nullable: 'itemsAndList' })
   @OneToMany(() => Tasks, (tasks) => tasks.project)
   tasks!: Tasks[];
 }
