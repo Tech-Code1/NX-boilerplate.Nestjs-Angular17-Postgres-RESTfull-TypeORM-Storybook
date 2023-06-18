@@ -69,7 +69,7 @@ export class AccessLevelGuard implements CanActivate {
       return true;
     }
 
-    const user = await this.userService.findUserById({ id: idUser });
+    const user = await this.userService.findUserById(idUser);
     const userExistInProject = user.projectsIncludes.find(
       (project) => project.project.id === req.params.projectId
     );

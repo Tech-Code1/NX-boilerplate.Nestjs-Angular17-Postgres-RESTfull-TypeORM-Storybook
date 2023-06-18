@@ -1,25 +1,25 @@
 import { Projects, User } from '@db/entities';
-import { Field, InputType, registerEnumType } from '@nestjs/graphql';
+import { Field, ID, InputType, registerEnumType } from '@nestjs/graphql';
 import { ACCES_LEVEL } from 'backend/database/src/constants/interfaces.entities';
-import { IsEnum, IsNotEmpty, IsUUID } from 'class-validator';
+import { IsEnum, IsOptional, IsUUID } from 'class-validator';
 
 registerEnumType(ACCES_LEVEL, {
   name: 'ACCES_LEVEL',
 });
 @InputType()
 export class UserToProjectInput {
-  @IsNotEmpty()
+  @IsOptional()
   @IsUUID()
-  @Field(() => User)
+  @Field(() => ID, { nullable: true })
   user: User;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsUUID()
-  @Field(() => Projects)
+  @Field(() => ID, { nullable: true })
   project: Projects;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsEnum(ACCES_LEVEL)
-  @Field(() => ACCES_LEVEL)
+  @Field(() => ACCES_LEVEL, { nullable: true })
   accesLevel: ACCES_LEVEL;
 }

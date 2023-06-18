@@ -3,85 +3,88 @@ const wrap = require('word-wrap');
 const commitizen = require('commitizen');
 
 function createQuestions(config) {
-    config.maxSubjectLength = config.maxSubjectLength || 140;
+  config.maxSubjectLength = config.maxSubjectLength || 140;
 
-    const types = [
-		{
-			description: 'A new feature',
-			emoji: '🔥',
-			value: 'feat'
-		},
-		{
-			description: 'A bug fix',
-			emoji: '🐞',
-			value: 'fix'
-		},
-		{
-			description: 'Documentation only changes',
-			emoji: '📘',
-			value: 'docs'
-		},
-		{
-			description: 'Markup, white-space, formatting, missing semi-colons...',
-			emoji: '🎨',
-			value: 'style'
-		},
-		{
-			description: 'A code change that neither fixes a bug or adds a feature',
-			emoji: '💡',
-			value: 'refactor'
-		},
-		{
-			description: 'A code change that improves performance',
-			emoji: '⚡',
-			value: 'perf'
-		},
-		{
-			description: 'CI related changes',
-			emoji: '🚀',
-			value: 'ci'
-		},
-		{
-			description: 'Build process or auxiliary tool changes',
-			emoji: '🤖',
-			value: 'chore'
-		},
-		{
-			description: 'Create a release commit',
-			emoji: '🔖',
-			value: 'release'
-		},
-		{
-			description: 'Adding missing tests or correcting existing tests',
-			emoji: '✅',
-			value: 'test'
-		}
-	];
+  const types = [
+    {
+      description: 'A new feature',
+      emoji: '🔥',
+      value: 'feat',
+    },
+    {
+      description: 'A bug fix',
+      emoji: '🐞',
+      value: 'fix',
+    },
+    {
+      description: 'Documentation only changes',
+      emoji: '📘',
+      value: 'docs',
+    },
+    {
+      description: 'Markup, white-space, formatting, missing semi-colons...',
+      emoji: '🎨',
+      value: 'style',
+    },
+    {
+      description: 'A code change that neither fixes a bug or adds a feature',
+      emoji: '💡',
+      value: 'refactor',
+    },
+    {
+      description: 'A code change that improves performance',
+      emoji: '⚡',
+      value: 'perf',
+    },
+    {
+      description: 'CI related changes',
+      emoji: '🚀',
+      value: 'ci',
+    },
+    {
+      description: 'Build process or auxiliary tool changes',
+      emoji: '🤖',
+      value: 'chore',
+    },
+    {
+      description: 'Create a release commit',
+      emoji: '🔖',
+      value: 'release',
+    },
+    {
+      description: 'Adding missing tests or correcting existing tests',
+      emoji: '✅',
+      value: 'test',
+    },
+  ];
 
-    const length = 15;
-    const choices = _.map(types, (type) => ({
-        name: `${_.padEnd(`${type.emoji}  ${type.value}:`, length)} ${type.description}`,
-        value: type
-    }));
+  const length = 15;
+  const choices = _.map(types, (type) => ({
+    name: `${_.padEnd(`${type.emoji}  ${type.value}:`, length)} ${
+      type.description
+    }`,
+    value: type,
+  }));
 
-    return [
-        {
-            type: 'list',
-            name: 'type',
-            message: "Select the type of change that you're committing:",
-            choices
-        },
-		{
-			type: 'input',
-			name: 'prefix',
-			message: 'Enter the problem ID preceded by the letters CV and a - (ex. CV-1):'
-		},
-        {
-            type: 'input',
-            name: 'subject',
-            message: `Write a short, imperative tense description of the change (max header length: ${config.maxSubjectLength}):\n`
-        },
-    ];
+  return [
+    {
+      type: 'list',
+      name: 'type',
+      message: "Select the type of change that you're committing:",
+      choices,
+    },
+    {
+      type: 'input',
+      name: 'prefix',
+      message:
+        'Enter the problem ID preceded by the letters T and a - (ex. T-1):',
+    },
+    {
+      type: 'input',
+      name: 'subject',
+      message: `Write a short, imperative tense description of the change (max header length: ${config.maxSubjectLength}):\n`,
+    },
+  ];
 }
 
 /**
@@ -94,25 +97,24 @@ function createQuestions(config) {
  */
 
 function format(answers, config) {
-    const type = answers.type;
-    const prefix = `[${answers.prefix}]`;
-    const emoji = type.emoji;
-    const typeValue = type.value;
-    const subject = answers.subject.trim();
+  const type = answers.type;
+  const prefix = `[${answers.prefix}]`;
+  const emoji = type.emoji;
+  const typeValue = type.value;
+  const subject = answers.subject.trim();
 
-    return `${typeValue}: ${prefix} ${emoji} ${subject}`;
+  return `${typeValue}: ${prefix} ${emoji} ${subject}`;
 }
 
 module.exports = {
-    prompter: (cz, commit) => {
-        const config = commitizen.configLoader.load();
-		const questions = createQuestions(config);
-        cz.prompt(questions)
-            .then(answers => format(answers, config))
-            .then(commit);
-    }
+  prompter: (cz, commit) => {
+    const config = commitizen.configLoader.load();
+    const questions = createQuestions(config);
+    cz.prompt(questions)
+      .then((answers) => format(answers, config))
+      .then(commit);
+  },
 };
-  
 
 /* module.exports = function (cz, commit) {
 	cz.prompt([
@@ -131,7 +133,6 @@ module.exports = {
 	});
   };
  */
-
 
 /* const czvinylConfig = {
 	headerFormat: '{type}: [{ticket_id}] {emoji} {subject}',

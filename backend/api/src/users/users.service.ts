@@ -46,7 +46,7 @@ export class UsersService {
     }
   }
 
-  public async findUserById(id: IdArgs): Promise<User> {
+  public async findUserById(id: string): Promise<User> {
     try {
       const user: User = await this.userRepository
         .createQueryBuilder('user')

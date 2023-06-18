@@ -35,7 +35,7 @@ export class UsersResolver {
     description: 'Find User',
     name: 'One_User',
   })
-  public async findUserById(@Args() id: IdArgs): Promise<User> {
+  public async findUserById(@Args() { id }: IdArgs): Promise<User> {
     return await this.usersService.findUserById(id);
   }
 
