@@ -1,7 +1,7 @@
 import { ROLES } from 'backend/database/src/constants/interfaces.entities';
 
 export interface IPayloadToken {
-  id: number;
+  id: string;
   role: ROLES;
 }
 
@@ -19,6 +19,6 @@ export interface IAuthTokenResult {
 
 export interface IUseToken {
   role: string;
-  sub: number;
+  sub: string;
   isExpired: boolean;
 }

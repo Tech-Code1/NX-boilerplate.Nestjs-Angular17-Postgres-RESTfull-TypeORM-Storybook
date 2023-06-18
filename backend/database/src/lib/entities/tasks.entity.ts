@@ -1,8 +1,7 @@
-import { Projects } from '@db/entities';
+import { STATUS_TASK } from '@db/constants';
 import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
-import { STATUS_TASK } from '../../../../shared/constants/status-tasks';
-import { BaseEntity } from './base.entity';
+import { BaseEntity, Projects } from './';
 
 registerEnumType(STATUS_TASK, {
   name: 'STATUS_TASK',

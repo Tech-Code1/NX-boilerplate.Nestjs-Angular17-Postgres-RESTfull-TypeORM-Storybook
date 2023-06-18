@@ -44,15 +44,15 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Token is expired');
     }
 
-    /* const { sub } = manageToken;
-    const user = await this.userService.findUserById(sub); */
+    const { sub } = manageToken;
+    const user = await this.userService.findUserById({ id: sub });
 
-    /* if (!user) {
+    if (!user) {
       throw new UnauthorizedException('Invalid User');
-    } */
+    }
 
-    /* req.idUser = user.id;
-    req.roleUser = user.role; */
+    req.idUser = user.id;
+    req.roleUser = user.role;
     return true;
   }
 }

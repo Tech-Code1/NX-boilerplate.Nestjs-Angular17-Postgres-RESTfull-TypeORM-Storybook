@@ -1,8 +1,7 @@
-import { Projects, Users } from '@db/entities';
+import { ACCES_LEVEL } from '@db/constants';
 import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { Column, Entity, ManyToOne } from 'typeorm';
-import { ACCES_LEVEL } from '../../constants/interfaces.entities';
-import { BaseEntity } from './base.entity';
+import { BaseEntity, Projects, User } from './';
 
 registerEnumType(ACCES_LEVEL, {
   name: 'ACCES_LEVEL',
@@ -15,9 +14,9 @@ export class UsersProjects extends BaseEntity {
   @Column({ type: 'enum', enum: ACCES_LEVEL })
   accesLevel!: ACCES_LEVEL;
 
-  @Field(() => Users)
-  @ManyToOne(() => Users, (user) => user.projectsIncludes)
-  user!: Users;
+  @Field(() => User)
+  @ManyToOne(() => User, (user) => user.projectsIncludes)
+  user!: User;
 
   @Field(() => Projects)
   @ManyToOne(() => Projects, (project) => project.usersIncludes)

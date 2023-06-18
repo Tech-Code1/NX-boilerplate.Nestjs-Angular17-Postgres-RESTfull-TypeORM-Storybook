@@ -1,4 +1,5 @@
-import { Users, UsersProjects } from '@db/entities';
+import { User, UsersProjects } from '@db/entities';
+import { HASH_SALT } from '@environments';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
@@ -10,28 +11,28 @@ import {
   UserToProjectArgs,
   UserUpdateArgs,
 } from './dto/args';
-import { UserDTO } from './dto/inputs';
+import { CreateUserInput } from './dto/inputs';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(Users) private readonly userRepository: Repository<Users>,
+    @InjectRepository(User) private readonly userRepository: Repository<User>,
     @InjectRepository(UsersProjects)
     private readonly userProjectRepository: Repository<UsersProjects>
   ) {}
 
-  public async createUser(body: UserArgs): Promise<Users> {
+  public async createUser(body: UserArgs): Promise<User> {
     try {
-      body.password = bcrypt.hashSync(body.password, process.env.HASH_SALT);
+      body.password = bcrypt.hashSync(body.password, HASH_SALT);
       return await this.userRepository.save(body);
     } catch (error) {
       throw ErrorManager.createSignatureError(error.message);
     }
   }
 
-  public async findUsers(): Promise<Users[]> {
+  public async findUsers(): Promise<User[]> {
     try {
-      const users: Users[] = await this.userRepository.find();
+      const users: User[] = await this.userRepository.find();
 
       if (users.length === 0) {
         throw new ErrorManager({
@@ -45,9 +46,9 @@ export class UsersService {
     }
   }
 
-  public async findUserById(id: IdArgs): Promise<Users> {
+  public async findUserById(id: IdArgs): Promise<User> {
     try {
-      const user: Users = await this.userRepository
+      const user: User = await this.userRepository
         .createQueryBuilder('user')
         .where({ id })
         .leftJoinAndSelect('user.projectsIncludes', 'projectsIncludes')
@@ -74,9 +75,15 @@ export class UsersService {
     }
   }
 
-  public async findBy({ key, value }: { key: keyof UserDTO; value: any }) {
+  public async findBy({
+    key,
+    value,
+  }: {
+    key: keyof CreateUserInput;
+    value: any;
+  }) {
     try {
-      const user: Users = await this.userRepository
+      const user: User = await this.userRepository
         .createQueryBuilder()
         .addSelect('user.password')
         .where({ [key]: value })

@@ -17,7 +17,7 @@ registerEnumType(ROLES, {
 });
 
 @InputType()
-export class UserUpdateDTO {
+export class UpdateUserInput {
   @IsOptional()
   @IsString()
   @MaxLength(50)

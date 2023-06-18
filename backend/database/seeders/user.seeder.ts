@@ -1,4 +1,4 @@
-import { Users } from '@db/entities';
+import { User } from '@db/entities';
 import { hashSync } from 'bcrypt';
 import { DataSource } from 'typeorm';
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
@@ -10,7 +10,7 @@ export default class UserSeeder implements Seeder {
     dataSource: DataSource,
     factoryManager: SeederFactoryManager
   ): Promise<any> {
-    const repository = dataSource.getRepository(Users);
+    const repository = dataSource.getRepository(User);
 
     const data = {
       id: uuidv4(),
@@ -29,7 +29,7 @@ export default class UserSeeder implements Seeder {
 
     // ---------------------------------------------------
 
-    const userFactory = await factoryManager.get(Users);
+    const userFactory = await factoryManager.get(User);
     // save 10 factory generated entities, to the database
     await userFactory.saveMany(10);
   }

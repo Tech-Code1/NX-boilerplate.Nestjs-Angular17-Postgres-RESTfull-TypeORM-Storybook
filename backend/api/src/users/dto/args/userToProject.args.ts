@@ -1,4 +1,4 @@
-import { Projects, Users } from '@db/entities';
+import { Projects, User } from '@db/entities';
 import { ArgsType, Field, ID, registerEnumType } from '@nestjs/graphql';
 import { ACCES_LEVEL } from 'backend/database/src/constants/interfaces.entities';
 import { IsEnum, IsNotEmpty, IsUUID } from 'class-validator';
@@ -12,7 +12,7 @@ export class UserToProjectArgs {
   @IsNotEmpty()
   @IsUUID()
   @Field(() => ID)
-  user: Users;
+  user: User;
 
   @IsNotEmpty()
   @IsUUID()

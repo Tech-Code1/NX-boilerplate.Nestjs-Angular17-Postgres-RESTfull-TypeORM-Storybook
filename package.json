@@ -4,7 +4,10 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "cross-env NODE_ENV=develop nx serve api",
-    "start:prod": "cross-env NODE_ENV=production nx serve api"
+    "start:prod": "cross-env NODE_ENV=production nx serve api",
+    "migrate:run": "nx run database:mig-run",
+    "migrate:gen": "nx run database:mig-gen",
+    "migrate:revert": "nx run database:mig-rev"
   },
   "private": true,
   "devDependencies": {
@@ -43,7 +46,9 @@
     "jest-environment-node": "^29.4.1",
     "jsdom": "~20.0.3",
     "node-fetch": "~3.3.0",
-    "nx": "^16.3.2"
+    "nx": "^16.3.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0"
   },
   "config": {
     "commitizen": {

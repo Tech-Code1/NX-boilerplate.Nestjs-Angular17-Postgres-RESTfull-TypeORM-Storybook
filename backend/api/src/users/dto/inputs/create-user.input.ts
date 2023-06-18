@@ -16,7 +16,7 @@ registerEnumType(ROLES, {
 });
 
 @InputType()
-export class UserDTO {
+export class CreateUserInput {
   @IsNotEmpty()
   @IsString()
   @MaxLength(50)

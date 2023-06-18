@@ -1,31 +1,42 @@
 import { join } from 'path';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions } from 'typeorm-extension';
-
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import InitSeeder from '../backend/database/seeders/init.seeders';
-import { DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER } from './constants';
+import {
+  DB_HOST,
+  DB_NAME,
+  DB_PASS,
+  DB_PORT,
+  DB_SYNC,
+  DB_USER,
+} from './constants';
 
 export const options = {
   type: 'postgres',
-  host: String(DB_HOST),
-  port: parseInt(String(DB_PORT), 10) || 5432,
+  host: DB_HOST,
+  port: DB_PORT,
   database: DB_NAME,
   username: DB_USER,
   password: DB_PASS,
+  /* entities: [User, Projects, Tasks, UsersProjects], */
   entities: [
-    join(__dirname, '/backend/database/src/lib/entities/**/*.entity.ts'),
+    join(__dirname, '/../backend/database/src/lib/entities/**/*.entity.ts'),
   ],
   migrationsRun: true,
-  migrations: [join(__dirname, '/../backend/database/migrations/**/*.ts')],
+  migrations: [
+    join(__dirname, '/../backend/database/src/lib/migrations/**/*.ts'),
+  ],
   namingStrategy: new SnakeNamingStrategy(),
-  migrationsTableName: 'migrations',
+  migrationsTableName: 'migration',
   seeds: [InitSeeder],
   // Activar SOLO MANUALMENTE en DESARROLLO SI ES NECESARIO (DESACTIVAR EN PRODUCCION).
-  synchronize: true,
+  synchronize: DB_SYNC,
   //logging: false,
   //logger: 'file'
 };
+
+console.log(options, 'pass');
 
 export const dataSource = new DataSource(
   options as DataSourceOptions & SeederOptions

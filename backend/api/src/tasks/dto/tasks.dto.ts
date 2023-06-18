@@ -1,5 +1,5 @@
+import { STATUS_TASK } from '@db/constants';
 import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { STATUS_TASK } from '../../../../shared/constants/status-tasks';
 import { ProjectDTO } from '../../projects/dto/projects.dto';
 
 export class TasksDTO {

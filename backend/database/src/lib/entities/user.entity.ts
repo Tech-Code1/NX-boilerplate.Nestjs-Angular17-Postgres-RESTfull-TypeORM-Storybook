@@ -3,8 +3,7 @@ import { Field, Int, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { Exclude } from 'class-transformer';
 import { Column, Entity, OneToMany } from 'typeorm';
 import { IUser } from '../interfaces/user.interface';
-import { BaseEntity } from './base.entity';
-import { UsersProjects } from './usersProjects.entity';
+import { BaseEntity, UsersProjects } from './';
 
 registerEnumType(ROLES, {
   name: 'ROLES',
@@ -12,7 +11,7 @@ registerEnumType(ROLES, {
 
 @ObjectType()
 @Entity({ name: 'users' })
-export class Users extends BaseEntity implements IUser {
+export class User extends BaseEntity implements IUser {
   @Field(() => String, {
     description: 'User name',
   })
@@ -28,7 +27,7 @@ export class Users extends BaseEntity implements IUser {
   @Field(() => Int, {
     description: 'User age',
   })
-  @Column('number')
+  @Column('integer')
   age!: number;
 
   @Field(() => String, {

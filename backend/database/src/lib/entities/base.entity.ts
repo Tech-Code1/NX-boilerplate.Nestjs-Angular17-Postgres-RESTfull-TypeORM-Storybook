@@ -1,4 +1,4 @@
-import { Field, Int } from '@nestjs/graphql';
+import { Field, ID } from '@nestjs/graphql';
 import {
   CreateDateColumn,
   DeleteDateColumn,
@@ -11,9 +11,9 @@ import {
  */
 export abstract class BaseEntity {
   /** @member {Date} id - the id date */
-  @Field(() => Int)
+  @Field(() => ID)
   @PrimaryGeneratedColumn('uuid')
-  id!: number;
+  id!: string;
 
   /** @member {Date} createdAt - the create date */
   @Field(() => Date)

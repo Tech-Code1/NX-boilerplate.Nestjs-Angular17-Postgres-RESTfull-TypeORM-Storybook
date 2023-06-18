@@ -1,4 +1,4 @@
-import { Users } from '@db/entities';
+import { User } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
@@ -43,7 +43,7 @@ export class AuthService {
     return jwt.sign(payload, secret, { expiresIn: expires });
   }
 
-  public async generateJWT(user: Users): Promise<any> {
+  public async generateJWT(user: User): Promise<any> {
     // const getUser = await this.userService.findUserById(user.id);
 
     /* const payload: IPayloadToken = {

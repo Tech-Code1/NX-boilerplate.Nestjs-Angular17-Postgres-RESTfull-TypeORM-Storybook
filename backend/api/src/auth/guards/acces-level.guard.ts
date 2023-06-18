@@ -1,4 +1,5 @@
-/* import {
+import { ROLES } from '@db/constants';
+import {
   CanActivate,
   ExecutionContext,
   Injectable,
@@ -12,8 +13,7 @@ import {
   PUBLIC_KEY,
   ROLES_KEY,
 } from '../../constants/key-decorators';
-import { ROLES } from '../../constants/roles';
-import { UsersService } from '../../users/service/users.service';
+import { UsersService } from '../../users/users.service';
 
 @Injectable()
 export class AccessLevelGuard implements CanActivate {
@@ -69,7 +69,7 @@ export class AccessLevelGuard implements CanActivate {
       return true;
     }
 
-    const user = await this.userService.findUserById(idUser);
+    const user = await this.userService.findUserById({ id: idUser });
     const userExistInProject = user.projectsIncludes.find(
       (project) => project.project.id === req.params.projectId
     );
@@ -85,4 +85,3 @@ export class AccessLevelGuard implements CanActivate {
     return true;
   }
 }
- */

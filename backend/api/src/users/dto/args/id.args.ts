@@ -1,5 +1,5 @@
 import { ROLES } from '@db/constants';
-import { ArgsType, Field, Int, registerEnumType } from '@nestjs/graphql';
+import { ArgsType, Field, ID, registerEnumType } from '@nestjs/graphql';
 import { IsNotEmpty, IsString } from 'class-validator';
 
 registerEnumType(ROLES, {
@@ -10,6 +10,6 @@ registerEnumType(ROLES, {
 export class IdArgs {
   @IsNotEmpty()
   @IsString()
-  @Field(() => Int)
-  id!: number;
+  @Field(() => ID)
+  id!: string;
 }

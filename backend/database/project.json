@@ -32,39 +32,39 @@
         "command": "ts-node --project tsconfig.lib.json ../../node_modules/typeorm/cli -d ../../config/orm.config.ts",
         "cwd": "backend/database"
       }
-      },
-      "mig-gen": {
+    },
+    "mig-gen": {
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "nx run database:typeorm migration:generate --pretty migrations",
-        "cwd": "libs/database"
-      }
-      },
-      "mig-run": {
-      "executor": "nx:run-commands",
-      "outputs": [],
-      "options": {
-        "command": "nx run database:typeorm migration:run",
+        "command": "ts-node --project tsconfig.lib.json -r tsconfig-paths/register ../../node_modules/typeorm/cli migration:generate -d ../../config/orm.config.ts --pretty src/lib/migrations/migration",
         "cwd": "backend/database"
       }
-      },
-      "mig-rev": {
+    },
+    "mig-run": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "ts-node --project tsconfig.lib.json -r tsconfig-paths/register ../../node_modules/typeorm/cli migration:run -d ../../config/orm.config.ts",
+        "cwd": "backend/database"
+      }
+    },
+    "mig-rev": {
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
         "command": "nx run database:typeorm migration:revert",
         "cwd": "backend/database"
       }
-      },
-      "seed": {
+    },
+    "seed": {
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
         "command": "ts-node --project tsconfig.lib.json ../../node_modules/typeorm-extension/dist/cli/index.js seed -d ../../config/orm.config.ts",
         "cwd": "backend/database"
       }
-      }
+    }
   },
   "tags": []
 }
