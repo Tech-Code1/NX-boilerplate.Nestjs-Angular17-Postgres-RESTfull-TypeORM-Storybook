@@ -3,15 +3,10 @@ import { HASH_SALT } from '@environments';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
-import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ErrorManager } from '../utils/error.manager';
-import {
-  IdArgs,
-  UserArgs,
-  UserToProjectArgs,
-  UserUpdateArgs,
-} from './dto/args';
-import { CreateUserInput } from './dto/inputs';
+import { UserArgs, UserToProjectArgs } from './dto/args';
+import { CreateUserInput, UpdateUserInput } from './dto/inputs';
 
 @Injectable()
 export class UsersService {
@@ -56,14 +51,15 @@ export class UsersService {
         .getOne();
 
       if (!user) {
+        console.log('entro en badrequest');
+
         throw new ErrorManager({
-          type: 'BAD_REQUEST',
-          message: 'No result found',
+          type: 'NOT_FOUND',
         });
       }
       return user;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createSignatureError(error);
     }
   }
 
@@ -71,7 +67,7 @@ export class UsersService {
     try {
       return await this.userProjectRepository.save(body);
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createSignatureError(error);
     }
   }
 
@@ -91,42 +87,43 @@ export class UsersService {
 
       return user;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createSignatureError(error);
     }
   }
 
-  public async updateUser(
-    body: UserUpdateArgs,
-    id: IdArgs
-  ): Promise<UpdateResult | undefined> {
+  public async updateUser(body: UpdateUserInput, id: string): Promise<User> {
     try {
-      const user: UpdateResult = await this.userRepository.update(id, body);
+      const findUser = await this.findUserById(id);
 
-      if (user.affected === 0) {
-        throw new ErrorManager({
-          type: 'BAD_REQUEST',
-          message: 'Failed to update',
-        });
+      if (findUser) {
+        const user = await this.userRepository.preload(body);
+
+        if (!user) {
+          throw new ErrorManager({
+            type: 'BAD_REQUEST',
+            message: 'Failed to update',
+          });
+        }
+
+        return this.userRepository.save(user);
       }
 
-      return user;
+      throw new ErrorManager({
+        type: 'NOT_FOUND',
+      });
     } catch (error) {
       throw ErrorManager.createSignatureError(error);
     }
   }
 
-  public async deleteUser(id: IdArgs): Promise<DeleteResult | undefined> {
+  public async deleteUser(id: string): Promise<User> {
     try {
-      const user: DeleteResult = await this.userRepository.delete(id);
+      let { isActive, deletedAt, ...user } = await this.findUserById(id);
 
-      if (user.affected === 0) {
-        throw new ErrorManager({
-          type: 'BAD_REQUEST',
-          message: 'Could not delete',
-        });
-      }
+      isActive = false;
+      deletedAt = new Date();
 
-      return user;
+      return { isActive, deletedAt, id, ...user };
     } catch (error) {
       throw ErrorManager.createSignatureError(error);
     }

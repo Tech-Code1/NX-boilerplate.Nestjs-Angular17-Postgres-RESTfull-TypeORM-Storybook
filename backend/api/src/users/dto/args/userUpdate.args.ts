@@ -22,39 +22,39 @@ export class UserUpdateArgs {
   @IsString()
   @MaxLength(50)
   @Field(() => String, { description: 'Firt name of user', nullable: true })
-  firstName!: string;
+  firstName?: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(50)
   @Field(() => String, { description: 'Last name of user', nullable: true })
-  lastName!: string;
+  lastName?: string;
 
   @IsOptional()
   @IsNumber()
   @IsInt()
   @Min(3)
   @Field(() => Int, { description: 'Age of user', nullable: true })
-  age!: number;
+  age?: number;
 
   @IsOptional()
   @IsString()
   @IsEmail()
   @MaxLength(100)
   @Field(() => String, { description: 'Email of user', nullable: true })
-  email!: string;
+  email?: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(50)
   @Field(() => String, { description: 'Username of user', nullable: true })
-  username!: string;
+  username?: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(100)
   @Field(() => String, { description: 'Password of user', nullable: true })
-  password!: string;
+  password?: string;
 
   @IsOptional()
   @IsBoolean()
@@ -62,7 +62,7 @@ export class UserUpdateArgs {
     description: 'Indicates if the user is active or not',
     nullable: true,
   })
-  isActive!: boolean;
+  isActive?: boolean;
 
   @IsOptional()
   @IsEnum(ROLES)
@@ -70,5 +70,5 @@ export class UserUpdateArgs {
     description: 'Indicates if the user is active or not',
     nullable: true,
   })
-  role!: ROLES;
+  role?: ROLES;
 }

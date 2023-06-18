@@ -17,52 +17,52 @@ registerEnumType(ROLES, {
 
 @InputType()
 export class CreateUserInput {
+  @Field(() => String, { description: 'Firt name of user' })
   @IsNotEmpty()
   @IsString()
   @MaxLength(50)
-  @Field(() => String, { description: 'Firt name of user' })
   firstName!: string;
 
+  @Field(() => String, { description: 'Last name of user' })
   @IsNotEmpty()
   @IsString()
   @MaxLength(50)
-  @Field(() => String, { description: 'Last name of user' })
   lastName!: string;
 
+  @Field(() => Int, { description: 'Age of user' })
   @IsNotEmpty()
   @IsNumber()
-  @Field(() => Int, { description: 'Age of user' })
   @IsInt()
   @Min(3)
   age!: number;
 
+  @Field(() => String, { description: 'Email of user' })
   @IsNotEmpty()
   @IsString()
   @MaxLength(100)
-  @Field(() => String, { description: 'Email of user' })
   email!: string;
 
+  @Field(() => String, { description: 'Username of user' })
   @IsNotEmpty()
   @IsString()
   @MaxLength(50)
-  @Field(() => String, { description: 'Username of user' })
   username!: string;
 
+  @Field(() => String, { description: 'Password of user' })
   @IsNotEmpty()
   @IsString()
   @MaxLength(100)
-  @Field(() => String, { description: 'Password of user' })
   password!: string;
 
-  @IsNotEmpty()
-  @IsBoolean()
   @Field(() => Boolean, {
     description: 'Indicates if the user is active or not',
   })
+  @IsNotEmpty()
+  @IsBoolean()
   isActive!: boolean;
 
+  @Field(() => ROLES, { description: 'Indicates if the user is active or not' })
   @IsNotEmpty()
   @IsEnum(ROLES)
-  @Field(() => ROLES, { description: 'Indicates if the user is active or not' })
   role!: ROLES;
 }

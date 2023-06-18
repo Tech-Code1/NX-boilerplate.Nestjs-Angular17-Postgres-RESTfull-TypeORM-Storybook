@@ -1,10 +1,9 @@
 import { User, UsersProjects } from '@db/entities';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { DeleteResult, UpdateResult } from 'typeorm';
-import { IdArgs, UserToProjectArgs, UserUpdateArgs } from './dto/args';
+import { IdArgs, UserToProjectArgs } from './dto/args';
 import {
   CreateUserInput,
-  UserDeleteDTO,
+  UpdateUserInput,
   UserToProjectInput,
 } from './dto/inputs';
 import { UsersService } from './users.service';
@@ -53,20 +52,15 @@ export class UsersResolver {
     description: 'Edit user',
     name: 'Edit_User',
   })
-  public async updateUser(
-    @Args() body: UserUpdateArgs,
-    @Args() id: IdArgs
-  ): Promise<UpdateResult | undefined> {
-    return await this.usersService.updateUser(body, id);
+  public async updateUser(@Args('body') body: UpdateUserInput): Promise<User> {
+    return await this.usersService.updateUser(body, body.id);
   }
 
-  @Mutation(() => UserDeleteDTO, {
+  @Mutation(() => User, {
     description: 'Delete user',
     name: 'Delete_User',
   })
-  public async deleteUser(
-    @Args() id: IdArgs
-  ): Promise<DeleteResult | undefined> {
+  public async deleteUser(@Args() { id }: IdArgs): Promise<User> {
     return await this.usersService.deleteUser(id);
   }
 }
