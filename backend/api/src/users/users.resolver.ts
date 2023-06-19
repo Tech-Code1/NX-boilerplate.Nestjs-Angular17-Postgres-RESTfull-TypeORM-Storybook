@@ -63,4 +63,12 @@ export class UsersResolver {
   public async deleteUser(@Args() { id }: IdArgs): Promise<User> {
     return await this.usersService.deleteUser(id);
   }
+
+  @Mutation(() => User, {
+    description: 'Block user',
+    name: 'Block_User',
+  })
+  public async blockUser(@Args() { id }: IdArgs): Promise<User> {
+    return await this.usersService.blockUser(id);
+  }
 }

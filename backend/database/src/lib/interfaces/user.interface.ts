@@ -6,4 +6,7 @@ export interface IUser {
   username: string;
   password: string;
   role: string;
+  isActive: boolean;
+  isBlocked: boolean;
+  timeBlocked: number;
 }

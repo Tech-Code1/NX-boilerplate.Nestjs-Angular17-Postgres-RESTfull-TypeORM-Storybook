@@ -128,4 +128,8 @@ export class UsersService {
       throw ErrorManager.createSignatureError(error);
     }
   }
+
+  public async blockUser(id: string): Promise<User> {
+    throw new Error('Not implemented');
+  }
 }

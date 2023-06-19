@@ -1,11 +1,11 @@
-import { ROLES } from '@db/constants';
+import { BLOCKED_TIME, ROLES } from '@db/constants';
 import { Field, InputType, Int, registerEnumType } from '@nestjs/graphql';
 import {
   IsBoolean,
   IsEnum,
   IsInt,
   IsNotEmpty,
-  IsNumber,
+  IsOptional,
   IsString,
   MaxLength,
   Min,
@@ -13,6 +13,10 @@ import {
 
 registerEnumType(ROLES, {
   name: 'ROLES',
+});
+
+registerEnumType(BLOCKED_TIME, {
+  name: 'BLOCKED_TIME',
 });
 
 @InputType()
@@ -31,7 +35,6 @@ export class CreateUserInput {
 
   @Field(() => Int, { description: 'Age of user' })
   @IsNotEmpty()
-  @IsNumber()
   @IsInt()
   @Min(3)
   age!: number;
@@ -61,8 +64,22 @@ export class CreateUserInput {
   @IsBoolean()
   isActive!: boolean;
 
-  @Field(() => ROLES, { description: 'Indicates if the user is active or not' })
+  @Field(() => Boolean, {
+    description: 'Ban user for breaking rules',
+  })
   @IsNotEmpty()
+  @IsBoolean()
+  isBlocked!: boolean;
+
+  @Field(() => BLOCKED_TIME, {
+    description: 'Lock time',
+  })
+  @IsNotEmpty()
+  @IsInt()
+  timeBlocked!: BLOCKED_TIME;
+
+  @Field(() => ROLES, { description: 'Indicates if the user is active or not' })
+  @IsOptional()
   @IsEnum(ROLES)
   role!: ROLES;
 }
