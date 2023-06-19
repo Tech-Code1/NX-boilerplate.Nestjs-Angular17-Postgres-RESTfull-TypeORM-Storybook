@@ -18,20 +18,23 @@ registerEnumType(BLOCKED_TIME, {
 export class User extends BaseEntity implements IUser {
   @Field(() => String, {
     description: 'User name',
+    nullable: true,
   })
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   firstName!: string;
 
   @Field(() => String, {
     description: 'User last name',
+    nullable: true,
   })
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   lastName!: string;
 
   @Field(() => Int, {
     description: 'User age',
+    nullable: true,
   })
-  @Column({ type: 'integer' })
+  @Column({ type: 'integer', nullable: true })
   age!: number;
 
   @Field(() => String, {
@@ -70,6 +73,7 @@ export class User extends BaseEntity implements IUser {
 
   @Field(() => BLOCKED_TIME, {
     description: 'Lock time',
+    nullable: true,
   })
   @Column({ type: 'enum', enum: BLOCKED_TIME, nullable: true })
   timeBlocked!: BLOCKED_TIME;
@@ -80,7 +84,7 @@ export class User extends BaseEntity implements IUser {
   @Column({ type: 'enum', enum: ROLES, default: ROLES.USER })
   role!: ROLES;
 
-  @Field(() => [UsersProjects])
+  @Field(() => [UsersProjects], { nullable: true })
   @OneToMany(() => UsersProjects, (usersProjects) => usersProjects.user)
   projectsIncludes!: UsersProjects[];
 }

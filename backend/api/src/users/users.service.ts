@@ -4,8 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
+import { AuthInput } from '../auth/dto/inputs/signup.input';
 import { ErrorManager } from '../utils/error.manager';
-import { UserArgs, UserToProjectArgs } from './dto/args';
+import { UserToProjectArgs } from './dto/args';
 import { CreateUserInput, UpdateUserInput } from './dto/inputs';
 
 @Injectable()
@@ -16,12 +17,12 @@ export class UsersService {
     private readonly userProjectRepository: Repository<UsersProjects>
   ) {}
 
-  public async createUser(body: UserArgs): Promise<User> {
+  public async createUser(body: AuthInput): Promise<User> {
     try {
       body.password = bcrypt.hashSync(body.password, HASH_SALT);
       return await this.userRepository.save(body);
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createSignatureError(error);
     }
   }
 

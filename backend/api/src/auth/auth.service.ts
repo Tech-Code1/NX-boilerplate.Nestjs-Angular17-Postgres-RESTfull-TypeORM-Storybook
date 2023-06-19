@@ -1,24 +1,25 @@
 import { User } from '@db/entities';
 import { Injectable } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
-import { UsersService } from '../../users/users.service';
+import { UsersService } from '../users/users.service';
+import { AuthInput } from './dto/inputs/signup.input';
+import { AuthResponse } from './types/auth-response.type';
 
 @Injectable()
 export class AuthService {
-  constructor(private userService: UsersService) {}
+  constructor(private readonly userService: UsersService) {}
 
-  public async validateUser(username: string, password: string) {
-    const userByUsername = await this.userService.findBy({
-      key: 'username',
-      value: username,
-    });
-    const userByEmail = await this.userService.findBy({
-      key: 'email',
-      value: username,
-    });
+  public async signup(authInput: AuthInput): Promise<AuthResponse> {
+    const user = await this.userService.createUser(authInput);
 
-    if (userByUsername) {
+    const token = 'ABC123';
+
+    return {
+      token,
+      user,
+    };
+
+    /* if (authInput) {
       const match = await bcrypt.compare(password, userByUsername.password);
       if (match) return userByUsername;
     }
@@ -28,7 +29,7 @@ export class AuthService {
       if (match) return userByEmail;
     }
 
-    return null;
+    return null; */
   }
 
   public signJWT({
