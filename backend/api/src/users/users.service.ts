@@ -19,8 +19,10 @@ export class UsersService {
 
   public async createUser(body: AuthInput): Promise<User> {
     try {
-      body.password = bcrypt.hashSync(body.password, HASH_SALT);
-      return await this.userRepository.save(body);
+      return await this.userRepository.save({
+        ...body,
+        password: bcrypt.hashSync(body.password, HASH_SALT),
+      });
     } catch (error) {
       throw ErrorManager.createSignatureError(error);
     }
