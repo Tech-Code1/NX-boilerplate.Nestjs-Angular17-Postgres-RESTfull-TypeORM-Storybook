@@ -25,11 +25,11 @@ export class UsersResolver {
   }
 
   @Query(() => User, {
-    description: 'Find User',
-    name: 'One_User',
+    description: 'Find User with projects',
+    name: 'One_User_Projects',
   })
   public async findUserById(@Args() { id }: IdArgs): Promise<User> {
-    return await this.usersService.findUserById(id);
+    return await this.usersService.findUserByIdWithProjects(id);
   }
 
   @Mutation(() => User, {

@@ -13,6 +13,11 @@ import { validation } from './shared/utils/validationSchema';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 
+interface HttpResponse {
+  statusCode: number;
+  message: string[] | string;
+  error: string;
+}
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -26,6 +31,15 @@ import { UsersModule } from './users/users.module';
       playground: false,
       autoSchemaFile: join(process.cwd(), 'schema.gql'),
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      includeStacktraceInErrorResponses: false,
+      formatError: ({ message, extensions }) => {
+        const originalError = extensions?.originalError;
+
+        return {
+          message,
+          extensions,
+        };
+      },
     }),
     UsersModule,
     ProjectsModule,

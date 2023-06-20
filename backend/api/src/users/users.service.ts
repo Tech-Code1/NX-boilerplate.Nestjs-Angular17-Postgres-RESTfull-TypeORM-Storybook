@@ -46,6 +46,37 @@ export class UsersService {
 
   public async findUserById(id: string): Promise<User> {
     try {
+      const user: User = await this.userRepository.findOneBy({ id });
+
+      if (!user) {
+        throw new ErrorManager({
+          type: 'NOT_FOUND',
+        });
+      }
+      return user;
+    } catch (error) {
+      throw ErrorManager.createSignatureError(error);
+    }
+  }
+
+  public async findUserByEmail(email: string): Promise<User> {
+    try {
+      return await this.userRepository.findOneByOrFail({ email });
+    } catch (error) {
+      console.log(error, 'error user');
+
+      throw ErrorManager.createSignatureError(
+        {
+          code: '001',
+          detail: `${email} not found`,
+        },
+        'NOT_FOUND'
+      );
+    }
+  }
+
+  public async findUserByIdWithProjects(id: string): Promise<User> {
+    try {
       const user: User = await this.userRepository
         .createQueryBuilder('user')
         .where({ id })
@@ -54,8 +85,6 @@ export class UsersService {
         .getOne();
 
       if (!user) {
-        console.log('entro en badrequest');
-
         throw new ErrorManager({
           type: 'NOT_FOUND',
         });

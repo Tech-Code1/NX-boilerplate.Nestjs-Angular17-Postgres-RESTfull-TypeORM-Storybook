@@ -2,7 +2,7 @@ import { User } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
 import { UsersService } from '../users/users.service';
-import { AuthInput } from './dto/inputs/signup.input';
+import { AuthInput, LoginInput } from './dto/inputs';
 import { AuthResponse } from './types/auth-response.type';
 
 @Injectable()
@@ -30,6 +30,17 @@ export class AuthService {
     }
 
     return null; */
+  }
+
+  public async login({ email, password }: LoginInput): Promise<AuthResponse> {
+    const user = await this.userService.findUserByEmail(email);
+
+    const token = 'ABC123';
+
+    return {
+      token,
+      user,
+    };
   }
 
   public signJWT({
