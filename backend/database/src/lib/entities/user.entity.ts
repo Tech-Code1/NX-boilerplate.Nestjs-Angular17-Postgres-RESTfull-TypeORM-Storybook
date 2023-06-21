@@ -56,7 +56,7 @@ export class User extends BaseEntity implements IUser {
     description: 'User password',
   }) */
   @Exclude()
-  @Column({ type: 'text', select: false })
+  @Column({ type: 'text' })
   password!: string;
 
   @Field(() => Boolean, {

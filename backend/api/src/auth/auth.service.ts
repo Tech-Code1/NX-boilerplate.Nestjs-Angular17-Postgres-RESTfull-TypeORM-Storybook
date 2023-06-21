@@ -1,7 +1,9 @@
 import { User } from '@db/entities';
 import { Injectable } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import { UsersService } from '../users/users.service';
+import { ErrorManager } from '../utils/error.manager';
 import { AuthInput, LoginInput } from './dto/inputs';
 import { AuthResponse } from './types/auth-response.type';
 
@@ -34,6 +36,11 @@ export class AuthService {
 
   public async login({ email, password }: LoginInput): Promise<AuthResponse> {
     const user = await this.userService.findUserByEmail(email);
+    if (!bcrypt.compareSync(password, user.password)) {
+      throw ErrorManager.createError({
+        type: 'NOT_FOUND',
+      });
+    }
 
     const token = 'ABC123';
 

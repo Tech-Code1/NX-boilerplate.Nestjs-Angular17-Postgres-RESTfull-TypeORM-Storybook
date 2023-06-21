@@ -28,7 +28,7 @@ export class ProjectsService {
         project,
       });
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createError(error.message);
     }
   }
 
@@ -36,14 +36,14 @@ export class ProjectsService {
     try {
       const projects: Projects[] = await this.projectRepository.find();
       if (projects.length === 0) {
-        throw new ErrorManager({
+        throw ErrorManager.createError({
           type: 'BAD_REQUEST',
           message: 'No se encontro resultado',
         });
       }
       return projects;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createError(error.message);
     }
   }
 
@@ -56,14 +56,14 @@ export class ProjectsService {
         .leftJoinAndSelect('usersIncludes.user', 'user')
         .getOne();
       if (!project) {
-        throw new ErrorManager({
+        throw ErrorManager.createError({
           type: 'BAD_REQUEST',
           message: 'No existe proyecto con el id ' + id,
         });
       }
       return project;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createError(error.message);
     }
   }
 
@@ -77,14 +77,14 @@ export class ProjectsService {
         body
       );
       if (project.affected === 0) {
-        throw new ErrorManager({
+        throw ErrorManager.createError({
           type: 'BAD_REQUEST',
           message: 'No se pudo actualizar proyecto',
         });
       }
       return project;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createError(error.message);
     }
   }
 
@@ -92,14 +92,14 @@ export class ProjectsService {
     try {
       const project: DeleteResult = await this.projectRepository.delete(id);
       if (project.affected === 0) {
-        throw new ErrorManager({
+        throw ErrorManager.createError({
           type: 'BAD_REQUEST',
           message: 'No se pudo borrar proyecto',
         });
       }
       return project;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createError(error.message);
     }
   }
 }

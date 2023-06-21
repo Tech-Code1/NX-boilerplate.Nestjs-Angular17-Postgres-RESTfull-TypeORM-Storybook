@@ -24,7 +24,7 @@ export class UsersService {
         password: bcrypt.hashSync(body.password, HASH_SALT),
       });
     } catch (error) {
-      throw ErrorManager.createSignatureError(error);
+      throw ErrorManager.createError(error);
     }
   }
 
@@ -33,14 +33,14 @@ export class UsersService {
       const users: User[] = await this.userRepository.find();
 
       if (users.length === 0) {
-        throw new ErrorManager({
+        throw ErrorManager.createError({
           type: 'BAD_REQUEST',
           message: 'No result found',
         });
       }
       return users;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createError(error.message);
     }
   }
 
@@ -49,13 +49,13 @@ export class UsersService {
       const user: User = await this.userRepository.findOneBy({ id });
 
       if (!user) {
-        throw new ErrorManager({
+        throw ErrorManager.createError({
           type: 'NOT_FOUND',
         });
       }
       return user;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error);
+      throw ErrorManager.createError(error);
     }
   }
 
@@ -63,9 +63,7 @@ export class UsersService {
     try {
       return await this.userRepository.findOneByOrFail({ email });
     } catch (error) {
-      console.log(error, 'error user');
-
-      throw ErrorManager.createSignatureError(
+      throw ErrorManager.createError(
         {
           code: '001',
           detail: `${email} not found`,
@@ -85,13 +83,11 @@ export class UsersService {
         .getOne();
 
       if (!user) {
-        throw new ErrorManager({
-          type: 'NOT_FOUND',
-        });
+        throw ErrorManager.createError({ type: 'NOT_FOUND' });
       }
       return user;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error);
+      throw ErrorManager.createError(error);
     }
   }
 
@@ -99,7 +95,7 @@ export class UsersService {
     try {
       return await this.userProjectRepository.save(body);
     } catch (error) {
-      throw ErrorManager.createSignatureError(error);
+      throw ErrorManager.createError(error);
     }
   }
 
@@ -119,7 +115,7 @@ export class UsersService {
 
       return user;
     } catch (error) {
-      throw ErrorManager.createSignatureError(error);
+      throw ErrorManager.createError(error);
     }
   }
 
@@ -131,7 +127,7 @@ export class UsersService {
         const user = await this.userRepository.preload(body);
 
         if (!user) {
-          throw new ErrorManager({
+          throw ErrorManager.createError({
             type: 'BAD_REQUEST',
             message: 'Failed to update',
           });
@@ -140,11 +136,11 @@ export class UsersService {
         return this.userRepository.save(user);
       }
 
-      throw new ErrorManager({
+      throw ErrorManager.createError({
         type: 'NOT_FOUND',
       });
     } catch (error) {
-      throw ErrorManager.createSignatureError(error);
+      throw ErrorManager.createError(error);
     }
   }
 
@@ -157,7 +153,7 @@ export class UsersService {
 
       return { isActive, deletedAt, id, ...user };
     } catch (error) {
-      throw ErrorManager.createSignatureError(error);
+      throw ErrorManager.createError(error);
     }
   }
 

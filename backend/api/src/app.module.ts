@@ -3,6 +3,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
+import { GraphQLError } from 'graphql';
 import Joi from 'joi';
 import { join } from 'path';
 import { configs } from '../../../config/backend.config';
@@ -32,12 +33,25 @@ interface HttpResponse {
       autoSchemaFile: join(process.cwd(), 'schema.gql'),
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       includeStacktraceInErrorResponses: false,
-      formatError: ({ message, extensions }) => {
-        const originalError = extensions?.originalError;
+      formatError: (error: GraphQLError) => {
+        const { originalError, extensions } = error;
+        const { code, status, success } = extensions;
+        const customError = originalError as any;
+
+        if (customError) {
+          return {
+            message: customError.message || 'Unspecified error',
+            status: status,
+            code: code || 'UNKNOWN',
+            success: success || false,
+          };
+        }
 
         return {
-          message,
-          extensions,
+          message: error.message || 'Unspecified error',
+          status: status || 0,
+          code: code || 'UNKNOWN',
+          success: success || false,
         };
       },
     }),

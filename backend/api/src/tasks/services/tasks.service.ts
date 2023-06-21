@@ -18,7 +18,7 @@ export class TasksService {
     try {
       const project = await this.projectService.findProjectById(projectId);
       if (project === undefined) {
-        throw new ErrorManager({
+        throw ErrorManager.createError({
           type: 'NOT_FOUND',
           message: 'No se ha encontrado el proyecto',
         });
@@ -28,7 +28,7 @@ export class TasksService {
         project,
       });
     } catch (error) {
-      throw ErrorManager.createSignatureError(error.message);
+      throw ErrorManager.createError(error.message);
     }
   }
 }

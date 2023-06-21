@@ -3,21 +3,24 @@ import { GraphQLError } from 'graphql';
 import { statusMessages } from '../constants/errors';
 import { errorType } from '../interface/typeErrorCustom';
 export class ErrorManager extends Error {
-  constructor({
-    type,
-    message,
-  }: {
-    type: keyof typeof HttpStatus;
-    message?: string;
-  }) {
-    super(`${type} :: ${message || statusMessages[type]}`);
-  }
-
-  public static createSignatureError(
-    error: errorType,
-    type?: keyof typeof HttpStatus
-  ) {
+  public static createError(error: errorType, type?: keyof typeof HttpStatus) {
     let message, status;
+
+    if (
+      typeof error === 'object' &&
+      'type' in error &&
+      !('detail' in error) &&
+      !('code' in error)
+    ) {
+      type = error.type;
+      status = HttpStatus[type];
+
+      if ('message' in error) {
+        message = typeof error === 'string' ? error : error.message;
+      } else {
+        message = statusMessages[type];
+      }
+    }
 
     if (error instanceof Error || typeof error === 'string') {
       message = typeof error === 'string' ? error : error.message;
@@ -27,7 +30,8 @@ export class ErrorManager extends Error {
 
     if (typeof error !== 'string') {
       if ('detail' in error && 'code' in error) {
-        const errorCode: string = error.code;
+        let errorCode!: any;
+        errorCode = error.code;
         message = error.detail;
 
         if (message) {
