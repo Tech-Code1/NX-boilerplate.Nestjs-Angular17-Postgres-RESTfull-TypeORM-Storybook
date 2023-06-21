@@ -18,3 +18,4 @@ export const DB_USER = process.env.DB_USER;
 export const DB_PASS = process.env.DB_PASS;
 export const DB_SYNC = Boolean(process.env.DB_SYNC);
 export const HASH_SALT = parseInt(String(process.env.HASH_SALT));
+export const JWT_SECRET = process.env.JWT_SECRET;
