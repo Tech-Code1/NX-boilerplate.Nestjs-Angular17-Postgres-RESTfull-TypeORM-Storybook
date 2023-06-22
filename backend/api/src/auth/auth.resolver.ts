@@ -1,7 +1,6 @@
 import { User } from '@db/entities';
 import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { ErrorManager } from '../utils/error.manager';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators';
 import { AuthInput, LoginInput } from './dto/inputs';
@@ -27,9 +26,6 @@ export class AuthResolver {
   @Query(() => AuthResponse, { name: 'revalidate' })
   @UseGuards(JwtAuthGuard)
   revalidateToken(@CurrentUser() user: User): AuthResponse {
-    //return this.authService.revalidateToken();
-    console.log('Revalidate token, user:', user);
-
-    throw ErrorManager.createError('Not implemented');
+    return this.authService.revalidateToken(user);
   }
 }
