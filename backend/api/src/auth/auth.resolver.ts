@@ -1,3 +1,4 @@
+import { ROLES } from '@db/constants';
 import { User } from '@db/entities';
 import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
@@ -7,7 +8,7 @@ import { AuthInput, LoginInput } from './dto/inputs';
 import { JwtAuthGuard } from './guards';
 import { AuthResponse } from './types/auth-response.type';
 
-@Resolver()
+@Resolver(() => AuthResponse)
 export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
 
@@ -25,7 +26,7 @@ export class AuthResolver {
 
   @Query(() => AuthResponse, { name: 'revalidate' })
   @UseGuards(JwtAuthGuard)
-  revalidateToken(@CurrentUser() user: User): AuthResponse {
+  revalidateToken(@CurrentUser(ROLES.ADMIN) user: User): AuthResponse {
     return this.authService.revalidateToken(user);
   }
 }

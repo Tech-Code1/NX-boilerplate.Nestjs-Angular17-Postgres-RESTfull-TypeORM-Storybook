@@ -1,9 +1,10 @@
+import { ROLES } from '@db/constants';
 import { ExecutionContext, createParamDecorator } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { ErrorManager } from '../../utils/error.manager';
 
 export const CurrentUser = createParamDecorator(
-  (roles = [], context: ExecutionContext) => {
+  (role: ROLES, context: ExecutionContext) => {
     const ctx = GqlExecutionContext.create(context);
     const user = ctx.getContext().req.user;
 
@@ -14,6 +15,13 @@ export const CurrentUser = createParamDecorator(
       );
     }
 
-    return user;
+    if (!role) return user;
+
+    if (user.role === role) return user;
+
+    throw ErrorManager.createError(
+      `User ${user.username} is not a valid role`,
+      'FORBIDDEN'
+    );
   }
 );
