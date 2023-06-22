@@ -2,7 +2,9 @@ import { User } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
+import dayjs from 'dayjs';
 import * as jwt from 'jsonwebtoken';
+import { BLOCKED_TIME } from '../../../database/src/constants/interfaces.entities';
 import { UsersService } from '../users/users.service';
 import { ErrorManager } from '../utils/error.manager';
 import { AuthInput, LoginInput } from './dto/inputs';
@@ -86,5 +88,39 @@ export class AuthService {
       }), */
       user,
     };
+  }
+
+  async validateUser(id: string): Promise<User> {
+    const user = await this.userService.findUserById(id);
+
+    if (!user.isActive) {
+      throw ErrorManager.createError(
+        'The user is inactive, talk to support to try to find a solution',
+        'UNAUTHORIZED'
+      );
+    }
+
+    if (user.isBlocked) {
+      if (user.timeBlocked === BLOCKED_TIME.PERMANENT) {
+        throw ErrorManager.createError(
+          'You cannot access you are permanently banned',
+          'UNAUTHORIZED'
+        );
+      }
+
+      console.log(user.timeBlocked);
+
+      const now = dayjs().valueOf();
+      throw ErrorManager.createError(
+        `You cannot access you are banned until ${dayjs(
+          now + user.timeBlocked
+        ).format('YYYY-MM-DD HH:mm')}`,
+        'UNAUTHORIZED'
+      );
+    }
+
+    delete user.password;
+
+    return user;
   }
 }

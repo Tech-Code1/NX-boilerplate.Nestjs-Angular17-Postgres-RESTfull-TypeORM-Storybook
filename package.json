@@ -73,6 +73,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "commitizen": "^4.3.0",
+    "dayjs": "^1.11.8",
     "graphql": "^16.6.0",
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
