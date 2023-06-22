@@ -1,5 +1,6 @@
 import { User } from '@db/entities';
 import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import { UsersService } from '../users/users.service';
@@ -9,12 +10,19 @@ import { AuthResponse } from './types/auth-response.type';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly userService: UsersService) {}
+  private getJwtToken(id: string) {
+    return this.jwtService.sign({ id });
+  }
+
+  constructor(
+    private readonly userService: UsersService,
+    private readonly jwtService: JwtService
+  ) {}
 
   public async signup(authInput: AuthInput): Promise<AuthResponse> {
     const user = await this.userService.createUser(authInput);
 
-    const token = 'ABC123';
+    const token = this.getJwtToken(user.id);
 
     return {
       token,
@@ -42,7 +50,7 @@ export class AuthService {
       });
     }
 
-    const token = 'ABC123';
+    const token = this.getJwtToken(user.id);
 
     return {
       token,
