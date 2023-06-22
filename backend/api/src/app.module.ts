@@ -34,22 +34,14 @@ interface HttpResponse {
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       includeStacktraceInErrorResponses: false,
       formatError: (error: GraphQLError) => {
-        const { originalError, extensions } = error;
+        const { extensions } = error;
         const { code, status, success } = extensions;
+        const originalError = extensions.originalError;
         const customError = originalError as any;
 
-        if (customError) {
-          return {
-            message: customError.message || 'Unspecified error',
-            status: status,
-            code: code || 'UNKNOWN',
-            success: success || false,
-          };
-        }
-
         return {
-          message: error.message || 'Unspecified error',
-          status: status || 0,
+          message: customError?.message || error.message || 'Unspecified error',
+          status: customError?.statusCode || status || 0,
           code: code || 'UNKNOWN',
           success: success || false,
         };
