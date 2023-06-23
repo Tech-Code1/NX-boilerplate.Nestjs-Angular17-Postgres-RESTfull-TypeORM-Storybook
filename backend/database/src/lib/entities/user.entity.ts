@@ -78,11 +78,11 @@ export class User extends BaseEntity implements IUser {
   @Column({ type: 'enum', enum: BLOCKED_TIME, nullable: true })
   timeBlocked!: BLOCKED_TIME;
 
-  @Field(() => ROLES, {
+  @Field(() => [ROLES], {
     description: 'User roles',
   })
-  @Column({ type: 'enum', enum: ROLES, default: ROLES.USER })
-  role!: ROLES;
+  @Column({ type: 'text', default: [ROLES.USER], array: true })
+  role!: ROLES[];
 
   @Field(() => [UsersProjects], { nullable: true })
   @OneToMany(() => UsersProjects, (usersProjects) => usersProjects.user)

@@ -65,5 +65,5 @@ export class UserInput extends BaseDTO {
   @IsNotEmpty()
   @IsEnum(ROLES)
   @Field(() => ROLES, { description: 'Indicates if the user is active or not' })
-  role!: ROLES;
+  role!: ROLES[];
 }

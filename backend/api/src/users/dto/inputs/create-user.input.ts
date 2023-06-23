@@ -81,5 +81,5 @@ export class CreateUserInput {
   @Field(() => ROLES, { description: 'Indicates if the user is active or not' })
   @IsOptional()
   @IsEnum(ROLES)
-  role!: ROLES;
+  role!: ROLES[];
 }

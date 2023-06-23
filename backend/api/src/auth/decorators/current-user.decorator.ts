@@ -4,7 +4,7 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 import { ErrorManager } from '../../utils/error.manager';
 
 export const CurrentUser = createParamDecorator(
-  (role: ROLES, context: ExecutionContext) => {
+  (roles: ROLES[], context: ExecutionContext) => {
     const ctx = GqlExecutionContext.create(context);
     const user = ctx.getContext().req.user;
 
@@ -15,9 +15,11 @@ export const CurrentUser = createParamDecorator(
       );
     }
 
-    if (!role) return user;
+    if (!roles) return user;
 
-    if (user.role === role) return user;
+    for (const role of roles) {
+      if (roles.includes(role)) return user;
+    }
 
     throw ErrorManager.createError(
       `User ${user.username} is not a valid role`,

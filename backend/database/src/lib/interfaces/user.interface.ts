@@ -5,7 +5,7 @@ export interface IUser {
   email: string;
   username: string;
   password: string;
-  role: string;
+  role: string[];
   isActive: boolean;
   isBlocked: boolean;
   timeBlocked: number;

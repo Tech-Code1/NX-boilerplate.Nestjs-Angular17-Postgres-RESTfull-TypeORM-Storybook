@@ -70,5 +70,5 @@ export class UserUpdateArgs {
     description: 'Indicates if the user is active or not',
     nullable: true,
   })
-  role?: ROLES;
+  role?: ROLES[];
 }
