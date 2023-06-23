@@ -39,6 +39,8 @@ interface HttpResponse {
         const originalError = extensions.originalError;
         const customError = originalError as any;
 
+        console.log(error);
+
         return {
           message: customError?.message || error.message || 'Unspecified error',
           status: customError?.statusCode || status || 0,

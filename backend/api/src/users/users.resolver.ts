@@ -41,11 +41,22 @@ export class UsersResolver {
     description: 'Find User with projects',
     name: 'One_User_Projects',
   })
-  public async findUserById(
+  public async findUserByIdWithProjects(
     @Args() { id }: IdArgs,
     @CurrentUser([ROLES.ADMIN]) user: User
   ): Promise<User> {
     return await this.usersService.findUserByIdWithProjects(id);
+  }
+
+  @Query(() => User, {
+    description: 'Find specific user by his ID',
+    name: 'One_User',
+  })
+  public async findUserById(
+    @Args() { id }: IdArgs,
+    @CurrentUser([ROLES.ADMIN]) user: User
+  ): Promise<User> {
+    return await this.usersService.findUserById(id);
   }
 
   @Mutation(() => User, {

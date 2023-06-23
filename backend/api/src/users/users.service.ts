@@ -62,10 +62,13 @@ export class UsersService {
       if (!user) {
         throw ErrorManager.createError({
           type: 'NOT_FOUND',
+          message: 'custom error message',
         });
       }
       return user;
     } catch (error) {
+      console.log(error, 'error');
+
       throw ErrorManager.createError(error);
     }
   }
