@@ -17,9 +17,7 @@ export const CurrentUser = createParamDecorator(
 
     if (!roles) return user;
 
-    for (const role of roles) {
-      if (roles.includes(role)) return user;
-    }
+    if (user.roles.some((role) => roles.includes(role))) return user;
 
     throw ErrorManager.createError(
       `User ${user.username} is not a valid role`,
