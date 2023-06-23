@@ -1,11 +1,7 @@
 import { ACCES_LEVEL } from '@db/constants';
-import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { BaseEntity, Projects, User } from './';
-
-registerEnumType(ACCES_LEVEL, {
-  name: 'ACCES_LEVEL',
-});
 
 @ObjectType()
 @Entity({ name: 'users_projects' })

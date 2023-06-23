@@ -1,5 +1,5 @@
 import { ROLES } from '@db/constants';
-import { Field, InputType, Int, registerEnumType } from '@nestjs/graphql';
+import { Field, InputType, Int } from '@nestjs/graphql';
 import {
   IsBoolean,
   IsEnum,
@@ -11,10 +11,6 @@ import {
   Min,
 } from 'class-validator';
 import { BaseDTO } from '../baseDTO';
-
-registerEnumType(ROLES, {
-  name: 'ROLES',
-});
 
 @InputType()
 export class UserInput extends BaseDTO {
@@ -64,6 +60,8 @@ export class UserInput extends BaseDTO {
 
   @IsNotEmpty()
   @IsEnum(ROLES)
-  @Field(() => ROLES, { description: 'Indicates if the user is active or not' })
+  @Field(() => [ROLES], {
+    description: 'Indicates if the user is active or not',
+  })
   role!: ROLES[];
 }

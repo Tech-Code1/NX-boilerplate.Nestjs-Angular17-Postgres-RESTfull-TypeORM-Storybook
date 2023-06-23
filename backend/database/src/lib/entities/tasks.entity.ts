@@ -1,11 +1,7 @@
 import { STATUS_TASK } from '@db/constants';
-import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { BaseEntity, Projects } from './';
-
-registerEnumType(STATUS_TASK, {
-  name: 'STATUS_TASK',
-});
 
 @ObjectType()
 @Entity({ name: 'task' })

@@ -1,3 +1,4 @@
+import { ROLES } from '@db/constants';
 import { User, UsersProjects } from '@db/entities';
 import { HASH_SALT } from '@environments';
 import { Injectable } from '@nestjs/common';
@@ -42,6 +43,16 @@ export class UsersService {
     } catch (error) {
       throw ErrorManager.createError(error.message);
     }
+  }
+
+  async findAllArgs(roles: ROLES[]): Promise<User[]> {
+    if (!roles) return this.userRepository.find();
+
+    return this.userRepository
+      .createQueryBuilder()
+      .where('ARRAY[roles] && ARRAY[:...roles]')
+      .setParameter('roles', roles)
+      .getMany();
   }
 
   public async findUserById(id: string): Promise<User> {

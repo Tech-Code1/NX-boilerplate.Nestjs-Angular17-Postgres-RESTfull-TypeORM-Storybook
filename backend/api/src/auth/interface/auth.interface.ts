@@ -2,7 +2,7 @@ import { ROLES } from 'backend/database/src/constants/interfaces.entities';
 
 export interface IPayloadToken {
   id: string;
-  role: ROLES;
+  role: ROLES[];
 }
 
 export interface IAuthInput {

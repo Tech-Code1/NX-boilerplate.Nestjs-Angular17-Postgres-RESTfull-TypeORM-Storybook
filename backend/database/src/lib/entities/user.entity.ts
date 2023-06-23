@@ -1,17 +1,9 @@
 import { BLOCKED_TIME, ROLES } from '@db/constants';
-import { Field, Int, ObjectType, registerEnumType } from '@nestjs/graphql';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 import { Exclude } from 'class-transformer';
 import { Column, Entity, OneToMany } from 'typeorm';
 import { IUser } from '../interfaces/user.interface';
 import { BaseEntity, UsersProjects } from './';
-
-registerEnumType(ROLES, {
-  name: 'ROLES',
-});
-
-registerEnumType(BLOCKED_TIME, {
-  name: 'BLOCKED_TIME',
-});
 
 @ObjectType()
 @Entity({ name: 'users' })
@@ -82,7 +74,7 @@ export class User extends BaseEntity implements IUser {
     description: 'User roles',
   })
   @Column({ type: 'text', default: [ROLES.USER], array: true })
-  role!: ROLES[];
+  roles!: ROLES[];
 
   @Field(() => [UsersProjects], { nullable: true })
   @OneToMany(() => UsersProjects, (usersProjects) => usersProjects.user)

@@ -1,5 +1,5 @@
 import { ROLES } from '@db/constants';
-import { ArgsType, Field, Int, registerEnumType } from '@nestjs/graphql';
+import { ArgsType, Field, Int } from '@nestjs/graphql';
 import {
   IsBoolean,
   IsEmail,
@@ -11,10 +11,6 @@ import {
   MaxLength,
   Min,
 } from 'class-validator';
-
-registerEnumType(ROLES, {
-  name: 'ROLES',
-});
 
 @ArgsType()
 export class UserUpdateArgs {
@@ -66,7 +62,7 @@ export class UserUpdateArgs {
 
   @IsOptional()
   @IsEnum(ROLES)
-  @Field(() => ROLES, {
+  @Field(() => [ROLES], {
     description: 'Indicates if the user is active or not',
     nullable: true,
   })

@@ -1,6 +1,7 @@
 import { User, UsersProjects } from '@db/entities';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { IdArgs, UserToProjectArgs } from './dto/args';
+import { ValidRolesArgs } from './dto/args/roles.arg';
 import { UpdateUserInput, UserToProjectInput } from './dto/inputs';
 import { UsersService } from './users.service';
 
@@ -22,6 +23,16 @@ export class UsersResolver {
   })
   public async findAllUsers(): Promise<User[]> {
     return await this.usersService.findUsers();
+  }
+
+  @Query(() => [User], {
+    description: 'Find All Args',
+    name: 'All_Args',
+  })
+  public async findAllArgs(
+    @Args() validRoles: ValidRolesArgs
+  ): Promise<User[]> {
+    return await this.usersService.findAllArgs(validRoles.roles);
   }
 
   @Query(() => User, {
