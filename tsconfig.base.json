@@ -25,6 +25,7 @@
       "@db/constants": [
         "backend/database/src/constants/interfaces.entities.ts"
       ],
+      "@config": ["config/index.ts"],
       "@environments": ["config/constants.ts"]
     }
   },
