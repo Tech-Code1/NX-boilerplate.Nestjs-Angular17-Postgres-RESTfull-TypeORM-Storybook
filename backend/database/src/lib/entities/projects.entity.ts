@@ -1,8 +1,10 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, OneToMany } from 'typeorm';
 import { IProject } from '../interfaces/project.interface';
-import { BaseEntity, Tasks, UsersProjects } from './';
+import { Tasks, UsersProjects } from './';
+import { BaseEntity } from './base.entity';
 
+// extends Base
 @ObjectType()
 @Entity({ name: 'projects' })
 export class Projects extends BaseEntity implements IProject {

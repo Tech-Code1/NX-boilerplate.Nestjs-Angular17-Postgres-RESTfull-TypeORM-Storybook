@@ -29,9 +29,13 @@ export class UsersService {
     }
   }
 
-  public async findUsers(): Promise<User[]> {
+  public async findAll(): Promise<User[]> {
     try {
-      const users: User[] = await this.userRepository.find();
+      const users: User[] = await this.userRepository.find({
+        relations: {
+          lastUpdateBy: true,
+        },
+      });
 
       if (users.length === 0) {
         throw ErrorManager.createError({
@@ -160,22 +164,28 @@ export class UsersService {
 
   public async deleteUser(id: string): Promise<User> {
     try {
-      let { isActive, deletedAt, ...user } = await this.findUserById(id);
+      let user = await this.findUserById(id);
 
-      isActive = false;
-      deletedAt = new Date();
+      user.isActive = false;
+      user.deletedAt = new Date();
 
-      return { isActive, deletedAt, id, ...user };
+      return await this.userRepository.save(user);
     } catch (error) {
       throw ErrorManager.createError(error);
     }
   }
 
-  public async blockUser(id: string, timeBlocked: number): Promise<User> {
+  public async blockUser(
+    id: string,
+    timeBlocked: number,
+    user: User
+  ): Promise<User> {
     const userToBlock = await this.findUserById(id);
+    const blockBy = await this.findUserById(user.id);
 
     userToBlock.isBlocked = true;
     userToBlock.timeBlocked = timeBlocked;
+    userToBlock.lastUpdateBy = blockBy;
 
     return await this.userRepository.save(userToBlock);
   }

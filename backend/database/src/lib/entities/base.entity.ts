@@ -3,14 +3,16 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   PrimaryGeneratedColumn,
+  BaseEntity as TypeOrmBaseEntity,
   UpdateDateColumn,
 } from 'typeorm';
 
 /**
  * BaseEntity class.
  */
+
 @ObjectType()
-export abstract class BaseEntity {
+export class BaseEntity extends TypeOrmBaseEntity {
   /** @member {Date} id - the id date */
   @Field(() => ID)
   @PrimaryGeneratedColumn('uuid')

@@ -1,8 +1,10 @@
 import { STATUS_TASK } from '@db/constants';
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
-import { BaseEntity, Projects } from './';
+import { Projects } from './';
+import { BaseEntity } from './base.entity';
 
+// extends Base
 @ObjectType()
 @Entity({ name: 'task' })
 export class Tasks extends BaseEntity {

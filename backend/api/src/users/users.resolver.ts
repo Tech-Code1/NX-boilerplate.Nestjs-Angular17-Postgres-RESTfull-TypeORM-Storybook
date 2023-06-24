@@ -21,7 +21,7 @@ export class UsersResolver {
   public async findAllUsers(
     @CurrentUser([ROLES.ADMIN]) user: User
   ): Promise<User[]> {
-    return await this.usersService.findUsers();
+    return await this.usersService.findAll();
   }
 
   @Query(() => [User], {
@@ -100,6 +100,6 @@ export class UsersResolver {
     @Args() { id, timeBlocked }: BlockArgs,
     @CurrentUser([ROLES.ADMIN]) user: User
   ): Promise<User> {
-    return await this.usersService.blockUser(id, timeBlocked);
+    return await this.usersService.blockUser(id, timeBlocked, user);
   }
 }
