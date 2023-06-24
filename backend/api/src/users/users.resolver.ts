@@ -4,7 +4,7 @@ import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CurrentUser } from '../auth/decorators';
 import { JwtAuthGuard } from '../auth/guards';
-import { IdArgs, UserToProjectArgs } from './dto/args';
+import { BlockArgs, IdArgs, UserToProjectArgs } from './dto/args';
 import { ValidRolesArgs } from './dto/args/roles.arg';
 import { UpdateUserInput, UserToProjectInput } from './dto/inputs';
 import { UsersService } from './users.service';
@@ -97,9 +97,9 @@ export class UsersResolver {
     name: 'Block_User',
   })
   public async blockUser(
-    @Args() { id }: IdArgs,
+    @Args() { id, timeBlocked }: BlockArgs,
     @CurrentUser([ROLES.ADMIN]) user: User
   ): Promise<User> {
-    return await this.usersService.blockUser(id);
+    return await this.usersService.blockUser(id, timeBlocked);
   }
 }

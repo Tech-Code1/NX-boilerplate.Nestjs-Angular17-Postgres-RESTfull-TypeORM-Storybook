@@ -1,4 +1,4 @@
-import { Field, ID } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 import {
   CreateDateColumn,
   DeleteDateColumn,
@@ -9,6 +9,7 @@ import {
 /**
  * BaseEntity class.
  */
+@ObjectType()
 export abstract class BaseEntity {
   /** @member {Date} id - the id date */
   @Field(() => ID)

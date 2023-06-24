@@ -171,7 +171,12 @@ export class UsersService {
     }
   }
 
-  public async blockUser(id: string): Promise<User> {
-    throw new Error('Not implemented');
+  public async blockUser(id: string, timeBlocked: number): Promise<User> {
+    const userToBlock = await this.findUserById(id);
+
+    userToBlock.isBlocked = true;
+    userToBlock.timeBlocked = timeBlocked;
+
+    return await this.userRepository.save(userToBlock);
   }
 }
