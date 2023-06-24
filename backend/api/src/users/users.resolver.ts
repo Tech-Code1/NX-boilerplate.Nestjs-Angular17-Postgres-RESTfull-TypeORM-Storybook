@@ -75,10 +75,14 @@ export class UsersResolver {
     name: 'Edit_User',
   })
   public async updateUser(
-    @Args('body') body: UpdateUserInput,
-    @CurrentUser([ROLES.USER]) user: User
+    @Args('updateUserInput') updateUserInput: UpdateUserInput,
+    @CurrentUser([ROLES.ADMIN]) user: User
   ): Promise<User> {
-    return await this.usersService.updateUser(body, body.id);
+    return await this.usersService.updateUser(
+      updateUserInput.id,
+      updateUserInput,
+      user
+    );
   }
 
   @Mutation(() => User, {

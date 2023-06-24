@@ -1,18 +1,18 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
+import { Field, ID, InputType } from '@nestjs/graphql';
 import { IsNotEmpty, IsString } from 'class-validator';
 
 @InputType()
 export class BaseDTO {
   @IsNotEmpty()
   @IsString()
-  @Field(() => Int)
+  @Field(() => ID)
   id!: number;
 
   @Field(() => Date)
-  createdAt!: Date;
+  createdAt?: Date;
 
   @Field(() => Date)
-  updatedAt!: Date;
+  updatedAt?: Date;
 
   @Field(() => Date, { nullable: true })
   deletedAt?: Date;

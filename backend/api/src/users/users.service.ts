@@ -137,26 +137,20 @@ export class UsersService {
     }
   }
 
-  public async updateUser(body: UpdateUserInput, id: string): Promise<User> {
+  public async updateUser(
+    id: string,
+    updateUserInput: UpdateUserInput,
+    upadateBy: User
+  ): Promise<User> {
     try {
-      const findUser = await this.findUserById(id);
-
-      if (findUser) {
-        const user = await this.userRepository.preload(body);
-
-        if (!user) {
-          throw ErrorManager.createError({
-            type: 'BAD_REQUEST',
-            message: 'Failed to update',
-          });
-        }
-
-        return this.userRepository.save(user);
-      }
-
-      throw ErrorManager.createError({
-        type: 'NOT_FOUND',
+      const user = await this.userRepository.preload({
+        ...updateUserInput,
+        id,
       });
+
+      user.lastUpdateBy = upadateBy;
+
+      return this.userRepository.save(user);
     } catch (error) {
       throw ErrorManager.createError(error);
     }
