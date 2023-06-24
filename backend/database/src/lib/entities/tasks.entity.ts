@@ -1,7 +1,7 @@
 import { STATUS_TASK } from '@db/constants';
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
-import { Projects } from './';
+import { Project } from './';
 import { BaseEntity } from './base.entity';
 
 // extends Base
@@ -24,10 +24,10 @@ export class Tasks extends BaseEntity {
   @Column()
   responsableName!: string;
 
-  @Field(() => Projects)
-  @ManyToOne(() => Projects, (project) => project.tasks)
+  @Field(() => Project)
+  @ManyToOne(() => Project, (project) => project.tasks)
   @JoinColumn({
     name: 'project_id',
   })
-  project!: Projects;
+  project!: Project;
 }

@@ -1,7 +1,7 @@
 import { ACCES_LEVEL } from '@db/constants';
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, ManyToOne } from 'typeorm';
-import { BaseEntity, Projects, User } from './';
+import { BaseEntity, Project, User } from './';
 
 @ObjectType()
 @Entity({ name: 'users_projects' })
@@ -14,7 +14,7 @@ export class UsersProjects extends BaseEntity {
   @ManyToOne(() => User, (user) => user.projectsIncludes)
   user!: User;
 
-  @Field(() => Projects)
-  @ManyToOne(() => Projects, (project) => project.usersIncludes)
-  project!: Projects;
+  @Field(() => Project)
+  @ManyToOne(() => Project, (project) => project.usersIncludes)
+  project!: Project;
 }

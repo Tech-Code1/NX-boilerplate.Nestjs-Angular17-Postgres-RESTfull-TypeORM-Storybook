@@ -1,4 +1,4 @@
-import { Projects, Tasks, User, UsersProjects } from '@db/entities';
+import { Project, Tasks, User, UsersProjects } from '@db/entities';
 import { join } from 'path';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions } from 'typeorm-extension';
@@ -20,7 +20,7 @@ export const options = {
   database: DB_NAME,
   username: DB_USER,
   password: DB_PASS,
-  entities: [User, Projects, Tasks, UsersProjects], // *works on windows
+  entities: [User, Project, Tasks, UsersProjects], // *works on windows
   // entities: [
   // join(__dirname, '/../backend/database/src/lib/entities/**/*.entity.ts'),
   // ],

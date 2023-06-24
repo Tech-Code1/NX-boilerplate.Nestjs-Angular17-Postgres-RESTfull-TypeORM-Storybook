@@ -2,7 +2,7 @@ import { Tasks } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ProjectsService } from '../../projects/services/projects.service';
+import { ProjectsService } from '../../projects/projects.service';
 import { ErrorManager } from '../../utils/error.manager';
 import { TasksDTO } from '../dto/tasks.dto';
 
