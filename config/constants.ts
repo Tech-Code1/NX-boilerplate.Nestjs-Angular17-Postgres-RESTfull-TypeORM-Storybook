@@ -1,7 +1,7 @@
 import { ConfigModule } from '@nestjs/config';
 
 ConfigModule.forRoot({
-  envFilePath: `.${process.env.NODE_ENV}.env`,
+  envFilePath: `./environments/.${process.env.NODE_ENV}.env`,
 });
 /*
  * Esta variable nos devolvera la configuración de typeorm

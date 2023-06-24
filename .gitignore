@@ -4,8 +4,9 @@
 dist
 tmp
 /out-tsc
-.env*
-!.env.template
+.env
+.develop.env
+.production.env
 db
 schema.gql
 
