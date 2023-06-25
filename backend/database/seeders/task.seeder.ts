@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
+import { SEED_DATA } from '../../../config/constants';
 import { Project, Task } from '../src/lib/entities';
 
 export default class TaskSeeder implements Seeder {
@@ -15,7 +16,7 @@ export default class TaskSeeder implements Seeder {
     }
 
     const taskFactory = await factoryManager.get(Task);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < SEED_DATA || 10; i++) {
       // select a random project from the project list
       const randomProject =
         allProjects[Math.floor(Math.random() * allProjects.length)];

@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
+import { SEED_DATA } from '../../../config/constants';
 import { Project, User, UsersProjects } from '../src/lib/entities';
 
 export default class UsersProjectsSeeder implements Seeder {
@@ -19,7 +20,7 @@ export default class UsersProjectsSeeder implements Seeder {
     }
 
     const usersProjectsFactory = await factoryManager.get(UsersProjects);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < SEED_DATA || 10; i++) {
       // selecciona un usuario y un proyecto aleatorios
       const randomUser = allUsers[Math.floor(Math.random() * allUsers.length)];
       const randomProject =
