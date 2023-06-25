@@ -70,15 +70,4 @@ export class ProjectsResolver {
   ): Promise<Project> {
     return await this.projectService.deleteProject(id);
   }
-
-  /* @Mutation(() => User, {
-    description: 'Block user',
-    name: 'Block_User',
-  })
-  public async blockUser(
-    @Args() { id, timeBlocked }: BlockArgs,
-    @CurrentUser([ROLES.ADMIN]) user: User
-  ): Promise<User> {
-    return await this.usersService.blockUser(id, timeBlocked, user);
-  } */
 }

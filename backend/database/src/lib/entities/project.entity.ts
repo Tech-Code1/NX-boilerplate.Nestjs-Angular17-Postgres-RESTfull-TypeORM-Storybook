@@ -1,6 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, OneToMany } from 'typeorm';
-import { Tasks, UsersProjects } from '.';
+import { Task, UsersProjects } from '.';
 import { IProject } from '../interfaces/project.interface';
 import { BaseEntity } from './base.entity';
 
@@ -20,7 +20,7 @@ export class Project extends BaseEntity implements IProject {
   @OneToMany(() => UsersProjects, (usersProjects) => usersProjects.project)
   usersIncludes!: UsersProjects[];
 
-  @Field(() => [Tasks], { nullable: 'itemsAndList' })
-  @OneToMany(() => Tasks, (tasks) => tasks.project)
-  tasks!: Tasks[];
+  @Field(() => [Task], { nullable: 'itemsAndList' })
+  @OneToMany(() => Task, (tasks) => tasks.project)
+  tasks!: Task[];
 }
