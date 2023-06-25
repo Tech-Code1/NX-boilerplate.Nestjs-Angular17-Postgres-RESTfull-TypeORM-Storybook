@@ -5,9 +5,10 @@
   "scripts": {
     "start:dev": "cross-env NODE_ENV=develop nx serve api",
     "start:prod": "cross-env NODE_ENV=production nx serve api",
-    "migrate:run": "nx run database:mig-run",
-    "migrate:gen": "nx run database:mig-gen",
-    "migrate:revert": "nx run database:mig-rev"
+    "migrate:run": "cross-env NODE_ENV=none nx run database:mig-run",
+    "migrate:gen": "cross-env NODE_ENV=none nx run database:mig-gen",
+    "migrate:revert": "cross-env NODE_ENV=none nx run database:mig-rev",
+    "make:seed": "cross-env NODE_ENV=none nx run database:seed"
   },
   "private": true,
   "devDependencies": {

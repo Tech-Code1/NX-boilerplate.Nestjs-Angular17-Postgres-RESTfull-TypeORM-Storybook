@@ -1,21 +1,25 @@
 import { DataSource } from 'typeorm';
 import { runSeeders, Seeder, SeederFactoryManager } from 'typeorm-extension';
 import {
-    userFactory,
+  projectFactory,
+  taskFactory,
+  userFactory,
+  usersProjectsFactory,
 } from '../factories';
-import UserSeeder from './user.seeder';
+import { ProjectSeeder, TaskSeeder, UserSeeder, UsersProjectsSeeder } from './';
 
 export default class InitSeeder implements Seeder {
   public async run(
     dataSource: DataSource,
-    factoryManager: SeederFactoryManager,
+    factoryManager: SeederFactoryManager
   ): Promise<any> {
     await runSeeders(dataSource, {
-      seeds: [
-        UserSeeder,
-      ],
+      seeds: [UserSeeder, ProjectSeeder, TaskSeeder, UsersProjectsSeeder],
       factories: [
         userFactory,
+        projectFactory,
+        taskFactory,
+        usersProjectsFactory,
       ],
     });
   }

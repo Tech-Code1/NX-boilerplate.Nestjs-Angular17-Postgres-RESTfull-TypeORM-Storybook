@@ -61,7 +61,7 @@
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "ts-node --project tsconfig.lib.json ../../node_modules/typeorm-extension/dist/cli/index.js seed -d ../../config/orm.config.ts",
+        "command": "ts-node --project tsconfig.lib.json -r tsconfig-paths/register ../../node_modules/typeorm-extension/dist/cli/index.js seed -d ../../config/orm.config.ts",
         "cwd": "backend/database"
       }
     }
