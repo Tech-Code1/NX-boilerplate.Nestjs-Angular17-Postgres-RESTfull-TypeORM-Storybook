@@ -1,12 +1,10 @@
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
 
-const envPath = join(
-  __dirname,
+const envPath =
   process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'develop'
-    ? `/../environments/.${process.env.NODE_ENV}.env`
-    : '/../environments/.env'
-);
+    ? `./environments/.${process.env.NODE_ENV}.env`
+    : join(__dirname, '/../environments/.env');
 
 ConfigModule.forRoot({
   envFilePath: envPath,

@@ -37,8 +37,6 @@ export const options = {
   //logger: 'file'
 };
 
-console.log(options, 'options');
-
 export const dataSource = new DataSource(
   options as DataSourceOptions & SeederOptions
 );
