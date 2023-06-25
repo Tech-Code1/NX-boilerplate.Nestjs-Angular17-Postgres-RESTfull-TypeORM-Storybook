@@ -158,7 +158,7 @@ export class UsersService {
 
   public async deleteUser(id: string): Promise<User> {
     try {
-      let user = await this.findUserById(id);
+      const user = await this.findUserById(id);
 
       user.isActive = false;
       user.deletedAt = new Date();

@@ -1,10 +1,12 @@
 import { ROLES } from '@db/constants';
-import { User, UsersProjects } from '@db/entities';
+import { Project, User, UsersProjects } from '@db/entities';
 import { UseGuards } from '@nestjs/common';
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CurrentUser } from '../auth/decorators';
 import { JwtAuthGuard } from '../auth/guards';
+import { IdArgs } from '../common/dto/args/id.args';
 import { CreateProjectInput } from './dto/inputs/create-project.input';
+import { ProjectUpdateInput } from './dto/inputs/update-project.input';
 import { ProjectsService } from './projects.service';
 
 @Resolver(() => User)
@@ -18,92 +20,56 @@ export class ProjectsResolver {
   })
   public async userInProject(
     @Args('createProjectInput') createProjectInput: CreateProjectInput,
-    @CurrentUser([ROLES.ADMIN]) user: User
+    @CurrentUser([ROLES.ADMIN, ROLES.USER]) user: User
   ): Promise<UsersProjects> {
     return await this.projectService.createProject(createProjectInput, user.id);
   }
 
-  /* @Query(() => [User], {
-    description: 'Find All Users',
-    name: 'All_Users',
+  @Query(() => [Project], {
+    description: 'Find all projects',
+    name: 'All_Projects',
   })
-  public async findAllUsers(
+  public async findAllProjects(
     @CurrentUser([ROLES.ADMIN]) user: User
-  ): Promise<User[]> {
-    return await this.usersService.findAll();
-  } */
+  ): Promise<Project[]> {
+    return await this.projectService.findAll();
+  }
 
-  /* @Query(() => [User], {
-    description: 'Find All Args',
-    name: 'All_Args',
-  })
-  public async findAllArgs(
-    @Args() validRoles: ValidRolesArgs,
-    @CurrentUser([ROLES.ADMIN]) user: User
-  ): Promise<User[]> {
-    console.log(user);
-
-    return await this.usersService.findAllArgs(validRoles.roles);
-  } */
-
-  /* @Query(() => User, {
-    description: 'Find User with projects',
-    name: 'One_User_Projects',
-  })
-  public async findUserByIdWithProjects(
-    @Args() { id }: IdArgs,
-    @CurrentUser([ROLES.ADMIN]) user: User
-  ): Promise<User> {
-    return await this.usersService.findUserByIdWithProjects(id);
-  } */
-
-  /* @Query(() => User, {
-    description: 'Find specific user by his ID',
-    name: 'One_User',
+  @Query(() => Project, {
+    description: 'Find specific project by his ID',
+    name: 'One_Project',
   })
   public async findUserById(
     @Args() { id }: IdArgs,
     @CurrentUser([ROLES.ADMIN]) user: User
-  ): Promise<User> {
-    return await this.usersService.findUserById(id);
-  } */
+  ): Promise<Project> {
+    return await this.projectService.findProjectById(id);
+  }
 
-  /* @Mutation(() => User, {
-    description: 'Add user to project',
-    name: 'Add_To_Project',
-  })
-  public async userInProject(
-    @Args() body: UserToProjectArgs,
-    @CurrentUser([ROLES.CREATOR]) user: User
-  ): Promise<UserToProjectInput & UsersProjects> {
-    return await this.usersService.relationToProject(body);
-  } */
-
-  /* @Mutation(() => User, {
-    description: 'Edit user',
-    name: 'Edit_User',
+  @Mutation(() => Project, {
+    description: 'Edit project',
+    name: 'Edit_Project',
   })
   public async updateUser(
-    @Args('updateUserInput') updateUserInput: UpdateUserInput,
+    @Args('projectUpdateInput') projectUpdateInput: ProjectUpdateInput,
     @CurrentUser([ROLES.ADMIN]) user: User
-  ): Promise<User> {
-    return await this.usersService.updateUser(
-      updateUserInput.id,
-      updateUserInput,
-      user
+  ): Promise<Project> {
+    return await this.projectService.updateProject(
+      projectUpdateInput,
+      projectUpdateInput.id
     );
-  } */
+  }
 
-  /* @Mutation(() => User, {
-    description: 'Delete user',
-    name: 'Delete_User',
+  @Mutation(() => Project, {
+    description: 'Delete project',
+    name: 'Delete_Project',
   })
-  public async deleteUser(
+  public async deleteProject(
     @Args() { id }: IdArgs,
-    @CurrentUser([ROLES.USER]) user: User
-  ): Promise<User> {
-    return await this.usersService.deleteUser(id);
-  } */
+    @CurrentUser([ROLES.ADMIN]) user: User
+  ): Promise<Project> {
+    return await this.projectService.deleteProject(id);
+  }
 
   /* @Mutation(() => User, {
     description: 'Block user',

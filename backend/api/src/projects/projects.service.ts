@@ -1,12 +1,12 @@
 import { Project, UsersProjects } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ACCES_LEVEL } from '../../../database/src/constants/interfaces.entities';
 import { UsersService } from '../users/users.service';
 import { ErrorManager } from '../utils/error.manager';
 import { CreateProjectInput } from './dto/inputs/create-project.input';
-import { ProjectUpdateDTO } from './dto/projects.dto';
+import { ProjectUpdateInput } from './dto/inputs/update-project.input';
 
 @Injectable()
 export class ProjectsService {
@@ -38,7 +38,7 @@ export class ProjectsService {
     }
   }
 
-  public async findProjects(): Promise<Project[]> {
+  public async findAll(): Promise<Project[]> {
     try {
       const projects: Project[] = await this.projectRepository.find();
       if (projects.length === 0) {
@@ -49,7 +49,7 @@ export class ProjectsService {
       }
       return projects;
     } catch (error) {
-      throw ErrorManager.createError(error.message);
+      throw ErrorManager.createError(error);
     }
   }
 
@@ -64,7 +64,7 @@ export class ProjectsService {
       if (!project) {
         throw ErrorManager.createError({
           type: 'BAD_REQUEST',
-          message: 'No existe proyecto con el id ' + id,
+          message: 'There is no project with id: ' + id,
         });
       }
       return project;
@@ -74,35 +74,37 @@ export class ProjectsService {
   }
 
   public async updateProject(
-    body: ProjectUpdateDTO,
+    projectUpdateInput: ProjectUpdateInput,
     id: string
-  ): Promise<UpdateResult | undefined> {
+  ): Promise<Project> {
     try {
-      const project: UpdateResult = await this.projectRepository.update(
-        id,
-        body
-      );
-      if (project.affected === 0) {
-        throw ErrorManager.createError({
-          type: 'BAD_REQUEST',
-          message: 'No se pudo actualizar proyecto',
-        });
+      await this.projectRepository.update(id, projectUpdateInput);
+
+      const updatedProject = await this.projectRepository.findOne({
+        where: { id },
+      });
+
+      if (!updatedProject) {
+        throw new ErrorManager.createError(`Project with ID "${id}" not found`);
       }
-      return project;
+
+      return updatedProject;
     } catch (error) {
       throw ErrorManager.createError(error.message);
     }
   }
 
-  public async deleteProject(id: string): Promise<DeleteResult | undefined> {
+  public async deleteProject(id: string): Promise<Project> {
     try {
-      const project: DeleteResult = await this.projectRepository.delete(id);
-      if (project.affected === 0) {
-        throw ErrorManager.createError({
-          type: 'BAD_REQUEST',
-          message: 'No se pudo borrar proyecto',
-        });
-      }
+      const project = await this.findProjectById(id);
+      await this.userProjectRepository
+        .createQueryBuilder()
+        .delete()
+        .where('project_id = :project_id', { project_id: id })
+        .execute();
+
+      await this.projectRepository.delete(id);
+
       return project;
     } catch (error) {
       throw ErrorManager.createError(error.message);
