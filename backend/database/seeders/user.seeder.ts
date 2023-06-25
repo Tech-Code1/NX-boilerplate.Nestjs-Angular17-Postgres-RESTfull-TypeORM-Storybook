@@ -10,6 +10,6 @@ export default class UserSeeder implements Seeder {
   ): Promise<any> {
     const userFactory = await factoryManager.get(User);
     // save 10 factory generated entities, to the database
-    await userFactory.saveMany(SEED_DATA || 10);
+    await userFactory.saveMany(SEED_DATA);
   }
 }

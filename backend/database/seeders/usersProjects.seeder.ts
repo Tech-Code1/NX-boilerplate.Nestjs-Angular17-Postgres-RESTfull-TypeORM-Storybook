@@ -20,7 +20,7 @@ export default class UsersProjectsSeeder implements Seeder {
     }
 
     const usersProjectsFactory = await factoryManager.get(UsersProjects);
-    for (let i = 0; i < SEED_DATA || 10; i++) {
+    for (let i = 0; i < SEED_DATA; i++) {
       // selecciona un usuario y un proyecto aleatorios
       const randomUser = allUsers[Math.floor(Math.random() * allUsers.length)];
       const randomProject =

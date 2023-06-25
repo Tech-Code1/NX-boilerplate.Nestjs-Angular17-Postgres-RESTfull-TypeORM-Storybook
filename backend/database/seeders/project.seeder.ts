@@ -11,6 +11,6 @@ export default class ProjectSeeder implements Seeder {
     const projectFactory = await factoryManager.get(Project);
 
     // save 10 factory generated entities, to the database
-    await projectFactory.saveMany(SEED_DATA || 10);
+    await projectFactory.saveMany(SEED_DATA);
   }
 }

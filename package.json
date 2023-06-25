@@ -8,7 +8,8 @@
     "migrate:run": "cross-env NODE_ENV=none nx run database:mig-run",
     "migrate:gen": "cross-env NODE_ENV=none nx run database:mig-gen",
     "migrate:revert": "cross-env NODE_ENV=none nx run database:mig-rev",
-    "make:seed": "cross-env NODE_ENV=none nx run database:seed"
+    "make:seed": "cross-env NODE_ENV=none nx run database:seed",
+    "clear:db": "cross-env NODE_ENV=none nx run database:clear"
   },
   "private": true,
   "devDependencies": {

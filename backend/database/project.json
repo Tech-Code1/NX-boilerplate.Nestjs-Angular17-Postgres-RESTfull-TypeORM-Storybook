@@ -64,6 +64,14 @@
         "command": "ts-node --project tsconfig.lib.json -r tsconfig-paths/register ../../node_modules/typeorm-extension/dist/cli/index.js seed -d ../../config/orm.config.ts",
         "cwd": "backend/database"
       }
+    },
+    "clear": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "ts-node --project tsconfig.lib.json -r tsconfig-paths/register ./seeders/clearDatabase.ts",
+        "cwd": "backend/database"
+      }
     }
   },
   "tags": []
