@@ -1,8 +1,8 @@
+import { ACCES_LEVEL } from '@db/constants';
 import { Project, UsersProjects } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ACCES_LEVEL } from '../../../database/src/constants/interfaces.entities';
 import { UsersService } from '../users/users.service';
 import { ErrorManager } from '../utils/error.manager';
 import { CreateProjectInput } from './dto/inputs/create-project.input';
@@ -38,9 +38,25 @@ export class ProjectsService {
     }
   }
 
-  public async findAll(): Promise<Project[]> {
+  public async findAll(
+    limit: number,
+    offset: number,
+    search: string
+  ): Promise<Project[]> {
     try {
-      const projects: Project[] = await this.projectRepository.find();
+      const queryBuilder = await this.projectRepository
+        .createQueryBuilder()
+        .take(limit)
+        .skip(offset);
+
+      if (search) {
+        queryBuilder.where('LOWER(name) like :name', {
+          name: `%${search.toLowerCase()}%`,
+        });
+      }
+
+      const projects = await queryBuilder.getMany();
+
       if (projects.length === 0) {
         throw ErrorManager.createError({
           type: 'BAD_REQUEST',

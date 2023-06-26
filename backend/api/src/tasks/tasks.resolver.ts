@@ -16,7 +16,7 @@ export class TasksResolver {
     description: 'Create task associated with a project',
     name: 'Create_Task',
   })
-  public async userInProject(
+  public async createTask(
     @Args('createTaskInput') createTaskInput: CreateTaskInput,
     @Args('IdProject') IdProject: IdProject,
     @CurrentUser([ROLES.ADMIN, ROLES.USER]) user: User

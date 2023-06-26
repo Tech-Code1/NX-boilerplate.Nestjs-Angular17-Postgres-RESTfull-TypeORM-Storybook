@@ -3,8 +3,8 @@ import { IsNotEmpty, IsUUID } from 'class-validator';
 
 @ArgsType()
 export class IdArgs {
+  @Field(() => ID)
   @IsNotEmpty()
   @IsUUID('all')
-  @Field(() => ID)
   id!: string;
 }

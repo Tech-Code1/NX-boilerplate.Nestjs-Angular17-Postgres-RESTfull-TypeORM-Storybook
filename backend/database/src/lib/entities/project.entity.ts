@@ -20,7 +20,7 @@ export class Project extends BaseEntity implements IProject {
   @OneToMany(() => UsersProjects, (usersProjects) => usersProjects.project)
   usersIncludes!: UsersProjects[];
 
-  @Field(() => [Task], { nullable: 'itemsAndList' })
+  //@Field(() => [Task], { nullable: 'itemsAndList' })
   @OneToMany(() => Task, (tasks) => tasks.project)
   tasks!: Task[];
 }

@@ -4,6 +4,7 @@ import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CurrentUser } from '../auth/decorators';
 import { JwtAuthGuard } from '../auth/guards';
+import { PaginationArgs, SearchArgs } from '../common/dto/args';
 import { IdArgs } from '../common/dto/args/id.args';
 import { CreateProjectInput } from './dto/inputs/create-project.input';
 import { ProjectUpdateInput } from './dto/inputs/update-project.input';
@@ -30,9 +31,11 @@ export class ProjectsResolver {
     name: 'All_Projects',
   })
   public async findAllProjects(
-    @CurrentUser([ROLES.ADMIN]) user: User
+    @CurrentUser([ROLES.ADMIN]) user: User,
+    @Args() { limit, offset }: PaginationArgs,
+    @Args() { search }: SearchArgs
   ): Promise<Project[]> {
-    return await this.projectService.findAll();
+    return await this.projectService.findAll(limit, offset, search);
   }
 
   @Query(() => Project, {

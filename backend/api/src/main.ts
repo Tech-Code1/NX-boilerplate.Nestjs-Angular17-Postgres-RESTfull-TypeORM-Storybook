@@ -20,7 +20,8 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
-      forbidNonWhitelisted: true,
+      // *? You must comment when you are working with GraphQL, if you work with a REST API you should leave it true.
+      // forbidNonWhitelisted: true,
       transformOptions: {
         enableImplicitConversion: true,
       },
