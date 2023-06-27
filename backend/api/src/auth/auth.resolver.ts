@@ -5,6 +5,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators';
 import { AuthInput, LoginInput } from './dto/inputs';
+import { RequestPasswordResetResult } from './dto/requestPassword.dto';
 import { JwtAuthGuard } from './guards';
 import { AuthResponse } from './types/auth-response.type';
 
@@ -28,5 +29,14 @@ export class AuthResolver {
   @UseGuards(JwtAuthGuard)
   revalidateToken(@CurrentUser([ROLES.ADMIN]) user: User): AuthResponse {
     return this.authService.revalidateToken(user);
+  }
+
+  @Mutation(() => RequestPasswordResetResult, { name: 'Password_Reset' })
+  async requestPasswordReset(@Args('email') email: string) {
+    await this.authService.requestPasswordReset(email);
+    return {
+      message:
+        'If an account with that email exists, we sent you an email to reset your password',
+    };
   }
 }

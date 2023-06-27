@@ -11,5 +11,8 @@ declare namespace NodeJS {
     SEED_DATA: number;
     JWT_SECRET: string;
     DB_SYNC: boolean;
+    CLIENT_URL: string;
+    NODEMAILER_USER: string;
+    PASS_GMAIL: string;
   }
 }

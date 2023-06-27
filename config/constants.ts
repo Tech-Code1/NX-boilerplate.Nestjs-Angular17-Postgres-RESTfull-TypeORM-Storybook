@@ -26,3 +26,6 @@ export const DB_SYNC = Boolean(process.env.DB_SYNC);
 export const HASH_SALT = parseInt(String(process.env.HASH_SALT));
 export const SEED_DATA = parseInt(String(process.env.SEED_DATA));
 export const JWT_SECRET = process.env.JWT_SECRET;
+export const CLIENT_URL = process.env.CLIENT_URL;
+export const NODEMAILER_USER = process.env.NODEMAILER_USER;
+export const PASS_GMAIL = process.env.PASS_GMAIL;
