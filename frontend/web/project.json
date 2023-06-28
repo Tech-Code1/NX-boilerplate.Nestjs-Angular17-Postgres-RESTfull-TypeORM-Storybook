@@ -1,6 +1,6 @@
 {
   "name": "web",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "./web/src",
   "targets": {
@@ -60,7 +60,7 @@
     "serve.debug": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node --inspect-brk ../node_modules/vite/bin/vite.js --mode ssr --force",
+        "command": "node --inspect-brk ../../node_modules/vite/bin/vite.js --mode ssr --force",
         "cwd": "./web"
       }
     },
