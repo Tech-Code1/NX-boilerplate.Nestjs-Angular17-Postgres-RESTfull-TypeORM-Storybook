@@ -72,11 +72,6 @@
     "vite-plugin-dts": "~2.3.0",
     "vite-tsconfig-paths": "^4.2.0"
   },
-  "config": {
-    "commitizen": {
-      "path": "./cz.config.js"
-    }
-  },
   "dependencies": {
     "@apollo/server": "^4.7.3",
     "@nestjs/apollo": "^11.0.6",
@@ -119,5 +114,10 @@
     "undici": "^5.22.1",
     "uuid": "^9.0.0",
     "vitest": "^0.32.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-vinyl"
+    }
   }
 }
