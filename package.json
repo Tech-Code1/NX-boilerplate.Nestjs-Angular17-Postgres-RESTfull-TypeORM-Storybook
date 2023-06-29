@@ -9,12 +9,13 @@
     "migrate:gen": "cross-env NODE_ENV=none nx run database:mig-gen",
     "migrate:revert": "cross-env NODE_ENV=none nx run database:mig-rev",
     "make:seed": "cross-env NODE_ENV=none nx run database:seed",
-    "clear:db": "cross-env NODE_ENV=none nx run database:clear"
+    "clear:db": "cross-env NODE_ENV=none nx run database:clear",
+    "serve": "nx run web:serve"
   },
   "private": true,
   "devDependencies": {
-    "@builder.io/qwik": "~1.1.1",
-    "@builder.io/qwik-city": "~1.1.1",
+    "@builder.io/qwik": "^1.1.5",
+    "@builder.io/qwik-city": "^1.1.5",
     "@nestjs/schematics": "^9.1.0",
     "@nestjs/testing": "^9.1.1",
     "@nrwl/nest": "^16.3.2",
@@ -42,6 +43,7 @@
     "@vitest/ui": "^0.31.0",
     "autoprefixer": "~10.4.11",
     "cross-env": "^7.0.3",
+    "cz-vinyl": "^2.3.0",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-qwik": "~1.1.1",
@@ -49,9 +51,12 @@
     "jest-environment-node": "^29.4.1",
     "jsdom": "~20.0.3",
     "node-fetch": "~3.3.0",
-    "nx": "^16.3.2",
+    "nx": "^16.4.0",
+    "qwik-nx": "^1.0.6",
     "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.2.0"
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.5",
+    "vite": "^4.3.9"
   },
   "config": {
     "commitizen": {
@@ -78,6 +83,8 @@
     "dayjs": "^1.11.8",
     "graphql": "^16.6.0",
     "handlebars": "^4.7.7",
+    "husky": "^8.0.3",
+    "inquirer": "^9.2.7",
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
@@ -85,12 +92,16 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.11.0",
+    "postcss": "^8.4.24",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0",
     "typeorm": "^0.3.16",
     "typeorm-extension": "^2.8.1",
     "typeorm-naming-strategies": "^4.1.0",
-    "uuid": "^9.0.0"
+    "tailwindcss": "^3.3.2",
+    "undici": "5.14.0",
+    "uuid": "^9.0.0",
+    "vitest": "^0.32.2"
   }
 }
