@@ -1,0 +1,19 @@
+input {
+  @apply mb-3 focus:placeholder-transparent placeholder-gray-200 h-10 w-full border-b-2 border-gray-300 text-gray-600 focus:outline-none focus:border-purple-400 transition-all;
+}
+
+label {
+  @apply absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm;
+}
+
+button {
+  @apply bg-purple-500 text-white rounded-md px-2 py-1 w-full hover:bg-purple-700 transition-all;
+}
+
+code {
+  @apply block whitespace-pre overflow-scroll text-sm w-80;
+}
+
+.not-valid {
+  @apply border-red-500 text-red-400;
+}
