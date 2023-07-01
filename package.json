@@ -11,7 +11,7 @@
     "make:seed": "cross-env NODE_ENV=none nx run database:seed",
     "clear:db": "cross-env NODE_ENV=none nx run database:clear",
     "serve": "nx run web:serve",
-    "ui": "nx run frontend-ui:storybook"
+    "story": "nx run frontend-ui:storybook"
   },
   "private": true,
   "devDependencies": {

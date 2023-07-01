@@ -1,0 +1,11 @@
+.input {
+  @apply outline-none rounded w-auto px-4;
+}
+
+.error {
+  @apply text-red-600;
+}
+
+.input-primary {
+  @apply bg-black;
+}

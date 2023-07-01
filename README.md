@@ -11,7 +11,7 @@
   <br />
 </div>
 
------
+---
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -63,6 +63,15 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Set up task distribution across multiple machines](https://nx.dev/core-features/distribute-task-execution)
 - [Learn more how to setup CI](https://nx.dev/recipes/ci)
 
+## Credits and references
+
+- [Cómo estructurar tu project de ReactJs? - Gentleman Programming](https://youtu.be/5LqhlCd2_nE)
+- [Instalación de Storybook para React y Atomic Design - Guillermo Rodas](https://youtu.be/zfxP2VvP_Dw)
+- [Storybook](https://storybook.js.org/)
+- [Qwik](https://qwik.builder.io/)
+- [Qwik Component Input Properties](https://youtu.be/WzYiitK2oFc)
+- [Reusable Input Component in React Typescript](https://www.codevertiser.com/reusable-input-component-react/)
+
 ## Connect with us!
 
 - [Join the community](https://nx.dev/community)
@@ -70,6 +79,7 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
 
 ---
+
 <br>
 <br>
 <p align="center">
