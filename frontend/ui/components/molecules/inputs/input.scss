@@ -1,3 +1,7 @@
+.content-input {
+  @apply flex flex-col gap-1 w-auto;
+}
+
 .input {
   @apply outline-none rounded w-auto px-4;
 }

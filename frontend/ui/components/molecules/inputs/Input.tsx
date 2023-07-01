@@ -1,6 +1,7 @@
-import { component$ } from '@builder.io/qwik';
-import './styles/input.scss';
-import type { InputType } from './types/Input.interface';
+import { component$, useStylesScoped$ } from '@builder.io/qwik';
+import { Label } from '../../atoms/label/label';
+import type { InputType } from './Input.interface';
+import styles from './input.scss?inline';
 
 const getStyles = (...args: string[]) =>
   ['input', ...args].filter(Boolean).join(' ');
@@ -10,6 +11,8 @@ const validators = (errors: { [key: string]: string }, key: string) => {
 };
 
 export const Input = component$<InputType>((inputProps) => {
+  useStylesScoped$(styles);
+
   const {
     type = 'text',
     disabled = false,
@@ -21,12 +24,20 @@ export const Input = component$<InputType>((inputProps) => {
     value,
     errors,
     errorKey,
+    titleLabel,
     ...props
   } = inputProps;
 
   return (
-    <div>
-      {label && <label for={name}>{label}</label>}
+    <div class="content-input">
+      {label && (
+        <Label
+          for={name}
+          children={titleLabel}
+          label={label}
+          style="label-primary"
+        />
+      )}
       <input
         type={type}
         id={label || name}

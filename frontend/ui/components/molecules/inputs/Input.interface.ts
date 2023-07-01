@@ -19,6 +19,7 @@ type OptionalInputType = {
   errors: { [key: string]: string };
   trigger: (event: QwikChangeEvent<HTMLInputElement>) => void;
   errorKey: string;
+  titleLabel: string;
 };
 
 export type InputType = RequiredInputType & Partial<OptionalInputType>;
