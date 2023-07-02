@@ -18,7 +18,7 @@ export const Input = component$<InputType>((inputProps) => {
     disabled = false,
     label = '',
     name,
-    trigger,
+    onInput$,
     style,
     placeholder,
     value,
@@ -46,7 +46,7 @@ export const Input = component$<InputType>((inputProps) => {
         class={getStyles(style)}
         required
         disabled={disabled}
-        onChange$={() => trigger}
+        onInput$={onInput$}
         placeholder={placeholder}
       />
       {errors && errorKey && validators(errors, errorKey)}

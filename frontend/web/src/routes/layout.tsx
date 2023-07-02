@@ -23,7 +23,7 @@ export default component$(() => {
           </Link>
         </li>
       </ul>
-      <div class="w-1/2 h-1/2 flex flex-col justify-between shadown-quick">
+      <div class="w-1/2 h-3/5 flex flex-col justify-between shadown-quick">
         <div class="w-full h-24 bg-[white] flex justify-center items-center rounded-t-md">
           <Link href="https://qwik.builder.io/" target="_blank">
             <QwikLogo />

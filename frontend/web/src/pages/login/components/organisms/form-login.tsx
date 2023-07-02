@@ -1,7 +1,13 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useStore } from '@builder.io/qwik';
 import { Button, Input, Title } from '@ui/components';
+import { handleInput } from '../../../../hooks';
 
 export const FormLogin = component$(() => {
+  const formState = useStore({
+    email: '',
+    password: '',
+  });
+
   return (
     <>
       <Title style="title-2xl">Login Form</Title>
@@ -16,6 +22,7 @@ export const FormLogin = component$(() => {
             label="Email Address"
             titleLabel="Email Address"
             style="input-primary"
+            onInput$={(e) => handleInput(e, formState, 'email')}
           />
         </div>
         <div class="relative">
@@ -27,6 +34,7 @@ export const FormLogin = component$(() => {
             label="Password"
             titleLabel="Password"
             style="input-primary"
+            onInput$={(e) => handleInput(e, formState, 'password')}
           />
         </div>
       </div>
@@ -35,6 +43,7 @@ export const FormLogin = component$(() => {
           Ingresar
         </Button>
       </div>
+      <code>{JSON.stringify(formState, undefined, 2)}</code>
     </>
   );
 });
