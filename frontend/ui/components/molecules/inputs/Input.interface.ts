@@ -24,7 +24,7 @@ type OptionalInputType = {
   value: string | number;
   id: string;
   disabled: boolean;
-  errors: { [key: string]: string };
+  errors: string;
   events: EventsInputsPropsType;
   errorKey: string;
   titleLabel: string;

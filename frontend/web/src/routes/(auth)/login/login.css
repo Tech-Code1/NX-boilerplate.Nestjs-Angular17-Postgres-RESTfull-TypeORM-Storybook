@@ -1,7 +1,3 @@
 code {
   @apply block whitespace-pre overflow-scroll text-sm w-80;
 }
-
-.not-valid {
-  @apply border-red-500 text-red-400;
-}

@@ -7,9 +7,9 @@
 }
 
 .error {
-  @apply text-red-600;
+  @apply border-red-500 text-red-400;
 }
 
 .input-primary {
-  @apply focus:placeholder-transparent placeholder-gray-200 h-10 w-full border-b-2 border-gray-300 text-gray-600 focus:outline-none focus:border-purple-400 transition-all;
+  @apply focus:placeholder-transparent placeholder-gray-200 h-10 w-full border-b-2 text-gray-600 focus:outline-none focus:border-purple-400 transition-all;
 }

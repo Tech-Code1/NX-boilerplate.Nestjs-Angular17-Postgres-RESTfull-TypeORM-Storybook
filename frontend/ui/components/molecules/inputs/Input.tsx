@@ -3,12 +3,17 @@ import { Label } from '../../atoms/label/label';
 import type { InputType } from './Input.interface';
 import styles from './input.scss?inline';
 
-const getStyles = (...args: string[]) =>
-  ['input', ...args].filter(Boolean).join(' ');
+const getStyles = (styles: string[]) =>
+  ['input', ...styles].filter(Boolean).join(' ');
 
-const validators = (errors: { [key: string]: string }, key: string) => {
-  return errors[key] ? <p class="error">Input filed can't be empty!</p> : '';
-};
+export enum ErrorMessages {
+  EMPTY = "Input field can't be empty!",
+  INVALID_EMAIL = 'Email address is not valid!',
+  LENGTH_PASSWORD = 'Enter a password with more than 6 characters',
+  // Add more error types and messages as needed
+}
+
+export type ErrorsType = keyof typeof ErrorMessages;
 
 export const Input = component$<InputType>((inputProps) => {
   useStylesScoped$(styles);
@@ -26,6 +31,9 @@ export const Input = component$<InputType>((inputProps) => {
     titleLabel,
   } = inputProps;
 
+  const error = errors ? 'error' : '';
+
+  const inputStyles = getStyles([style, error]);
   return (
     <div class="content-input">
       {titleLabel && (
@@ -41,13 +49,13 @@ export const Input = component$<InputType>((inputProps) => {
         id={name}
         value={value}
         name={name}
-        class={getStyles(style)}
+        class={inputStyles}
         required
         disabled={disabled}
         onInput$={onInput$}
         placeholder={placeholder}
       />
-      {errors && errorKey && validators(errors, errorKey)}
+      {errors && <p class="error">{ErrorMessages[errors as ErrorsType]}</p>}
     </div>
   );
 });
