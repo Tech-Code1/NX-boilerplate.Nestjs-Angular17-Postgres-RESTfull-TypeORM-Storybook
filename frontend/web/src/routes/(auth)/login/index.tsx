@@ -1,6 +1,6 @@
 import { component$, useStylesScoped$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { Input, Title } from '@ui/components';
+import { Button, Input, Title } from '@ui/components';
 import styles from './login.css?inline';
 
 export default component$(() => {
@@ -36,7 +36,9 @@ export default component$(() => {
           </div>
         </div>
         <div class="relative w-full">
-          <button>Ingresar</button>
+          <Button style="button-primary" color="t-white">
+            Ingresar
+          </Button>
         </div>
 
         {/* <code>

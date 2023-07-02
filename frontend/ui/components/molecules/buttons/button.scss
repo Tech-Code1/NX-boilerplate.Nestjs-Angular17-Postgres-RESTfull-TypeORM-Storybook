@@ -1,0 +1,13 @@
+.button {
+  @apply outline-none rounded w-auto px-4;
+}
+
+.button-primary {
+  @apply bg-purple-500 text-white w-full hover:bg-purple-700 transition-all;
+}
+
+.button-secondary {
+}
+
+.button-tertiary {
+}
