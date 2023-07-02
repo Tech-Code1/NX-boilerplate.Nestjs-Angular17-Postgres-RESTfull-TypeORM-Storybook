@@ -4,9 +4,15 @@
     "composite": true,
     "declaration": true,
     "noEmit": false,
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../../dist/out-tsc"
   },
   "files": [],
   "exclude": [],
-  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
+  "include": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "../ui/components/index.ts"
+  ]
 }

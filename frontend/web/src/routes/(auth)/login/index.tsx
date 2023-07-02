@@ -1,5 +1,6 @@
 import { component$, useStylesScoped$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
+import { Input, Title } from '@ui/components';
 import styles from './login.css?inline';
 
 export default component$(() => {
@@ -8,27 +9,30 @@ export default component$(() => {
   return (
     <>
       <form class="w-1/2 flex flex-col gap-6 items-center">
-        <h1 class="text-2xl font-bold">Login Form</h1>
+        <Title style="title-2xl">Login Form</Title>
 
         <div class="w-full flex flex-col gap-4">
           <div class="relative">
-            <input
-              class="px-4"
+            <Input
+              id="email"
               name="email"
               type="text"
-              placeholder="Email address"
+              placeholder="Password"
+              label="Email Address"
+              titleLabel="Email Address"
+              style="input-primary"
             />
-            <label for="email">Email Address</label>
           </div>
           <div class="relative">
-            <input
-              class="px-4"
+            <Input
               id="password"
               name="password"
               type="password"
               placeholder="Password"
+              label="Password"
+              titleLabel="Password"
+              style="input-primary"
             />
-            <label for="password">Password</label>
           </div>
         </div>
         <div class="relative w-full">
