@@ -21,7 +21,6 @@ type RequiredInputType = {
 
 type OptionalInputType = {
   type: 'text' | 'number' | 'email' | 'password';
-  label: string;
   value: string | number;
   id: string;
   disabled: boolean;

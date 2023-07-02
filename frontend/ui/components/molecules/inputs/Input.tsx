@@ -16,7 +16,6 @@ export const Input = component$<InputType>((inputProps) => {
   const {
     type = 'text',
     disabled = false,
-    label = '',
     name,
     onInput$,
     style,
@@ -25,22 +24,21 @@ export const Input = component$<InputType>((inputProps) => {
     errors,
     errorKey,
     titleLabel,
-    ...props
   } = inputProps;
 
   return (
     <div class="content-input">
-      {label && (
+      {titleLabel && (
         <Label
           for={name}
           children={titleLabel}
-          label={label}
+          label={titleLabel}
           style="label-primary"
         />
       )}
       <input
         type={type}
-        id={label || name}
+        id={name}
         value={value}
         name={name}
         class={getStyles(style)}
