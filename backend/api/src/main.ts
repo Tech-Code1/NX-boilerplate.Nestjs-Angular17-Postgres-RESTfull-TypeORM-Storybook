@@ -8,7 +8,6 @@ import { NestFactory, Reflector } from '@nestjs/core';
 import { PORT } from '@environments';
 import morgan from 'morgan';
 import { AppModule } from './app.module';
-import { initSwagger } from './app.swagger';
 import { CORS } from './constants';
 
 async function bootstrap() {
@@ -30,7 +29,6 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
   app.enableCors(CORS);
   app.setGlobalPrefix(globalPrefix);
-  initSwagger(app);
 
   await app.listen(PORT);
   Logger.log(
