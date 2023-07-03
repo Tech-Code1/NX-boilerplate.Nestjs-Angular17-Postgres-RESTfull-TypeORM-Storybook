@@ -3,14 +3,12 @@ import { Form, routeAction$, type DocumentHead } from '@builder.io/qwik-city';
 import { FormLogin } from '../../../pages/login/components/organisms/form-login';
 import styles from './login.css?inline';
 
-export const useLoginUserAction = routeAction$((data, event) => {
-  //const { email, password } = await data;
-  console.log(data, 'data');
-
-  return {
-    sucess: true,
-    jwtToken: 'my json',
-  };
+export const useLoginUserAction = routeAction$((data, { cookie, redirect }) => {
+  const { email, password } = data;
+  if (email === 'djjava1993@gmail.com' && password === '123456') {
+    cookie.set('jwt', 'my json', { secure: true, path: '/' });
+    redirect(302, '/');
+  }
 });
 
 export default component$(() => {
@@ -21,7 +19,6 @@ export default component$(() => {
     <>
       <Form action={action} class="w-1/2 flex flex-col gap-6 items-center">
         <FormLogin />
-        <code>{JSON.stringify(action.value, undefined, 2)}</code>
       </Form>
     </>
   );
