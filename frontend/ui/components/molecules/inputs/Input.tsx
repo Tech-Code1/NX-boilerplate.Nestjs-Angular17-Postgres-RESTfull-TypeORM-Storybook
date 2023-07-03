@@ -6,14 +6,15 @@ import styles from './input.scss?inline';
 const getStyles = (styles: string[]) =>
   ['input', ...styles].filter(Boolean).join(' ');
 
-export enum ErrorMessages {
+export enum Code {
   EMPTY = "Input field can't be empty!",
   INVALID_EMAIL = 'Email address is not valid!',
   LENGTH_PASSWORD = 'Enter a password with more than 6 characters',
+  TOO_SMALL = 'The field should have more characters',
   // Add more error types and messages as needed
 }
 
-export type ErrorsType = keyof typeof ErrorMessages;
+export type ErrorsType = keyof typeof Code;
 
 export const Input = component$<InputType>((inputProps) => {
   useStylesScoped$(styles);
@@ -27,7 +28,7 @@ export const Input = component$<InputType>((inputProps) => {
     placeholder,
     value,
     errors,
-    errorKey,
+    onBlur$,
     titleLabel,
   } = inputProps;
 
@@ -53,9 +54,10 @@ export const Input = component$<InputType>((inputProps) => {
         required
         disabled={disabled}
         onInput$={onInput$}
+        onBlur$={onBlur$}
         placeholder={placeholder}
       />
-      {errors && <p class="error">{ErrorMessages[errors as ErrorsType]}</p>}
+      {errors && <p class="error">{Code[errors as ErrorsType]}</p>}
     </div>
   );
 });

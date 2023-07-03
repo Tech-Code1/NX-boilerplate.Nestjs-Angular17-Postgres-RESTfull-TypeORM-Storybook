@@ -1,12 +1,13 @@
-import { QwikChangeEvent } from '@builder.io/qwik';
+import { QwikChangeEvent, QwikFocusEvent } from '@builder.io/qwik';
 
 export type EventsInputsPropsType = {
-  // Mouse Events
+  // Input Events
   onInput$?: (event: Event, element: HTMLInputElement) => any;
   onChange$?: (
     event: QwikChangeEvent<HTMLInputElement>,
     element: HTMLInputElement
   ) => any;
+  onBlur$?: (event: QwikFocusEvent<HTMLElement>, element: HTMLElement) => any;
 };
 
 export type TriggerType<T> = {
@@ -26,7 +27,6 @@ type OptionalInputType = {
   disabled: boolean;
   errors: string;
   events: EventsInputsPropsType;
-  errorKey: string;
   titleLabel: string;
 };
 

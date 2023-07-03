@@ -72,6 +72,7 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Qwik Component Input Properties](https://youtu.be/WzYiitK2oFc)
 - [Reusable Input Component in React Typescript](https://www.codevertiser.com/reusable-input-component-react/)
 - [Qwik - Introducción al Framework](https://cursos.devtalles.com/courses/take/qwik-introduccion/lessons/45128667-como-funcionara-el-curso)
+- [Catch Type Errors at Runtime with Zod: An Intro to this JavaScript Library](https://youtu.be/evX18f-n4AI)
 
 ## Connect with us!
 
