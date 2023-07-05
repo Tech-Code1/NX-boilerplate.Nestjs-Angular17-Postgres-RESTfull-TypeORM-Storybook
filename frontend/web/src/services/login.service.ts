@@ -1,19 +1,11 @@
-import { globalAction$, z, zod$ } from '@builder.io/qwik-city';
+import { globalAction$, zod$ } from '@builder.io/qwik-city';
 import { BASE_API } from '@environments';
-import { Code } from '@ui/components';
 import axios from 'axios';
 import { LOGIN_USER } from '../pages/login/models/mutations/loginUser';
-
-const Login = z.object({
-  email: z.string().email(Code.INVALID_EMAIL),
-  password: z.string().min(6, Code.TOO_SMALL),
-});
-
-type Login = z.infer<typeof Login>;
+import { Login } from '../pages/login/models/schemas';
 
 export const useLogin = globalAction$(async (data, { cookie, redirect }) => {
   const { email, password } = data;
-  console.log(BASE_API, 'BASE API');
 
   const loginData = {
     loginInput: {
@@ -22,7 +14,7 @@ export const useLogin = globalAction$(async (data, { cookie, redirect }) => {
     },
   };
 
-  const response = await axios.post(`http://localhost:8000/graphql`, {
+  const response = await axios.post(BASE_API, {
     query: LOGIN_USER,
     variables: loginData,
   });
@@ -32,8 +24,11 @@ export const useLogin = globalAction$(async (data, { cookie, redirect }) => {
     return;
   }
 
-  const token = response.data.data.login.token;
+  const token = response.data.data?.login?.token;
 
-  cookie.set('TOKEN', token, { secure: true, path: '/' });
+  if (token) {
+    cookie.set('TOKEN', token, { secure: true, path: '/' });
+  }
+
   redirect(302, '/dashboard');
 }, zod$(Login));

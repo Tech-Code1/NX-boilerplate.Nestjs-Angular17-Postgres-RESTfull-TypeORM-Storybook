@@ -29,4 +29,4 @@ export const JWT_SECRET = process.env.JWT_SECRET;
 export const CLIENT_URL = process.env.CLIENT_URL;
 export const NODEMAILER_USER = process.env.NODEMAILER_USER;
 export const PASS_GMAIL = process.env.PASS_GMAIL;
-export const BASE_API = process.env.BASE_API;
+export const BASE_API = String(process.env.BASE_API);
