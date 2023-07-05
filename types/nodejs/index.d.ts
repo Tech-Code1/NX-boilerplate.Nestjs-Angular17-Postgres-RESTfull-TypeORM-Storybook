@@ -14,5 +14,6 @@ declare namespace NodeJS {
     CLIENT_URL: string;
     NODEMAILER_USER: string;
     PASS_GMAIL: string;
+    BASE_API: string;
   }
 }

@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:dev": "cross-env NODE_ENV=develop nx serve api",
+    "start": "cross-env NODE_ENV=develop nx serve api",
     "start:prod": "cross-env NODE_ENV=production nx serve api",
     "migrate:run": "cross-env NODE_ENV=none nx run database:mig-run",
     "migrate:gen": "cross-env NODE_ENV=none nx run database:mig-gen",
     "migrate:revert": "cross-env NODE_ENV=none nx run database:mig-rev",
     "make:seed": "cross-env NODE_ENV=none nx run database:seed",
     "clear:db": "cross-env NODE_ENV=none nx run database:clear",
-    "serve": "nx run web:serve",
+    "serve": "cross-env NODE_ENV=develop nx run web:serve",
     "story": "nx run frontend-ui:storybook"
   },
   "private": true,

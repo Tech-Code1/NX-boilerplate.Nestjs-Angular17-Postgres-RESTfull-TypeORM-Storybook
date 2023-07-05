@@ -7,6 +7,9 @@ import {
 import { RouterHead } from './components/shared/router-head/router-head';
 
 import globalStyles from './global.scss?inline';
+import { AxiosInterceptor } from './pages/login/interceptors';
+
+AxiosInterceptor();
 
 export default component$(() => {
   /**

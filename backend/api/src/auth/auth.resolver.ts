@@ -22,6 +22,8 @@ export class AuthResolver {
   async login(
     @Args('loginInput') loginInput: LoginInput
   ): Promise<AuthResponse> {
+    console.log(loginInput, 'login');
+
     return this.authService.login(loginInput);
   }
 

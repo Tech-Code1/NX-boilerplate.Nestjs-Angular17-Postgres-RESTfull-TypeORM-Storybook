@@ -13,6 +13,7 @@
     "**/*.jsx",
     "**/*.ts",
     "**/*.tsx",
-    "../ui/components/index.ts"
+    "../ui/components/index.ts",
+    "../../config/constants.ts"
   ]
 }

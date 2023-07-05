@@ -12,7 +12,7 @@ import { CORS } from './constants';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
+  const globalPrefix = 'graphql';
   const reflector = app.get(Reflector);
 
   app.use(morgan('dev'));
@@ -28,7 +28,6 @@ async function bootstrap() {
   );
   app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
   app.enableCors(CORS);
-  app.setGlobalPrefix(globalPrefix);
 
   await app.listen(PORT);
   Logger.log(

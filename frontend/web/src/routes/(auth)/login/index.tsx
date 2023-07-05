@@ -1,38 +1,12 @@
 import { component$, useStylesScoped$ } from '@builder.io/qwik';
-import {
-  Form,
-  routeAction$,
-  z,
-  zod$,
-  type DocumentHead,
-} from '@builder.io/qwik-city';
-import { Code } from '@ui/components';
+import { Form, type DocumentHead } from '@builder.io/qwik-city';
 import { FormLogin } from '../../../pages/login/components/organisms/form-login';
+import { useLogin } from '../../../services/login.service';
 import styles from './login.css?inline';
 
-const Login = z.object({
-  email: z.string().email(Code.INVALID_EMAIL),
-  password: z.string().min(6, Code.TOO_SMALL),
-});
-
-type Login = z.infer<typeof Login>;
-
-export const useLoginUserAction = routeAction$(
-  async (data, { cookie, redirect }) => {
-    const { email, password } = data;
-
-    if (email === 'djjava1993@gmail.com' && password === '123456') {
-      cookie.set('jwt', 'my json', { secure: true, path: '/' });
-      redirect(302, '/');
-    }
-  },
-  zod$(Login)
-);
-
-z.ZodError;
 export default component$(() => {
   useStylesScoped$(styles);
-  const action = useLoginUserAction();
+  const action = useLogin();
 
   return (
     <>
