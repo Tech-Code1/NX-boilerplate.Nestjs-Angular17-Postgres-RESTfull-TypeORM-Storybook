@@ -4,31 +4,36 @@ import axios from 'axios';
 import { LOGIN_USER } from '../pages/login/models/mutations/loginUser';
 import { Login } from '../pages/login/models/schemas';
 
-export const useLogin = globalAction$(async (data, { cookie, redirect }) => {
-  const { email, password } = data;
+export const useLogin = globalAction$(
+  async (data, { cookie, redirect, request }) => {
+    const { email, password } = data;
 
-  const loginData = {
-    loginInput: {
-      email,
-      password,
-    },
-  };
+    const loginData = {
+      loginInput: {
+        email,
+        password,
+      },
+    };
 
-  const response = await axios.post(BASE_API, {
-    query: LOGIN_USER,
-    variables: loginData,
-  });
+    const response = await axios.post(BASE_API, {
+      query: LOGIN_USER,
+      variables: loginData,
+    });
 
-  if (!data || !response) {
-    redirect(302, '/login');
-    return;
-  }
+    if (!data || !response) {
+      redirect(302, '/login');
+      return;
+    }
 
-  const token = response.data.data?.login?.token;
+    console.log(response, 'response finally');
 
-  if (token) {
-    cookie.set('TOKEN', token, { secure: true, path: '/' });
-  }
+    const token = response.data?.token;
 
-  redirect(302, '/dashboard');
-}, zod$(Login));
+    if (token) {
+      cookie.set('TOKEN', token, { secure: true, path: '/' });
+    }
+
+    redirect(302, '/dashboard');
+  },
+  zod$(Login)
+);
