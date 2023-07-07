@@ -1,9 +1,9 @@
 import { useComputed$, useSignal, useStore } from '@builder.io/qwik';
 import { ErrorsType } from '../../../../../ui/components';
-import { LoginType } from '../interfaces/login.interfaces';
+import { Login } from '../models/schemas';
 
 export const useLogin = () => {
-  const formLogin = useStore<LoginType>({
+  const formLogin = useStore<Login>({
     email: '',
     password: '',
   });

@@ -3,7 +3,7 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
-import { getValidationError } from '../../../utilities';
+import { getValidationError } from '../utilities';
 
 export const AxiosInterceptor = () => {
   const updateHeader = (request: AxiosRequestConfig) => {
