@@ -3,6 +3,7 @@ export const LOGIN_USER = `
     login(loginInput: $loginInput) {
       token
       user {
+        id
         email
         username
         isActive

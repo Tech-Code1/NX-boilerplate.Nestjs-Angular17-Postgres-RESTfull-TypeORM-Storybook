@@ -60,7 +60,8 @@ export const AxiosInterceptor = () => {
       // If response.data doesn't exist, return an empty array in case of errors
       // or return the errors if they exist.
       if (response?.data?.errors) {
-        return response.data.errors;
+        const error = response.data.errors[0];
+        return error;
       }
     },
     (error) => {
