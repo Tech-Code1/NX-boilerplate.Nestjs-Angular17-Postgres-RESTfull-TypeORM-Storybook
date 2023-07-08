@@ -1,9 +1,7 @@
 export const RECOVER_PASS = `
-  mutation Recover($email: LoginEmail!) {
-    login(loginInput: $loginInput) {
-      user {
-        email
-      }
+  mutation Password_Reset($email: String!) {
+    Password_Reset(email: $email) {
+      message
     }
   },
 `;
