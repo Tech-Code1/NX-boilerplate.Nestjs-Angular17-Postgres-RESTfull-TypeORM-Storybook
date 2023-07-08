@@ -1,22 +1,22 @@
 import { component$ } from '@builder.io/qwik';
 import { Form, type DocumentHead } from '@builder.io/qwik-city';
-import { FormLogin } from '../../../pages/login/components/organisms/form-login';
-import { useLogin } from '../../../services/login.service';
+import { FormRecover } from '../../../pages/login/components/organisms';
+import { useRecoverService } from '../../../services';
 
 export default component$(() => {
-  const action = useLogin();
+  const action = useRecoverService();
 
   return (
     <>
       <Form action={action} class="w-1/2 flex flex-col gap-6 items-center">
-        <FormLogin />
+        <FormRecover />
       </Form>
     </>
   );
 });
 
 export const head: DocumentHead = {
-  title: 'Boilerplate NX - Login',
+  title: 'Boilerplate NX - Recover',
   meta: [
     {
       name: 'description',

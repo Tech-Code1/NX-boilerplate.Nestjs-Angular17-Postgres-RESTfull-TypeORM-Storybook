@@ -5,9 +5,8 @@ import {
   ServiceWorkerRegister,
 } from '@builder.io/qwik-city';
 import { RouterHead } from './components/shared/router-head/router-head';
-
 import globalStyles from './global.scss?inline';
-import { AxiosInterceptor } from './pages/login/interceptors';
+import { AxiosInterceptor } from './middlewares';
 
 AxiosInterceptor();
 
