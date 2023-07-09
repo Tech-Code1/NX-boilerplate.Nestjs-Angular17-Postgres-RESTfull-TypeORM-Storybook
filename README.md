@@ -74,6 +74,7 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Qwik - Introducción al Framework](https://cursos.devtalles.com/courses/take/qwik-introduccion/lessons/45128667-como-funcionara-el-curso)
 - [Catch Type Errors at Runtime with Zod: An Intro to this JavaScript Library](https://youtu.be/evX18f-n4AI)
 - [GraphQL - Postman - Consumir API GraphQL - Anartz Mugica Ledo](https://youtu.be/eJgWbpiSyk4)
+- [Implementing a secure password reset in Node.js](https://blog.logrocket.com/implementing-secure-password-reset-node-js/)
 
 ## Connect with us!
 

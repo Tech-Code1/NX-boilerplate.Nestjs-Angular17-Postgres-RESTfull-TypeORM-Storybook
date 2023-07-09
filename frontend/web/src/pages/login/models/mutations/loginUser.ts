@@ -13,3 +13,11 @@ export const LOGIN_USER = `
     }
   },
 `;
+
+export const RESET_PASS = `
+  mutation Password_Reset($email: String!) {
+    Password_Reset(email: $email) {
+      message
+    }
+  },
+`;
