@@ -19,13 +19,13 @@ export const useRecoverService = globalAction$(async (data, { redirect }) => {
     })
     .then((response) => response);
 
-  if (!response.success) {
+  if (!response?.success) {
     console.log('response error');
     redirect(302, '/recover');
     return;
   }
 
-  if (response.success) {
+  if (response?.success) {
     console.log('response success');
     redirect(302, '/login');
   }

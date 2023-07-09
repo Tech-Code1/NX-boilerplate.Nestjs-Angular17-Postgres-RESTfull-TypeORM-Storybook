@@ -138,10 +138,10 @@ export class UsersService {
   }
 
   public async updateUser(
-    id: string,
     updateUserInput: UpdateUserInput,
     upadateBy: User
   ): Promise<User> {
+    const { id } = updateUserInput;
     try {
       const user = await this.userRepository.preload({
         ...updateUserInput,

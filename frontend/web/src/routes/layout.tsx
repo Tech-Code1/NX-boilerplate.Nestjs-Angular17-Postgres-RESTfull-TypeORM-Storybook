@@ -9,7 +9,7 @@ export default component$(() => {
         <li class="w-32">
           <Link
             class="w-full h-full flex justify-center items-center"
-            href="http://localhost:4200/login"
+            href="/login"
           >
             Login
           </Link>
@@ -17,7 +17,7 @@ export default component$(() => {
         <li class="w-32">
           <Link
             class="w-full flex h-full justify-center items-center"
-            href="http://localhost:4200/dashboard"
+            href="/dashboard"
           >
             Dashboard
           </Link>

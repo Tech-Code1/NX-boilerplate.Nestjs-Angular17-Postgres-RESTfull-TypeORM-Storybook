@@ -2,12 +2,12 @@ import * as fs from 'fs';
 import * as handlebars from 'handlebars';
 import { join } from 'path';
 
-export function emailRecoverPassHTML(name: string, link: string) {
+export function emailRecoverPassSuccessHTML(name: string, password: string) {
   // *? Load the template
   const templatePath = join(
     __dirname,
     '/../../../backend/api/src/template/',
-    'requestResetPassword.handlebars'
+    'requestResetPasswordSuccess.handlebars'
   );
   console.log(templatePath);
 
@@ -19,6 +19,6 @@ export function emailRecoverPassHTML(name: string, link: string) {
   // *? Generate the final HTML
   return template({
     name,
-    link,
+    password,
   });
 }

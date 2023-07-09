@@ -79,11 +79,7 @@ export class UsersResolver {
     @Args('updateUserInput') updateUserInput: UpdateUserInput,
     @CurrentUser([ROLES.ADMIN]) user: User
   ): Promise<User> {
-    return await this.usersService.updateUser(
-      updateUserInput.id,
-      updateUserInput,
-      user
-    );
+    return await this.usersService.updateUser(updateUserInput, user);
   }
 
   @Mutation(() => User, {

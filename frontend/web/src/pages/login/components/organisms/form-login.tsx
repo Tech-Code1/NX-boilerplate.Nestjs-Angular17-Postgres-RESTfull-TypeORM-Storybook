@@ -1,4 +1,5 @@
 import { component$ } from '@builder.io/qwik';
+import { Link } from '@builder.io/qwik-city';
 import { Button, Input, Title } from '@ui/components';
 import { handleInput } from '../../../../hooks';
 import { useLogin } from '../../hooks/useLogin';
@@ -42,6 +43,9 @@ export const FormLogin = component$(() => {
             onBlur$={() => (passwordTouched.value = true)}
           />
         </div>
+        <Link class="underline" href="/recover">
+          have you forgotten your password ?
+        </Link>
       </div>
       <div class="relative w-full">
         <Button

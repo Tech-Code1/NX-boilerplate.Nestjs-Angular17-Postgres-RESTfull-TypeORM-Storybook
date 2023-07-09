@@ -1,5 +1,5 @@
 import { Token, User } from '@db/entities';
-import { NODEMAILER_USER, PASS_GMAIL } from '@environments';
+import { HASH_SALT, NODEMAILER_USER, PASS_GMAIL } from '@environments';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -12,7 +12,8 @@ import { Repository } from 'typeorm';
 import { BLOCKED_TIME } from '../../../database/src/constants/interfaces.entities';
 import { UsersService } from '../users/users.service';
 import { ErrorManager } from '../utils/error.manager';
-import { generateEmailHTML } from '../utils/handlebars/recoverPassword';
+import { emailRecoverPassHTML } from '../utils/handlebars/recoverPassword';
+import { emailRecoverPassSuccessHTML } from '../utils/handlebars/recoverPasswordSuccess';
 import { generateResetLink } from '../utils/linkUtils';
 import { AuthInput, LoginInput } from './dto/inputs';
 import { AuthResponse } from './types/auth-response.type';
@@ -71,7 +72,7 @@ export class AuthService {
     }
 
     let resetToken = crypto.randomBytes(32).toString('hex');
-    const hash = await bcrypt.hash(resetToken, 10); // 10 is a recommended salt round
+    const hash = await bcrypt.hash(resetToken, HASH_SALT); // 10 is a recommended salt round
 
     token = this.tokenRepository.create({
       user,
@@ -92,15 +93,29 @@ export class AuthService {
 
     const resetToken = await this.getTokenDB(user);
 
-    await this.sendEmailResetPassword(resetToken, user);
+    const link = generateResetLink(resetToken, user.id);
+    const emailBody = emailRecoverPassHTML(user.username, link);
+
+    await this.sendEmail(
+      {
+        to: user.email,
+        subject: 'Recover password',
+        htmlBody: emailBody,
+      },
+      user
+    );
   }
 
-  async sendEmailResetPassword(
-    resetToken: string,
-    { id, username, email }: User
+  async sendEmail(
+    emailOptions: {
+      subject: string;
+      htmlBody: string;
+      to: string;
+    },
+    user: User,
+    smtpConfig?: any
   ): Promise<void> {
-    const link = generateResetLink(resetToken, id);
-    const config = {
+    const config = smtpConfig || {
       service: 'gmail',
       auth: {
         user: NODEMAILER_USER,
@@ -108,11 +123,13 @@ export class AuthService {
       },
     };
 
+    const { htmlBody, subject, to } = emailOptions;
+
     const mailOptions = {
       from: NODEMAILER_USER,
-      to: email,
-      subject: 'Recover password',
-      html: generateEmailHTML(username, link),
+      to,
+      subject,
+      html: htmlBody,
     };
 
     const transporter = nodemailer.createTransport(config);
@@ -123,10 +140,56 @@ export class AuthService {
           'BAD_REQUEST'
         );
       } else {
-        console.log(`Email sent to: ${email}`);
+        console.log(`Email sent to: ${user.email}`);
       }
     });
   }
+
+  resetPassword = async (userId, token, password) => {
+    const passwordResetToken = await this.tokenRepository.findOneByOrFail({
+      user: userId,
+    });
+
+    if (!passwordResetToken) {
+      throw ErrorManager.createError(
+        'Invalid or expired password reset token',
+        'UNAUTHORIZED'
+      );
+    }
+
+    const isValid = await bcrypt.compare(token, passwordResetToken.token);
+
+    if (!isValid) {
+      throw ErrorManager.createError(
+        'Invalid or expired password reset token',
+        'UNAUTHORIZED'
+      );
+    }
+
+    const hash = await bcrypt.hash(password, HASH_SALT);
+
+    await this.userService.updateUser({ id: userId, password: hash }, id);
+
+    const user = await this.userService.findUserById(userId);
+    const emailBody = emailRecoverPassSuccessHTML(user.username, password);
+
+    if (!user || emailBody) {
+      throw ErrorManager.createError('Something has gone wrong', 'BAD_REQUEST');
+    }
+
+    await this.sendEmail(
+      {
+        to: user.email,
+        subject: 'Recover password',
+        htmlBody: emailBody,
+      },
+      user
+    );
+
+    await this.tokenRepository.remove(token);
+
+    return true;
+  };
 
   public signJWT({
     payload,
