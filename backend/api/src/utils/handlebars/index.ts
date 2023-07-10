@@ -1,2 +1,2 @@
 export * from './recoverPassword';
-export * from './recoverPassword copy';
+export * from './recoverPasswordSuccess';

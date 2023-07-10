@@ -7,8 +7,12 @@ import { Login } from '../pages/login/models/schemas';
 import { ILoginResponse, IUser } from '../pages/login/models/types';
 
 export const useLogin = globalAction$(
-  async (data, { cookie, redirect, request }) => {
+  async (data, { cookie, redirect, locale, params, basePathname, query }) => {
     const { email, password } = data;
+    console.log(locale, 'locale');
+    console.log(params, 'params');
+    console.log(basePathname, 'basePathname');
+    console.log(query, 'query');
 
     const loginData = {
       loginInput: {

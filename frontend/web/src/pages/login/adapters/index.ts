@@ -1,1 +1,2 @@
-//export * from './example.adapter';
+export * from './login.adapter';
+export * from './reset-pass.adapter';

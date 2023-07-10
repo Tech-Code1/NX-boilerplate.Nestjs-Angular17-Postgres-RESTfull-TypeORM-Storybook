@@ -1,5 +1,5 @@
 import { Token, User } from '@db/entities';
-import { HASH_SALT, NODEMAILER_USER, PASS_GMAIL } from '@environments';
+import { HASH_SALT } from '@environments';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -7,10 +7,10 @@ import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
 import dayjs from 'dayjs';
 import * as jwt from 'jsonwebtoken';
-import * as nodemailer from 'nodemailer';
 import { Repository } from 'typeorm';
 import { BLOCKED_TIME } from '../../../database/src/constants/interfaces.entities';
 import { UsersService } from '../users/users.service';
+import { sendEmail } from '../utils';
 import { ErrorManager } from '../utils/error.manager';
 import { emailRecoverPassHTML } from '../utils/handlebars/recoverPassword';
 import { emailRecoverPassSuccessHTML } from '../utils/handlebars/recoverPasswordSuccess';
@@ -96,7 +96,11 @@ export class AuthService {
     const link = generateResetLink(resetToken, user.id);
     const emailBody = emailRecoverPassHTML(user.username, link);
 
-    await this.sendEmail(
+    if (!link || !emailBody) {
+      throw ErrorManager.createError('Something has gone wrong', 'BAD_REQUEST');
+    }
+
+    await sendEmail(
       {
         to: user.email,
         subject: 'Recover password',
@@ -106,48 +110,9 @@ export class AuthService {
     );
   }
 
-  async sendEmail(
-    emailOptions: {
-      subject: string;
-      htmlBody: string;
-      to: string;
-    },
-    user: User,
-    smtpConfig?: any
-  ): Promise<void> {
-    const config = smtpConfig || {
-      service: 'gmail',
-      auth: {
-        user: NODEMAILER_USER,
-        pass: PASS_GMAIL,
-      },
-    };
-
-    const { htmlBody, subject, to } = emailOptions;
-
-    const mailOptions = {
-      from: NODEMAILER_USER,
-      to,
-      subject,
-      html: htmlBody,
-    };
-
-    const transporter = nodemailer.createTransport(config);
-    await transporter.sendMail(mailOptions, (err) => {
-      if (err) {
-        throw ErrorManager.createError(
-          'The email could not be sent, something unexpected happened',
-          'BAD_REQUEST'
-        );
-      } else {
-        console.log(`Email sent to: ${user.email}`);
-      }
-    });
-  }
-
-  resetPassword = async (userId, token, password) => {
+  changePassword = async (userId, token, password) => {
     const passwordResetToken = await this.tokenRepository.findOneByOrFail({
-      user: userId,
+      user: { id: userId },
     });
 
     if (!passwordResetToken) {
@@ -168,27 +133,25 @@ export class AuthService {
 
     const hash = await bcrypt.hash(password, HASH_SALT);
 
-    await this.userService.updateUser({ id: userId, password: hash }, id);
+    await this.userService.updateUser({ id: userId, password: hash }, userId);
+
+    await this.tokenRepository.remove(passwordResetToken);
 
     const user = await this.userService.findUserById(userId);
     const emailBody = emailRecoverPassSuccessHTML(user.username, password);
 
-    if (!user || emailBody) {
+    if (!user || !emailBody) {
       throw ErrorManager.createError('Something has gone wrong', 'BAD_REQUEST');
     }
 
-    await this.sendEmail(
+    await sendEmail(
       {
         to: user.email,
-        subject: 'Recover password',
+        subject: 'Your password has been successfully changed',
         htmlBody: emailBody,
       },
       user
     );
-
-    await this.tokenRepository.remove(token);
-
-    return true;
   };
 
   public signJWT({

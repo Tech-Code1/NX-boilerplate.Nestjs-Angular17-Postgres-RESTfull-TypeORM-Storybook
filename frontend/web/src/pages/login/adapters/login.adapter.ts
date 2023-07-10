@@ -1,20 +1,6 @@
 import { BaseResponseType } from '../../../models/types';
+import { managerError } from '../../../utilities';
 import { ILoginResponse, IUser } from '../models/types';
-
-const managerError = (resp: BaseResponseType): BaseResponseType | null => {
-  if (!resp?.success) {
-    const { success, code, message, status } = resp;
-
-    return {
-      message,
-      success,
-      code,
-      status,
-    };
-  }
-
-  return null;
-};
 
 export const LoginAdapter = (
   resp: ILoginResponse

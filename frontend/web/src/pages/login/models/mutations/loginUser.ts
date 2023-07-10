@@ -15,8 +15,8 @@ export const LOGIN_USER = `
 `;
 
 export const RESET_PASS = `
-  mutation Password_Reset($email: String!) {
-    Password_Reset(email: $email) {
+  mutation Password_Change($userId: ID!, $token: String!, $password: String!) {
+    Password_Change(userId: $userId, token: $token, password: $password) {
       message
     }
   },
