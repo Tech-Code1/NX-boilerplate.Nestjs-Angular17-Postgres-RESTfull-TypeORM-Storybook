@@ -6,43 +6,36 @@ import { LOGIN_USER } from '../pages/login/models/mutations/loginUser';
 import { Login } from '../pages/login/models/schemas';
 import { ILoginResponse, IUser } from '../pages/login/models/types';
 
-export const useLogin = globalAction$(
-  async (data, { cookie, redirect, locale, params, basePathname, query }) => {
-    const { email, password } = data;
-    console.log(locale, 'locale');
-    console.log(params, 'params');
-    console.log(basePathname, 'basePathname');
-    console.log(query, 'query');
+export const useLogin = globalAction$(async (data, { cookie, redirect }) => {
+  const { email, password } = data;
 
-    const loginData = {
-      loginInput: {
-        email,
-        password,
-      },
-    };
+  const loginData = {
+    loginInput: {
+      email,
+      password,
+    },
+  };
 
-    const response = await axios
-      .post<IUser, ILoginResponse>(BASE_API, {
-        query: LOGIN_USER,
-        variables: loginData,
-      })
-      .then((response) => LoginAdapter(response));
+  const response = await axios
+    .post<IUser, ILoginResponse>(BASE_API, {
+      query: LOGIN_USER,
+      variables: loginData,
+    })
+    .then((response) => LoginAdapter(response));
 
-    if (!response.success) {
-      console.log('response error');
-      redirect(302, '/login');
-      return;
+  if (!response.success) {
+    console.log('response error');
+    redirect(302, '/login');
+    return;
+  }
+
+  if ('token' in response) {
+    console.log('response success');
+    const token = response.token;
+
+    if (token) {
+      cookie.set('TOKEN', token, { secure: true, path: '/' });
+      redirect(302, '/dashboard');
     }
-
-    if ('token' in response) {
-      console.log('response success');
-      const token = response.token;
-
-      if (token) {
-        cookie.set('TOKEN', token, { secure: true, path: '/' });
-        redirect(302, '/dashboard');
-      }
-    }
-  },
-  zod$(Login)
-);
+  }
+}, zod$(Login));
