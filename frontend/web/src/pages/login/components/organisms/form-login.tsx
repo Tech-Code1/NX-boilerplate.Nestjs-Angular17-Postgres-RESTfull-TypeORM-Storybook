@@ -54,7 +54,7 @@ export const FormLogin = component$(() => {
           type="submit"
           disabled={!isFormValid.value}
         >
-          Ingresar
+          Login
         </Button>
       </div>
     </>

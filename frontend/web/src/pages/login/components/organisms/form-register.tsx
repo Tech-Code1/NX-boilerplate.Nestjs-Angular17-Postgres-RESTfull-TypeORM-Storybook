@@ -1,5 +1,4 @@
 import { component$ } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
 import { Button, Input, Title } from '@ui/components';
 import { handleInput } from '../../../../hooks';
 import { useRegister } from '../../hooks/useRegister';
@@ -43,9 +42,6 @@ export const FormRegister = component$(() => {
             onBlur$={() => (passwordTouch.value = true)}
           />
         </div>
-        <Link class="underline" href="/recover">
-          have you forgotten your password ?
-        </Link>
       </div>
       <div class="relative w-full">
         <Button
@@ -54,7 +50,7 @@ export const FormRegister = component$(() => {
           type="submit"
           disabled={!isFormValid.value}
         >
-          Ingresar
+          Sign in
         </Button>
       </div>
     </>

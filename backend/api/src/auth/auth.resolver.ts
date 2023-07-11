@@ -16,7 +16,7 @@ export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
 
   @Mutation(() => AuthResponse, { name: 'Auth_User' })
-  async signin(@Args('authInput') authInput: AuthInput): Promise<AuthResponse> {
+  async signup(@Args('authInput') authInput: AuthInput): Promise<AuthResponse> {
     return this.authService.signup(authInput);
   }
 
@@ -24,8 +24,6 @@ export class AuthResolver {
   async login(
     @Args('loginInput') loginInput: LoginInput
   ): Promise<AuthResponse> {
-    console.log(loginInput, 'login');
-
     return this.authService.login(loginInput);
   }
 

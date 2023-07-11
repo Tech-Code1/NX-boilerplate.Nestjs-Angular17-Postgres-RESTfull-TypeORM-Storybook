@@ -5,7 +5,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
-import { AuthInput } from '../auth/dto/inputs/signup.input';
 import { ErrorManager } from '../utils/error.manager';
 import { UserToProjectArgs } from './dto/args';
 import { CreateUserInput, UpdateUserInput } from './dto/inputs';
@@ -18,14 +17,17 @@ export class UsersService {
     private readonly userProjectRepository: Repository<UsersProjects>
   ) {}
 
-  public async createUser(body: AuthInput): Promise<User> {
+  public async registerUser(registerUser: CreateUserInput): Promise<User> {
+    const { password } = registerUser;
     try {
-      return await this.userRepository.save({
-        ...body,
-        password: bcrypt.hashSync(body.password, HASH_SALT),
+      const newUser = await this.userRepository.create({
+        ...registerUser,
+        password: bcrypt.hashSync(password, HASH_SALT),
       });
+
+      return await this.userRepository.save(newUser);
     } catch (error) {
-      throw ErrorManager.createError(error);
+      throw ErrorManager.createError('Something went wrong', 'BAD_REQUEST');
     }
   }
 

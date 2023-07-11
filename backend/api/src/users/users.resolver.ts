@@ -2,12 +2,16 @@ import { ROLES } from '@db/constants';
 import { User, UsersProjects } from '@db/entities';
 import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { CurrentUser } from '../auth/decorators';
+import { CurrentUser, Public } from '../auth/decorators';
 import { JwtAuthGuard } from '../auth/guards';
 import { IdArgs } from '../common/dto/args/id.args';
 import { BlockArgs, UserToProjectArgs } from './dto/args';
 import { ValidRolesArgs } from './dto/args/roles.arg';
-import { UpdateUserInput, UserToProjectInput } from './dto/inputs';
+import {
+  CreateUserInput,
+  UpdateUserInput,
+  UserToProjectInput,
+} from './dto/inputs';
 import { UsersService } from './users.service';
 
 @Resolver(() => User)
@@ -58,6 +62,17 @@ export class UsersResolver {
     @CurrentUser([ROLES.ADMIN]) user: User
   ): Promise<User> {
     return await this.usersService.findUserById(id);
+  }
+
+  @Public()
+  @Mutation(() => User, {
+    description: 'Register user',
+    name: 'Register_User',
+  })
+  public async registerUser(
+    @Args('registerUser') registerUser: CreateUserInput
+  ): Promise<User> {
+    return await this.usersService.registerUser(registerUser);
   }
 
   @Mutation(() => User, {

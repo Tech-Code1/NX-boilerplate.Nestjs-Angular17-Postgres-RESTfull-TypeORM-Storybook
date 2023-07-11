@@ -32,9 +32,9 @@ export class AuthService {
   ) {}
 
   public async signup(authInput: AuthInput): Promise<AuthResponse> {
-    const user = await this.userService.createUser(authInput);
+    const { email } = authInput;
 
-    await this.userService.findUserByEmail(user.email);
+    const user = await this.userService.findUserByEmail(email);
 
     const token = this.getJwtToken(user.id);
 
