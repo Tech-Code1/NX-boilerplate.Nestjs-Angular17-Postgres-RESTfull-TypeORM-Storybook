@@ -12,7 +12,7 @@ export const useResetPass = () => {
   const repeatPassTouched = useSignal<boolean>(false);
 
   const passwordError = useComputed$((): ErrorsType | '' => {
-    if (formResetPass.password.length < 6) return 'LENGTH_PASSWORD';
+    if (formResetPass.password.length < 6) return 'LENGTH_ERROR';
 
     if (formResetPass.password === '') return 'EMPTY';
 
@@ -20,7 +20,7 @@ export const useResetPass = () => {
   });
 
   const repeatPassError = useComputed$((): ErrorsType | '' => {
-    if (formResetPass.repeatPass.length < 6) return 'LENGTH_PASSWORD';
+    if (formResetPass.repeatPass.length < 6) return 'LENGTH_ERROR';
 
     if (formResetPass.repeatPass === '') return 'EMPTY';
 

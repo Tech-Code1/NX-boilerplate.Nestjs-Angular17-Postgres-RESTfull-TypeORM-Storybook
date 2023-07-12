@@ -6,11 +6,13 @@ import { useRegister } from '../../hooks/useRegister';
 export const FormRegister = component$(() => {
   const {
     formRegister,
-    emailErr,
-    emailTouch,
+    emailError,
+    emailTouched,
     isFormValid,
-    passwordErr,
-    passwordTouch,
+    passwordError,
+    passwordTouched,
+    usernameError,
+    usernameTouched,
   } = useRegister();
   return (
     <>
@@ -18,28 +20,41 @@ export const FormRegister = component$(() => {
       <div class="w-full flex flex-col gap-4">
         <div class="relative">
           <Input
-            value={formRegister.emai}
-            errors={emailTouch.value ? emailErr.value : ''}
+            value={formRegister.email}
+            errors={emailTouched.value ? emailError.value : ''}
             name="email"
             type="text"
             placeholder="Email Address"
             titleLabel="Email Address"
             style="input-primary"
             onInput$={(e) => handleInput(e, formRegister, 'email')}
-            onBlur$={() => (emailTouch.value = true)}
+            onBlur$={() => (emailTouched.value = true)}
           />
         </div>
         <div class="relative">
           <Input
-            value={formRegister.passwor}
-            errors={passwordTouch.value ? passwordErr.value : ''}
+            value={formRegister.username}
+            errors={usernameTouched.value ? usernameError.value : ''}
+            name="username"
+            type="text"
+            placeholder="Enter your username"
+            titleLabel="Username"
+            style="input-primary"
+            onInput$={(e) => handleInput(e, formRegister, 'username')}
+            onBlur$={() => (usernameTouched.value = true)}
+          />
+        </div>
+        <div class="relative">
+          <Input
+            value={formRegister.password}
+            errors={passwordTouched.value ? passwordError.value : ''}
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="Enter your password"
             titleLabel="Password"
             style="input-primary"
             onInput$={(e) => handleInput(e, formRegister, 'password')}
-            onBlur$={() => (passwordTouch.value = true)}
+            onBlur$={() => (passwordTouched.value = true)}
           />
         </div>
       </div>

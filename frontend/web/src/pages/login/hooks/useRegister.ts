@@ -4,41 +4,58 @@ import { Register } from '../models/schemas';
 
 export const useRegister = () => {
   const formRegister = useStore<Register>({
-    emai: '',
-    passwor: '',
+    email: '',
+    username: '',
+    password: '',
   });
 
-  const emailTouch = useSignal<boolean>(false);
-  const passwordTouch = useSignal<boolean>(false);
+  const emailTouched = useSignal<boolean>(false);
+  const usernameTouched = useSignal<boolean>(false);
+  const passwordTouched = useSignal<boolean>(false);
 
-  const emailErr = useComputed$((): ErrorsType | '' => {
-    if (!formRegister.emai.includes('@')) return 'INVALID_EMAIL';
+  const emailError = useComputed$((): ErrorsType | '' => {
+    if (!formRegister.email.includes('@')) return 'INVALID_EMAIL';
 
-    if (formRegister.emai === '') return 'EMPTY';
+    if (formRegister.email === '') return 'EMPTY';
 
     return '';
   });
 
-  const passwordErr = useComputed$((): ErrorsType | '' => {
-    if (formRegister.passwor.length < 6) return 'LENGTH_PASSWORD';
+  const usernameError = useComputed$((): ErrorsType | '' => {
+    if (formRegister.username.length < 3) return 'LENGTH_ERROR';
 
-    if (formRegister.passwor === '') return 'EMPTY';
+    if (formRegister.username === '') return 'EMPTY';
+
+    return '';
+  });
+
+  const passwordError = useComputed$((): ErrorsType | '' => {
+    if (formRegister.password.length < 6) return 'LENGTH_ERROR';
+
+    if (formRegister.password === '') return 'EMPTY';
 
     return '';
   });
 
   const isFormValid = useComputed$(() => {
-    if (emailErr.value !== '' || passwordErr.value !== '') return false;
+    if (
+      emailError.value !== '' ||
+      passwordError.value !== '' ||
+      usernameError.value !== ''
+    )
+      return false;
 
     return true;
   });
 
   return {
     formRegister,
-    emailTouch,
-    passwordTouch,
-    emailErr,
-    passwordErr,
+    emailTouched,
+    passwordTouched,
+    usernameTouched,
+    emailError,
+    passwordError,
     isFormValid,
+    usernameError,
   };
 };

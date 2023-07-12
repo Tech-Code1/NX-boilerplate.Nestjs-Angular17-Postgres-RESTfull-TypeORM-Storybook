@@ -20,7 +20,7 @@ export const useLogin = () => {
   });
 
   const passwordError = useComputed$((): ErrorsType | '' => {
-    if (formLogin.password.length < 6) return 'LENGTH_PASSWORD';
+    if (formLogin.password.length < 6) return 'LENGTH_ERROR';
 
     if (formLogin.password === '') return 'EMPTY';
 

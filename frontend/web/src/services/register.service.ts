@@ -2,7 +2,7 @@ import { globalAction$, zod$ } from '@builder.io/qwik-city';
 import { BASE_API } from '@environments';
 import axios from 'axios';
 import { LoginAdapter } from '../pages/login/adapters/login.adapter';
-import { LOGIN_USER } from '../pages/login/models/mutations/loginUser';
+import { REGISTER_USER } from '../pages/login/models/mutations/loginUser';
 import { Login } from '../pages/login/models/schemas';
 import { ILoginResponse, IUser } from '../pages/login/models/types';
 
@@ -19,7 +19,7 @@ export const useRegisterService = globalAction$(
 
     const response = await axios
       .post<IUser, ILoginResponse>(BASE_API, {
-        query: LOGIN_USER,
+        query: REGISTER_USER,
         variables: loginData,
       })
       .then((response) => LoginAdapter(response));

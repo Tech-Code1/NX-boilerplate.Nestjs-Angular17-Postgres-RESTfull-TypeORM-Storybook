@@ -9,7 +9,7 @@ const getStyles = (styles: string[]) =>
 export enum Code {
   EMPTY = "Input field can't be empty!",
   INVALID_EMAIL = 'Email address is not valid!',
-  LENGTH_PASSWORD = 'Enter a password with more than 6 characters',
+  LENGTH_ERROR = 'The field should have more characters',
   TOO_SMALL = 'The field should have more characters',
   // Add more error types and messages as needed
 }
