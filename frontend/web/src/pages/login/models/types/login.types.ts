@@ -2,7 +2,7 @@ import { ROLES } from '@db/constants';
 import { BaseResponseType } from '../../../../models/types';
 
 export interface IUser extends BaseResponseType {
-  token: string;
+  token?: string;
   id: string;
   email: string;
   username: string;
