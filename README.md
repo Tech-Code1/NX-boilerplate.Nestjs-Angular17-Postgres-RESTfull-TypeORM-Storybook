@@ -77,6 +77,19 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Implementing a secure password reset in Node.js](https://blog.logrocket.com/implementing-secure-password-reset-node-js/)
 - [Nest + GraphQL: Evoluciona tus APIs - Fernando Herrera](https://www.udemy.com/course/nest-graphql/)
 - [Exclude a route from Nest.js AuthGaurd (make any route publicly available) - Danny Pule](https://dev.to/dannypule/exclude-route-from-nest-js-authgaurd-h0)
+- [Nest](https://docs.nestjs.com/)
+- [Introducción a NestJS | Clase 0 | NestJS de 0 a 100 - codrr](https://youtu.be/X-59-aXgFH4)
+- [Primeros pasos | Clase 0 | Curso TypeScript - codrr](https://youtu.be/pwrv5D2bXJM)
+- [Aprendemos sobre la nueva forma de hacer Clean Architecture en Front - Gentleman Programming](https://youtu.be/MAL7a_aXhxE)
+- [Estructuramos en vivo un project de React usando conceptos de Clean Architecture - Gentleman Programming](https://youtu.be/XEcZaKK38fg)
+- [Maneja #ERRORS como un campeón con #AXIOS #INTERCEPTOR - Gentleman Programming](https://youtu.be/axtI0lURwAw)
+- [cz-vinyl](https://github.com/Exlint/cz-vinyl)
+- [pet-vitality-app - Manuel Gil](https://github.com/ManuelGil/pet-vitality-app)
+- [🐾 Cómo crear un monorepo con NestJS y Nx 🐱‍👤 - Manuel Gil](https://www.youtube.com/live/GAz0uW2ag7o?feature=share)
+- [🐾 Cómo usar migration y seeding con TypeORM y NestJS 🐱‍👤 - Manuel Gil](https://www.youtube.com/live/NuHEU1Uw3Vg?feature=share)
+- [qwik-nx](https://github.com/qwikifiers/qwik-nx)
+- [Qwik reaches the v1, so does qwik-nx!](https://dev.to/valorsoftware/qwik-reaches-the-v1-so-does-qwik-nx-3l6e)
+- [nx-quik](https://github.com/claboran/nx-quik)
 
 ## Connect with us!
 
