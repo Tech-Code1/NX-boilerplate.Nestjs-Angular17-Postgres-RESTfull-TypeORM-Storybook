@@ -5,13 +5,13 @@ export interface IPayloadToken {
   role: ROLES[];
 }
 
-export interface IAuthInput {
+export interface IAuth {
   username: string;
   email: string;
   password: string;
 }
 
-export interface ILoginInput {
+export interface ILogin {
   email: string;
   password: string;
 }

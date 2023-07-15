@@ -1,12 +1,11 @@
 import { ROLES } from '@db/constants';
-import { ExecutionContext, createParamDecorator } from '@nestjs/common';
-import { GqlExecutionContext } from '@nestjs/graphql';
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { ErrorManager } from '../../utils/error.manager';
 
 export const CurrentUser = createParamDecorator(
   (roles: ROLES[], context: ExecutionContext) => {
-    const ctx = GqlExecutionContext.create(context);
-    const user = ctx.getContext().req.user;
+    const request = context.switchToHttp().getRequest();
+    const user = request.user;
 
     if (!user) {
       throw ErrorManager.createError(

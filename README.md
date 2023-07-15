@@ -1,4 +1,4 @@
-# Nx boilerplate Qwik/Nest/GraphQL
+# Nx boilerplate Angular16/Nest/RESTfullAPI
 
 ![image_22](https://user-images.githubusercontent.com/10075532/227379966-f688681c-ea72-44e3-afb9-357b4c05178d.png)
 
@@ -68,12 +68,7 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Cómo estructurar tu project de ReactJs? - Gentleman Programming](https://youtu.be/5LqhlCd2_nE)
 - [Instalación de Storybook para React y Atomic Design - Guillermo Rodas](https://youtu.be/zfxP2VvP_Dw)
 - [Storybook](https://storybook.js.org/)
-- [Qwik](https://qwik.builder.io/)
-- [Qwik Component Input Properties](https://youtu.be/WzYiitK2oFc)
-- [Reusable Input Component in React Typescript](https://www.codevertiser.com/reusable-input-component-react/)
-- [Qwik - Introducción al Framework - Fernando Herrera](https://cursos.devtalles.com/courses/take/qwik-introduccion/lessons/45128667-como-funcionara-el-curso)
 - [Catch Type Errors at Runtime with Zod: An Intro to this JavaScript Library](https://youtu.be/evX18f-n4AI)
-- [GraphQL - Postman - Consumir API GraphQL - Anartz Mugica Ledo](https://youtu.be/eJgWbpiSyk4)
 - [Implementing a secure password reset in Node.js](https://blog.logrocket.com/implementing-secure-password-reset-node-js/)
 - [Nest + GraphQL: Evoluciona tus APIs - Fernando Herrera](https://www.udemy.com/course/nest-graphql/)
 - [Exclude a route from Nest.js AuthGaurd (make any route publicly available) - Danny Pule](https://dev.to/dannypule/exclude-route-from-nest-js-authgaurd-h0)
@@ -87,9 +82,6 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [pet-vitality-app - Manuel Gil](https://github.com/ManuelGil/pet-vitality-app)
 - [🐾 Cómo crear un monorepo con NestJS y Nx 🐱‍👤 - Manuel Gil](https://www.youtube.com/live/GAz0uW2ag7o?feature=share)
 - [🐾 Cómo usar migration y seeding con TypeORM y NestJS 🐱‍👤 - Manuel Gil](https://www.youtube.com/live/NuHEU1Uw3Vg?feature=share)
-- [qwik-nx](https://github.com/qwikifiers/qwik-nx)
-- [Qwik reaches the v1, so does qwik-nx!](https://dev.to/valorsoftware/qwik-reaches-the-v1-so-does-qwik-nx-3l6e)
-- [nx-quik](https://github.com/claboran/nx-quik)
 
 ## Connect with us!
 
