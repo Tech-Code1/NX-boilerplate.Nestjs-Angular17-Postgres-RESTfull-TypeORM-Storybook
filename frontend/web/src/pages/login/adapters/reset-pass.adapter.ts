@@ -5,12 +5,11 @@ import { IResetPassResponse } from '../models/types';
 export const ResetPassAdapter = (
   resp: IResetPassResponse
 ): BaseResponseType => {
-  const error = managerError(resp);
-  if (error) {
-    return error;
-  }
-
   const { Password_Change, success, code, status } = resp;
+
+  if (!success) {
+    return managerError(resp);
+  }
 
   return {
     message: Password_Change.message,

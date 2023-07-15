@@ -8,10 +8,7 @@ export const RegisterAdapter = (
   const { Register_User, success, code, status } = resp;
 
   if (!success) {
-    const error = managerError(resp);
-    if (error) {
-      return error;
-    }
+    return managerError(resp);
   }
 
   return {
