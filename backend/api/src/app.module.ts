@@ -1,17 +1,10 @@
-import { configGraphQl, configModule } from '@config';
-import { ApolloDriverConfig } from '@nestjs/apollo';
+import { configModule } from '@config';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { GraphQLModule } from '@nestjs/graphql';
 import { DatabaseModule } from '../../database/src/lib/database.module';
 import { Modules } from './';
 @Module({
-  imports: [
-    ConfigModule.forRoot(configModule),
-    GraphQLModule.forRoot<ApolloDriverConfig>(configGraphQl),
-    ...Modules,
-    DatabaseModule,
-  ],
+  imports: [ConfigModule.forRoot(configModule), ...Modules, DatabaseModule],
   controllers: [],
   providers: [],
 })
