@@ -61,7 +61,17 @@ export const AxiosInterceptor = () => {
       // or return the errors if they exist.
       if (response?.data?.errors) {
         const error = response.data.errors[0];
-        return error;
+
+        const formatResponse = {
+          ...error,
+          status: error.status || 500,
+          success: error.success || false,
+          code: error.code || 'UNKNOWN_ERROR',
+        };
+
+        console.log(formatResponse, 'formatResponse');
+
+        return formatResponse;
       }
     },
     (error) => {

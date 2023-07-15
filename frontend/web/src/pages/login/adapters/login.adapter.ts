@@ -5,12 +5,13 @@ import { ILoginResponse, IUser } from '../models/types';
 export const LoginAdapter = (
   resp: ILoginResponse
 ): IUser | BaseResponseType => {
-  const { login, success, code, status } = resp;
+  const { success, code, status } = resp;
 
   if (!success) {
     return managerError(resp);
   }
 
+  const { login } = resp;
   const { user, token } = login;
 
   return {
