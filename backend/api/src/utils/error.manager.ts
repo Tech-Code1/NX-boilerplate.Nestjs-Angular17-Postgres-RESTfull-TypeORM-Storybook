@@ -1,4 +1,4 @@
-import { HttpStatus } from '@nestjs/common';
+import { HttpException, HttpStatus } from '@nestjs/common';
 import { GraphQLError } from 'graphql';
 import { statusMessages } from '../constants/errors';
 import { errorType } from '../interface/typeErrorCustom';
@@ -75,12 +75,14 @@ export class ErrorManager extends Error {
     // *? Error handling without GraphQL
     //throw new HttpException(message, status);
 
-    throw new GraphQLError(message, {
-      extensions: {
+    throw new HttpException(
+      {
         status,
+        error: message,
         code: code || 'INTERNAL_SERVER_ERROR',
         success,
       },
-    });
+      status
+    );
   }
 }
