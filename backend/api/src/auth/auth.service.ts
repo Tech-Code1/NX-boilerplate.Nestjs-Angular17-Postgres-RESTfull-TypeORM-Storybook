@@ -15,7 +15,7 @@ import { ErrorManager } from '../utils/error.manager';
 import { emailRecoverPassHTML } from '../utils/handlebars/recoverPassword';
 import { emailRecoverPassSuccessHTML } from '../utils/handlebars/recoverPasswordSuccess';
 import { generateResetLink } from '../utils/linkUtils';
-import { AuthInput, LoginInput } from './dto/inputs';
+import { AuthDTO, LoginDTO } from './dto';
 import { AuthResponse } from './types/auth-response.type';
 
 @Injectable()
@@ -31,8 +31,8 @@ export class AuthService {
     private readonly jwtService: JwtService
   ) {}
 
-  public async signup(authInput: AuthInput): Promise<AuthResponse> {
-    const { email } = authInput;
+  public async signup(auth: AuthDTO): Promise<AuthResponse> {
+    const { email } = auth;
 
     const user = await this.userService.findUserByEmail(email);
 
@@ -44,7 +44,7 @@ export class AuthService {
     };
   }
 
-  public async login({ email, password }: LoginInput): Promise<AuthResponse> {
+  public async login({ email, password }: LoginDTO): Promise<AuthResponse> {
     const user = await this.userService.findUserByEmail(email);
 
     if (!bcrypt.compareSync(password, user.password)) {
@@ -72,7 +72,7 @@ export class AuthService {
     }
 
     let resetToken = crypto.randomBytes(32).toString('hex');
-    const hash = await bcrypt.hash(resetToken, HASH_SALT); // 10 is a recommended salt round
+    const hash = await bcrypt.hash(resetToken, HASH_SALT);
 
     token = this.tokenRepository.create({
       user,
