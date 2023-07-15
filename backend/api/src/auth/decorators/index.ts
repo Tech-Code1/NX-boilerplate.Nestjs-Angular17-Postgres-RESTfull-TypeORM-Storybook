@@ -3,3 +3,8 @@ export * from './admin.decorator';
 export * from './current-user.decorator';
 export * from './public.decorator';
 export * from './roles.decorator';
+export * from './swagger/change-pass-doc.decorator';
+export * from './swagger/login-doc.decorator';
+export * from './swagger/reset-pass-doc.decorator';
+export * from './swagger/revalidate-doc.decorator';
+export * from './swagger/signup-doc.decorator';

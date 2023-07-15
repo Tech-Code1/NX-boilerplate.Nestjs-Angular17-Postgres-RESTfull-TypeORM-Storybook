@@ -48,9 +48,10 @@ export class AuthService {
     const user = await this.userService.findUserByEmail(email);
 
     if (!bcrypt.compareSync(password, user.password)) {
-      throw ErrorManager.createError({
-        type: 'NOT_FOUND',
-      });
+      throw ErrorManager.createError(
+        'Your password or email are incorrect',
+        'BAD_REQUEST'
+      );
     }
 
     const token = this.getJwtToken(user.id);

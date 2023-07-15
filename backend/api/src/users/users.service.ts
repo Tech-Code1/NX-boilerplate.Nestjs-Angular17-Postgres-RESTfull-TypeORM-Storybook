@@ -85,7 +85,7 @@ export class UsersService {
     } catch (error) {
       throw ErrorManager.createError(
         {
-          code: '001',
+          code: 'database',
           detail: `${email} not found`,
         },
         'NOT_FOUND'

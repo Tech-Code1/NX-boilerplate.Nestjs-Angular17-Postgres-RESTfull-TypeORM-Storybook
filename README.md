@@ -82,6 +82,10 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [pet-vitality-app - Manuel Gil](https://github.com/ManuelGil/pet-vitality-app)
 - [🐾 Cómo crear un monorepo con NestJS y Nx 🐱‍👤 - Manuel Gil](https://www.youtube.com/live/GAz0uW2ag7o?feature=share)
 - [🐾 Cómo usar migration y seeding con TypeORM y NestJS 🐱‍👤 - Manuel Gil](https://www.youtube.com/live/NuHEU1Uw3Vg?feature=share)
+- [6 consejos para que DISEÑES BIEN tu API REST - Manuel Zapata](https://youtu.be/bUmy7Nvsh4s)
+- [Best Practices in API Design](https://swagger.io/resources/articles/best-practices-in-api-design/)
+- [REST API Best Practices – REST Endpoint Design Examples](https://www.freecodecamp.org/news/rest-api-best-practices-rest-endpoint-design-examples/)
+- [API REST con NODE.js || GUÍA de BUENAS PRÁCTICAS - Carlos Azaustre](https://youtu.be/qFmwRriNJWs)
 
 ## Connect with us!
 
