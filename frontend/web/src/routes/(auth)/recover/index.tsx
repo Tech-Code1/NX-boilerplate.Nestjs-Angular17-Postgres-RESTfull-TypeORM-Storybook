@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { Form, type DocumentHead } from '@builder.io/qwik-city';
 import { FormRecover } from '../../../pages/login/components/organisms';
-import { useRecoverService } from '../../../services';
+import { useRecoverService } from '../../../pages/login/services';
 
 export default component$(() => {
   const action = useRecoverService();

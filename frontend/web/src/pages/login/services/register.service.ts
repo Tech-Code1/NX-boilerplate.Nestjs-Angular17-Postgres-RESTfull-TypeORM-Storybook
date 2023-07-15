@@ -1,10 +1,10 @@
 import { globalAction$, zod$ } from '@builder.io/qwik-city';
 import { BASE_API } from '@environments';
 import axios from 'axios';
-import { RegisterAdapter } from '../pages/login/adapters';
-import { REGISTER_USER } from '../pages/login/models/mutations/loginUser';
-import { Register } from '../pages/login/models/schemas';
-import { IRegisterResponse, IRegisterUser } from '../pages/login/models/types';
+import { RegisterAdapter } from '../adapters';
+import { REGISTER_USER } from '../models/mutations';
+import { Register } from '../models/schemas';
+import { IRegisterResponse, IRegisterUser } from '../models/types';
 
 export const useRegisterService = globalAction$(
   async (data, { cookie, redirect }) => {

@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { Form, type DocumentHead } from '@builder.io/qwik-city';
 import { FormResetPass } from '../../../pages/login/components/organisms';
-import { useResetPass } from '../../../services';
+import { useResetPass } from '../../../pages/login/services';
 
 export default component$(() => {
   const action = useResetPass();

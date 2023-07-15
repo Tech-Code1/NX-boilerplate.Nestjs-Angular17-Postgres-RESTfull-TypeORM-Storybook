@@ -1,10 +1,10 @@
 import { component$ } from '@builder.io/qwik';
 import { Form, type DocumentHead } from '@builder.io/qwik-city';
 import { FormLogin } from '../../../../pages/login/components/organisms/form-login';
-import { useLogin } from '../../../../services/login.service';
+import { useLoginService } from '../../../../pages/login/services';
 
 export default component$(() => {
-  const action = useLogin();
+  const action = useLoginService();
 
   return (
     <>

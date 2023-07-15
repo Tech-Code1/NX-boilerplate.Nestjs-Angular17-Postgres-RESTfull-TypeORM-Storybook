@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { Form, type DocumentHead } from '@builder.io/qwik-city';
 import { FormRegister } from '../../../../pages/login/components/organisms';
-import { useRegisterService } from '../../../../services';
+import { useRegisterService } from '../../../../pages/login/services';
 
 export default component$(() => {
   const action = useRegisterService();

@@ -1,10 +1,10 @@
 import { globalAction$, zod$ } from '@builder.io/qwik-city';
 import { BASE_API } from '@environments';
 import axios from 'axios';
-import { ResetPassAdapter } from '../pages/login/adapters';
-import { RESET_PASS } from '../pages/login/models/mutations/loginUser';
-import { ResetPass } from '../pages/login/models/schemas';
-import { IResetPass, IResetPassResponse } from '../pages/login/models/types';
+import { ResetPassAdapter } from '../adapters';
+import { RESET_PASS } from '../models/mutations';
+import { ResetPass } from '../models/schemas';
+import { IResetPass, IResetPassResponse } from '../models/types';
 
 export const useResetPass = globalAction$(async (data, { redirect, query }) => {
   const { password } = data;
