@@ -6,8 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
 import { ErrorManager } from '../utils/error.manager';
-import { UserToProjectArgs } from './dto/args';
-import { CreateUserInput, UpdateUserInput } from './dto/inputs';
+import { CreateUserDTO, UpdateUserDTO, UserToProjectDTO } from './dto';
 
 @Injectable()
 export class UsersService {
@@ -17,7 +16,7 @@ export class UsersService {
     private readonly userProjectRepository: Repository<UsersProjects>
   ) {}
 
-  public async registerUser(registerUser: CreateUserInput): Promise<User> {
+  public async registerUser(registerUser: CreateUserDTO): Promise<User> {
     const { password } = registerUser;
     try {
       const newUser = await this.userRepository.create({
@@ -111,9 +110,9 @@ export class UsersService {
     }
   }
 
-  public async relationToProject(body: UserToProjectArgs) {
+  public async relationToProject(userToProject: UserToProjectDTO) {
     try {
-      return await this.userProjectRepository.save(body);
+      return await this.userProjectRepository.save(userToProject);
     } catch (error) {
       throw ErrorManager.createError(error);
     }
@@ -123,7 +122,7 @@ export class UsersService {
     key,
     value,
   }: {
-    key: keyof CreateUserInput;
+    key: keyof CreateUserDTO;
     value: any;
   }) {
     try {
@@ -140,13 +139,13 @@ export class UsersService {
   }
 
   public async updateUser(
-    updateUserInput: UpdateUserInput,
+    updateUser: UpdateUserDTO,
     upadateBy: User
   ): Promise<User> {
-    const { id } = updateUserInput;
+    const { id } = updateUser;
     try {
       const user = await this.userRepository.preload({
-        ...updateUserInput,
+        ...updateUser,
         id,
       });
 
