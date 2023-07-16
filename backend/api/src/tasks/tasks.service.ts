@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProjectsService } from '../projects/projects.service';
 import { ErrorManager } from '../utils/error.manager';
-import { CreateTaskInput, IdProject } from './dto/inputs';
+import { CreateTaskDTO } from './dto';
 
 @Injectable()
 export class TasksService {
@@ -14,18 +14,18 @@ export class TasksService {
     private readonly projectService: ProjectsService
   ) {}
 
-  public async createTask(
-    createTaskInput: CreateTaskInput,
-    { id }: IdProject
-  ): Promise<Task> {
+  public async createTask(createTask: CreateTaskDTO): Promise<Task> {
+    const { id } = createTask;
     try {
       const project = await this.projectService.findProjectById(id);
 
       return await this.taskRepository.save({
-        ...createTaskInput,
+        ...createTask,
         project,
       });
     } catch (error) {
+      console.log(error, 'error');
+
       throw ErrorManager.createError(error);
     }
   }

@@ -80,12 +80,14 @@ export class ProjectsService {
       if (!project) {
         throw ErrorManager.createError({
           type: 'BAD_REQUEST',
-          message: 'There is no project with id: ' + id,
+          message: 'The project with the id does not exist: ' + id,
         });
       }
       return project;
     } catch (error) {
-      throw ErrorManager.createError(error.message);
+      console.log(error, 'error project');
+
+      throw ErrorManager.createError(error);
     }
   }
 

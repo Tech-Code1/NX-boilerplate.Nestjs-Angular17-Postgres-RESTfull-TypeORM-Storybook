@@ -1,5 +1,4 @@
-import { HttpStatus } from '@nestjs/common';
-import { GraphQLError } from 'graphql';
+import { HttpException, HttpStatus } from '@nestjs/common';
 import { EntityNotFoundError } from 'typeorm/error/EntityNotFoundError';
 import { IQueryFailedError } from './queryFailedError';
 
@@ -9,5 +8,5 @@ export type errorType =
   | Error
   | IQueryFailedError
   | EntityNotFoundError
-  | GraphQLError
+  | HttpException
   | { type: keyof typeof HttpStatus; additionalProperty: string };

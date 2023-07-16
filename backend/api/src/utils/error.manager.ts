@@ -4,7 +4,7 @@ import { statusMessages } from '../constants/errors';
 import { errorType } from '../interface/typeErrorCustom';
 export class ErrorManager extends Error {
   public static createError(error: errorType, type?: keyof typeof HttpStatus) {
-    let message, status, code;
+    let message, status, code, success;
 
     if (
       typeof error === 'object' &&
@@ -70,10 +70,26 @@ export class ErrorManager extends Error {
     if (!message) {
       message = 'An unexpected error occurred';
     }
-    const success = status >= 200 && status < 300;
 
     // *? Error handling without GraphQL
     //throw new HttpException(message, status);
+
+    if (status) {
+      success = status >= 200 && status < 300;
+    }
+
+    if (error instanceof HttpException) {
+      const errorResponse = error.getResponse() as {
+        status?: number;
+        error?: string;
+        code?: string;
+        success?: boolean;
+      };
+      status = errorResponse.status;
+      message = errorResponse.error;
+      code = errorResponse.code;
+      success = errorResponse.success;
+    }
 
     throw new HttpException(
       {
