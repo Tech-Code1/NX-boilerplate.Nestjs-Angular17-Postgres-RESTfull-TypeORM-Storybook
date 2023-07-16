@@ -2,6 +2,7 @@ import { UsersProjects } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { ErrorManager } from '../utils';
 
 @Injectable()
 export class UsersProjectsService {
@@ -17,9 +18,26 @@ export class UsersProjectsService {
   }
 
   public async findProjectsByUser(userId: string): Promise<UsersProjects[]> {
-    return await this.usersProjectsRepository.find({
+    console.log(userId);
+
+    const result = await this.usersProjectsRepository.find({
       where: { user: { id: userId } },
       relations: ['user', 'project'],
     });
+
+    if (!result) {
+      throw ErrorManager.createError({
+        type: 'BAD_REQUEST',
+      });
+    }
+
+    if (Array.isArray(result) && result.length === 0) {
+      throw ErrorManager.createError(
+        'The user is not found in any project',
+        'NOT_FOUND'
+      );
+    }
+
+    return result;
   }
 }
