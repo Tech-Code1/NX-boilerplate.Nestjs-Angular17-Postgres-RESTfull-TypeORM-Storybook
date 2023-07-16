@@ -10,7 +10,7 @@
     "migrate:revert": "cross-env NODE_ENV=none nx run database:mig-rev",
     "make:seed": "cross-env NODE_ENV=none nx run database:seed",
     "clear:db": "cross-env NODE_ENV=none nx run database:clear",
-    "serve": "cross-env NODE_ENV=develop nx run web:serve",
+    "serve": "cross-env NODE_ENV=develop nx run frontend-app:serve",
     "story": "nx run frontend-ui:storybook"
   },
   "private": true,
@@ -93,7 +93,7 @@
     "@angular/forms": "~16.1.0",
     "@angular/platform-browser": "~16.1.0",
     "@angular/platform-browser-dynamic": "~16.1.0",
-    "@angular/router": "~16.1.0",
+    "@angular/router": "^16.1.0",
     "@apollo/server": "^4.7.3",
     "@nestjs/apollo": "^11.0.6",
     "@nestjs/common": "^9.1.1",
