@@ -44,6 +44,7 @@
     "@schematics/angular": "~16.1.0",
     "@storybook/addon-docs": "^7.0.9",
     "@storybook/addon-essentials": "7.0.24",
+    "@storybook/angular": "7.0.24",
     "@storybook/builder-vite": "^7.0.9",
     "@storybook/core-common": "^7.0.9",
     "@storybook/core-server": "7.0.24",

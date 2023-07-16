@@ -28,7 +28,6 @@
       "@db/entities": ["backend/database/src/lib/entities"],
       "@environments": ["config/constants.ts"],
       "@nx-boilerplate/frontend/ui": ["frontend/ui/src/index.ts"],
-      "@nx-boilerplate/ui": ["ui/src/index.ts"],
       "@ui/components": ["frontend/ui/components"]
     }
   },
