@@ -5,8 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UsersService } from '../users/users.service';
 import { ErrorManager } from '../utils/error.manager';
-import { CreateProjectInput } from './dto/inputs/create-project.input';
-import { ProjectUpdateInput } from './dto/inputs/update-project.input';
+import { CreateProjectDTO, ProjectUpdateDTO } from './dto';
 
 @Injectable()
 export class ProjectsService {
@@ -19,12 +18,12 @@ export class ProjectsService {
   ) {}
 
   public async createProject(
-    createProjectInput: CreateProjectInput,
+    createProject: CreateProjectDTO,
     userId: string
   ): Promise<UsersProjects> {
     try {
       const user = await this.userService.findUserById(userId);
-      const project = await this.projectRepository.save(createProjectInput);
+      const project = await this.projectRepository.save(createProject);
 
       const usersProjects = await this.userProjectRepository.save({
         accesLevel: ACCES_LEVEL.OWNER,
@@ -92,11 +91,11 @@ export class ProjectsService {
   }
 
   public async updateProject(
-    projectUpdateInput: ProjectUpdateInput,
+    projectUpdate: ProjectUpdateDTO,
     id: string
   ): Promise<Project> {
     try {
-      await this.projectRepository.update(id, projectUpdateInput);
+      await this.projectRepository.update(id, projectUpdate);
 
       const updatedProject = await this.projectRepository.findOne({
         where: { id },
