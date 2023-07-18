@@ -4,61 +4,65 @@
   "targets": {},
   "tags": [],
 
-  "build-angular": {
-    "executor": "@nx/angular:package",
-    "outputs": ["{workspaceRoot}/dist/libs/tailwind-preset"],
-    "options": {
-      "project": "libs/tailwind-preset/ng-package.json",
-      "tailwindConfig": "libs/tailwind-preset/tailwind.config.js"
-    },
-    "configurations": {
-      "production": {
-        "tsConfig": "libs/tailwind-preset/tsconfig.lib.prod.json"
+  "targets": {
+    "build-angular": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/libs/tailwind-preset"],
+      "options": {
+        "project": "libs/tailwind-preset/ng-package.json",
+        "tailwindConfig": "libs/tailwind-preset/tailwind.config.js"
       },
-      "development": {
-        "tsConfig": "libs/tailwind-preset/tsconfig.lib.json"
-      }
-    },
-    "defaultConfiguration": "production"
-  },
-  "build-lib": {
-    "executor": "nx:run-commands",
-    "outputs": ["{workspaceRoot}/dist/libs/tailwind-preset"],
-    "configurations": {
-      "production": {
-        "commands": [
-          "nx run tailwind-preset:build-angular:production",
-          "tailwindcss -c libs/tailwind-preset/tailwind.config.js -i ./libs/tailwind-preset/src/styles/my-theme.css -o ./dist/libs/tailwind-preset/themes/my-theme.css -m"
-        ]
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/tailwind-preset/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/tailwind-preset/tsconfig.lib.json"
+        }
       },
-      "development": {
-        "commands": [
-          "nx run tailwind-preset:build-angular:development",
-          "tailwindcss -c libs/tailwind-preset/tailwind.config.js -i ./libs/tailwind-preset/src/styles/my-theme.css -o ./dist/libs/tailwind-preset/themes/my-theme.css"
-        ]
-      }
+      "defaultConfiguration": "production"
     },
-    "defaultConfiguration": "production"
-  },
-  "build": {
-    "executor": "nx:run-commands",
-    "outputs": ["{workspaceRoot}/dist/libs/tailwind-preset"],
-    "configurations": {
-      "production": {
-        "commands": [
-          "rm -rf dist/libs/tailwind-preset",
-          "nx run tailwind-preset:build-lib:production"
-        ],
-        "parallel": false
+
+    "build-lib": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/tailwind-preset"],
+      "configurations": {
+        "production": {
+          "commands": [
+            "nx run tailwind-preset:build-angular:production",
+            "tailwindcss -c libs/tailwind-preset/tailwind.config.js -i ./libs/tailwind-preset/src/styles/my-theme.css -o ./dist/libs/tailwind-preset/themes/my-theme.css -m"
+          ]
+        },
+        "development": {
+          "commands": [
+            "nx run tailwind-preset:build-angular:development",
+            "tailwindcss -c libs/tailwind-preset/tailwind.config.js -i ./libs/tailwind-preset/src/styles/my-theme.css -o ./dist/libs/tailwind-preset/themes/my-theme.css"
+          ]
+        }
       },
-      "development": {
-        "commands": [
-          "rm -rf dist/libs/tailwind-preset",
-          "nx run tailwind-preset:build-lib:development"
-        ],
-        "parallel": false
-      }
+      "defaultConfiguration": "production"
     },
-    "defaultConfiguration": "production"
+
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/tailwind-preset"],
+      "configurations": {
+        "production": {
+          "commands": [
+            "rm -rf dist/libs/tailwind-preset",
+            "nx run tailwind-preset:build-lib:production"
+          ],
+          "parallel": false
+        },
+        "development": {
+          "commands": [
+            "rm -rf dist/libs/tailwind-preset",
+            "nx run tailwind-preset:build-lib:development"
+          ],
+          "parallel": false
+        }
+      },
+      "defaultConfiguration": "production"
+    }
   }
 }
