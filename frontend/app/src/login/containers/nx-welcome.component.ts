@@ -5,8 +5,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
   selector: 'nx-boilerplate-nx-welcome',
   standalone: true,
   imports: [CommonModule],
-  styleUrls: ['./app.component.scss'],
-  templateUrl: './app.component.html',
+  styleUrls: ['../components/login/app.component.scss'],
+  templateUrl: '../components/login/app.component.html',
   encapsulation: ViewEncapsulation.None,
 })
 export class NxWelcomeComponent {}
