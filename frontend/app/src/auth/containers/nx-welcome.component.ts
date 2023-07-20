@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+/* import { CommonModule } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -9,4 +9,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
   templateUrl: '../components/login/app.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class NxWelcomeComponent {}
+export class NxWelcomeComponent {} */
