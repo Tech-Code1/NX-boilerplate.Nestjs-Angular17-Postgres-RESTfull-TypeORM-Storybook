@@ -7,6 +7,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./containers').then((module) => module.LoginModule),
   },
+  { path: '**', redirectTo: '/auth/login' },
 ];
 
 @NgModule({
