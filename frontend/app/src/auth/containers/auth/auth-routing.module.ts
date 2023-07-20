@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./containers').then((module) => module.LoginModule),
+      import('../../components').then((module) => module.FormLoginModule),
   },
   { path: '**', redirectTo: '/auth/login' },
 ];
