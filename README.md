@@ -89,6 +89,8 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Many Tailwind CSS classes doesn´t work on my Angular](https://stackoverflow.com/questions/71384038/many-tailwind-css-classes-doesn%C2%B4t-work-on-my-angular-12-project)
 - [How to Not Get Lost in Your Project](https://blog.bitsrc.io/how-not-get-lost-in-my-project-feature-based-folder-structure-in-angular-16-35091577f30c)
 - [No todo es STANDALONE Component - Jimy Dolores - Domini Code](https://www.youtube.com/live/sQwzR3gvETc?feature=share)
+- [Storybook for Angular tutorial](https://storybook.js.org/tutorials/intro-to-storybook/angular/en/get-started/)
+- [Cómo integrar Storybook en tus proyectos de Angular - Garaje de ideas](https://youtu.be/WHh0FMNFxbY)
 
 ## Connect with us!
 
