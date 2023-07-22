@@ -11,7 +11,6 @@ import { LabelComponent } from '../../../components';
 const meta: Meta<LabelComponent> = {
   title: 'atoms/Label',
   component: LabelComponent,
-  excludeStories: /.*Data$/,
   tags: ['autodocs'],
   render: ({ text = 'label text', ...args }: LabelComponent) => ({
     props: {
