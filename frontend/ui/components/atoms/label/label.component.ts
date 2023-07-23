@@ -1,24 +1,29 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 import { LabelType } from './label.interface';
 
-@Component({
-  selector: 'Label',
-  templateUrl: './label.component.html',
-  styleUrls: ['./label.component.scss'],
+@Directive({
+  standalone: true,
+  selector: '[Label]',
 })
-export class LabelComponent implements LabelType {
-  @Input() text?: string;
-  @Input() label?: string;
-  @Input() style!: 'label-primary' | 'label-secondary' | 'label-tertiary';
+export class LabelDirective implements LabelType {
+  @Input() cssClass!: 'labelPrimary' | 'label-secondary' | 'label-tertiary';
   @Input() for?: string;
+
+  private label = 'text-base';
+  private labelPrimary = 'text-black font-medium';
 
   @HostBinding('class')
   get hostClasses(): string {
-    return ['label', this.style].filter(Boolean).join(' ');
+    return [
+      this.label,
+      this.cssClass === 'labelPrimary' ? this.labelPrimary : '',
+    ]
+      .filter(Boolean)
+      .join(' ');
   }
 
-  @HostBinding('attr.for')
+  /* @HostBinding('attr.for')
   get hostFor(): string | undefined {
     return this.for;
-  }
+  } */
 }
