@@ -91,6 +91,7 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [No todo es STANDALONE Component - Jimy Dolores - Domini Code](https://www.youtube.com/live/sQwzR3gvETc?feature=share)
 - [Storybook for Angular tutorial](https://storybook.js.org/tutorials/intro-to-storybook/angular/en/get-started/)
 - [Cómo integrar Storybook en tus proyectos de Angular - Garaje de ideas](https://youtu.be/WHh0FMNFxbY)
+- [Content Configuration - Tailwindcss](https://tailwindcss.com/docs/content-configuration)
 
 ## Connect with us!
 

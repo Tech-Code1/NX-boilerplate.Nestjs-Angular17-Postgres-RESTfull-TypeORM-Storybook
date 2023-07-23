@@ -9,5 +9,6 @@
     "*.middleware.ts": "nest-middleware",
     "*.decorator.ts": "nest-decorator",
     "*.guard.ts": "nest-guard"
-  }
+  },
+  "angular.enable-strict-mode-prompt": false
 }

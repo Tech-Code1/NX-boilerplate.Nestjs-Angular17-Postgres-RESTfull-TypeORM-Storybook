@@ -1,7 +1,7 @@
 {
   "name": "frontend-ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "frontend/ui/src",
+  "sourceRoot": "frontend/ui",
   "prefix": "nx-boilerplate",
   "tags": [],
   "projectType": "library",
@@ -45,6 +45,7 @@
       "executor": "@storybook/angular:build-storybook",
       "outputs": ["{options.outputDir}"],
       "options": {
+        "styles": ["frontend/ui/styles.scss"],
         "outputDir": "dist/storybook/frontend-ui",
         "configDir": "frontend/ui/.storybook",
         "browserTarget": "frontend-ui:build-storybook",

@@ -1,11 +1,18 @@
-const config = {
+import { StorybookConfig } from '@storybook/angular';
+
+const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    // '@storybook/addon-interactions',
-    // Add any Storybook addons you want here: https://storybook.js.org/addons/
-    // Add css-loader, style-loader, postcss-loader
+    {
+      name: '@storybook/addon-styling',
+      options: {
+        // Check out https://github.com/storybookjs/addon-styling/blob/main/docs/api.md
+        // For more details on this addon's options.
+        postCss: true,
+      },
+    },
   ],
   framework: {
     name: '@storybook/angular',
@@ -14,6 +21,7 @@ const config = {
   docs: {
     autodocs: 'tag',
   },
+  // staticDirs: ['../public'],
 };
 
 export default config;
