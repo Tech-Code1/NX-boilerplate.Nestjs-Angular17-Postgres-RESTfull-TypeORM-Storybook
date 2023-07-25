@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/angular';
+import { Meta, StoryObj } from '@storybook/angular';
 //import { action } from '@storybook/addon-actions';
-import { LabelDirective } from '../../../components';
+import { LabelComponent } from '../../../components';
 
 // ? for events emitters
 /* export const actionsData = {
@@ -8,18 +8,18 @@ import { LabelDirective } from '../../../components';
   onArchiveTask: action('onArchiveTask'),
 }; */
 
-const meta: Meta<LabelDirective> = {
+const meta: Meta<LabelComponent> = {
   title: 'atoms/Label',
-  component: LabelDirective,
+  component: LabelComponent,
   tags: ['autodocs'],
 };
 export default meta;
 
-//type Story = StoryObj<LabelDirective>;
+type Story = StoryObj<LabelComponent>;
 
-export const Primary: Story<LabelDirective> = () => ({
-  moduleMetadata: {
-    imports: [LabelDirective],
+export const Primary: Story = {
+  args: {
+    css: 'label-primary',
+    text: 'Label Text',
   },
-  template: `<label Label cssClass="labelPrimary">Example label</label>`,
-});
+};

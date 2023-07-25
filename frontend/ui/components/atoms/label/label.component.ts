@@ -1,29 +1,23 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation,
+} from '@angular/core';
 import { LabelType } from './label.interface';
 
-@Directive({
+@Component({
   standalone: true,
-  selector: '[Label]',
+  selector: 'Label',
+  imports: [CommonModule],
+  templateUrl: './label.component.html',
+  styleUrls: ['./label.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LabelDirective implements LabelType {
-  @Input() cssClass!: 'labelPrimary' | 'label-secondary' | 'label-tertiary';
+export class LabelComponent implements LabelType {
+  @Input() text?: string | undefined;
+  @Input() css!: 'label-primary' | 'label-secondary' | 'label-tertiary';
   @Input() for?: string;
-
-  private label = 'text-base';
-  private labelPrimary = 'text-black font-medium';
-
-  @HostBinding('class')
-  get hostClasses(): string {
-    return [
-      this.label,
-      this.cssClass === 'labelPrimary' ? this.labelPrimary : '',
-    ]
-      .filter(Boolean)
-      .join(' ');
-  }
-
-  /* @HostBinding('attr.for')
-  get hostFor(): string | undefined {
-    return this.for;
-  } */
 }

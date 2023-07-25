@@ -1,3 +1,8 @@
-<label>
+<label
+  [ngClass]="{
+    'text-base': true,
+    'label-primary': css === 'label-primary'
+  }"
+>
   {{ text }}
 </label>
