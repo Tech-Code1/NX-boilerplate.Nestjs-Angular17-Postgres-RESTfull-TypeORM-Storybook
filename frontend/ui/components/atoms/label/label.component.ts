@@ -17,7 +17,6 @@ import { LabelType } from './label.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LabelComponent implements LabelType {
-  @Input() text?: string | undefined;
   @Input() css!: 'label-primary' | 'label-secondary' | 'label-tertiary';
   @Input() for?: string;
 }

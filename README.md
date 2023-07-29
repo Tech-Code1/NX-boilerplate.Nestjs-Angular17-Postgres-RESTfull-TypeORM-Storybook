@@ -92,6 +92,9 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Storybook for Angular tutorial](https://storybook.js.org/tutorials/intro-to-storybook/angular/en/get-started/)
 - [Cómo integrar Storybook en tus proyectos de Angular - Garaje de ideas](https://youtu.be/WHh0FMNFxbY)
 - [Content Configuration - Tailwindcss](https://tailwindcss.com/docs/content-configuration)
+- [Creating an Angular app in minutes with Cypress, StoryBook, Tailwind CSS and Nx](https://medium.com/ngconf/creating-an-angular-app-in-minutes-with-cypress-storybook-tailwind-css-and-nx-2105fb22f3e1)
+- [Manipulate Angular components with content projection in Storybook](https://tsvetan.dev/blog/article/render-angular-components-with-ng-content-in-storybook/)
+- [Component Story Format 3.0](https://storybook.js.org/blog/component-story-format-3-0/)
 
 ## Connect with us!
 
