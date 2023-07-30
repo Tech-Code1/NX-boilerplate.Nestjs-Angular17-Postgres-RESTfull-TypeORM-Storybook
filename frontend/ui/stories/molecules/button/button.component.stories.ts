@@ -1,48 +1,48 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 //import { action } from '@storybook/addon-actions';
-import { ButtonComponent } from '../../../components';
+import { CommonModule } from '@angular/common';
+import { ButtonComponent, TitleComponent } from '../../../components';
 
-type StoryType = ButtonComponent & { text?: string };
+type StoryTitle = TitleComponent & { text: string };
+type Story = StoryObj<ButtonComponent & { title: StoryTitle }>;
+type StoryComponent = ButtonComponent & { title: StoryTitle };
 
-const meta: Meta<StoryType> = {
+const meta: Meta<StoryComponent> = {
   title: 'Components/Molecules/Button',
   component: ButtonComponent,
-  render: (args) => {
-    const { text, ...props } = args;
+  //👇 Import both components to allow component compositing with Storybook
+  decorators: [
+    moduleMetadata({
+      declarations: [ButtonComponent, TitleComponent],
+      imports: [CommonModule],
+    }),
+    //👇 Wrap our stories with a decorator (optional)
+    // componentWrapperDecorator(story => `<div style="margin: 3em">${story}</div>`),
+  ],
+  render: (args: StoryComponent) => {
+    const { title, ...buttonProps } = args;
+    const { text, ...titleProps } = title;
+
     return {
-      props,
+      props: { buttonProps, titleProps },
       template: `
-        <Button [css]="css">
-          ${text}
-        </Button>
+      <Button [css]="buttonProps.css">
+      <c-title [css]="titleProps.css" [color]="titleProps.color">${text}</c-title>
+    </Button>
       `,
     };
-  },
-  argTypes: {
-    css: {
-      type: 'string',
-    },
-    text: {
-      type: 'string',
-    },
-    type: {
-      type: 'string',
-    },
-  },
-  args: {
-    css: 'button-primary' || 'button-secondary' || 'button-tertiary',
-    text: '',
-    type: 'button' || 'reset' || 'submit',
   },
   tags: ['autodocs'],
 };
 export default meta;
 
-type Story = StoryObj<StoryType>;
-
-export const Primary: Story = {
+export const PrimaryButton: Story = {
   args: {
     css: 'button-primary',
-    text: 'Button Text',
+    title: {
+      css: 'title-base',
+      color: 't-white',
+      text: 'Text button',
+    },
   },
 };
