@@ -1,19 +1,20 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import { LabelComponent } from '../../../components';
+//import { action } from '@storybook/addon-actions';
+import { ButtonComponent } from '../../../components';
 
-type StoryType = LabelComponent & { text?: string };
+type StoryType = ButtonComponent & { text?: string };
 
 const meta: Meta<StoryType> = {
-  title: 'Components/Atoms/Label',
-  component: LabelComponent,
+  title: 'Components/Molecules/Button',
+  component: ButtonComponent,
   render: (args) => {
     const { text, ...props } = args;
     return {
       props,
       template: `
-        <Label [css]="css">
+        <Button [css]="css">
           ${text}
-        </Label>
+        </Button>
       `,
     };
   },
@@ -24,14 +25,14 @@ const meta: Meta<StoryType> = {
     text: {
       type: 'string',
     },
-    for: {
+    type: {
       type: 'string',
     },
   },
   args: {
-    css: 'label-primary' || 'label-secondary' || 'label-tertiary',
+    css: 'button-primary' || 'button-secondary' || 'button-tertiary',
     text: '',
-    for: '',
+    type: 'button' || 'reset' || 'submit',
   },
   tags: ['autodocs'],
 };
@@ -41,7 +42,7 @@ type Story = StoryObj<StoryType>;
 
 export const Primary: Story = {
   args: {
-    css: 'label-primary',
-    text: 'Label Text',
+    css: 'button-primary',
+    text: 'Button Text',
   },
 };

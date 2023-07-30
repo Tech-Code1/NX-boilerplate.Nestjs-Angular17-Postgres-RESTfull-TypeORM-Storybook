@@ -1,0 +1,14 @@
+<button
+  [ngClass]="{
+    button: true,
+    'button-primary': css === 'button-primary',
+    'button-secondary': css === 'button-secondary',
+    'button-tertiary': css === 'button-tertiary',
+    'bg-slate-400': disabled
+  }"
+  [type]="type"
+  [class]="css"
+  [disabled]="disabled"
+>
+  <ng-content></ng-content>
+</button>

@@ -2,14 +2,14 @@ module.exports = {
   theme: {
     colors: {
       primary: {
-        light: '#5eead4',
-        DEFAULT: '#14b8a6',
-        dark: '#0f766e',
+        light: '#ac7ff4',
+        //DEFAULT: '#14b8a6',
+        dark: '#713fc2',
       },
       secondary: {
-        light: '#bae6fd',
-        DEFAULT: '#0ea5e9',
-        dark: '#0369a1',
+        light: '#18b6f6',
+        //DEFAULT: '#0ea5e9',
+        dark: '#006ce9',
       },
       white: '#ffffff',
       black: '#000000',
