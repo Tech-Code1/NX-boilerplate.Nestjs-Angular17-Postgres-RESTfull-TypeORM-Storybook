@@ -1,0 +1,14 @@
+<p
+  [ngClass]="{
+    title: true,
+    'title-xs': css === 'title-xs',
+    'title-sm': css === 'title-sm',
+    'title-base': css === 'title-base',
+    'title-xl': css === 'title-xl',
+    'title-2xl': css === 'title-2xl',
+    't-white': color === 't-white',
+    't-black': color === 't-black'
+  }"
+>
+  <ng-content></ng-content>
+</p>
