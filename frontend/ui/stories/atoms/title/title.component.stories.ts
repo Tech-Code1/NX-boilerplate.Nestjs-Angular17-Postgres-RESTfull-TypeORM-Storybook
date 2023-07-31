@@ -42,7 +42,6 @@ const meta: Meta<StoryType> = {
     color: 't-black',
     text: 'Title Text',
   },
-  tags: ['autodocs'],
 };
 export default meta;
 

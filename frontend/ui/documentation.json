@@ -1,0 +1,661 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-81c0146152848dc8b5c73ad1a26f81f8a1cd646d42a97dbe159bee556e1cfe2d15db464e2e9be173854497ab9408d32a94eb6bbfb8251c99c3b28b3a19b61f8b",
+            "file": "frontend/ui/components/molecules/button/button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.Emulated"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "Button",
+            "styleUrls": [
+                "./button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "css",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "\"button-primary\" | \"button-secondary\" | \"button-tertiary\"",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "\"button\" | \"submit\" | \"reset\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { ButtonType } from './button.interface';\n\n@Component({\n  standalone: true,\n  selector: 'Button',\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n  encapsulation: ViewEncapsulation.Emulated,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonComponent implements ButtonType {\n  @Input() type: 'button' | 'submit' | 'reset' = 'button';\n  @Input() disabled = false;\n  @Input() css!: 'button-primary' | 'button-secondary' | 'button-tertiary';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".button {\r\n  @apply outline-none rounded w-auto px-4;\r\n}\r\n\r\n.button-primary {\r\n  @apply bg-purple-500 text-white w-full hover:bg-purple-700 transition-all h-9;\r\n}\r\n\r\n.button-secondary {\r\n}\r\n\r\n.button-tertiary {\r\n}\r\n",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "ButtonType"
+            ],
+            "templateData": "<button\n  [ngClass]=\"{\n    button: true,\n    'button-primary': css === 'button-primary' && !disabled,\n    'button-secondary': css === 'button-secondary',\n    'button-tertiary': css === 'button-tertiary',\n    'bg-slate-400 text-white w-full transition-all h-9': disabled\n  }\"\n  [type]=\"type\"\n  [class]=\"css\"\n  [disabled]=\"disabled\"\n>\n  <ng-content></ng-content>\n</button>\n"
+        },
+        {
+            "name": "LabelComponent",
+            "id": "component-LabelComponent-6ad37ac8c0f6b99e11c865334b1164fd1ac6afdd954beb3bed44b1fe8be71eeed1df33ee7196a214a72eec7f4e9101a7d089ea22912c9845124169fb82eedcd0",
+            "file": "frontend/ui/components/atoms/label/label.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.Emulated"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "Label",
+            "styleUrls": [
+                "./label.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./label.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "css",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "\"label-primary\" | \"label-secondary\" | \"label-tertiary\"",
+                    "decorators": []
+                },
+                {
+                    "name": "for",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { LabelType } from './label.interface';\n\n@Component({\n  standalone: true,\n  selector: 'Label',\n  imports: [CommonModule],\n  templateUrl: './label.component.html',\n  styleUrls: ['./label.component.scss'],\n  encapsulation: ViewEncapsulation.Emulated,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LabelComponent implements LabelType {\n  @Input() css!: 'label-primary' | 'label-secondary' | 'label-tertiary';\n  @Input() for?: string;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".label {\r\n  @apply text-base;\r\n}\r\n\r\n.label-primary {\r\n  @apply text-black font-medium;\r\n}\r\n",
+                    "styleUrl": "./label.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "LabelType"
+            ],
+            "templateData": "<label\n  [ngClass]=\"{\n    'text-base': true,\n    'label-primary': css === 'label-primary'\n  }\"\n>\n  <ng-content></ng-content>\n</label>\n"
+        },
+        {
+            "name": "TitleComponent",
+            "id": "component-TitleComponent-54617e5ecd2cddd155bb502a8decf975944327c705a885e0cd47698c8a56e8790850981be603005e1f5e5fea5ce7061e8babc6ae5a3cf2d5e7f7b29540d8a069",
+            "file": "frontend/ui/components/atoms/title/title.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.Emulated"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "c-title",
+            "styleUrls": [
+                "./title.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./title.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "\"t-white\" | \"t-black\"",
+                    "decorators": []
+                },
+                {
+                    "name": "css",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "\"title-xs\" | \"title-sm\" | \"title-base\" | \"title-xl\" | \"title-2xl\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { TitleType } from './title.interface';\n\n@Component({\n  standalone: true,\n  selector: 'c-title',\n  imports: [CommonModule],\n  templateUrl: './title.component.html',\n  styleUrls: ['./title.component.scss'],\n  encapsulation: ViewEncapsulation.Emulated,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class TitleComponent implements TitleType {\n  @Input() css!:\n    | 'title-xs'\n    | 'title-sm'\n    | 'title-base'\n    | 'title-xl'\n    | 'title-2xl';\n\n  @Input() color!: 't-white' | 't-black';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".title {\r\n  @apply font-bold;\r\n}\r\n\r\n.title-xs {\r\n  @apply text-xs;\r\n}\r\n\r\n.title-sm {\r\n  @apply text-sm;\r\n}\r\n\r\n.title-base {\r\n  @apply text-base;\r\n}\r\n\r\n.title-lg {\r\n  @apply text-lg;\r\n}\r\n\r\n.title-xl {\r\n  @apply text-xl;\r\n}\r\n\r\n.title-2xl {\r\n  @apply text-2xl;\r\n}\r\n\r\n.t-white {\r\n  @apply text-white dark:text-black;\r\n}\r\n\r\n.t-black {\r\n  @apply text-black dark:text-white;\r\n}\r\n",
+                    "styleUrl": "./title.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "TitleType"
+            ],
+            "templateData": "<p\n  [ngClass]=\"{\n    title: true,\n    'title-xs': css === 'title-xs',\n    'title-sm': css === 'title-sm',\n    'title-base': css === 'title-base',\n    'title-xl': css === 'title-xl',\n    'title-2xl': css === 'title-2xl',\n    't-white': color === 't-white',\n    't-black': color === 't-black'\n  }\"\n>\n  <ng-content></ng-content>\n</p>\n"
+        }
+    ],
+    "modules": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "config",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/.storybook/main.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StorybookConfig",
+                "defaultValue": "{\n  stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    {\n      name: '@storybook/addon-styling',\n      options: {\n        // Check out https://github.com/storybookjs/addon-styling/blob/main/docs/api.md\n        // For more details on this addon's options.\n        /* postCss: {\n          implementation: require.resolve('postcss'),\n        }, */\n      }, // * no options for Angular,\n    },\n  ],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n  // staticDirs: ['../public'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<StoryType>",
+                "defaultValue": "{\n  title: 'Components/Atoms/Label',\n  component: LabelComponent,\n  render: (args) => {\n    const { text, ...props } = args;\n    return {\n      props,\n      template: `\n        <Label [css]=\"css\">\n          ${text}\n        </Label>\n      `,\n    };\n  },\n  argTypes: {\n    css: {\n      type: 'string',\n    },\n    text: {\n      type: 'string',\n    },\n    for: {\n      type: 'string',\n    },\n  },\n  args: {\n    css: 'label-primary' || 'label-secondary' || 'label-tertiary',\n    text: '',\n    for: '',\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<StoryType>",
+                "defaultValue": "{\n  title: 'Components/Atoms/Title',\n  component: TitleComponent,\n  render: (args) => {\n    const { text, ...props } = args;\n    return {\n      props,\n      template: `\n        <c-title [css]=\"css\" [color]=\"color\">\n          ${text}\n        </c-title>\n      `,\n    };\n  },\n  argTypes: {\n    css: {\n      control: {\n        type: 'select',\n        options: [\n          'title-xs',\n          'title-sm',\n          'title-base',\n          'title-xl',\n          'title-2xl',\n        ],\n      },\n    },\n    color: {\n      control: { type: 'radio', options: ['t-white', 't-black'] },\n    },\n    text: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    css: 'title-xs',\n    color: 't-black',\n    text: 'Title Text',\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<StoryComponent>",
+                "defaultValue": "{\n  title: 'Components/Molecules/Button',\n  component: ButtonComponent,\n  //👇 Import both components to allow component compositing with Storybook\n  decorators: [\n    moduleMetadata({\n      declarations: [ButtonComponent, TitleComponent],\n      imports: [CommonModule],\n    }),\n    //👇 Wrap our stories with a decorator (optional)\n    // componentWrapperDecorator(story => `<div style=\"margin: 3em\">${story}</div>`),\n  ],\n  argTypes: {\n    css: {\n      options: ['button-primary', 'button-secondary', 'button-tertiary'],\n      control: { type: 'select' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'radio' },\n    },\n    type: {\n      options: ['button', 'reset', 'submit'],\n      control: { type: 'radio' },\n    },\n    title: {\n      css: {\n        options: [\n          'title-xs',\n          'title-sm',\n          'title-base',\n          'title-xl',\n          'title-2xl',\n        ],\n        control: { type: 'select' },\n      },\n    },\n  },\n  render: (args: StoryComponent) => {\n    const { title, ...buttonProps } = args;\n    const { text, ...titleProps } = title;\n\n    return {\n      props: { buttonProps, titleProps },\n      template: `\n      <Button [css]=\"buttonProps.css\" [disabled]=\"buttonProps.disabled\" [type]=\"buttonProps.type\">\n      <c-title [css]=\"titleProps.css\" [color]=\"titleProps.color\">${text}</c-title>\n    </Button>\n      `,\n    };\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    css: 'label-primary',\n    text: 'Label Text',\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    color: 't-black',\n    css: 'title-2xl',\n    text: 'Title Text',\n  },\n}"
+            },
+            {
+                "name": "PrimaryButton",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    css: 'button-primary',\n    title: {\n      css: 'title-base',\n      color: 't-white',\n      text: 'Text button',\n    },\n  },\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<StoryType>",
+                "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<StoryType>",
+                "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<>",
+                "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "StoryComponent",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 190
+            },
+            {
+                "name": "StoryTitle",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 190
+            },
+            {
+                "name": "StoryType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 190
+            },
+            {
+                "name": "StoryType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 190
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "frontend/ui/.storybook/main.ts": [
+                {
+                    "name": "config",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/.storybook/main.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StorybookConfig",
+                    "defaultValue": "{\n  stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    {\n      name: '@storybook/addon-styling',\n      options: {\n        // Check out https://github.com/storybookjs/addon-styling/blob/main/docs/api.md\n        // For more details on this addon's options.\n        /* postCss: {\n          implementation: require.resolve('postcss'),\n        }, */\n      }, // * no options for Angular,\n    },\n  ],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n  // staticDirs: ['../public'],\n}"
+                }
+            ],
+            "frontend/ui/stories/atoms/label/label.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<StoryType>",
+                    "defaultValue": "{\n  title: 'Components/Atoms/Label',\n  component: LabelComponent,\n  render: (args) => {\n    const { text, ...props } = args;\n    return {\n      props,\n      template: `\n        <Label [css]=\"css\">\n          ${text}\n        </Label>\n      `,\n    };\n  },\n  argTypes: {\n    css: {\n      type: 'string',\n    },\n    text: {\n      type: 'string',\n    },\n    for: {\n      type: 'string',\n    },\n  },\n  args: {\n    css: 'label-primary' || 'label-secondary' || 'label-tertiary',\n    text: '',\n    for: '',\n  },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    css: 'label-primary',\n    text: 'Label Text',\n  },\n}"
+                }
+            ],
+            "frontend/ui/stories/atoms/title/title.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<StoryType>",
+                    "defaultValue": "{\n  title: 'Components/Atoms/Title',\n  component: TitleComponent,\n  render: (args) => {\n    const { text, ...props } = args;\n    return {\n      props,\n      template: `\n        <c-title [css]=\"css\" [color]=\"color\">\n          ${text}\n        </c-title>\n      `,\n    };\n  },\n  argTypes: {\n    css: {\n      control: {\n        type: 'select',\n        options: [\n          'title-xs',\n          'title-sm',\n          'title-base',\n          'title-xl',\n          'title-2xl',\n        ],\n      },\n    },\n    color: {\n      control: { type: 'radio', options: ['t-white', 't-black'] },\n    },\n    text: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    css: 'title-xs',\n    color: 't-black',\n    text: 'Title Text',\n  },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    color: 't-black',\n    css: 'title-2xl',\n    text: 'Title Text',\n  },\n}"
+                }
+            ],
+            "frontend/ui/stories/molecules/button/button.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<StoryComponent>",
+                    "defaultValue": "{\n  title: 'Components/Molecules/Button',\n  component: ButtonComponent,\n  //👇 Import both components to allow component compositing with Storybook\n  decorators: [\n    moduleMetadata({\n      declarations: [ButtonComponent, TitleComponent],\n      imports: [CommonModule],\n    }),\n    //👇 Wrap our stories with a decorator (optional)\n    // componentWrapperDecorator(story => `<div style=\"margin: 3em\">${story}</div>`),\n  ],\n  argTypes: {\n    css: {\n      options: ['button-primary', 'button-secondary', 'button-tertiary'],\n      control: { type: 'select' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'radio' },\n    },\n    type: {\n      options: ['button', 'reset', 'submit'],\n      control: { type: 'radio' },\n    },\n    title: {\n      css: {\n        options: [\n          'title-xs',\n          'title-sm',\n          'title-base',\n          'title-xl',\n          'title-2xl',\n        ],\n        control: { type: 'select' },\n      },\n    },\n  },\n  render: (args: StoryComponent) => {\n    const { title, ...buttonProps } = args;\n    const { text, ...titleProps } = title;\n\n    return {\n      props: { buttonProps, titleProps },\n      template: `\n      <Button [css]=\"buttonProps.css\" [disabled]=\"buttonProps.disabled\" [type]=\"buttonProps.type\">\n      <c-title [css]=\"titleProps.css\" [color]=\"titleProps.color\">${text}</c-title>\n    </Button>\n      `,\n    };\n  },\n}"
+                },
+                {
+                    "name": "PrimaryButton",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    css: 'button-primary',\n    title: {\n      css: 'title-base',\n      color: 't-white',\n      text: 'Text button',\n    },\n  },\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "frontend/ui/stories/atoms/label/label.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<StoryType>",
+                    "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                },
+                {
+                    "name": "StoryType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 190
+                }
+            ],
+            "frontend/ui/stories/atoms/title/title.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<StoryType>",
+                    "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                },
+                {
+                    "name": "StoryType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 190
+                }
+            ],
+            "frontend/ui/stories/molecules/button/button.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<>",
+                    "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                },
+                {
+                    "name": "StoryComponent",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 190
+                },
+                {
+                    "name": "StoryTitle",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 190
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "frontend/ui/.storybook/main.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "config",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/components/atoms/label/label.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LabelComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/components/atoms/title/title.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TitleComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/components/molecules/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PrimaryButton",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

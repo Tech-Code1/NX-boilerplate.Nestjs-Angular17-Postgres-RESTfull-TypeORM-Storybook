@@ -19,6 +19,20 @@ const meta: Meta<StoryComponent> = {
     //👇 Wrap our stories with a decorator (optional)
     // componentWrapperDecorator(story => `<div style="margin: 3em">${story}</div>`),
   ],
+  argTypes: {
+    css: {
+      options: ['button-primary', 'button-secondary', 'button-tertiary'],
+      control: { type: 'select' },
+    },
+    disabled: {
+      options: [true, false],
+      control: { type: 'radio' },
+    },
+    type: {
+      options: ['button', 'reset', 'submit'],
+      control: { type: 'radio' },
+    },
+  },
   render: (args: StoryComponent) => {
     const { title, ...buttonProps } = args;
     const { text, ...titleProps } = title;
@@ -26,13 +40,12 @@ const meta: Meta<StoryComponent> = {
     return {
       props: { buttonProps, titleProps },
       template: `
-      <Button [css]="buttonProps.css">
+      <Button [css]="buttonProps.css" [disabled]="buttonProps.disabled" [type]="buttonProps.type">
       <c-title [css]="titleProps.css" [color]="titleProps.color">${text}</c-title>
     </Button>
       `,
     };
   },
-  tags: ['autodocs'],
 };
 export default meta;
 

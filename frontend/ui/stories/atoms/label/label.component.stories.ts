@@ -33,7 +33,6 @@ const meta: Meta<StoryType> = {
     text: '',
     for: '',
   },
-  tags: ['autodocs'],
 };
 export default meta;
 

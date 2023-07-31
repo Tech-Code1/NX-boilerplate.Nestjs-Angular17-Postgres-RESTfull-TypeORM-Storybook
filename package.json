@@ -11,7 +11,8 @@
     "make:seed": "cross-env NODE_ENV=none nx run database:seed",
     "clear:db": "cross-env NODE_ENV=none nx run database:clear",
     "serve": "cross-env NODE_ENV=develop nx run frontend-app:serve",
-    "story": "nx run frontend-ui:storybook"
+    "story": "nx run frontend-ui:storybook",
+    "story:build": "nx run frontend-ui:build-storybook"
   },
   "private": true,
   "devDependencies": {
@@ -24,6 +25,7 @@
     "@angular/cli": "~16.1.0",
     "@angular/compiler-cli": "~16.1.0",
     "@angular/language-service": "~16.1.0",
+    "@compodoc/compodoc": "^1.1.21",
     "@nestjs/schematics": "^9.1.0",
     "@nestjs/testing": "^9.1.1",
     "@nrwl/nest": "16.5.2",
