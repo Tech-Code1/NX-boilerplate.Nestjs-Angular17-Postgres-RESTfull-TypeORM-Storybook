@@ -1,0 +1,15 @@
+.content-input {
+  @apply flex flex-col gap-1 w-auto;
+}
+
+.input {
+  @apply outline-none rounded w-auto px-4;
+}
+
+.error {
+  @apply border-red-500 text-red-400;
+}
+
+.input-primary {
+  @apply focus:placeholder-transparent placeholder-gray-200 h-10 w-full border-b-2 text-gray-600 focus:outline-none focus:border-purple-400 transition-all;
+}

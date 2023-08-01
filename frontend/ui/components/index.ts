@@ -5,3 +5,5 @@ export * from './atoms/title/title.component';
 export * from './atoms/title/title.interface';
 export * from './molecules/button/button.component';
 export * from './molecules/button/button.interface';
+export * from './molecules/input/input.component';
+export * from './molecules/input/input.interface';

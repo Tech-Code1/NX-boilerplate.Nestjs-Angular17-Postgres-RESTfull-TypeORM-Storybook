@@ -89,6 +89,324 @@
             "templateData": "<button\n  [ngClass]=\"{\n    button: true,\n    'button-primary': css === 'button-primary' && !disabled,\n    'button-secondary': css === 'button-secondary',\n    'button-tertiary': css === 'button-tertiary',\n    'bg-slate-400 text-white w-full transition-all h-9': disabled\n  }\"\n  [type]=\"type\"\n  [class]=\"css\"\n  [disabled]=\"disabled\"\n>\n  <ng-content></ng-content>\n</button>\n"
         },
         {
+            "name": "InputComponent",
+            "id": "component-InputComponent-fc1fec80bdb9436cad8689398ad91f71e60a0e3574531a7c983c5d777bb881fd204a67a8ef7d37a58f198e4e8aa7d2391c0de124f1e0da1f6726a41714b0a2b9",
+            "file": "frontend/ui/components/molecules/input/input.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.Emulated"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => InputComponent), multi: true,\n}",
+                    "type": "component"
+                }
+            ],
+            "selector": "c-input",
+            "styleUrls": [
+                "./input.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "css",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 47,
+                    "type": "\"input-primary\" | \"input-secondary\" | \"input-tertiary\"",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 59,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "errors",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 62,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 56,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 50,
+                    "type": "\"number\" | \"text\" | \"email\" | \"password\"",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 53,
+                    "type": "string | number | undefined",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "destroyRef",
+                    "defaultValue": "inject(DestroyRef)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DestroyRef",
+                    "optional": false,
+                    "description": "",
+                    "line": 65
+                },
+                {
+                    "name": "formControl",
+                    "defaultValue": "new FormControl<string>('')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormControl",
+                    "optional": false,
+                    "description": "",
+                    "line": 64
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "noop",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 66
+                },
+                {
+                    "name": "onTouch",
+                    "defaultValue": "noop",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 67
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 85,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [
+                                {
+                                    "name": "value",
+                                    "type": "string",
+                                    "deprecated": false,
+                                    "deprecationMessage": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 69,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [
+                                {
+                                    "name": "value",
+                                    "type": "string",
+                                    "deprecated": false,
+                                    "deprecationMessage": ""
+                                }
+                            ],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 73,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 77,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 81,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  DestroyRef,\n  Input,\n  OnInit,\n  ViewEncapsulation,\n  forwardRef,\n  inject,\n} from '@angular/core';\nimport { takeUntilDestroyed } from '@angular/core/rxjs-interop';\nimport {\n  ControlValueAccessor,\n  FormControl,\n  FormsModule,\n  NG_VALUE_ACCESSOR,\n  ReactiveFormsModule,\n} from '@angular/forms';\nimport { debounceTime, noop, tap } from 'rxjs';\nimport { InputType } from './input.interface';\n\n@Component({\n  standalone: true,\n  selector: 'c-input',\n  imports: [CommonModule, FormsModule, ReactiveFormsModule],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => InputComponent),\n      multi: true,\n    },\n  ],\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n  encapsulation: ViewEncapsulation.Emulated,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class InputComponent implements ControlValueAccessor, OnInit, InputType {\n  @Input()\n  name?: string | undefined;\n\n  @Input()\n  placeholder?: string | undefined;\n\n  @Input()\n  css!: 'input-primary' | 'input-secondary' | 'input-tertiary';\n\n  @Input()\n  type: 'number' | 'text' | 'email' | 'password' = 'text';\n\n  @Input()\n  value?: string | number | undefined;\n\n  @Input()\n  id?: string | undefined;\n\n  @Input()\n  disabled = false;\n\n  @Input()\n  errors?: string | undefined;\n\n  formControl: FormControl = new FormControl<string>('');\n  destroyRef: DestroyRef = inject(DestroyRef);\n  onChange: (value: string) => void = noop;\n  onTouch: () => void = noop;\n\n  registerOnChange(fn: (value: string) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouch = fn;\n  }\n\n  setDisabledState(isDisabled: boolean): void {\n    isDisabled ? this.formControl.disable() : this.formControl.enable();\n  }\n\n  writeValue(value: string): void {\n    this.formControl.setValue(value, { emitEvent: false });\n  }\n\n  ngOnInit(): void {\n    this.formControl.valueChanges\n      .pipe(\n        debounceTime(200),\n        tap((value) => {\n          console.log(value, 'value input');\n\n          return this.onChange(value);\n        }),\n        takeUntilDestroyed(this.destroyRef)\n      )\n      .subscribe();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".content-input {\r\n  @apply flex flex-col gap-1 w-auto;\r\n}\r\n\r\n.input {\r\n  @apply outline-none rounded w-auto px-4;\r\n}\r\n\r\n.error {\r\n  @apply border-red-500 text-red-400;\r\n}\r\n\r\n.input-primary {\r\n  @apply focus:placeholder-transparent placeholder-gray-200 h-10 w-full border-b-2 text-gray-600 focus:outline-none focus:border-purple-400 transition-all;\r\n}\r\n",
+                    "styleUrl": "./input.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "ControlValueAccessor",
+                "OnInit",
+                "InputType"
+            ],
+            "templateData": "<input\n  [ngClass]=\"{ input: true, 'input-primary': css === 'input-primary' }\"\n  [name]=\"name\"\n  [placeholder]=\"placeholder\"\n  [type]=\"type\"\n  [value]=\"value\"\n  [id]=\"id\"\n  [disabled]=\"disabled\"\n  [formControl]=\"formControl\"\n/>\n"
+        },
+        {
             "name": "LabelComponent",
             "id": "component-LabelComponent-6ad37ac8c0f6b99e11c865334b1164fd1ac6afdd954beb3bed44b1fe8be71eeed1df33ee7196a214a72eec7f4e9101a7d089ea22912c9845124169fb82eedcd0",
             "file": "frontend/ui/components/atoms/label/label.component.ts",
@@ -272,7 +590,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<StoryComponent>",
-                "defaultValue": "{\n  title: 'Components/Molecules/Button',\n  component: ButtonComponent,\n  //👇 Import both components to allow component compositing with Storybook\n  decorators: [\n    moduleMetadata({\n      declarations: [ButtonComponent, TitleComponent],\n      imports: [CommonModule],\n    }),\n    //👇 Wrap our stories with a decorator (optional)\n    // componentWrapperDecorator(story => `<div style=\"margin: 3em\">${story}</div>`),\n  ],\n  argTypes: {\n    css: {\n      options: ['button-primary', 'button-secondary', 'button-tertiary'],\n      control: { type: 'select' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'radio' },\n    },\n    type: {\n      options: ['button', 'reset', 'submit'],\n      control: { type: 'radio' },\n    },\n    title: {\n      css: {\n        options: [\n          'title-xs',\n          'title-sm',\n          'title-base',\n          'title-xl',\n          'title-2xl',\n        ],\n        control: { type: 'select' },\n      },\n    },\n  },\n  render: (args: StoryComponent) => {\n    const { title, ...buttonProps } = args;\n    const { text, ...titleProps } = title;\n\n    return {\n      props: { buttonProps, titleProps },\n      template: `\n      <Button [css]=\"buttonProps.css\" [disabled]=\"buttonProps.disabled\" [type]=\"buttonProps.type\">\n      <c-title [css]=\"titleProps.css\" [color]=\"titleProps.color\">${text}</c-title>\n    </Button>\n      `,\n    };\n  },\n}"
+                "defaultValue": "{\n  title: 'Components/Molecules/Button',\n  component: ButtonComponent,\n  //👇 Import both components to allow component compositing with Storybook\n  decorators: [\n    moduleMetadata({\n      declarations: [ButtonComponent, TitleComponent],\n      imports: [CommonModule],\n    }),\n    //👇 Wrap our stories with a decorator (optional)\n    // componentWrapperDecorator(story => `<div style=\"margin: 3em\">${story}</div>`),\n  ],\n  argTypes: {\n    css: {\n      options: ['button-primary', 'button-secondary', 'button-tertiary'],\n      control: { type: 'select' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'radio' },\n    },\n    type: {\n      options: ['button', 'reset', 'submit'],\n      control: { type: 'radio' },\n    },\n  },\n  render: (args: StoryComponent) => {\n    const { title, ...buttonProps } = args;\n    const { text, ...titleProps } = title;\n\n    return {\n      props: { buttonProps, titleProps },\n      template: `\n      <Button [css]=\"buttonProps.css\" [disabled]=\"buttonProps.disabled\" [type]=\"buttonProps.type\">\n      <c-title [css]=\"titleProps.css\" [color]=\"titleProps.color\">${text}</c-title>\n    </Button>\n      `,\n    };\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\n  title: 'Components/Molecules/Input',\n  component: InputComponent,\n  //👇 Import both components to allow component compositing with Storybook\n  decorators: [\n    moduleMetadata({\n      declarations: [InputComponent],\n      imports: [CommonModule, FormsModule, ReactiveFormsModule],\n    }),\n    //👇 Wrap our stories with a decorator (optional)\n    // componentWrapperDecorator(story => `<div style=\"margin: 3em\">${story}</div>`),\n  ],\n  argTypes: {\n    css: {\n      options: ['input-primary', 'input-secondary', 'input-tertiary'],\n      control: { type: 'select' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'radio' },\n    },\n    type: {\n      options: ['number', 'text', 'email', 'password'],\n      control: { type: 'radio' },\n    },\n  },\n  render: (args: InputComponent) => {\n    const { ...inputProps } = args;\n\n    return {\n      props: { inputProps },\n      template: `\n      <c-input [css]=\"inputProps.css\" [type]=\"inputProps.type\" [placeholder]=\"inputProps.placeholder\" [disabled]=\"inputProps.disabled\"></c-input>\n      `,\n    };\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -303,6 +631,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    css: 'button-primary',\n    title: {\n      css: 'title-base',\n      color: 't-white',\n      text: 'Text button',\n    },\n  },\n}"
+            },
+            {
+                "name": "PrimaryButton",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    css: 'input-primary',\n    type: 'text',\n    placeholder: 'Entry text',\n    disabled: false,\n  },\n}"
             }
         ],
         "functions": [],
@@ -341,7 +679,40 @@
                 "kind": 180
             },
             {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
                 "name": "StoryComponent",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 190
+            },
+            {
+                "name": "StoryComponent",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 190
+            },
+            {
+                "name": "StoryTitle",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "",
@@ -356,7 +727,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "",
-                "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -452,7 +823,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<StoryComponent>",
-                    "defaultValue": "{\n  title: 'Components/Molecules/Button',\n  component: ButtonComponent,\n  //👇 Import both components to allow component compositing with Storybook\n  decorators: [\n    moduleMetadata({\n      declarations: [ButtonComponent, TitleComponent],\n      imports: [CommonModule],\n    }),\n    //👇 Wrap our stories with a decorator (optional)\n    // componentWrapperDecorator(story => `<div style=\"margin: 3em\">${story}</div>`),\n  ],\n  argTypes: {\n    css: {\n      options: ['button-primary', 'button-secondary', 'button-tertiary'],\n      control: { type: 'select' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'radio' },\n    },\n    type: {\n      options: ['button', 'reset', 'submit'],\n      control: { type: 'radio' },\n    },\n    title: {\n      css: {\n        options: [\n          'title-xs',\n          'title-sm',\n          'title-base',\n          'title-xl',\n          'title-2xl',\n        ],\n        control: { type: 'select' },\n      },\n    },\n  },\n  render: (args: StoryComponent) => {\n    const { title, ...buttonProps } = args;\n    const { text, ...titleProps } = title;\n\n    return {\n      props: { buttonProps, titleProps },\n      template: `\n      <Button [css]=\"buttonProps.css\" [disabled]=\"buttonProps.disabled\" [type]=\"buttonProps.type\">\n      <c-title [css]=\"titleProps.css\" [color]=\"titleProps.color\">${text}</c-title>\n    </Button>\n      `,\n    };\n  },\n}"
+                    "defaultValue": "{\n  title: 'Components/Molecules/Button',\n  component: ButtonComponent,\n  //👇 Import both components to allow component compositing with Storybook\n  decorators: [\n    moduleMetadata({\n      declarations: [ButtonComponent, TitleComponent],\n      imports: [CommonModule],\n    }),\n    //👇 Wrap our stories with a decorator (optional)\n    // componentWrapperDecorator(story => `<div style=\"margin: 3em\">${story}</div>`),\n  ],\n  argTypes: {\n    css: {\n      options: ['button-primary', 'button-secondary', 'button-tertiary'],\n      control: { type: 'select' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'radio' },\n    },\n    type: {\n      options: ['button', 'reset', 'submit'],\n      control: { type: 'radio' },\n    },\n  },\n  render: (args: StoryComponent) => {\n    const { title, ...buttonProps } = args;\n    const { text, ...titleProps } = title;\n\n    return {\n      props: { buttonProps, titleProps },\n      template: `\n      <Button [css]=\"buttonProps.css\" [disabled]=\"buttonProps.disabled\" [type]=\"buttonProps.type\">\n      <c-title [css]=\"titleProps.css\" [color]=\"titleProps.color\">${text}</c-title>\n    </Button>\n      `,\n    };\n  },\n}"
                 },
                 {
                     "name": "PrimaryButton",
@@ -463,6 +834,28 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    css: 'button-primary',\n    title: {\n      css: 'title-base',\n      color: 't-white',\n      text: 'Text button',\n    },\n  },\n}"
+                }
+            ],
+            "frontend/ui/stories/molecules/input/input.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\n  title: 'Components/Molecules/Input',\n  component: InputComponent,\n  //👇 Import both components to allow component compositing with Storybook\n  decorators: [\n    moduleMetadata({\n      declarations: [InputComponent],\n      imports: [CommonModule, FormsModule, ReactiveFormsModule],\n    }),\n    //👇 Wrap our stories with a decorator (optional)\n    // componentWrapperDecorator(story => `<div style=\"margin: 3em\">${story}</div>`),\n  ],\n  argTypes: {\n    css: {\n      options: ['input-primary', 'input-secondary', 'input-tertiary'],\n      control: { type: 'select' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'radio' },\n    },\n    type: {\n      options: ['number', 'text', 'email', 'password'],\n      control: { type: 'radio' },\n    },\n  },\n  render: (args: InputComponent) => {\n    const { ...inputProps } = args;\n\n    return {\n      props: { inputProps },\n      template: `\n      <c-input [css]=\"inputProps.css\" [type]=\"inputProps.type\" [placeholder]=\"inputProps.placeholder\" [disabled]=\"inputProps.disabled\"></c-input>\n      `,\n    };\n  },\n}"
+                },
+                {
+                    "name": "PrimaryButton",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    css: 'input-primary',\n    type: 'text',\n    placeholder: 'Entry text',\n    disabled: false,\n  },\n}"
                 }
             ]
         },
@@ -551,6 +944,41 @@
                     "description": "",
                     "kind": 190
                 }
+            ],
+            "frontend/ui/stories/molecules/input/input.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                },
+                {
+                    "name": "StoryComponent",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 190
+                },
+                {
+                    "name": "StoryTitle",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 190
+                }
             ]
         }
     },
@@ -597,6 +1025,15 @@
                 "status": "low"
             },
             {
+                "filePath": "frontend/ui/components/molecules/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/18",
+                "status": "low"
+            },
+            {
                 "filePath": "frontend/ui/stories/atoms/label/label.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -648,6 +1085,26 @@
             },
             {
                 "filePath": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PrimaryButton",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "frontend/ui/stories/molecules/input/input.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

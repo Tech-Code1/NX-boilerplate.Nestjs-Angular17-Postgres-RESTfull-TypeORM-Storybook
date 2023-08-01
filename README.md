@@ -98,6 +98,8 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Set up Compodoc for Storybook on Nx](https://nx.dev/packages/storybook/documents/angular-storybook-compodoc)
 - [Resolve JSON files as modules in TypeScript](https://koenwoortman.com/typescript-import-json-file-as-module/)
 - [Controls](https://storybook.js.org/docs/angular/essentials/controls)
+- [How DestroyRef Made My Life Easier with Angular 16](https://blog.bitsrc.io/how-destroyref-made-my-life-easier-with-angular-16-3b9ee9f54018)
+- [How I’ve Created Custom Inputs in Angular 16!](https://blog.bitsrc.io/how-ive-created-custom-inputs-in-angular-16-43f4c2d37d07)
 
 ## Connect with us!
 
