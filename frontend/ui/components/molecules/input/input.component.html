@@ -1,9 +1,12 @@
-<input
-  [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
-  [attr.name]="name || null"
-  [placeholder]="placeholder"
-  [type]="type"
-  [attr.value]="value || null"
-  [attr.id]="id || null"
-  [formControl]="formControl"
-/>
+<div class="content-input">
+  <input
+    [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
+    [attr.name]="name || null"
+    [placeholder]="placeholder"
+    [type]="type"
+    [attr.value]="value || null"
+    [attr.id]="id || null"
+    [formControl]="formControl"
+  />
+  <p class="error" *ngIf="errors">{{ getErrorMsg(errors) }}</p>
+</div>

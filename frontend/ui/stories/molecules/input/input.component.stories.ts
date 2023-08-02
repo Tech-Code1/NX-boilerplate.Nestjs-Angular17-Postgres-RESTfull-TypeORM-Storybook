@@ -2,15 +2,11 @@ import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 //import { action } from '@storybook/addon-actions';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  ButtonComponent,
-  InputComponent,
-  LabelComponent,
-} from '../../../components';
+import { InputComponent, LabelComponent } from '../../../components';
 
 type StoryLabel = LabelComponent & { text: string };
 type Story = StoryObj<InputComponent & { label: StoryLabel }>;
-type StoryComponent = ButtonComponent & { label: StoryLabel };
+type StoryComponent = InputComponent & { label: StoryLabel };
 
 const meta: Meta<StoryComponent> = {
   title: 'Components/Molecules/Input',
@@ -37,6 +33,10 @@ const meta: Meta<StoryComponent> = {
       options: ['number', 'text', 'email', 'password'],
       control: { type: 'radio' },
     },
+    errors: {
+      options: ['EMPTY', 'INVALID_EMAIL', 'TOO_SMALL'],
+      control: { type: 'select' },
+    },
   },
   render: (args: StoryComponent) => {
     const { label, ...inputProps } = args;
@@ -52,6 +52,7 @@ const meta: Meta<StoryComponent> = {
         [type]="inputProps.type"
         [placeholder]="inputProps.placeholder"
         [disabled]="inputProps.disabled"
+        [errors]="inputProps.errors"
         [name]="inputProps.name"></c-input>
       </c-label>
       `,

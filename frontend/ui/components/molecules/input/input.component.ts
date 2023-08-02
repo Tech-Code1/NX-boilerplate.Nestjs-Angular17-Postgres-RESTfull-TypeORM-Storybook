@@ -18,7 +18,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { debounceTime, noop, tap } from 'rxjs';
-import { InputType } from './input.interface';
+import { Code, ErrorsType, InputType } from './input.interface';
 
 @Component({
   standalone: true,
@@ -56,7 +56,7 @@ export class InputComponent implements ControlValueAccessor, OnInit, InputType {
   id?: string | undefined;
 
   @Input()
-  errors?: string | undefined;
+  errors?: ErrorsType | undefined;
 
   formControl: FormControl = new FormControl<string>('');
   destroyRef: DestroyRef = inject(DestroyRef);
@@ -72,6 +72,10 @@ export class InputComponent implements ControlValueAccessor, OnInit, InputType {
   set disabled(value: boolean) {
     this._disabled = value;
     this.setDisabledState(value);
+  }
+
+  getErrorMsg(error: string): string {
+    return Code[error as ErrorsType];
   }
 
   registerOnChange(fn: (value: string) => void): void {
