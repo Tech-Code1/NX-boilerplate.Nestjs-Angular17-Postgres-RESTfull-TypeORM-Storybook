@@ -11,9 +11,9 @@ const meta: Meta<StoryType> = {
     return {
       props,
       template: `
-        <Label [css]="css">
+        <c-label [css]="css">
           ${text}
-        </Label>
+        </c-label>
       `,
     };
   },

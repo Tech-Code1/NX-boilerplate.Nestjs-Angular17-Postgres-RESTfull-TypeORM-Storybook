@@ -1,5 +1,5 @@
 .label {
-  @apply text-base;
+  @apply text-base font-medium flex flex-col gap-1;
 }
 
 .label-primary {

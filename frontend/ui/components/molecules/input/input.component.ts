@@ -58,15 +58,13 @@ export class InputComponent implements ControlValueAccessor, OnInit, InputType {
   @Input()
   errors?: string | undefined;
 
-  @Input()
-  isDisabled = false;
-
   formControl: FormControl = new FormControl<string>('');
   destroyRef: DestroyRef = inject(DestroyRef);
   onChange: (value: string) => void = noop;
   onTouch: () => void = noop;
 
   private _disabled = false;
+
   @Input()
   get disabled(): boolean {
     return this._disabled;

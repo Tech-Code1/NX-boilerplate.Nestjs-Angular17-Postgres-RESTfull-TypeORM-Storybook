@@ -9,7 +9,7 @@ import { LabelType } from './label.interface';
 
 @Component({
   standalone: true,
-  selector: 'Label',
+  selector: 'c-label',
   imports: [CommonModule],
   templateUrl: './label.component.html',
   styleUrls: ['./label.component.scss'],

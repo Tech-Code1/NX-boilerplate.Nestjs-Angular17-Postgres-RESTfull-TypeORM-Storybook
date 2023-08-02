@@ -5,20 +5,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   ButtonComponent,
   InputComponent,
-  TitleComponent,
+  LabelComponent,
 } from '../../../components';
 
-type StoryTitle = TitleComponent & { text: string };
-type Story = StoryObj<InputComponent>;
-type StoryComponent = ButtonComponent & { title: StoryTitle };
+type StoryLabel = LabelComponent & { text: string };
+type Story = StoryObj<InputComponent & { label: StoryLabel }>;
+type StoryComponent = ButtonComponent & { label: StoryLabel };
 
-const meta: Meta<InputComponent> = {
+const meta: Meta<StoryComponent> = {
   title: 'Components/Molecules/Input',
   component: InputComponent,
   //👇 Import both components to allow component compositing with Storybook
   decorators: [
     moduleMetadata({
-      declarations: [InputComponent],
+      declarations: [InputComponent, LabelComponent],
       imports: [CommonModule, FormsModule, ReactiveFormsModule],
     }),
     //👇 Wrap our stories with a decorator (optional)
@@ -38,13 +38,22 @@ const meta: Meta<InputComponent> = {
       control: { type: 'radio' },
     },
   },
-  render: (args: InputComponent) => {
-    const { ...inputProps } = args;
+  render: (args: StoryComponent) => {
+    const { label, ...inputProps } = args;
+    const { text, ...inputLabel } = label;
 
     return {
-      props: { inputProps },
+      props: { inputProps, inputLabel },
       template: `
-      <c-input [css]="inputProps.css" [type]="inputProps.type" [placeholder]="inputProps.placeholder" [disabled]="inputProps.disabled" [name]="inputProps.name"></c-input>
+      <c-label [css]="inputLabel.css">
+        ${text}
+        <c-input
+        [css]="inputProps.css"
+        [type]="inputProps.type"
+        [placeholder]="inputProps.placeholder"
+        [disabled]="inputProps.disabled"
+        [name]="inputProps.name"></c-input>
+      </c-label>
       `,
     };
   },
@@ -57,5 +66,9 @@ export const PrimaryButton: Story = {
     type: 'text',
     placeholder: 'Entry text',
     disabled: false,
+    label: {
+      css: 'label-primary',
+      text: 'Label text',
+    },
   },
 };
