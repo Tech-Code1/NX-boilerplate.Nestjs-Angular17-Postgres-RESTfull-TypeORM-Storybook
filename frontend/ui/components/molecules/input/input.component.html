@@ -1,12 +1,31 @@
 <div class="content-input">
   <input
+    *ngIf="formGroup; else formControlTemplate"
     [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
-    [attr.name]="name || null"
+    [name]="name"
     [placeholder]="placeholder"
     [type]="type"
     [attr.value]="value || null"
     [attr.id]="id || null"
-    [formControl]="formControl"
+    [formControlName]="name"
   />
-  <p class="error" *ngIf="errors">{{ getErrorMsg(errors) }}</p>
+
+  <ng-template #formControlTemplate>
+    <input
+      *ngIf="formControl"
+      [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
+      [name]="name"
+      [placeholder]="placeholder"
+      [type]="type"
+      [attr.value]="value || null"
+      [attr.id]="id || null"
+      [formControl]="formControl"
+    />
+  </ng-template>
+
+  <c-error-input
+    *ngIf="!isValid(name)"
+    [formContained]="formControl || formGroup!"
+    [controlName]="name"
+  ></c-error-input>
 </div>

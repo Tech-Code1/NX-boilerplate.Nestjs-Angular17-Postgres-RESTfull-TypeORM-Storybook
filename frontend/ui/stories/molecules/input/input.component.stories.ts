@@ -34,7 +34,14 @@ const meta: Meta<StoryComponent> = {
       control: { type: 'radio' },
     },
     errors: {
-      options: ['EMPTY', 'INVALID_EMAIL', 'TOO_SMALL'],
+      options: [
+        'EMPTY',
+        'INVALID_EMAIL',
+        'LENGTH_ERROR',
+        'TOO_SMALL',
+        'INVALID_NUMBER',
+        'PASSWORD_LENGTH_ERROR',
+      ],
       control: { type: 'select' },
     },
   },

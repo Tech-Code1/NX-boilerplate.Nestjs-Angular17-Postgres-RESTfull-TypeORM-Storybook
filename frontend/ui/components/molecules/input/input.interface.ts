@@ -1,13 +1,4 @@
-import { FormControl } from '@angular/forms';
-
-export enum Code {
-  EMPTY = "Input field can't be empty!",
-  INVALID_EMAIL = 'Email address is not valid!',
-  TOO_SMALL = 'The field should have more characters',
-  // Add more error types and messages as needed
-}
-
-export type ErrorsType = keyof typeof Code;
+import { FormControl, FormGroup } from '@angular/forms';
 
 type RequiredInputType = {
   type: 'text' | 'number' | 'email' | 'password';
@@ -15,14 +6,14 @@ type RequiredInputType = {
   disabled: boolean;
   onChange: (value: string) => void;
   onTouch: () => void;
-  formControl: FormControl;
+  name: string;
 };
 
 type OptionalInputType = {
   value?: string | number;
   id?: string;
-  errors?: ErrorsType;
-  name?: string;
+  formGroup?: FormGroup;
+  formControl?: FormControl;
   placeholder?: string;
 };
 
