@@ -1,12 +1,26 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 //import { action } from '@storybook/addon-actions';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InputComponent, LabelComponent } from '../../../components';
+import {
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import {
+  ErrorInputComponent,
+  InputComponent,
+  LabelComponent,
+} from '../../../components';
 
 type StoryLabel = LabelComponent & { text: string };
-type Story = StoryObj<InputComponent & { label: StoryLabel }>;
-type StoryComponent = InputComponent & { label: StoryLabel };
+type StoryError = { error: string; formContained: FormControl<string | null> };
+type Story = StoryObj<
+  InputComponent & { label: StoryLabel } & { errors: StoryError }
+>;
+type StoryComponent = InputComponent & { label: StoryLabel } & {
+  errors: StoryError;
+};
 
 const meta: Meta<StoryComponent> = {
   title: 'Components/Molecules/Input',
@@ -14,7 +28,7 @@ const meta: Meta<StoryComponent> = {
   //👇 Import both components to allow component compositing with Storybook
   decorators: [
     moduleMetadata({
-      declarations: [InputComponent, LabelComponent],
+      declarations: [InputComponent, LabelComponent, ErrorInputComponent],
       imports: [CommonModule, FormsModule, ReactiveFormsModule],
     }),
     //👇 Wrap our stories with a decorator (optional)
@@ -33,24 +47,14 @@ const meta: Meta<StoryComponent> = {
       options: ['number', 'text', 'email', 'password'],
       control: { type: 'radio' },
     },
-    errors: {
-      options: [
-        'EMPTY',
-        'INVALID_EMAIL',
-        'LENGTH_ERROR',
-        'TOO_SMALL',
-        'INVALID_NUMBER',
-        'PASSWORD_LENGTH_ERROR',
-      ],
-      control: { type: 'select' },
-    },
   },
   render: (args: StoryComponent) => {
-    const { label, ...inputProps } = args;
+    const { label, errors, ...inputProps } = args;
     const { text, ...inputLabel } = label;
+    const { ...inputError } = errors;
 
     return {
-      props: { inputProps, inputLabel },
+      props: { inputProps, inputLabel, inputError },
       template: `
       <c-label [css]="inputLabel.css">
         ${text}
@@ -59,9 +63,10 @@ const meta: Meta<StoryComponent> = {
         [type]="inputProps.type"
         [placeholder]="inputProps.placeholder"
         [disabled]="inputProps.disabled"
-        [errors]="inputProps.errors"
+        [formControl]="inputProps.formControl"
         [name]="inputProps.name"></c-input>
       </c-label>
+
       `,
     };
   },
@@ -74,9 +79,15 @@ export const PrimaryButton: Story = {
     type: 'text',
     placeholder: 'Entry text',
     disabled: false,
+    name: 'example',
+    formControl: new FormControl(''),
     label: {
       css: 'label-primary',
       text: 'Label text',
+    },
+    errors: {
+      error: 'example error',
+      formContained: new FormControl('', Validators.required),
     },
   },
 };

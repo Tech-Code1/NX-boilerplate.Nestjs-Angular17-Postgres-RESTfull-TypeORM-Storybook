@@ -1,4 +1,6 @@
 export * from './atoms';
+export * from './atoms/error-input/error-input.component';
+export * from './atoms/error-input/error-input.interface';
 export * from './atoms/label/label.component';
 export * from './atoms/label/label.interface';
 export * from './atoms/title/title.component';
