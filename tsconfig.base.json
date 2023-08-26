@@ -28,7 +28,9 @@
       "@db/entities": ["backend/database/src/lib/entities"],
       "@environments": ["config/constants.ts"],
       "@nx-boilerplate/frontend/ui": ["frontend/ui/src/index.ts"],
-      "@ui/components": ["frontend/ui/components"]
+      "@ui/components": ["frontend/ui/components"],
+      "@types": ["frontend/app/common/types"],
+      "@utils": ["frontend/app/src/utils"]
     }
   },
   "exclude": ["node_modules", "tmp"]
