@@ -29,7 +29,7 @@
       "@environments": ["config/constants.ts"],
       "@nx-boilerplate/frontend/ui": ["frontend/ui/src/index.ts"],
       "@ui/components": ["frontend/ui/components"],
-      "@types": ["frontend/app/common/types"],
+      "@types": ["frontend/app/src/common/types"],
       "@utils": ["frontend/app/src/utils"]
     }
   },

@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutAuthComponent } from '../../layout/layout-auth.component';
+import { LayoutAuthComponent } from './layout/layout-auth.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LayoutAuthComponent,
     children: [
       {
         path: '',
-        loadChildren: () =>
-          import('./login/login.module').then((module) => module.LoginModule),
+        loadChildren: () => import('./').then((module) => module.LoginModule),
       },
       /* {
         path: 'register',

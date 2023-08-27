@@ -1,19 +1,19 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ValidatorsService } from '@utils';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { ValidatorsService } from '../../../../utils';
 
 @Component({
   selector: 'form-login',
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.scss'],
 })
-export class FormLoginComponent implements OnInit {
+export class FormLoginComponent implements OnInit, OnDestroy {
   private formBuilder = inject(FormBuilder);
   private validatorsService = inject(ValidatorsService);
 
