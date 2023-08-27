@@ -8,6 +8,11 @@ export const routes: Route[] = [
       import('./pages/auth').then((module) => module.AuthModule),
   },
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/dashboard').then((module) => module.DashboardModule),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./pages/home').then((module) => module.HomeModule),

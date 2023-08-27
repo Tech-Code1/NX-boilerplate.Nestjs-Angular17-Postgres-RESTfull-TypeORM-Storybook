@@ -11,5 +11,3 @@ export * from './components/organisms/form-register/form-register.module';
 export * from './containers';
 export * from './containers/login/login.component';
 export * from './containers/login/login.module';
-export * from './layout/layout-auth.component';
-export * from './layout/layout-auth.module';
