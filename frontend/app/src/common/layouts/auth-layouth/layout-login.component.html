@@ -1,8 +1,18 @@
 <div class="flex justify-center items-center flex-col h-screen">
   <ul class="flex bg-[white] h-9 mb-4 z-50 w-auto rounded-md">
-    <li class="w-32" routerLink="/login" routerLinkActive="active">Login</li>
-    <li class="w-32" routerLink="/dashboard" routerLinkActive="active">
-      dashboard
+    <li
+      class="w-32 cursor-pointer"
+      routerLink="/auth/login"
+      routerLinkActive="active rounded-l-md"
+    >
+      <span class="flex justify-center items-center h-full">Login</span>
+    </li>
+    <li
+      class="w-32 cursor-pointer"
+      routerLink="/dashboard"
+      routerLinkActive="active rounded-r-md"
+    >
+      <span class="flex justify-center items-center h-full">Dashboard</span>
     </li>
   </ul>
   <div class="w-1/2 h-3/5 flex flex-col justify-between shadown-quick">

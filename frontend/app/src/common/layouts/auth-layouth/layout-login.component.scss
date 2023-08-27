@@ -1,0 +1,7 @@
+.text-custom {
+  @apply text-secondary-dark;
+}
+
+.active {
+  @apply border-b-4 border-red-700 font-bold;
+}

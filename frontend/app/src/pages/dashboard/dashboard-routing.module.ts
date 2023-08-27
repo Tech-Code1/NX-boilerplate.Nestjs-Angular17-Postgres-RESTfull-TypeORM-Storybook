@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutAuthComponent } from '../../common/layouts';
+import { LayoutLoginComponent } from '../../common/layouts';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutAuthComponent,
+    component: LayoutLoginComponent,
     children: [
       {
         path: '',

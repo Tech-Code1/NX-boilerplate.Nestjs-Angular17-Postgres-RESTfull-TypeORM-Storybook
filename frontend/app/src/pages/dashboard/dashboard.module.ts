@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LayoutAuthModule } from '../../common/layouts';
+import { LayoutLoginModule } from '../../common/layouts';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
@@ -9,7 +9,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     CommonModule,
     ReactiveFormsModule,
     DashboardRoutingModule,
-    LayoutAuthModule,
+    LayoutLoginModule,
   ],
 })
 export class DashboardModule {}
