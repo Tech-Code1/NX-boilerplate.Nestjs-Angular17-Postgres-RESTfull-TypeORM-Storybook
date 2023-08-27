@@ -15,7 +15,15 @@
         "main": "frontend/app/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "frontend/app/tsconfig.app.json",
-        "assets": ["frontend/app/src/favicon.ico", "frontend/app/src/assets"],
+        "assets": [
+          "frontend/app/src/favicon.ico",
+          "frontend/app/src/assets",
+          {
+            "input": "frontend/ui/assets",
+            "glob": "**/*",
+            "output": "assets/ui"
+          }
+        ],
         "styles": ["frontend/app/src/styles.scss"],
         "scripts": []
       },

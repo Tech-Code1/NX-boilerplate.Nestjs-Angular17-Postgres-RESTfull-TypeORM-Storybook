@@ -40,9 +40,9 @@ const meta: Meta<StoryComponent> = {
     return {
       props: { buttonProps, titleProps },
       template: `
-      <Button [css]="buttonProps.css" [disabled]="buttonProps.disabled" [type]="buttonProps.type">
+      <c-button [css]="buttonProps.css" [disabled]="buttonProps.disabled" [type]="buttonProps.type">
       <c-title [css]="titleProps.css" [color]="titleProps.color">${text}</c-title>
-    </Button>
+    </c-button>
       `,
     };
   },

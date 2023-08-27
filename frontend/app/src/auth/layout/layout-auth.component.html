@@ -1,8 +1,35 @@
-<div>
-  <ul class="flex flex-row gap-2">
-    <li routerLink="/auth/register" routerLinkActive="active">Registro</li>
-    <li routerLink="/auth/login" routerLinkActive="active">Login</li>
+<div class="flex justify-center items-center flex-col h-screen">
+  <ul class="flex bg-[white] h-9 mb-4 z-50 w-auto rounded-md">
+    <li class="w-32" routerLink="/login" routerLinkActive="active">Login</li>
+    <li class="w-32" routerLink="/dashboard" routerLinkActive="active">
+      dashboard
+    </li>
   </ul>
-
-  <router-outlet></router-outlet>
+  <div class="w-1/2 h-3/5 flex flex-col justify-between shadown-quick">
+    <div
+      class="w-full h-24 bg-[white] flex justify-center items-center rounded-t-md"
+    >
+      <a class="list-none" href="https://qwik.builder.io/" target="_blank">
+        <img
+          class="h-14 w-14"
+          src="../../assets/svg/angular.svg"
+          alt="Angular"
+        />
+      </a>
+    </div>
+    <main class="flex flex-col items-center justify-center w-full h-full p-4">
+      <router-outlet></router-outlet>
+    </main>
+    <footer
+      class="w-full h-24 bg-[white] flex justify-center items-center rounded-b-md"
+    >
+      <a
+        class="hover:underline list-none"
+        href="https://discord.gg/77guznJ8mZ"
+        target="_blank"
+      >
+        Made with ❤ by Indie Creators HQ
+      </a>
+    </footer>
+  </div>
 </div>

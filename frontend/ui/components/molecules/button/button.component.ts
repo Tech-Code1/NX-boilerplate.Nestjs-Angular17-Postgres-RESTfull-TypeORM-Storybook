@@ -9,7 +9,7 @@ import { ButtonType } from './button.interface';
 
 @Component({
   standalone: true,
-  selector: 'Button',
+  selector: 'c-button',
   imports: [CommonModule],
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
@@ -17,7 +17,7 @@ import { ButtonType } from './button.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent implements ButtonType {
-  @Input() type: 'button' | 'submit' | 'reset' = 'button';
-  @Input() disabled = false;
-  @Input() css!: 'button-primary' | 'button-secondary' | 'button-tertiary';
+  @Input() type: ButtonType['type'] = 'button';
+  @Input() disabled: ButtonType['disabled'] = false;
+  @Input() css!: ButtonType['css'];
 }

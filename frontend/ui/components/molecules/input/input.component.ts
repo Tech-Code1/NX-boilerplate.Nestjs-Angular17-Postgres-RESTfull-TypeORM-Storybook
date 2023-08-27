@@ -56,10 +56,10 @@ export class InputComponent implements ControlValueAccessor, OnInit, InputType {
   placeholder?: string | undefined;
 
   @Input()
-  css!: 'input-primary' | 'input-secondary' | 'input-tertiary';
+  css!: InputType['css'];
 
   @Input()
-  type: 'number' | 'text' | 'email' | 'password' = 'text';
+  type: InputType['type'] = 'text';
 
   @Input()
   value?: string | number | undefined;

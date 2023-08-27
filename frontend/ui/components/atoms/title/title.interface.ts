@@ -6,7 +6,6 @@ export type TitleType = {
     | 'title-xl'
     | 'title-2xl'
     | 'white'
-    | 'black'
-    | string;
+    | 'black';
   color: 't-black' | 't-white';
 };

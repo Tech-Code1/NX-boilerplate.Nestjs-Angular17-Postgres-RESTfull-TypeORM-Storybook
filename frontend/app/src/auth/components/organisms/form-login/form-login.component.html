@@ -1,11 +1,37 @@
-<div class="wrapper">
-  <div class="container text-custom">
-    <!--  WELCOME  -->
-    <div id="welcome">
-      <h1>
-        <span class="font-bold"> Hello there, </span>
-        Welcome login 👋
-      </h1>
+<div class="flex flex-col justify-center gap-4 items-center">
+  <c-title css="title-2xl">Login Form</c-title>
+  <div class="w-full flex flex-col gap-4">
+    <div class="relative">
+      <c-label>
+        {{ labelEmail }}
+        <c-input
+          css="input-primary"
+          type="text"
+          placeholder="jhonDoe@example.com"
+          [formControl]="emailControl"
+          name="email"
+        />
+      </c-label>
     </div>
+    <div class="relative">
+      <c-label>
+        {{ labelPassword }}
+        <c-input
+          css="input-primary"
+          type="password"
+          placeholder="*******"
+          [formControl]="emailControl"
+          name="password"
+        />
+      </c-label>
+    </div>
+    <a class="underline" href="/recover">
+      have you forgotten your password ?
+    </a>
+  </div>
+  <div class="relative w-full">
+    <c-button class="w-full" css="button-primary" color="t-white" type="submit">
+      <c-title css="title-base">Login</c-title>
+    </c-button>
   </div>
 </div>

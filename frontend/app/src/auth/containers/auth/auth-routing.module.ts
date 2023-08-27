@@ -4,21 +4,21 @@ import { LayoutAuthComponent } from '../../layout/layout-auth.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LayoutAuthComponent,
     children: [
       {
-        path: 'login',
+        path: '',
         loadChildren: () =>
-          import('../../components').then((module) => module.FormLoginModule),
+          import('./login/login.module').then((module) => module.LoginModule),
       },
-      {
+      /* {
         path: 'register',
         loadChildren: () =>
           import('../../components').then(
             (module) => module.FormRegisterModule
           ),
-      },
+      }, */
       { path: '**', redirectTo: '/auth/login' },
     ],
   },

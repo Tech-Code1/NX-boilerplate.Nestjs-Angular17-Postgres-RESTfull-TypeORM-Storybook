@@ -17,12 +17,7 @@ import { TitleType } from './title.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TitleComponent implements TitleType {
-  @Input() css!:
-    | 'title-xs'
-    | 'title-sm'
-    | 'title-base'
-    | 'title-xl'
-    | 'title-2xl';
+  @Input() css!: TitleType['css'];
 
-  @Input() color!: 't-white' | 't-black';
+  @Input() color!: TitleType['color'];
 }

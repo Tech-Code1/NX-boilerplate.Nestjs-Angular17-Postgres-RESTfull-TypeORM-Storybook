@@ -1,3 +1,7 @@
 .error {
   @apply w-full rounded-md h-auto p-1 bg-red-200 gap-2 items-center flex text-red-500;
 }
+
+.size-icon {
+  @apply h-4 w-4;
+}
