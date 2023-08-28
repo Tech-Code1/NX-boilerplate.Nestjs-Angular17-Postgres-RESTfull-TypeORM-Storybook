@@ -1,12 +1,12 @@
 <div class="flex flex-col justify-center gap-4 items-center">
-  <c-title css="title-2xl">Login Form</c-title>
+  <c-title css="title-2xl">Login</c-title>
   <div class="w-full flex flex-col gap-4">
     <div class="relative">
       <c-label>
         {{ labelEmail }}
         <c-input
           css="input-primary"
-          type="text"
+          type="email"
           placeholder="jhonDoe@example.com"
           [formControl]="emailControl"
           name="email"
@@ -20,7 +20,7 @@
           css="input-primary"
           type="password"
           placeholder="*******"
-          [formControl]="emailControl"
+          [formControl]="passwordControl"
           name="password"
         />
       </c-label>
