@@ -1,26 +1,21 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ValidatorsService } from '@utils';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'form-register',
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.scss'],
 })
-export class FormRegisterComponent implements OnInit, OnDestroy {
+export class FormRegisterComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
-  private validatorsService = inject(ValidatorsService);
 
-  private passwordSubscription?: Subscription;
   private passwordSource = new BehaviorSubject<string | null>(null);
-  labelEmail = 'Email';
-  labelPassword = 'Password';
   formRegister!: FormGroup;
   password$ = this.passwordSource.asObservable();
 
@@ -49,9 +44,5 @@ export class FormRegisterComponent implements OnInit, OnDestroy {
         ],
       ],
     });
-  }
-
-  ngOnDestroy(): void {
-    this.passwordSubscription?.unsubscribe();
   }
 }
