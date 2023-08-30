@@ -13,11 +13,6 @@ const routes: Routes = [
         component: LayoutAuthComponent,
         children: [
           {
-            path: '',
-            redirectTo: 'login',
-            pathMatch: 'full',
-          },
-          {
             path: 'login',
             loadChildren: () =>
               import('./').then((module) => module.LoginModule),
@@ -27,12 +22,21 @@ const routes: Routes = [
             loadChildren: () =>
               import('./').then((module) => module.RegisterModule),
           },
+          {
+            path: '',
+            redirectTo: 'login',
+            pathMatch: 'full',
+          },
         ],
       },
       {
         path: 'change-password',
         loadChildren: () =>
           import('./').then((module) => module.ChangePassModule),
+      },
+      {
+        path: 'recover',
+        loadChildren: () => import('./').then((module) => module.RecoverModule),
       },
     ],
   },
