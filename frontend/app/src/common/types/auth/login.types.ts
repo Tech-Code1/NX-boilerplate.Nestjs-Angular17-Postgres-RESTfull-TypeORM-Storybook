@@ -10,12 +10,12 @@ export interface IUser extends BaseResponseType {
   isBlocked: boolean;
   roles: ROLES[];
 }
+export interface ILoginResponse {
+  data: IUser;
+  response: BaseResponseType;
+}
 
 export interface ILogin {
   token: string;
   user: IUser;
-}
-
-export interface ILoginResponse extends BaseResponseType {
-  login: ILogin;
 }

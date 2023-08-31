@@ -1,131 +1,34 @@
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
+import { BaseResponse } from '../common';
 
-export const Swal = () => {
-  const success = (text = 'Success'): Promise<void> => {
-    return new Promise((res, rej) => {
-      swal
-        .fire({
-          title: 'Succes',
-          text: text,
-          icon: 'success',
-        })
-        .then(() => res())
-        .catch((ex) => rej(ex));
-    });
-  };
+export const managerError = (resp: BaseResponse): BaseResponse => {
+  const { data, response } = resp;
 
-  const httpError = (
-    code: number,
-    text: string | null = null
-  ): Promise<void> => {
-    let message = text;
+  if (!response) {
+    return {
+      data: {},
+      response: {
+        status: 500,
+        success: false,
+        code: 'UNKNOWN_ERROR',
+        message: 'Unknown error',
+      },
+    };
+  }
 
-    if (text === null) {
-      switch (code) {
-        case 403:
-          message = 'Forbidden';
-          break;
+  const { code, message, status, success } = response;
 
-        case 404:
-          message = 'Not Found';
-          break;
+  console.log('paso por acá');
 
-        case 401:
-          message = 'Unauthorize';
-          break;
-
-        case 500:
-          message = 'Error Server';
-          break;
-
-        default:
-          message = 'Error';
-          break;
-      }
-    }
-
-    return new Promise((res, rej) => {
-      swal
-        .fire({
-          title: code.toString(),
-          icon: 'error',
-          text: message!,
-        })
-        .then(() => res())
-        .catch((ex) => rej(ex));
-    });
-  };
-
-  const error = (text = 'Something goes wrong!'): Promise<void> => {
-    return new Promise((res, rej) => {
-      swal
-        .fire({
-          title: 'Error!',
-          icon: 'error',
-          text: text,
-        })
-        .then(() => res())
-        .catch((ex) => rej(ex));
-    });
-  };
-
-  const warning = (text = 'Warning!'): Promise<void> => {
-    return new Promise((res, rej) => {
-      swal
-        .fire({
-          title: 'Warning!',
-          icon: 'warning',
-          text: text,
-        })
-        .then(() => res())
-        .catch((ex) => rej(ex));
-    });
-  };
-
-  const info = (text = 'Info!'): Promise<void> => {
-    return new Promise((res, rej) => {
-      swal
-        .fire({
-          title: 'Info!',
-          icon: 'info',
-          text: text,
-        })
-        .then(() => res())
-        .catch((ex) => rej(ex));
-    });
-  };
-
-  const confirmation = (
-    text: string | undefined = undefined
-  ): Promise<boolean> => {
-    return new Promise((res, rej) => {
-      swal
-        .fire({
-          title: 'Are you sure?',
-          text: text,
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Yes',
-          cancelButtonText: 'No',
-          reverseButtons: true,
-        })
-        .then((response) => {
-          if (response.isConfirmed) {
-            res(true);
-          } else {
-            res(false);
-          }
-        })
-        .catch((ex) => rej(ex));
-    });
-  };
+  Swal.fire('An error has occurred', `${message}`, 'error');
 
   return {
-    success,
-    error,
-    warning,
-    info,
-    confirmation,
-    httpError,
+    data: data ?? {},
+    response: {
+      message,
+      success,
+      code,
+      status,
+    },
   };
 };

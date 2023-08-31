@@ -1,8 +1,20 @@
-export type OptionalResponseType = {
+export type CustomResponse = {
   status: number;
   code: string;
   success: boolean;
   message: string;
 };
 
-export type BaseResponseType = Partial<OptionalResponseType>;
+export type ResponseError = {
+  data: {};
+  response: CustomResponse;
+};
+
+export type ResponseSuccess<T> = {
+  data: T;
+  response: CustomResponse;
+};
+
+export type BaseResponse<T = undefined> = T extends undefined
+  ? ResponseError
+  : ResponseSuccess<T>;
