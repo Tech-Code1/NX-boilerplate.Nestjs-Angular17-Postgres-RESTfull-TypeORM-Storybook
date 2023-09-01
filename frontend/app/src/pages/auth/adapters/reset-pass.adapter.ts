@@ -1,4 +1,4 @@
-import { BaseResponseType, IResetPassResponse } from '@types';
+/* import { BaseResponseType, IResetPassResponse } from '@types';
 import { Swal } from '@utils';
 
 export const ResetPassAdapter = async (
@@ -21,3 +21,4 @@ export const ResetPassAdapter = async (
     code,
   };
 };
+ */

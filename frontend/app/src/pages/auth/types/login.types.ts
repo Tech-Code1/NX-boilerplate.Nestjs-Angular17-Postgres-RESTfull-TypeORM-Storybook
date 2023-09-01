@@ -1,7 +1,6 @@
 import { ROLES } from '@db/constants';
-import { BaseResponseType } from '../../../common';
 
-export interface IUser extends BaseResponseType {
+export interface IUser {
   token?: string;
   id: string;
   email: string;
@@ -10,10 +9,10 @@ export interface IUser extends BaseResponseType {
   isBlocked: boolean;
   roles: ROLES[];
 }
-export interface ILoginResponse {
+/* export interface ILoginResponse {
   data: IUser;
   response: BaseResponseType;
-}
+} */
 
 export interface ILogin {
   token: string;

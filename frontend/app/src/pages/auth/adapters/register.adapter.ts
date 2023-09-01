@@ -1,4 +1,4 @@
-import { BaseResponseType, IRegisterResponse, IUser } from '@types';
+/* import { BaseResponseType, IRegisterResponse, IUser } from '@types';
 import { Swal } from '@utils';
 
 export const RegisterAdapter = async (
@@ -23,3 +23,4 @@ export const RegisterAdapter = async (
     code,
   };
 };
+ */

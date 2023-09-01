@@ -1,12 +1,11 @@
-import { BaseResponseType } from '../../../common/types/reponses.type';
 import { IUser } from './login.types';
 
-export interface IRegisterUser extends BaseResponseType {
+export interface IRegisterUser {
   email: string;
   username: string;
   password: string;
 }
 
-export interface IRegisterResponse extends BaseResponseType {
+export interface IRegisterResponse {
   Register_User: IUser;
 }

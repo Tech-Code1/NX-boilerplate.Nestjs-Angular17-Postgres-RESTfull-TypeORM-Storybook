@@ -1,8 +1,6 @@
-import { BaseResponseType } from '../../../common/types/reponses.type';
-
-export interface IRecoverResponse extends BaseResponseType {
+export interface IRecoverResponse {
   message: string;
 }
-export interface IEmail extends BaseResponseType {
+export interface IEmail {
   email: string;
 }

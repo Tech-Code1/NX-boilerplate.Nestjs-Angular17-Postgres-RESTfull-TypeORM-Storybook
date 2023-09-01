@@ -5,7 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, take } from 'rxjs';
+import { LoginService } from '../../../service/login.service';
 
 @Component({
   selector: 'form-login',
@@ -14,6 +15,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FormLoginComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
+  loginService = inject(LoginService);
 
   private passwordSource = new BehaviorSubject<string | null>(null);
   formRegister!: FormGroup;
@@ -39,5 +41,24 @@ export class FormLoginComponent implements OnInit {
         ],
       ],
     });
+  }
+
+  onSubmit() {
+    if (this.formRegister.valid) {
+      const { email, password } = this.formRegister.value;
+      this.loginService
+        .loginUser({ email, password })
+        .pipe(take(1))
+        .subscribe(
+          (res) => {
+            // Manejar el éxito
+            console.log('Login exitoso', res);
+          },
+          (error) => {
+            // Manejar el error
+            console.log('Error en el inicio de sesión', error);
+          }
+        );
+    }
   }
 }

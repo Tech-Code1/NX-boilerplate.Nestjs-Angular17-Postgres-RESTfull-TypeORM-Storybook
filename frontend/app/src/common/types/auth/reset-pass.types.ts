@@ -1,9 +1,7 @@
-import { BaseResponseType } from '../../../common/types/reponses.type';
-
-export interface IResetPassResponse extends BaseResponseType {
+export interface IResetPassResponse {
   Password_Change: { message: string };
 }
-export interface IResetPass extends BaseResponseType {
+export interface IResetPass {
   password: string;
   repeatPass: string;
 }
