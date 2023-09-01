@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
+import { ILogin } from '@types';
 import { Observable, of, switchMap, tap } from 'rxjs';
 import { BaseResponse } from '../../../common';
 import { environment } from '../../../environments/environment';
@@ -14,15 +15,17 @@ export class LoginService {
   BASE_API: string = environment.baseUrl;
   /* private router = inject(Router); */
 
-  loginResponseOk = signal<BaseResponse<IUser>>({
+  loginResponseOk = signal<BaseResponse<ILogin>>({
     data: {
-      id: '',
-      email: '',
-      isActive: false,
-      isBlocked: false,
-      roles: [],
-      username: '',
       token: '',
+      user: {
+        id: '',
+        email: '',
+        isActive: false,
+        isBlocked: false,
+        roles: [],
+        username: '',
+      },
     },
     response: {
       code: '',
@@ -57,11 +60,13 @@ export class LoginService {
       )
       .pipe(
         switchMap((res) => of(LoginAdapter(res))),
-        tap((res) =>
-          res.response.success
-            ? this.loginResponseOk.set(res as BaseResponse<IUser>)
-            : this.loginResponseError.set(res as BaseResponse)
-        )
+        tap((res) => {
+          console.log('response after adapter: *:', res);
+
+          return res.response.success
+            ? this.loginResponseOk.set(res as BaseResponse<ILogin>)
+            : this.loginResponseError.set(res as BaseResponse);
+        })
       );
   }
 }

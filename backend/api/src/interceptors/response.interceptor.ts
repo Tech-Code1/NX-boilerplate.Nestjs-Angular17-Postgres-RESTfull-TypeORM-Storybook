@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { BaseResponse } from '../auth/types/auth-response.type';
 
 @Injectable()
 export class TransformInterceptor implements NestInterceptor {
@@ -14,7 +15,12 @@ export class TransformInterceptor implements NestInterceptor {
       map((data) => {
         return {
           data: data.data,
-          response: data.response,
+          response: {
+            status: data.status,
+            message: data.message,
+            success: data.success,
+            code: data.code,
+          } as unknown as BaseResponse<typeof data.data | undefined>,
         };
       })
     );

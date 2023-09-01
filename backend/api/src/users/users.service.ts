@@ -5,7 +5,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
-import { ErrorManager } from '../utils/response.manager';
+import { Resp } from '../utils/response.manager';
 import { CreateUserDTO, UpdateUserDTO, UserToProjectDTO } from './dto';
 
 @Injectable()
@@ -26,7 +26,7 @@ export class UsersService {
 
       return await this.userRepository.save(newUser);
     } catch (error) {
-      throw ErrorManager.createError('Something went wrong', 'BAD_REQUEST');
+      throw Resp.Error('Something went wrong', 'BAD_REQUEST');
     }
   }
 
@@ -39,14 +39,14 @@ export class UsersService {
       });
 
       if (users.length === 0) {
-        throw ErrorManager.createError({
+        throw Resp.Error({
           type: 'BAD_REQUEST',
           message: 'No result found',
         });
       }
       return users;
     } catch (error) {
-      throw ErrorManager.createError(error.message);
+      throw Resp.Error(error.message);
     }
   }
 
@@ -65,7 +65,7 @@ export class UsersService {
       const user: User = await this.userRepository.findOneBy({ id });
 
       if (!user) {
-        throw ErrorManager.createError({
+        throw Resp.Error({
           type: 'NOT_FOUND',
           message: 'custom error message',
         });
@@ -74,7 +74,7 @@ export class UsersService {
     } catch (error) {
       console.log(error, 'error');
 
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 
@@ -82,7 +82,7 @@ export class UsersService {
     try {
       return await this.userRepository.findOneByOrFail({ email });
     } catch (error) {
-      throw ErrorManager.createError(
+      throw Resp.Error(
         {
           code: 'database',
           detail: `${email} not found`,
@@ -102,11 +102,11 @@ export class UsersService {
         .getOne();
 
       if (!user) {
-        throw ErrorManager.createError({ type: 'NOT_FOUND' });
+        throw Resp.Error({ type: 'NOT_FOUND' });
       }
       return user;
     } catch (error) {
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 
@@ -114,7 +114,7 @@ export class UsersService {
     try {
       return await this.userProjectRepository.save(userToProject);
     } catch (error) {
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 
@@ -134,7 +134,7 @@ export class UsersService {
 
       return user;
     } catch (error) {
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 
@@ -153,7 +153,7 @@ export class UsersService {
 
       return this.userRepository.save(user);
     } catch (error) {
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 
@@ -166,7 +166,7 @@ export class UsersService {
 
       return await this.userRepository.save(user);
     } catch (error) {
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 

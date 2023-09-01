@@ -1,11 +1,9 @@
-import { BaseResponse, IUser } from '@types';
+import { BaseResponse, ILogin } from '@types';
 import { managerError } from '@utils';
 
 export const LoginAdapter = (
-  resp: BaseResponse<IUser | undefined>
-): BaseResponse<IUser | undefined> => {
-  console.log('Response', resp);
-
+  resp: BaseResponse<ILogin | undefined>
+): BaseResponse<ILogin | undefined> => {
   const { data, response } = resp;
 
   const { code, message, status, success } = response;
@@ -14,18 +12,17 @@ export const LoginAdapter = (
     return managerError(resp);
   }
 
-  const { id, email, username, isActive, isBlocked, roles, token } =
-    data as IUser;
+  const { token, user } = data as ILogin;
 
   return {
     data: {
-      id,
-      email,
-      username,
-      isActive,
-      isBlocked,
-      roles,
-      token,
+      id: user.id,
+      email: user.email,
+      username: user.username,
+      isActive: user.isActive,
+      isBlocked: user.isBlocked,
+      roles: user.roles,
+      token: token,
     },
     response: {
       status,

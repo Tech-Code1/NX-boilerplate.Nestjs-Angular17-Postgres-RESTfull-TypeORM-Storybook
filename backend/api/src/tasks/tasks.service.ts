@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProjectsService } from '../projects/projects.service';
-import { ErrorManager } from '../utils/response.manager';
+import { Resp } from '../utils/response.manager';
 import { CreateTaskDTO } from './dto';
 
 @Injectable()
@@ -26,7 +26,7 @@ export class TasksService {
     } catch (error) {
       console.log(error, 'error');
 
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 }

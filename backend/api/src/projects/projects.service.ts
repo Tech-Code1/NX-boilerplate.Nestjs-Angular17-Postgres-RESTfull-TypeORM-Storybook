@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UsersService } from '../users/users.service';
-import { ErrorManager } from '../utils/response.manager';
+import { Resp } from '../utils/response.manager';
 import { CreateProjectDTO, ProjectUpdateDTO } from './dto';
 
 @Injectable()
@@ -33,7 +33,7 @@ export class ProjectsService {
 
       return usersProjects;
     } catch (error) {
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 
@@ -57,14 +57,14 @@ export class ProjectsService {
       const projects = await queryBuilder.getMany();
 
       if (projects.length === 0) {
-        throw ErrorManager.createError({
+        throw Resp.Error({
           type: 'BAD_REQUEST',
           message: 'No se encontro resultado',
         });
       }
       return projects;
     } catch (error) {
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 
@@ -77,7 +77,7 @@ export class ProjectsService {
         .leftJoinAndSelect('usersIncludes.user', 'user')
         .getOne();
       if (!project) {
-        throw ErrorManager.createError({
+        throw Resp.Error({
           type: 'BAD_REQUEST',
           message: 'The project with the id does not exist: ' + id,
         });
@@ -86,7 +86,7 @@ export class ProjectsService {
     } catch (error) {
       console.log(error, 'error project');
 
-      throw ErrorManager.createError(error);
+      throw Resp.Error(error);
     }
   }
 
@@ -102,12 +102,12 @@ export class ProjectsService {
       });
 
       if (!updatedProject) {
-        throw new ErrorManager.createError(`Project with ID "${id}" not found`);
+        throw new Resp.Error(`Project with ID "${id}" not found`);
       }
 
       return updatedProject;
     } catch (error) {
-      throw ErrorManager.createError(error.message);
+      throw Resp.Error(error.message);
     }
   }
 
@@ -124,7 +124,7 @@ export class ProjectsService {
 
       return project;
     } catch (error) {
-      throw ErrorManager.createError(error.message);
+      throw Resp.Error(error.message);
     }
   }
 }

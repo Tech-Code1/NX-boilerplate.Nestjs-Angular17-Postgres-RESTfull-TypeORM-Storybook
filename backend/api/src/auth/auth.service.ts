@@ -14,9 +14,9 @@ import { sendEmail } from '../utils';
 import { emailRecoverPassHTML } from '../utils/handlebars/recoverPassword';
 import { emailRecoverPassSuccessHTML } from '../utils/handlebars/recoverPasswordSuccess';
 import { generateResetLink } from '../utils/linkUtils';
-import { ErrorManager } from '../utils/response.manager';
+import { Resp } from '../utils/response.manager';
 import { AuthDTO, LoginDTO } from './dto';
-import { AuthResponse } from './types/auth-response.type';
+import { IAuthResponse } from './types/auth-response.type';
 
 @Injectable()
 export class AuthService {
@@ -31,7 +31,7 @@ export class AuthService {
     private readonly jwtService: JwtService
   ) {}
 
-  public async signup(auth: AuthDTO): Promise<AuthResponse> {
+  public async signup(auth: AuthDTO): Promise<IAuthResponse> {
     const { email } = auth;
 
     const user = await this.userService.findUserByEmail(email);
@@ -44,22 +44,21 @@ export class AuthService {
     };
   }
 
-  public async login({ email, password }: LoginDTO): Promise<AuthResponse> {
+  public async login({ email, password }: LoginDTO) {
     const user = await this.userService.findUserByEmail(email);
 
     if (!bcrypt.compareSync(password, user.password)) {
-      throw ErrorManager.createError(
-        'Your password or email are incorrect',
-        'BAD_REQUEST'
-      );
+      throw Resp.Error('Your password or email are incorrect', 'BAD_REQUEST');
     }
 
     const token = this.getJwtToken(user.id);
 
-    return {
+    const data = {
       token,
       user,
     };
+
+    return Resp.Success<IAuthResponse>(data, 'OK');
   }
 
   public async getTokenDB(user: User) {
@@ -89,7 +88,7 @@ export class AuthService {
   async requestPasswordReset(email: string) {
     const user = await this.userService.findUserByEmail(email);
     if (!user) {
-      throw ErrorManager.createError('', 'NOT_FOUND');
+      throw Resp.Error('', 'NOT_FOUND');
     }
 
     const resetToken = await this.getTokenDB(user);
@@ -98,7 +97,7 @@ export class AuthService {
     const emailBody = emailRecoverPassHTML(user.username, link);
 
     if (!link || !emailBody) {
-      throw ErrorManager.createError('Something has gone wrong', 'BAD_REQUEST');
+      throw Resp.Error('Something has gone wrong', 'BAD_REQUEST');
     }
 
     await sendEmail(
@@ -117,7 +116,7 @@ export class AuthService {
     });
 
     if (!passwordResetToken) {
-      throw ErrorManager.createError(
+      throw Resp.Error(
         'Invalid or expired password reset token',
         'UNAUTHORIZED'
       );
@@ -126,7 +125,7 @@ export class AuthService {
     const isValid = await bcrypt.compare(token, passwordResetToken.token);
 
     if (!isValid) {
-      throw ErrorManager.createError(
+      throw Resp.Error(
         'Invalid or expired password reset token',
         'UNAUTHORIZED'
       );
@@ -142,7 +141,7 @@ export class AuthService {
     const emailBody = emailRecoverPassSuccessHTML(user.username, password);
 
     if (!user || !emailBody) {
-      throw ErrorManager.createError('Something has gone wrong', 'BAD_REQUEST');
+      throw Resp.Error('Something has gone wrong', 'BAD_REQUEST');
     }
 
     await sendEmail(
@@ -189,7 +188,7 @@ export class AuthService {
     const user = await this.userService.findUserById(id);
 
     if (!user.isActive) {
-      throw ErrorManager.createError(
+      throw Resp.Error(
         'The user is inactive, talk to support to try to find a solution',
         'UNAUTHORIZED'
       );
@@ -197,7 +196,7 @@ export class AuthService {
 
     if (user.isBlocked) {
       if (user.timeBlocked === BLOCKED_TIME.PERMANENT) {
-        throw ErrorManager.createError(
+        throw Resp.Error(
           'You cannot access you are permanently banned',
           'UNAUTHORIZED'
         );
@@ -206,7 +205,7 @@ export class AuthService {
       console.log(user.timeBlocked);
 
       const now = dayjs().valueOf();
-      throw ErrorManager.createError(
+      throw Resp.Error(
         `You cannot access you are banned until ${dayjs(
           now + user.timeBlocked
         ).format('YYYY-MM-DD HH:mm')}`,

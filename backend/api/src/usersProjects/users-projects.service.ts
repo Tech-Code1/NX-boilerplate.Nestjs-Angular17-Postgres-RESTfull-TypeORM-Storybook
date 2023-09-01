@@ -2,7 +2,7 @@ import { UsersProjects } from '@db/entities';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ErrorManager } from '../utils';
+import { Resp } from '../utils';
 
 @Injectable()
 export class UsersProjectsService {
@@ -26,16 +26,13 @@ export class UsersProjectsService {
     });
 
     if (!result) {
-      throw ErrorManager.createError({
+      throw Resp.Error({
         type: 'BAD_REQUEST',
       });
     }
 
     if (Array.isArray(result) && result.length === 0) {
-      throw ErrorManager.createError(
-        'The user is not found in any project',
-        'NOT_FOUND'
-      );
+      throw Resp.Error('The user is not found in any project', 'NOT_FOUND');
     }
 
     return result;
