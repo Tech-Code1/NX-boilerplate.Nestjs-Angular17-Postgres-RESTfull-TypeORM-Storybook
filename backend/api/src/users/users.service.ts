@@ -5,7 +5,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
-import { ErrorManager } from '../utils/error.manager';
+import { ErrorManager } from '../utils/response.manager';
 import { CreateUserDTO, UpdateUserDTO, UserToProjectDTO } from './dto';
 
 @Injectable()

@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProjectsService } from '../projects/projects.service';
-import { ErrorManager } from '../utils/error.manager';
+import { ErrorManager } from '../utils/response.manager';
 import { CreateTaskDTO } from './dto';
 
 @Injectable()

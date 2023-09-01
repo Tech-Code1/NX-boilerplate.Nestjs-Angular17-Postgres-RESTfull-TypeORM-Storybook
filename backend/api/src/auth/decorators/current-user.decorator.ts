@@ -1,6 +1,6 @@
 import { ROLES } from '@db/constants';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { ErrorManager } from '../../utils/error.manager';
+import { ErrorManager } from '../../utils/response.manager';
 
 export const CurrentUser = createParamDecorator(
   (roles: ROLES[], context: ExecutionContext) => {

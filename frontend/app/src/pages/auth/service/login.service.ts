@@ -51,7 +51,10 @@ export class LoginService {
     console.log(email, password);
 
     return this.http
-      .post<BaseResponse<IUser | undefined>>(this.BASE_API, body)
+      .post<BaseResponse<IUser | undefined>>(
+        `${this.BASE_API}/auth/login`,
+        body
+      )
       .pipe(
         switchMap((res) => of(LoginAdapter(res))),
         tap((res) =>

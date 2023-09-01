@@ -11,10 +11,10 @@ import { Repository } from 'typeorm';
 import { BLOCKED_TIME } from '../../../database/src/constants/interfaces.entities';
 import { UsersService } from '../users/users.service';
 import { sendEmail } from '../utils';
-import { ErrorManager } from '../utils/error.manager';
 import { emailRecoverPassHTML } from '../utils/handlebars/recoverPassword';
 import { emailRecoverPassSuccessHTML } from '../utils/handlebars/recoverPasswordSuccess';
 import { generateResetLink } from '../utils/linkUtils';
+import { ErrorManager } from '../utils/response.manager';
 import { AuthDTO, LoginDTO } from './dto';
 import { AuthResponse } from './types/auth-response.type';
 

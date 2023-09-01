@@ -4,6 +4,8 @@ import { managerError } from '@utils';
 export const LoginAdapter = (
   resp: BaseResponse<IUser | undefined>
 ): BaseResponse<IUser | undefined> => {
+  console.log('Response', resp);
+
   const { data, response } = resp;
 
   const { code, message, status, success } = response;

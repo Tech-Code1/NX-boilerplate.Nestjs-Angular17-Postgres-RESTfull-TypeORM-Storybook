@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UsersService } from '../users/users.service';
-import { ErrorManager } from '../utils/error.manager';
+import { ErrorManager } from '../utils/response.manager';
 import { CreateProjectDTO, ProjectUpdateDTO } from './dto';
 
 @Injectable()

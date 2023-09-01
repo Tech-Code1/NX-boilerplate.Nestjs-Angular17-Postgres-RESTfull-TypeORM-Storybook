@@ -1,7 +1,7 @@
 import { User } from '@db/entities';
 import { NODEMAILER_USER, PASS_GMAIL } from '@environments';
 import * as nodemailer from 'nodemailer';
-import { ErrorManager } from './error.manager';
+import { ErrorManager } from './response.manager';
 
 export const sendEmail = async (
   emailOptions: {
