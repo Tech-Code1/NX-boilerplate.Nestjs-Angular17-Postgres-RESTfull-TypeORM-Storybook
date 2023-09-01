@@ -1,5 +1,4 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { GraphQLError } from 'graphql';
 import { statusMessages } from '../constants/errors';
 import { errorType } from '../interface/typeErrorCustom';
 export class ErrorManager extends Error {
@@ -36,20 +35,6 @@ export class ErrorManager extends Error {
 
         if (message) {
           message = `::error-${errorCode}:: ${message}`;
-        }
-      }
-
-      if (
-        error instanceof GraphQLError &&
-        'extensions' in error &&
-        'code' in error.extensions
-      ) {
-        status = error.extensions.status;
-        message = error.message;
-        code = error.extensions.code;
-
-        if (message) {
-          error.message = message;
         }
       }
     }
