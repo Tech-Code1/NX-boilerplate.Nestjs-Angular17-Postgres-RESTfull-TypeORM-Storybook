@@ -30,7 +30,8 @@
       "@nx-boilerplate/frontend/ui": ["frontend/ui/src/index.ts"],
       "@ui/components": ["frontend/ui/components"],
       "@types": ["frontend/app/src/common/types"],
-      "@utils": ["frontend/app/src/utils"]
+      "@utils": ["frontend/app/src/utils"],
+      "@services": ["frontend/app/src/common/services"]
     }
   },
   "exclude": ["node_modules", "tmp"]
