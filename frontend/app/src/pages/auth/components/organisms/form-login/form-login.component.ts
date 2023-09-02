@@ -5,7 +5,6 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Swal } from '@utils';
 import { BehaviorSubject, take } from 'rxjs';
 import { LoginService } from '../../../service/login.service';
 
@@ -50,17 +49,7 @@ export class FormLoginComponent implements OnInit {
       this.loginService
         .loginUser({ email, password })
         .pipe(take(1))
-        .subscribe(
-          ({ response }) => {
-            // Manejar el éxito
-            Swal.success('You have successfully connected');
-          },
-          ({ error }) => {
-            console.log(error, 'error');
-
-            Swal.error(error.message);
-          }
-        );
+        .subscribe((resp) => console.log('response desde component:', resp));
     }
   }
 }

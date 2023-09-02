@@ -1,10 +1,15 @@
 import { Injectable, signal } from '@angular/core';
 import { BaseResponse } from '@types';
+import { Swal } from '@utils';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ResponseService {
+export class ResponseService<T> {
+  _success = ResponseService.responseSuccess<T>();
+  _error = ResponseService.responseError();
+
   static responseSuccess<T>() {
     return signal<BaseResponse<T>>({
       data: {} as T,
@@ -29,18 +34,20 @@ export class ResponseService {
     });
   }
 
-  static success<T>(res: BaseResponse<T>) {
+  protected success = (res: BaseResponse<T>) => {
     console.log('exito desde base service', res);
-    const response = ResponseService.responseSuccess<T>();
 
-    return response.set(res);
-  }
+    Swal.success(res.response.message);
 
-  static error(res: BaseResponse) {
-    console.log('error desde base service', res);
+    return this._success.set(res as BaseResponse<T>);
+  };
 
-    const response = ResponseService.responseError();
+  protected error = (error: BaseResponse) => {
+    console.log('error desde base service', error);
 
-    return response.set(res);
-  }
+    Swal.error(error.response.message);
+    this._error.set(error);
+
+    return throwError(() => error);
+  };
 }

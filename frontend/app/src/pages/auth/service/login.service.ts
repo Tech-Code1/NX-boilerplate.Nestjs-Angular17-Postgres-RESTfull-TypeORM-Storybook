@@ -1,17 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ResponseService } from '@services';
-import { ILogin } from '@types';
-import { of, switchMap, tap } from 'rxjs';
+import { catchError, of, switchMap, tap } from 'rxjs';
 import { BaseResponse } from '../../../common';
 import { environment } from '../../../environments/environment';
 import { LoginAdapter } from '../adapters';
-import { ILoginData, IUser } from '../types';
+import { ILogin, ILoginData, IUser } from '../types';
 
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class LoginService extends ResponseService<ILogin> {
   private http = inject(HttpClient);
   BASE_API: string = environment.baseUrl;
 
@@ -27,12 +26,9 @@ export class LoginService {
       )
       .pipe(
         switchMap((res) => of(LoginAdapter(res))),
-        tap((res) => {
-          console.log('response after adapter: *:', res);
-
-          return res.response.success
-            ? ResponseService.success<ILogin>(res as BaseResponse<ILogin>)
-            : ResponseService.error(res as BaseResponse);
+        tap((res) => this.success(res as BaseResponse<ILogin>)),
+        catchError(({ error }) => {
+          return this.error(error);
         })
       );
   }
