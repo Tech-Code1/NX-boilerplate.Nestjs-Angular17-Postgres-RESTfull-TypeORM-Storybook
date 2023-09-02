@@ -28,7 +28,8 @@ export class LoginService extends ResponseService<ILogin> {
         switchMap((res) => of(LoginAdapter(res))),
         tap((res) => this.success(res as BaseResponse<ILogin>)),
         catchError(({ error }) => {
-          return this.error(error);
+          this.error(error);
+          throw error;
         })
       );
   }

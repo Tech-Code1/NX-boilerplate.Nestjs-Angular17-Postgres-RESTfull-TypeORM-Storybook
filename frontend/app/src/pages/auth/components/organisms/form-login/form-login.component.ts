@@ -49,7 +49,16 @@ export class FormLoginComponent implements OnInit {
       this.loginService
         .loginUser({ email, password })
         .pipe(take(1))
-        .subscribe((resp) => console.log('response desde component:', resp));
+        .subscribe(
+          ({ data }) => {
+            console.log('success', data);
+            // Haz algo cuando la operación sea exitosa
+          },
+          ({ response }) => {
+            console.log('error', response);
+            // Aquí puedes hacer algo adicional en el componente cuando se produce un error
+          }
+        );
     }
   }
 }
