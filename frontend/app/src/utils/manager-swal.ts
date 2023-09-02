@@ -1,7 +1,7 @@
 import swal from 'sweetalert2';
 
-export const Swal = () => {
-  const success = (text = 'Success'): Promise<void> => {
+export class Swal {
+  static async success(text = 'Success'): Promise<void> {
     return new Promise((res, rej) => {
       swal
         .fire({
@@ -12,12 +12,12 @@ export const Swal = () => {
         .then(() => res())
         .catch((ex) => rej(ex));
     });
-  };
+  }
 
-  const httpError = (
+  static async httpError(
     code: number,
     text: string | null = null
-  ): Promise<void> => {
+  ): Promise<void> {
     let message = text;
 
     if (text === null) {
@@ -54,9 +54,9 @@ export const Swal = () => {
         .then(() => res())
         .catch((ex) => rej(ex));
     });
-  };
+  }
 
-  const error = (text = 'Something goes wrong!'): Promise<void> => {
+  static async error(text = 'Something goes wrong!'): Promise<void> {
     return new Promise((res, rej) => {
       swal
         .fire({
@@ -67,9 +67,9 @@ export const Swal = () => {
         .then(() => res())
         .catch((ex) => rej(ex));
     });
-  };
+  }
 
-  const warning = (text = 'Warning!'): Promise<void> => {
+  static async warning(text = 'Warning!'): Promise<void> {
     return new Promise((res, rej) => {
       swal
         .fire({
@@ -80,9 +80,9 @@ export const Swal = () => {
         .then(() => res())
         .catch((ex) => rej(ex));
     });
-  };
+  }
 
-  const info = (text = 'Info!'): Promise<void> => {
+  static async info(text = 'Info!'): Promise<void> {
     return new Promise((res, rej) => {
       swal
         .fire({
@@ -93,11 +93,11 @@ export const Swal = () => {
         .then(() => res())
         .catch((ex) => rej(ex));
     });
-  };
+  }
 
-  const confirmation = (
+  static async confirmation(
     text: string | undefined = undefined
-  ): Promise<boolean> => {
+  ): Promise<boolean> {
     return new Promise((res, rej) => {
       swal
         .fire({
@@ -118,14 +118,5 @@ export const Swal = () => {
         })
         .catch((ex) => rej(ex));
     });
-  };
-
-  return {
-    success,
-    error,
-    warning,
-    info,
-    confirmation,
-    httpError,
-  };
-};
+  }
+}

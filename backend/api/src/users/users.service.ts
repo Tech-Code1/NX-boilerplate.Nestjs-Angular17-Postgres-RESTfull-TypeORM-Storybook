@@ -82,10 +82,12 @@ export class UsersService {
     try {
       return await this.userRepository.findOneByOrFail({ email });
     } catch (error) {
-      throw Resp.Error(
+      console.log(error, 'email not found');
+
+      Resp.Error(
         {
-          code: 'database',
-          detail: `${email} not found`,
+          code: 'user_not_found ::',
+          detail: `No user found with the email ${email}`,
         },
         'NOT_FOUND'
       );

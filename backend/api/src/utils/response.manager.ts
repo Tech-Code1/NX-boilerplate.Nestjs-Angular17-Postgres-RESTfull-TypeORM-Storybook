@@ -30,13 +30,17 @@ export class Resp extends Error {
     } else if ('type' in error) {
       message =
         error.additionalProperty || statusMessages[error.type] || message;
+    } else if ('code' in error && 'detail' in error) {
+      console.log(`${error.code}: ${error.detail}`);
+
+      message = `${error.code} ${customMessage || error.detail}`;
     }
 
     return message;
   }
 
   private static createResponse<T>(
-    payload: T,
+    data: T,
     type: keyof typeof HttpStatus,
     isSuccess: boolean,
     customMessage?: string
@@ -49,7 +53,7 @@ export class Resp extends Error {
       message,
       code: type,
       success: isSuccess,
-      data: isSuccess ? payload : {},
+      data: isSuccess ? data : {},
     };
 
     return isSuccess ? response : new HttpException(response, status);

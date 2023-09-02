@@ -1,4 +1,3 @@
-import Swal from 'sweetalert2';
 import { BaseResponse } from '../common';
 
 export const managerError = (resp: BaseResponse): BaseResponse => {
@@ -17,10 +16,6 @@ export const managerError = (resp: BaseResponse): BaseResponse => {
   }
 
   const { code, message, status, success } = response;
-
-  console.log('paso por acá');
-
-  Swal.fire('An error has occurred', `${message}`, 'error');
 
   return {
     data: data ?? {},
