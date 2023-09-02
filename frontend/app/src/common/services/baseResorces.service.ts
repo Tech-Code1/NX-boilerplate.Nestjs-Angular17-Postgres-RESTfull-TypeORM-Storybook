@@ -13,7 +13,12 @@ export class ResourceService<T> {
   resources = signal<ResourceType<T>[]>([]);
 
   // * common stock manager with: GET, POST, PUT, DELETE
-  protected upsertResource = (post: ResourceType<T>) => {
+
+  protected setResource = (resources: ResourceType<T>[]) => {
+    this.resources.set(resources);
+  };
+
+  protected insertResource = (post: ResourceType<T>) => {
     const index = this.resources().findIndex(
       (resource) => resource.id === post.id
     );
