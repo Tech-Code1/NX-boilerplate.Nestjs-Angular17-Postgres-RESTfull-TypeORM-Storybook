@@ -9,8 +9,8 @@ export const CurrentUser = createParamDecorator(
 
     if (!user) {
       throw Resp.Error(
-        'No user inside the request - make sure that we used the AuthGuard',
-        'INTERNAL_SERVER_ERROR'
+        'INTERNAL_SERVER_ERROR',
+        'No user inside the request - make sure that we used the AuthGuard'
       );
     }
 
@@ -18,6 +18,6 @@ export const CurrentUser = createParamDecorator(
 
     if (user.roles.some((role) => roles.includes(role))) return user;
 
-    throw Resp.Error(`User ${user.username} is not a valid role`, 'FORBIDDEN');
+    throw Resp.Error('FORBIDDEN', `User ${user.username} is not a valid role`);
   }
 );

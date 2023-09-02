@@ -57,10 +57,7 @@ export class ProjectsService {
       const projects = await queryBuilder.getMany();
 
       if (projects.length === 0) {
-        throw Resp.Error({
-          type: 'BAD_REQUEST',
-          message: 'No se encontro resultado',
-        });
+        throw Resp.Error('BAD_REQUEST', 'No se encontro resultado');
       }
       return projects;
     } catch (error) {
@@ -77,10 +74,10 @@ export class ProjectsService {
         .leftJoinAndSelect('usersIncludes.user', 'user')
         .getOne();
       if (!project) {
-        throw Resp.Error({
-          type: 'BAD_REQUEST',
-          message: 'The project with the id does not exist: ' + id,
-        });
+        throw Resp.Error(
+          'BAD_REQUEST',
+          'The project with the id does not exist: ' + id
+        );
       }
       return project;
     } catch (error) {
@@ -102,7 +99,7 @@ export class ProjectsService {
       });
 
       if (!updatedProject) {
-        throw new Resp.Error(`Project with ID "${id}" not found`);
+        throw new Resp.Error('NOT_FOUND', `Project with ID "${id}" not found`);
       }
 
       return updatedProject;

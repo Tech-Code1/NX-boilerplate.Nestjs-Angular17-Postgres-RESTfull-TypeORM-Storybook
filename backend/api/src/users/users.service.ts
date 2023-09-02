@@ -26,7 +26,7 @@ export class UsersService {
 
       return await this.userRepository.save(newUser);
     } catch (error) {
-      throw Resp.Error('Something went wrong', 'BAD_REQUEST');
+      throw Resp.Error('BAD_REQUEST', 'Something went wrong');
     }
   }
 
@@ -39,10 +39,7 @@ export class UsersService {
       });
 
       if (users.length === 0) {
-        throw Resp.Error({
-          type: 'BAD_REQUEST',
-          message: 'No result found',
-        });
+        throw Resp.Error('BAD_REQUEST', 'No result found');
       }
       return users;
     } catch (error) {
@@ -65,10 +62,7 @@ export class UsersService {
       const user: User = await this.userRepository.findOneBy({ id });
 
       if (!user) {
-        throw Resp.Error({
-          type: 'NOT_FOUND',
-          message: 'custom error message',
-        });
+        throw Resp.Error('NOT_FOUND', 'custom error message');
       }
       return user;
     } catch (error) {
@@ -82,15 +76,10 @@ export class UsersService {
     try {
       return await this.userRepository.findOneByOrFail({ email });
     } catch (error) {
-      console.log(error, 'email not found');
-
-      Resp.Error(
-        {
-          code: 'user_not_found ::',
-          detail: `No user found with the email ${email}`,
-        },
-        'NOT_FOUND'
-      );
+      Resp.Error('NOT_FOUND', {
+        code: 'not_found::',
+        detail: `No user found with the email ${email}`,
+      });
     }
   }
 
@@ -104,7 +93,7 @@ export class UsersService {
         .getOne();
 
       if (!user) {
-        throw Resp.Error({ type: 'NOT_FOUND' });
+        throw Resp.Error('NOT_FOUND');
       }
       return user;
     } catch (error) {

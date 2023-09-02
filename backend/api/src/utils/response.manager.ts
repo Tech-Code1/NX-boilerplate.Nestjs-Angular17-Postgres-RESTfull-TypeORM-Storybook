@@ -4,8 +4,8 @@ import { errorType } from '../interface';
 
 export class Resp extends Error {
   public static Error(
-    error: errorType,
     type: keyof typeof HttpStatus = 'INTERNAL_SERVER_ERROR',
+    error?: errorType,
     customMessage?: string
   ) {
     throw this.createException(error, type, false, customMessage);
@@ -16,24 +16,28 @@ export class Resp extends Error {
   }
 
   private static determineErrorMessage(
-    error: errorType,
+    error?: errorType,
     customMessage?: string
   ): string {
     let message = customMessage || 'An unexpected error occurred';
 
+    // * Handle HttpException
     if (error instanceof HttpException) {
       message = error.message;
+
+      // * Handle standard Error
     } else if (error instanceof Error) {
       message = error.message;
+
+      // * Handle string errors
     } else if (typeof error === 'string') {
       message = error;
-    } else if ('type' in error) {
-      message =
-        error.additionalProperty || statusMessages[error.type] || message;
-    } else if ('code' in error && 'detail' in error) {
-      console.log(`${error.code}: ${error.detail}`);
 
-      message = `${error.code} ${customMessage || error.detail}`;
+      // * Handle custom error object with code and detail fields
+    } else if ('code' in error && 'detail' in error) {
+      message = `::error-${error.code || 'An unexpected error occurred'} ${
+        customMessage || error.detail
+      }`;
     }
 
     return message;
@@ -66,7 +70,9 @@ export class Resp extends Error {
     customMessage?: string
   ) {
     const status = HttpStatus[type];
-    const message = this.determineErrorMessage(error, customMessage);
+    const message = error
+      ? this.determineErrorMessage(error, customMessage)
+      : statusMessages[type];
     const response = {
       status,
       message,

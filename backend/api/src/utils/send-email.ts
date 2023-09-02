@@ -33,8 +33,8 @@ export const sendEmail = async (
   await transporter.sendMail(mailOptions, (err) => {
     if (err) {
       throw Resp.Error(
-        'The email could not be sent, something unexpected happened',
-        'BAD_REQUEST'
+        'BAD_REQUEST',
+        'The email could not be sent, something unexpected happened'
       );
     } else {
       console.log(`Email sent to: ${user.email}`);

@@ -26,13 +26,11 @@ export class UsersProjectsService {
     });
 
     if (!result) {
-      throw Resp.Error({
-        type: 'BAD_REQUEST',
-      });
+      throw Resp.Error('BAD_REQUEST');
     }
 
     if (Array.isArray(result) && result.length === 0) {
-      throw Resp.Error('The user is not found in any project', 'NOT_FOUND');
+      throw Resp.Error('NOT_FOUND', 'The user is not found in any project');
     }
 
     return result;

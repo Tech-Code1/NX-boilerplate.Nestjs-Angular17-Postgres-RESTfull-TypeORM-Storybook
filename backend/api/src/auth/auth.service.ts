@@ -48,7 +48,7 @@ export class AuthService {
     const user = await this.userService.findUserByEmail(email);
 
     if (!bcrypt.compareSync(password, user.password)) {
-      throw Resp.Error('Your password or email are incorrect', 'BAD_REQUEST');
+      throw Resp.Error('BAD_REQUEST', 'Your password or email are incorrect');
     }
 
     const token = this.getJwtToken(user.id);
@@ -88,7 +88,7 @@ export class AuthService {
   async requestPasswordReset(email: string) {
     const user = await this.userService.findUserByEmail(email);
     if (!user) {
-      throw Resp.Error('', 'NOT_FOUND');
+      throw Resp.Error('NOT_FOUND', '');
     }
 
     const resetToken = await this.getTokenDB(user);
@@ -97,7 +97,7 @@ export class AuthService {
     const emailBody = emailRecoverPassHTML(user.username, link);
 
     if (!link || !emailBody) {
-      throw Resp.Error('Something has gone wrong', 'BAD_REQUEST');
+      throw Resp.Error('BAD_REQUEST', 'Something has gone wrong');
     }
 
     await sendEmail(
@@ -117,8 +117,8 @@ export class AuthService {
 
     if (!passwordResetToken) {
       throw Resp.Error(
-        'Invalid or expired password reset token',
-        'UNAUTHORIZED'
+        'UNAUTHORIZED',
+        'Invalid or expired password reset token'
       );
     }
 
@@ -126,8 +126,8 @@ export class AuthService {
 
     if (!isValid) {
       throw Resp.Error(
-        'Invalid or expired password reset token',
-        'UNAUTHORIZED'
+        'UNAUTHORIZED',
+        'Invalid or expired password reset token'
       );
     }
 
@@ -141,7 +141,7 @@ export class AuthService {
     const emailBody = emailRecoverPassSuccessHTML(user.username, password);
 
     if (!user || !emailBody) {
-      throw Resp.Error('Something has gone wrong', 'BAD_REQUEST');
+      throw Resp.Error('BAD_REQUEST', 'Something has gone wrong');
     }
 
     await sendEmail(
@@ -189,16 +189,16 @@ export class AuthService {
 
     if (!user.isActive) {
       throw Resp.Error(
-        'The user is inactive, talk to support to try to find a solution',
-        'UNAUTHORIZED'
+        'UNAUTHORIZED',
+        'The user is inactive, talk to support to try to find a solution'
       );
     }
 
     if (user.isBlocked) {
       if (user.timeBlocked === BLOCKED_TIME.PERMANENT) {
         throw Resp.Error(
-          'You cannot access you are permanently banned',
-          'UNAUTHORIZED'
+          'UNAUTHORIZED',
+          'You cannot access you are permanently banned'
         );
       }
 
@@ -206,10 +206,10 @@ export class AuthService {
 
       const now = dayjs().valueOf();
       throw Resp.Error(
+        'UNAUTHORIZED',
         `You cannot access you are banned until ${dayjs(
           now + user.timeBlocked
-        ).format('YYYY-MM-DD HH:mm')}`,
-        'UNAUTHORIZED'
+        ).format('YYYY-MM-DD HH:mm')}`
       );
     }
 
