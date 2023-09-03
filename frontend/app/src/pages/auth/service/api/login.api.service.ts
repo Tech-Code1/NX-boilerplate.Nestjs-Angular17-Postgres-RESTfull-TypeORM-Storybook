@@ -2,15 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ResponseService } from '@services';
 import { catchError, of, switchMap, tap } from 'rxjs';
-import { BaseResponse } from '../../../common';
-import { environment } from '../../../environments/environment';
-import { LoginAdapter } from '../adapters';
-import { ILogin, ILoginData, IUser } from '../types';
+import { BaseResponse } from '../../../../common';
+import { environment } from '../../../../environments/environment';
+import { LoginAdapter } from '../../adapters';
+import { ILogin, ILoginData, IUser } from '../../types';
 
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService extends ResponseService<ILogin> {
+export class LoginApiService extends ResponseService<ILogin> {
   private http = inject(HttpClient);
   BASE_API: string = environment.baseUrl;
 

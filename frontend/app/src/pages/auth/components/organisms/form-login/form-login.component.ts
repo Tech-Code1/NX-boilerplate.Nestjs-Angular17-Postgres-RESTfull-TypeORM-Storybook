@@ -5,9 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Swal } from '@utils';
-import { BehaviorSubject, take } from 'rxjs';
-import { LoginService } from '../../../service/login.service';
+import { LoginStateService } from '../../../service/state';
 
 @Component({
   selector: 'form-login',
@@ -16,11 +14,9 @@ import { LoginService } from '../../../service/login.service';
 })
 export class FormLoginComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
-  loginService = inject(LoginService);
+  loginService = inject(LoginStateService);
 
-  private passwordSource = new BehaviorSubject<string | null>(null);
   formRegister!: FormGroup;
-  password$ = this.passwordSource.asObservable();
 
   get emailControl(): FormControl {
     return this.formRegister.get('email') as FormControl;
@@ -45,19 +41,8 @@ export class FormLoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.formRegister.valid) {
-      const { email, password } = this.formRegister.value;
-      this.loginService
-        .loginUser({ email, password })
-        .pipe(take(1))
-        .subscribe(
-          ({ data, response }) => {
-            Swal.success(response.message);
-          },
-          ({ response }) => {
-            Swal.error(response.message);
-          }
-        );
-    }
+    if (!this.formRegister.valid) return;
+
+    this.loginService.onSubmit(this.formRegister);
   }
 }
