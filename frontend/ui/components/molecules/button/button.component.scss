@@ -11,3 +11,7 @@
 
 .button-tertiary {
 }
+
+.button:disabled {
+  @apply bg-slate-400 text-white w-full opacity-60;
+}
