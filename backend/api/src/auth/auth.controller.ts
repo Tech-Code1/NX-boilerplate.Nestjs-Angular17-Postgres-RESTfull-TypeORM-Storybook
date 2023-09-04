@@ -13,6 +13,7 @@ import {
 } from './decorators';
 import { AuthDTO, ChangePassDTO, LoginDTO } from './dto';
 import { JwtAuthGuard } from './guards';
+import { AuthGuard } from './guards/auth.guard';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -32,7 +33,7 @@ export class AuthController {
   }
 
   @Get('revalidate')
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, AuthGuard)
   @RevalidateDoc()
   async revalidateToken(@CurrentUser([ROLES.ADMIN]) user: User) {
     return this.authService.revalidateToken(user);

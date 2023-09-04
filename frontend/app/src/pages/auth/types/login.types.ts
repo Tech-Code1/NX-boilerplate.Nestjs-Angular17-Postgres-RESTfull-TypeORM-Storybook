@@ -23,3 +23,9 @@ export interface ILoginData {
   email: string;
   password: string;
 }
+
+export enum AuthStatus {
+  CHECKING = 'CHECKING',
+  AUTHENTICATED = 'AUTHENTICATED',
+  NOT_AUTHENTICATED = 'NOT_AUTHENTICATED',
+}

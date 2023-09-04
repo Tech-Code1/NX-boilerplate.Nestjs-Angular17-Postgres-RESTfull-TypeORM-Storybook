@@ -13,6 +13,7 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 import { CurrentUser, Public } from '../auth/decorators';
 import { JwtAuthGuard } from '../auth/guards';
+import { AuthGuard } from '../auth/guards/auth.guard';
 import {
   BlockUserDoc,
   DeleteUserDoc,
@@ -39,6 +40,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get()
+  @UseGuards(AuthGuard)
   @UsersDoc()
   public async findAllUsers(
     @CurrentUser([ROLES.ADMIN]) user: User
