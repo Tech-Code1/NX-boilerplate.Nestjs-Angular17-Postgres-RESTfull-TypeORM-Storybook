@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { LoginStateService } from '../../../auth/service/state';
 
 @Component({
   selector: 'panel',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./panel.component.scss'],
 })
 export class PanelComponent {
-  title = 'frontend-app';
+  private loginService = inject(LoginStateService);
+
+  public user = computed(() => this.loginService.currentUser());
 }

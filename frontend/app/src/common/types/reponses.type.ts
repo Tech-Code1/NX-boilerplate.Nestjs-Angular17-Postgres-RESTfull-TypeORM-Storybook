@@ -6,7 +6,7 @@ export type CustomResponse = {
 };
 
 export type ResponseError = {
-  data: {};
+  data: object;
   response: CustomResponse;
 };
 

@@ -14,7 +14,7 @@ import { LoginStateService } from '../../../service/state';
 })
 export class FormLoginComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
-  loginService = inject(LoginStateService);
+  private loginService = inject(LoginStateService);
 
   formRegister!: FormGroup;
 

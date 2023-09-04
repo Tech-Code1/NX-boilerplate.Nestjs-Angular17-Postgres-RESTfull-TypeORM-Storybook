@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
+import { isAuthenticatedGuard } from './common/guards';
 
 export const routes: Route[] = [
   {
@@ -9,6 +10,7 @@ export const routes: Route[] = [
   },
   {
     path: 'dashboard',
+    canActivate: [isAuthenticatedGuard],
     loadChildren: () =>
       import('./pages/dashboard').then((module) => module.DashboardModule),
   },

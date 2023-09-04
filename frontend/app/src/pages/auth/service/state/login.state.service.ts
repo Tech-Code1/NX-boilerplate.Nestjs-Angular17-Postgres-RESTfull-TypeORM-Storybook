@@ -13,7 +13,7 @@ import { LoginApiService } from '../api';
 export class LoginStateService {
   loginService = inject(LoginApiService);
   router = inject(Router);
-  private _currentUser = signal<ILogin | null>(null);
+  private _currentUser = signal<ILogin | object>({});
   private _authStatus = signal<AuthStatus>(AuthStatus.CHECKING);
 
   public currentUser = computed(() => this._currentUser());
@@ -26,6 +26,9 @@ export class LoginStateService {
       .pipe(take(1))
       .subscribe({
         next: ({ data, response }) => {
+          this._currentUser.set(data);
+          this._authStatus.set(AuthStatus.AUTHENTICATED);
+
           this.router.navigateByUrl('/dashboard');
           Swal.success(response.message);
         },
