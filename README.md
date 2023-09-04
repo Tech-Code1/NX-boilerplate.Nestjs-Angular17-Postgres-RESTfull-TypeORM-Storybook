@@ -103,6 +103,7 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Keeping state with a Service using Signals - Alfredo Perez](https://medium.com/ngconf/keeping-state-with-a-service-using-signals-bee652158ecf)
 - [Angular 16 - Signals and CRUD with Json Server - Sebastian Persson](https://youtu.be/xS1bpSnNv_U?si=c3drSS-2EAfZEFy3)
 - [Exploring a Revolutionary Approach to Data Handling in Angular - A Walkthrough Video - Sebastian Persson](https://youtu.be/iMOsdz-T7_o?si=Dae0g0mURq1qncvf)
+- [Angular: De cero a experto - Edición 2023 - Fernando Herrera](https://www.udemy.com/course/angular-fernando-herrera/)
 
 ## Connect with us!
 
