@@ -24,6 +24,19 @@ export class LoginStateService {
   public currentUser = computed(() => this._currentUser());
   public authStatus = computed(() => this._authStatus());
 
+  private setAuthtication(
+    data: (object | IRevalidateTokenResponse) | (object | ILogin)
+  ): boolean {
+    this._currentUser.set(data);
+    this._authStatus.set(AuthStatus.AUTHENTICATED);
+
+    if ('token' in data) {
+      localStorage.setItem('token', data.token);
+    }
+
+    return true;
+  }
+
   onSubmit(form: AbstractControl<ILoginData>): void {
     const { email, password } = form.value;
     this.loginService
@@ -31,12 +44,7 @@ export class LoginStateService {
       .pipe(take(1))
       .subscribe({
         next: ({ data, response }) => {
-          this._currentUser.set(data);
-          this._authStatus.set(AuthStatus.AUTHENTICATED);
-
-          if ('token' in data) {
-            localStorage.setItem('token', data.token);
-          }
+          this.setAuthtication(data);
 
           this.router.navigateByUrl('/dashboard');
           Swal.success(response.message);
@@ -60,12 +68,7 @@ export class LoginStateService {
       .pipe(
         switchMap((res) => of(RevalidateAdapter(res))),
         map(({ data, response }) => {
-          this._currentUser.set(data);
-          this._authStatus.set(AuthStatus.AUTHENTICATED);
-
-          if ('token' in data) {
-            localStorage.setItem('token', data.token);
-          }
+          this.setAuthtication(data);
 
           return true;
         }),
