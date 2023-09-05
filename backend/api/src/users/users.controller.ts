@@ -14,6 +14,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { CurrentUser, Public } from '../auth/decorators';
 import { JwtAuthGuard } from '../auth/guards';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { Resp } from '../utils';
 import {
   BlockUserDoc,
   DeleteUserDoc,
@@ -71,8 +72,13 @@ export class UsersController {
   public async findUserById(
     @Param('id') id: string,
     @CurrentUser([ROLES.ADMIN]) user: User
-  ): Promise<User> {
-    return await this.usersService.findUserById(id);
+  ) {
+    try {
+      const user = await this.usersService.findUserById(id);
+      return Resp.Success<User>(user, 'OK');
+    } catch (error) {
+      throw Resp.Error('NOT_FOUND', 'User not found');
+    }
   }
 
   @Public()

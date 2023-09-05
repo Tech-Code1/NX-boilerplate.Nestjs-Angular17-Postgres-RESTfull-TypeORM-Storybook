@@ -16,14 +16,11 @@ import { emailRecoverPassSuccessHTML } from '../utils/handlebars/recoverPassword
 import { generateResetLink } from '../utils/linkUtils';
 import { Resp } from '../utils/response.manager';
 import { AuthDTO, LoginDTO } from './dto';
+import { IJwtPayload } from './interface';
 import { IAuthResponse } from './types/auth-response.type';
 
 @Injectable()
 export class AuthService {
-  private getJwtToken(id: string) {
-    return this.jwtService.sign({ id });
-  }
-
   constructor(
     @InjectRepository(Token)
     private readonly tokenRepository: Repository<Token>,
@@ -31,12 +28,16 @@ export class AuthService {
     private readonly jwtService: JwtService
   ) {}
 
+  private getJwtToken(payload: IJwtPayload) {
+    return this.jwtService.sign(payload);
+  }
+
   public async signup(auth: AuthDTO): Promise<IAuthResponse> {
     const { email } = auth;
 
     const user = await this.userService.findUserByEmail(email);
 
-    const token = this.getJwtToken(user.id);
+    const token = this.getJwtToken({ id: user.id });
 
     return {
       token,
@@ -51,7 +52,7 @@ export class AuthService {
       throw Resp.Error('BAD_REQUEST', 'Your password or email are incorrect');
     }
 
-    const token = this.getJwtToken(user.id);
+    const token = this.getJwtToken({ id: user.id });
 
     const data = {
       token,
@@ -166,24 +167,6 @@ export class AuthService {
     return jwt.sign(payload, secret, { expiresIn: expires });
   }
 
-  public async generateJWT(user: User): Promise<any> {
-    // const getUser = await this.userService.findUserById(user.id);
-
-    /* const payload: IPayloadToken = {
-      id: getUser.id,
-      role: getUser.role,
-    }; */
-
-    return {
-      /* accesToken: this.signJWT({
-        payload,
-        secret: process.env.JWT_SECRET,
-        expires: '1h',
-      }), */
-      user,
-    };
-  }
-
   async validateUser(id: string): Promise<User> {
     const user = await this.userService.findUserById(id);
 
@@ -219,11 +202,12 @@ export class AuthService {
   }
 
   revalidateToken(user: User) {
-    const token = this.getJwtToken(user.id);
+    const token = this.getJwtToken({ id: user.id });
 
-    return {
+    const revalidateUser = {
       token,
       user,
     };
+    return Resp.Success(revalidateUser, 'OK');
   }
 }

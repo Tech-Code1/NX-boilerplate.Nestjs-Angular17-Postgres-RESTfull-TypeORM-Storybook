@@ -1,4 +1,3 @@
-import { ROLES } from '@db/constants';
 import { User } from '@db/entities';
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
@@ -35,8 +34,12 @@ export class AuthController {
   @Get('revalidate')
   @UseGuards(JwtAuthGuard, AuthGuard)
   @RevalidateDoc()
-  async revalidateToken(@CurrentUser([ROLES.ADMIN]) user: User) {
-    return this.authService.revalidateToken(user);
+  async revalidateToken(@CurrentUser() user: User) {
+    console.log('decorator user:', user);
+
+    const result = this.authService.revalidateToken(user);
+    console.log('UserController: Result:', result);
+    return result;
   }
 
   @Post('reset-password')

@@ -29,6 +29,10 @@ export class LoginStateService {
           this._currentUser.set(data);
           this._authStatus.set(AuthStatus.AUTHENTICATED);
 
+          if ('token' in data) {
+            localStorage.setItem('token', data.token);
+          }
+
           this.router.navigateByUrl('/dashboard');
           Swal.success(response.message);
         },

@@ -64,6 +64,7 @@ export class UsersService {
       if (!user) {
         throw Resp.Error('NOT_FOUND', 'custom error message');
       }
+
       return user;
     } catch (error) {
       console.log(error, 'error');

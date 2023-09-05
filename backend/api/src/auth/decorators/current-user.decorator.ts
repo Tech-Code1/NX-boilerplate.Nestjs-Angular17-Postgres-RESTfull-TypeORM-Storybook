@@ -7,6 +7,8 @@ export const CurrentUser = createParamDecorator(
     const request = context.switchToHttp().getRequest();
     const user = request.user;
 
+    console.log('Current user:', user);
+
     if (!user) {
       throw Resp.Error(
         'INTERNAL_SERVER_ERROR',
@@ -16,7 +18,9 @@ export const CurrentUser = createParamDecorator(
 
     if (!roles) return user;
 
-    if (user.roles.some((role) => roles.includes(role))) return user;
+    if (user.roles && user.roles.some((role) => roles.includes(role))) {
+      return user;
+    }
 
     throw Resp.Error('FORBIDDEN', `User ${user.username} is not a valid role`);
   }

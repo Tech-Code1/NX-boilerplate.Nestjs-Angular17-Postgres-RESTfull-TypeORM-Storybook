@@ -12,7 +12,8 @@ export class Resp extends Error {
   }
 
   public static Success<T>(data: T, type?: keyof typeof HttpStatus) {
-    return this.createResponse<T>(data, type, true);
+    const response = this.createResponse<T>(data, type, true);
+    return { data, ...response };
   }
 
   private static determineErrorMessage(

@@ -36,7 +36,7 @@ export class AuthGuard implements CanActivate {
         );
       }
 
-      request['user'] = payload.id;
+      request['user'] = user;
     } catch (error) {
       Resp.Error('UNAUTHORIZED');
     }
