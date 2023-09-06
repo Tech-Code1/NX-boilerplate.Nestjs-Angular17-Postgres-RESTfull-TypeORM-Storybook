@@ -24,6 +24,10 @@ export class LoginStateService {
   public currentUser = computed(() => this._currentUser());
   public authStatus = computed(() => this._authStatus());
 
+  constructor() {
+    this.checkAuthStatus().subscribe();
+  }
+
   private setAuthtication(
     data: (object | IRevalidateTokenResponse) | (object | ILogin)
   ): boolean {
