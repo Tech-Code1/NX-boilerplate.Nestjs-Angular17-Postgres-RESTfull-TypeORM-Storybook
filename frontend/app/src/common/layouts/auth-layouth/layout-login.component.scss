@@ -10,3 +10,8 @@
 .login-active {
   @apply rounded-l-md;
 }
+
+.main-style {
+  border-bottom: 10px solid var(--angular-dark-blue);
+  border-top: 10px solid var(--angular-dark-purple);
+}

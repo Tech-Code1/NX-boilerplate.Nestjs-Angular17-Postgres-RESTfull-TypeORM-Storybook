@@ -1,5 +1,9 @@
-<div class="flex flex-col gap-4 text-center">
+<div class="flex flex-col gap-4 text-center p-4">
   <h3>Admin dashboard</h3>
   <p>Esta ruta esta protegida</p>
   <pre>{{ user() | json }}</pre>
+
+  <c-button class="w-full" css="button-primary" color="t-white">
+    <c-title css="title-base">Log Out</c-title>
+  </c-button>
 </div>

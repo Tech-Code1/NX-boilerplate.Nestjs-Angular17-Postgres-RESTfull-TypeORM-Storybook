@@ -15,7 +15,7 @@
       <span class="flex justify-center items-center h-full">Dashboard</span>
     </li>
   </ul>
-  <div class="w-1/2 h-3/4 flex flex-col justify-between shadown-quick">
+  <div class="flex flex-col justify-between shadown-quick w-1/2 h-3/4">
     <div
       class="w-full h-24 bg-[white] flex justify-center items-center rounded-t-md"
     >
@@ -27,7 +27,9 @@
         />
       </a>
     </div>
-    <main class="flex flex-col items-center justify-center w-full h-full p-4">
+    <main
+      class="flex flex-col items-center p-4 bg-[white] overflow-hidden main-style"
+    >
       <router-outlet></router-outlet>
     </main>
     <footer
