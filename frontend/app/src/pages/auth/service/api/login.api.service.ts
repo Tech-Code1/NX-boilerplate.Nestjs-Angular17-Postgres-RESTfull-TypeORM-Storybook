@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ILogin, IRevalidateTokenResponse, IUser } from '@types';
-import { Observable, catchError, of, switchMap } from 'rxjs';
+import { Observable, catchError, of, switchMap, throwError } from 'rxjs';
 import { BaseResponse } from '../../../../common';
 import { environment } from '../../../../environments/environment';
 import { LoginAdapter, RevalidateAdapter } from '../../adapters';
@@ -13,8 +13,6 @@ import { ILoginData } from '../../types';
 export class LoginApiService {
   private http = inject(HttpClient);
   BASE_API: string = environment.baseUrl;
-  token = localStorage.getItem('token');
-  headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
 
   loginUser({
     email,
@@ -38,10 +36,17 @@ export class LoginApiService {
   checkAuthStatus(): Observable<
     BaseResponse<IRevalidateTokenResponse | undefined>
   > {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      return throwError(() => new Error('Token not found'));
+    }
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
     return this.http
       .get<BaseResponse<IUser | undefined>>(
         `${this.BASE_API}/auth/revalidate`,
-        { headers: this.headers }
+        { headers }
       )
       .pipe(
         switchMap((res) => of(RevalidateAdapter(res))),

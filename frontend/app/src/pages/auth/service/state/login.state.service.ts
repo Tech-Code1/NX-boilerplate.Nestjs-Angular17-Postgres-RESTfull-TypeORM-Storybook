@@ -28,7 +28,13 @@ export class LoginStateService {
 
         return true;
       },
-      error: () => {
+      error: ({ response }) => {
+        console.log(response, 'error');
+
+        if (response?.message === 'Token not found') {
+          this.logout();
+          return of(false);
+        }
         this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
         return of(false);
       },
