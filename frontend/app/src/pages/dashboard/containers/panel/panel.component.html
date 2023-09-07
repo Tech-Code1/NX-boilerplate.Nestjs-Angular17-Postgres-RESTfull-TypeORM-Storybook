@@ -3,7 +3,12 @@
   <p>Esta ruta esta protegida</p>
   <pre>{{ user() | json }}</pre>
 
-  <c-button class="w-full" css="button-primary" color="t-white">
+  <c-button
+    class="w-full"
+    css="button-primary"
+    color="t-white"
+    (click)="onLogout()"
+  >
     <c-title css="title-base">Log Out</c-title>
   </c-button>
 </div>

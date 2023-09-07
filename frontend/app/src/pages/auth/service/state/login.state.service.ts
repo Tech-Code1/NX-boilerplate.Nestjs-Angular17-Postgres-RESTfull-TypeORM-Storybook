@@ -65,4 +65,10 @@ export class LoginStateService {
         },
       });
   }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this._currentUser.set({});
+    this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
+  }
 }

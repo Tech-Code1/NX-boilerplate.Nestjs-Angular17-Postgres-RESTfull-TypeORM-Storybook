@@ -10,4 +10,8 @@ export class PanelComponent {
   private loginService = inject(LoginStateService);
 
   public user = computed(() => this.loginService.currentUser());
+
+  onLogout() {
+    this.loginService.logout();
+  }
 }
