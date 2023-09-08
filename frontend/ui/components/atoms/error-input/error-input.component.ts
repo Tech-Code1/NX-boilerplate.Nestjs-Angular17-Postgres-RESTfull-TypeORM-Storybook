@@ -30,7 +30,6 @@ const DefaultErrorMessages: Record<string, ErrorFunction> = {
 })
 export class ErrorInputComponent {
   @Input() public controlName?: string;
-
   @Input() public formContained!: AbstractControl;
 
   listErrors!: string[] | null | void;

@@ -3,9 +3,9 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { InputType } from '@ui/components';
 import { LoginStateService } from '../../../service/state';
 
 @Component({
@@ -16,7 +16,7 @@ import { LoginStateService } from '../../../service/state';
 export class FormLoginComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   private loginService = inject(LoginStateService);
-  type!: InputType['type'];
+  type!: string;
 
   formRegister!: FormGroup;
 
@@ -28,17 +28,18 @@ export class FormLoginComponent implements OnInit {
     return this.formRegister.get('password') as FormControl;
   }
 
+  get emailValidators(): ValidatorFn[] {
+    const emailValidator = this.formRegister.get('email')?.validator;
+    if (emailValidator) {
+      return [emailValidator];
+    }
+    return [];
+  }
+
   ngOnInit(): void {
     this.formRegister = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(50),
-        ],
-      ],
+      email: ['', [Validators.maxLength(10)]],
+      password: [''],
     });
   }
 

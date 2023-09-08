@@ -1,4 +1,13 @@
-import { Directive, Inject, Injector } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Directive,
+  Inject,
+  Injector,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
@@ -14,20 +23,56 @@ import { Subject, distinctUntilChanged, startWith, takeUntil, tap } from 'rxjs';
 @Directive({
   selector: '[customLabel]',
 })
-export class ControlValueAccesorDirective<T> implements ControlValueAccessor {
-  constructor(@Inject(Injector) private injector: Injector) {}
+export class ControlValueAccesorDirective<T>
+  implements ControlValueAccessor, OnChanges, OnInit
+{
+  constructor(
+    @Inject(Injector) private injector: Injector,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
+  @Input() type = 'text';
+  @Input() additionalValidators: ValidatorFn[] = [];
+
+  private _inputType = 'text';
   control: FormControl | undefined;
-  isRequired = false;
+
+  updateValidators(): void {
+    if (this.control) {
+      const typeValidators = this.getValidatorsForType(this.type) || [];
+      const combinedValidators = [
+        ...typeValidators,
+        ...this.additionalValidators,
+      ];
+      this.control.setValidators(combinedValidators);
+      this.control.updateValueAndValidity();
+      this.cdRef.detectChanges();
+    }
+  }
+
+  ngOnInit(): void {
+    this.setFormControl();
+    this.updateValidators();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes?.['type'] && this.control) {
+      this.updateValidators();
+    }
+  }
+
+  observeValueChanges() {
+    if (this.control) {
+      this.control.valueChanges.subscribe(() => {
+        console.log('Errores después de cambio:', this.control!.errors);
+        console.log('value type:', this.type);
+      });
+    }
+  }
 
   private _isDisabled = false;
   private _destroy$ = new Subject<void>();
   private _onTouched!: () => T;
-
-  /* ngOnInit(): void {
-    this.setFormControl();
-    this.isRequired = this.control?.hasValidator(Validators.required) ?? false;
-  } */
 
   setFormControl() {
     try {
@@ -47,6 +92,8 @@ export class ControlValueAccesorDirective<T> implements ControlValueAccessor {
     } catch (err) {
       this.control = new FormControl();
     }
+
+    this.observeValueChanges();
   }
 
   writeValue(value: T): void {
@@ -78,17 +125,7 @@ export class ControlValueAccesorDirective<T> implements ControlValueAccessor {
     }
   }
 
-  /*
-    const getformControl = this.injector.get(NgControl);
-
-    const formGroup = this.injector
-      .get(FormGroupDirective)
-      .getControl(getformControl as FormControlName);
-
-    const formControl = (getformControl as FormControlDirective)
-      .form as FormControl; */
-
-  isValid(): boolean {
+  protected isValid(): boolean {
     if (!this.control) {
       return true;
     }
@@ -112,27 +149,5 @@ export class ControlValueAccesorDirective<T> implements ControlValueAccessor {
       default:
         return [Validators.required];
     }
-  }
-
-  get errorMessages(): string | null {
-    if (!this.control?.errors) return null;
-
-    if (this.control?.hasError('required')) {
-      return 'Este campo es requerido';
-    }
-
-    if (this.control?.hasError('email')) {
-      return 'Introduce un email válido';
-    }
-
-    if (this.control?.hasError('pattern')) {
-      return 'Introduce un número válido';
-    }
-
-    if (this.control?.hasError('minlength')) {
-      return `El password debe tener al menos ${this.control.errors?.['minlength'].requiredLength} caracteres`;
-    }
-
-    return null;
   }
 }

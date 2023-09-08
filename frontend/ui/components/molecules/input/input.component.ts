@@ -11,7 +11,6 @@ import {
   FormsModule,
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 import { ErrorInputComponent } from '../../atoms/error-input/error-input.component';
 import { ControlValueAccesorDirective } from '../../shared/directives/control-value-accesor.directive';
@@ -43,7 +42,7 @@ export class InputComponent<T>
   implements InputType, OnInit
 {
   @Input() id = '';
-  @Input() type!: InputType['type'];
+  //@Input() type!: InputType['type'];
   @Input() css: InputType['css'] = 'input-primary';
   @Input() placeholder?: string | undefined;
   @Input() value?: string | number | undefined;
@@ -53,16 +52,4 @@ export class InputComponent<T>
   /* override ngOnInit(): void {
     this.getValidatorsForType(this.type);
   } */
-
-  ngOnInit(): void {
-    this.setFormControl();
-    this.isRequired = this.control?.hasValidator(Validators.required) ?? false;
-
-    const validators = this.getValidatorsForType(this.type);
-
-    if (this.control && validators) {
-      this.control.setValidators(validators);
-      this.control.updateValueAndValidity();
-    }
-  }
 }
