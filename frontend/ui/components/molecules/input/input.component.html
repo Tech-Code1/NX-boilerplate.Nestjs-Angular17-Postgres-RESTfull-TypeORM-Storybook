@@ -39,5 +39,9 @@
     [attr.id]="id || null"
     [formControl]="control"
   />
-  <c-error-input [errors]="control?.errors"></c-error-input>
+  <c-error-input
+    *ngIf="!isValid()"
+    [formContained]="control"
+    [controlName]="name"
+  ></c-error-input>
 </div>

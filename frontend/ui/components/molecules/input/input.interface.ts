@@ -6,7 +6,7 @@ type RequiredInputType = {
   // disabled: boolean;
   // onChange: (value: string) => void;
   // onTouch: () => void;
-  // name: string;
+  name: string;
 };
 
 type OptionalInputType = {

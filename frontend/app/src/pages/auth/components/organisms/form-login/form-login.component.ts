@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { InputType } from '@ui/components';
 import { LoginStateService } from '../../../service/state';
 
 @Component({
@@ -15,6 +16,7 @@ import { LoginStateService } from '../../../service/state';
 export class FormLoginComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   private loginService = inject(LoginStateService);
+  type!: InputType['type'];
 
   formRegister!: FormGroup;
 

@@ -104,6 +104,7 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Angular 16 - Signals and CRUD with Json Server - Sebastian Persson](https://youtu.be/xS1bpSnNv_U?si=c3drSS-2EAfZEFy3)
 - [Exploring a Revolutionary Approach to Data Handling in Angular - A Walkthrough Video - Sebastian Persson](https://youtu.be/iMOsdz-T7_o?si=Dae0g0mURq1qncvf)
 - [Angular: De cero a experto - Edición 2023 - Fernando Herrera](https://www.udemy.com/course/angular-fernando-herrera/)
+- [Reusable Input and Select component with Control Value Accessor in Angular](https://youtu.be/N2nOUBwBwyU?si=qmBskNlQHmSF_dzB)
 
 ## Connect with us!
 
