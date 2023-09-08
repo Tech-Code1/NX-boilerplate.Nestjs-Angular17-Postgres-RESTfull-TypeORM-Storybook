@@ -1,4 +1,4 @@
-<div class="content-input">
+<!-- <div class="content-input">
   <input
     *ngIf="formGroup; else formControlTemplate"
     [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
@@ -28,4 +28,16 @@
     [formContained]="formControl || formGroup!"
     [controlName]="name"
   ></c-error-input>
+</div> -->
+
+<div *ngIf="control">
+  <input
+    [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
+    [placeholder]="placeholder"
+    [type]="type"
+    [attr.value]="value || null"
+    [attr.id]="id || null"
+    [formControl]="control"
+  />
+  <c-error-input [errors]="control?.errors"></c-error-input>
 </div>
