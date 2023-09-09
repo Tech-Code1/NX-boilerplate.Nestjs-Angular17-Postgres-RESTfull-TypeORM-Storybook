@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Directive,
   Inject,
   Injector,
@@ -26,15 +25,11 @@ import { Subject, distinctUntilChanged, startWith, takeUntil, tap } from 'rxjs';
 export class ControlValueAccesorDirective<T>
   implements ControlValueAccessor, OnChanges, OnInit
 {
-  constructor(
-    @Inject(Injector) private injector: Injector,
-    private cdRef: ChangeDetectorRef
-  ) {}
+  constructor(@Inject(Injector) private injector: Injector) {}
 
   @Input() type = 'text';
   @Input() additionalValidators: ValidatorFn[] = [];
 
-  private _inputType = 'text';
   control: FormControl | undefined;
 
   updateValidators(): void {
@@ -46,7 +41,6 @@ export class ControlValueAccesorDirective<T>
       ];
       this.control.setValidators(combinedValidators);
       this.control.updateValueAndValidity();
-      this.cdRef.detectChanges();
     }
   }
 
@@ -61,14 +55,15 @@ export class ControlValueAccesorDirective<T>
     }
   }
 
-  /* observeValueChanges() {
+  observeValueChanges() {
     if (this.control) {
       this.control.valueChanges.subscribe(() => {
+        this.getValidatorsForType(this.type);
         console.log('Errores después de cambio:', this.control!.errors);
-        console.log('value type:', this.type);
+        //console.log('value type:', this.type);
       });
     }
-  } */
+  }
 
   private _isDisabled = false;
   private _destroy$ = new Subject<void>();
@@ -93,7 +88,7 @@ export class ControlValueAccesorDirective<T>
       this.control = new FormControl();
     }
 
-    // this.observeValueChanges();
+    this.observeValueChanges();
   }
 
   writeValue(value: T): void {
@@ -137,7 +132,13 @@ export class ControlValueAccesorDirective<T>
     return this.control.valid;
   }
 
+  /* typeOfErrror() {
+
+  } */
+
   protected getValidatorsForType(type: string): ValidatorFn[] | null {
+    console.log('type*', type);
+
     switch (type) {
       case 'email':
         return [Validators.required, Validators.email];

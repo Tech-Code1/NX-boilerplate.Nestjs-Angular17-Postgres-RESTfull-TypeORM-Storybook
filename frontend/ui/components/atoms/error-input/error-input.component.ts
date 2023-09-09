@@ -1,24 +1,8 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
-import { BooleanValue, ErrorFunction } from './error-input.interface';
-
-const DefaultErrorMessages: Record<string, ErrorFunction> = {
-  required: () => 'The field is required',
-  email: () => 'Email address is not valid!',
-  pattern: () => 'The field does not have a valid format.',
-  minlength: (booleanValue: BooleanValue = { requiredLength: 6 }) =>
-    `The field must have at least ${booleanValue.requiredLength} characters.`,
-  maxlength: (booleanValue: BooleanValue = { requiredLength: 50 }) =>
-    `The field must have a maximum of ${booleanValue.requiredLength} characters.`,
-  // ... other errors can be added here
-};
+import { DefaultErrorMessages } from './error-input.interface';
 @Component({
   standalone: true,
   selector: 'c-error-input',
@@ -26,7 +10,6 @@ const DefaultErrorMessages: Record<string, ErrorFunction> = {
   templateUrl: './error-input.component.html',
   styleUrls: ['./error-input.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorInputComponent {
   @Input() public controlName?: string;
@@ -43,28 +26,20 @@ export class ErrorInputComponent {
     return null;
   }
 
-  private getErrorMessages(errors: Record<string, any>): string[] {
-    return Object.keys(errors)
-      .map((errorName) => this.getMessage(errorName, errors[errorName]))
-      .filter(Boolean);
-  }
-
-  listOfErrors(): string[] {
-    return this.currentControl?.errors
-      ? this.getErrorMessages(this.currentControl?.errors)
-      : [];
-  }
-
-  private getMessage(
-    errorName: string,
-    errorValue: any,
-    controlName?: string
-  ): string {
+  private getErrorMessage(errors: Record<string, any>): string {
+    const errorName = Object.keys(errors)[0];
     const errorFunction = DefaultErrorMessages[errorName];
     if (errorFunction) {
-      return errorFunction(errorValue, controlName);
+      return errorFunction(errors[errorName]);
     } else {
       return 'An error occurred';
     }
+  }
+
+  get error(): string {
+    const errorMessage = this.currentControl?.errors
+      ? this.getErrorMessage(this.currentControl?.errors)
+      : '';
+    return errorMessage;
   }
 }

@@ -4,15 +4,13 @@ export type ErrorFunction = (
   controlName?: string
 ) => string;
 
-export const ErrorMessages = {
-  EMPTY: `The field is required`,
-  MIN_LENGTH: (booleanValue: BooleanValue) =>
+export const DefaultErrorMessages: Record<string, ErrorFunction> = {
+  required: () => 'The field is required',
+  email: () => 'Email address is not valid!',
+  pattern: () => 'The field does not have a valid format.',
+  minlength: (booleanValue: BooleanValue = { requiredLength: 6 }) =>
     `The field must have at least ${booleanValue.requiredLength} characters.`,
-  MAX_LENGTH: (booleanValue: BooleanValue) =>
+  maxlength: (booleanValue: BooleanValue = { requiredLength: 50 }) =>
     `The field must have a maximum of ${booleanValue.requiredLength} characters.`,
-  INVALID_EMAIL: 'Email address is not valid!',
-  PATTERN: `The field does not have a valid format.`,
-  INVALID_NUMBER: 'Invalid number! Only digits are allowed.',
-  NO_SIMILAR: `The password must be the same.`,
-  // Add more error types and messages as needed
+  // ... other errors can be added here
 };
