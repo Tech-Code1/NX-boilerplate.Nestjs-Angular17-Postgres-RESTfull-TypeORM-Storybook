@@ -13,9 +13,11 @@
             css="input-primary"
             type="email"
             placeholder="jhonDoe@example.com"
-            [formControl]="emailControl"
+            [formControl]="formUtilities.getControl(formRegister, 'email')"
             name="email"
-            [additionalValidators]="emailValidators"
+            [additionalValidators]="
+              formUtilities.getValidators(formRegister, 'email')
+            "
           />
         </c-label>
       </div>
@@ -26,7 +28,7 @@
             css="input-primary"
             type="password"
             placeholder="*******"
-            [formControl]="passwordControl"
+            [formControl]="formUtilities.getControl(formRegister, 'password')"
             name="password"
           />
         </c-label>
