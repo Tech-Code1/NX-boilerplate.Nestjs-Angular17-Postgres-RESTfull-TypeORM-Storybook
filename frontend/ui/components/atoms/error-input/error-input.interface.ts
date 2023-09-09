@@ -16,5 +16,3 @@ export const ErrorMessages = {
   NO_SIMILAR: `The password must be the same.`,
   // Add more error types and messages as needed
 };
-
-//export type ErrorsType = keyof typeof Code;

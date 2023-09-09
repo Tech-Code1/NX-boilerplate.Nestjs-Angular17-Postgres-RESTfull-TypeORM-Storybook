@@ -61,14 +61,14 @@ export class ControlValueAccesorDirective<T>
     }
   }
 
-  observeValueChanges() {
+  /* observeValueChanges() {
     if (this.control) {
       this.control.valueChanges.subscribe(() => {
         console.log('Errores después de cambio:', this.control!.errors);
         console.log('value type:', this.type);
       });
     }
-  }
+  } */
 
   private _isDisabled = false;
   private _destroy$ = new Subject<void>();
@@ -93,7 +93,7 @@ export class ControlValueAccesorDirective<T>
       this.control = new FormControl();
     }
 
-    this.observeValueChanges();
+    // this.observeValueChanges();
   }
 
   writeValue(value: T): void {

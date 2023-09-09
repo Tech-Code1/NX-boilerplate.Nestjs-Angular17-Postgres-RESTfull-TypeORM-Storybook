@@ -1,36 +1,4 @@
-<!-- <div class="content-input">
-  <input
-    *ngIf="formGroup; else formControlTemplate"
-    [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
-    [name]="name"
-    [placeholder]="placeholder"
-    [type]="type"
-    [attr.value]="value || null"
-    [attr.id]="id || null"
-    [formControlName]="name"
-  />
-
-  <ng-template #formControlTemplate>
-    <input
-      *ngIf="formControl"
-      [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
-      [name]="name"
-      [placeholder]="placeholder"
-      [type]="type"
-      [attr.value]="value || null"
-      [attr.id]="id || null"
-      [formControl]="formControl"
-    />
-  </ng-template>
-
-  <c-error-input
-    *ngIf="!isValid(name)"
-    [formContained]="formControl || formGroup!"
-    [controlName]="name"
-  ></c-error-input>
-</div> -->
-
-<div *ngIf="control">
+<div *ngIf="control" class="content-input">
   <input
     [ngClass]="{ input: true, 'input-primary': css === 'input-primary' }"
     [placeholder]="placeholder"

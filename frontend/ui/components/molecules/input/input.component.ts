@@ -42,14 +42,9 @@ export class InputComponent<T>
   implements InputType, OnInit
 {
   @Input() id = '';
-  //@Input() type!: InputType['type'];
   @Input() css: InputType['css'] = 'input-primary';
   @Input() placeholder?: string | undefined;
   @Input() value?: string | number | undefined;
   @Input() customErrorMessages: Record<string, string> = {};
   @Input() name!: string;
-
-  /* override ngOnInit(): void {
-    this.getValidatorsForType(this.type);
-  } */
 }
