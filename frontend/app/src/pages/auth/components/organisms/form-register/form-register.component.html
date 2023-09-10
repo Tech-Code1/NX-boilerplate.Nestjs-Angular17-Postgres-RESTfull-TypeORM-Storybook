@@ -1,52 +1,58 @@
-<div class="flex flex-col justify-center gap-4 items-center">
-  <c-title css="title-2xl">Register</c-title>
-  <div class="w-full flex flex-col gap-4">
-    <div class="relative">
-      <c-label>
-        Email
-        <c-input
-          css="input-primary"
-          type="email"
-          placeholder="jhonDoe@example.com"
-          [formControl]="emailControl"
-          name="email"
-        />
-      </c-label>
+<form
+  [formGroup]="formRegister"
+  (ngSubmit)="onRegister()"
+  class="w-full flex flex-col gap-6 items-center"
+>
+  <div class="flex flex-col justify-center gap-4 items-center">
+    <c-title css="title-2xl">Register</c-title>
+    <div class="w-full flex flex-col gap-4">
+      <div class="relative">
+        <c-label>
+          Email
+          <c-input
+            css="input-primary"
+            type="email"
+            placeholder="jhonDoe@example.com"
+            [formControl]="formUtilities.getControl(formRegister, 'email')"
+            name="email"
+          />
+        </c-label>
+      </div>
+      <div class="relative">
+        <c-label>
+          Username
+          <c-input
+            css="input-primary"
+            type="text"
+            placeholder="Jhon Doe"
+            [formControl]="formUtilities.getControl(formRegister, 'username')"
+            name="username"
+          />
+        </c-label>
+      </div>
+      <div class="relative">
+        <c-label>
+          Password
+          <c-input
+            css="input-primary"
+            type="password"
+            placeholder="*******"
+            [formControl]="formUtilities.getControl(formRegister, 'password')"
+            name="password"
+          />
+        </c-label>
+      </div>
     </div>
-    <div class="relative">
-      <c-label>
-        Username
-        <c-input
-          css="input-primary"
-          type="text"
-          placeholder="Jhon Doe"
-          [formControl]="usernameControl"
-          name="username"
-        />
-      </c-label>
-    </div>
-    <div class="relative">
-      <c-label>
-        Password
-        <c-input
-          css="input-primary"
-          type="password"
-          placeholder="*******"
-          [formControl]="passwordControl"
-          name="password"
-        />
-      </c-label>
+    <div class="relative w-full">
+      <c-button
+        [disabled]="!formRegister.value"
+        class="w-full"
+        css="button-primary"
+        color="t-white"
+        type="submit"
+      >
+        <c-title css="title-base">Sign in</c-title>
+      </c-button>
     </div>
   </div>
-  <div class="relative w-full">
-    <c-button
-      [disabled]="!formRegister.value"
-      class="w-full"
-      css="button-primary"
-      color="t-white"
-      type="submit"
-    >
-      <c-title css="title-base">Sign in</c-title>
-    </c-button>
-  </div>
-</div>
+</form>

@@ -1,26 +1,35 @@
-/* import { BaseResponseType, IRegisterResponse, IUser } from '@types';
-import { Swal } from '@utils';
+import { BaseResponse } from '@types';
+import { managerError } from '@utils';
+import { ILogin } from '../types';
 
-export const RegisterAdapter = async (
-  resp: IRegisterResponse
-): Promise<IUser | BaseResponseType | void> => {
-  const { error } = Swal();
-  const { Register_User, success, code, status, message } = resp;
+export const RegisterAdapter = (
+  resp: BaseResponse<ILogin | undefined>
+): BaseResponse<ILogin | undefined> => {
+  const { data, response } = resp;
+
+  const { code, message, status, success } = response;
 
   if (!success) {
-    return await error(message);
+    return managerError(resp);
   }
 
+  const { token, user } = data as ILogin;
+
   return {
-    id: Register_User.id,
-    email: Register_User.email,
-    username: Register_User.username,
-    isActive: Register_User.isActive,
-    isBlocked: Register_User.isBlocked,
-    roles: Register_User.roles,
-    status,
-    success,
-    code,
+    data: {
+      id: user.id,
+      email: user.email,
+      username: user.username,
+      isActive: user.isActive,
+      isBlocked: user.isBlocked,
+      roles: user.roles,
+      token: token,
+    },
+    response: {
+      status,
+      success,
+      code,
+      message,
+    },
   };
 };
- */
