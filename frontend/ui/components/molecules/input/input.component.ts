@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit,
   ViewEncapsulation,
   forwardRef,
 } from '@angular/core';
@@ -39,7 +38,7 @@ import { InputType } from './input.interface';
 })
 export class InputComponent<T>
   extends ControlValueAccesorDirective<T>
-  implements InputType, OnInit
+  implements InputType
 {
   @Input() id = '';
   @Input() css: InputType['css'] = 'input-primary';

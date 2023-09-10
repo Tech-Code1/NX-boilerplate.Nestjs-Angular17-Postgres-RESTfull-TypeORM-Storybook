@@ -20,6 +20,7 @@ import {
 import { Subject, distinctUntilChanged, startWith, takeUntil, tap } from 'rxjs';
 
 @Directive({
+  standalone: true,
   selector: '[customLabel]',
 })
 export class ControlValueAccesorDirective<T>
@@ -31,6 +32,23 @@ export class ControlValueAccesorDirective<T>
   @Input() additionalValidators: ValidatorFn[] = [];
 
   control: FormControl | undefined;
+  private _isDisabled = false;
+  private _destroy$ = new Subject<void>();
+  private _onTouched!: () => T;
+
+  protected getValidatorsForType(type: string): ValidatorFn[] | null {
+    switch (type) {
+      case 'email':
+        return [Validators.required, Validators.email];
+      case 'number':
+        return [Validators.pattern(/^[0-9]*$/), Validators.required];
+      case 'password':
+        return [Validators.required, Validators.minLength(6)];
+      case 'text':
+      default:
+        return [Validators.required];
+    }
+  }
 
   updateValidators(): void {
     if (this.control) {
@@ -55,19 +73,16 @@ export class ControlValueAccesorDirective<T>
     }
   }
 
-  observeValueChanges() {
-    if (this.control) {
-      this.control.valueChanges.subscribe(() => {
-        this.getValidatorsForType(this.type);
-        console.log('Errores después de cambio:', this.control!.errors);
-        //console.log('value type:', this.type);
-      });
+  /* // ? Debug
+    observeValueChanges() {
+      if (this.control) {
+        this.control.valueChanges.subscribe(() => {
+          this.getValidatorsForType(this.type);
+          console.log('Errores después de cambio:', this.control!.errors);
+        });
+      }
     }
-  }
-
-  private _isDisabled = false;
-  private _destroy$ = new Subject<void>();
-  private _onTouched!: () => T;
+  */
 
   setFormControl() {
     try {
@@ -88,7 +103,7 @@ export class ControlValueAccesorDirective<T>
       this.control = new FormControl();
     }
 
-    this.observeValueChanges();
+    // ? Debug - this.observeValueChanges();
   }
 
   writeValue(value: T): void {
@@ -130,25 +145,5 @@ export class ControlValueAccesorDirective<T>
     }
 
     return this.control.valid;
-  }
-
-  /* typeOfErrror() {
-
-  } */
-
-  protected getValidatorsForType(type: string): ValidatorFn[] | null {
-    console.log('type*', type);
-
-    switch (type) {
-      case 'email':
-        return [Validators.required, Validators.email];
-      case 'number':
-        return [Validators.pattern(/^[0-9]*$/), Validators.required];
-      case 'password':
-        return [Validators.required, Validators.minLength(6)];
-      case 'text':
-      default:
-        return [Validators.required];
-    }
   }
 }

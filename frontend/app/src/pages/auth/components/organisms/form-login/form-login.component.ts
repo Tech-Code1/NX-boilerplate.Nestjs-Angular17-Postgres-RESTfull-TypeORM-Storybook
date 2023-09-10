@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormUtilitiesService } from '../../../../../utils';
+import { FormUtilitiesService } from '@utils';
 import { LoginStateService } from '../../../service/state';
 
 @Component({
