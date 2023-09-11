@@ -82,7 +82,7 @@ export class UsersController {
   }
 
   @Public()
-  @Post()
+  @Post('register')
   @RegisterUserDoc()
   public async registerUser(
     @Body() registerUser: CreateUserDTO

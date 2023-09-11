@@ -16,13 +16,14 @@ export class RegisterApiService {
 
   registerUser({
     email,
+    username,
     password,
   }: IRegisterData): Observable<BaseResponse<ILogin | undefined>> {
-    const body = { email, password };
+    const body = { email, username, password };
 
     return this.http
       .post<BaseResponse<IUser | undefined>>(
-        `${this.BASE_API}/auth/register`,
+        `${this.BASE_API}/users/register`,
         body
       )
       .pipe(

@@ -32,7 +32,7 @@ export class AuthService {
     return this.jwtService.sign(payload);
   }
 
-  public async register(auth: AuthDTO): Promise<IAuthResponse> {
+  public async signup(auth: AuthDTO): Promise<IAuthResponse> {
     const { email } = auth;
 
     const user = await this.userService.findUserByEmail(email);

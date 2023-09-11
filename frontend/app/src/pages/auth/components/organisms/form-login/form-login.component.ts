@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormUtilitiesService } from '@utils';
 import { LoginStateService } from '../../../service/state';
 
@@ -17,7 +17,7 @@ export class FormLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formRegister = this.formBuilder.group({
-      email: ['', [Validators.maxLength(10)]],
+      email: [''],
       password: [''],
     });
   }

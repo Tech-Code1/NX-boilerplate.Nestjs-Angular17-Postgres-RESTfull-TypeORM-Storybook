@@ -17,6 +17,8 @@ export class UsersService {
   ) {}
 
   public async registerUser(registerUser: CreateUserDTO): Promise<User> {
+    console.log(registerUser);
+
     const { password } = registerUser;
     try {
       const newUser = await this.userRepository.create({
