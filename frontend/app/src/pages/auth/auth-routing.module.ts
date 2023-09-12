@@ -30,11 +30,6 @@ const routes: Routes = [
         ],
       },
       {
-        path: 'change-password',
-        loadChildren: () =>
-          import('./').then((module) => module.ChangePassModule),
-      },
-      {
         path: 'recover',
         loadChildren: () => import('./').then((module) => module.RecoverModule),
       },

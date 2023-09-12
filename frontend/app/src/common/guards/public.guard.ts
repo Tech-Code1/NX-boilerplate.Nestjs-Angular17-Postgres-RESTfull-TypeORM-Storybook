@@ -7,18 +7,9 @@ export const PublicGuard: CanActivateFn = (route, state) => {
   const authService = inject(LoginStateService);
   const router = inject(Router);
 
-  const allowedPublicRoutes = [
-    '/auth/login',
-    '/auth/change-password',
-    '/auth/register',
-    '/auth/recover',
-  ];
-
   if (authService.authStatus() === AuthStatus.AUTHENTICATED) {
-    if (!allowedPublicRoutes.includes(state.url)) {
-      router.navigateByUrl('/dashboard');
-      return false;
-    }
+    router.navigateByUrl('/dashboard');
+    return false;
   }
 
   return true;

@@ -12,6 +12,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./containers/panel').then((module) => module.PanelModule),
       },
+      {
+        path: 'change-password',
+        loadChildren: () =>
+          import('./').then((module) => module.ChangePassModule),
+      },
     ],
   },
 ];

@@ -26,7 +26,6 @@ export class AppComponent {
     const currentRoute = this.router.url;
     const allowedPublicRoutes = [
       '/auth/login',
-      '/auth/change-password',
       '/auth/register',
       '/auth/recover',
     ];
