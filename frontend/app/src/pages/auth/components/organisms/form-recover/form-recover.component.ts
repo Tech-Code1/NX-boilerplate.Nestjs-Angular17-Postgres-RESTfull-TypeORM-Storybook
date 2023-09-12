@@ -2,8 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
-  FormGroup,
-  Validators,
+  FormGroup
 } from '@angular/forms';
 
 @Component({
@@ -22,7 +21,7 @@ export class FormRecoverComponent implements OnInit {
 
   ngOnInit(): void {
     this.formRegister = this.formBuilder.group({
-      email: ['', Validators.required],
+      email: [''],
     });
   }
 }

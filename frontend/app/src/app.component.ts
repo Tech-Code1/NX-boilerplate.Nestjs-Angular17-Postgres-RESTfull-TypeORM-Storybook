@@ -23,6 +23,14 @@ export class AppComponent {
   });
 
   public authStatusChangedEffect = effect(() => {
+    const currentRoute = this.router.url;
+    const allowedPublicRoutes = [
+      '/auth/login',
+      '/auth/change-password',
+      '/auth/register',
+      '/auth/recover',
+    ];
+
     console.log('authStatus:', this.authService.authStatus());
     switch (this.authService.authStatus()) {
       case AuthStatus.CHECKING:
@@ -33,7 +41,9 @@ export class AppComponent {
         return;
 
       case AuthStatus.NOT_AUTHENTICATED:
-        this.router.navigateByUrl('/auth/login');
+        if (allowedPublicRoutes.includes(currentRoute)) {
+          this.router.navigateByUrl('/auth/login');
+        }
         return;
     }
   });

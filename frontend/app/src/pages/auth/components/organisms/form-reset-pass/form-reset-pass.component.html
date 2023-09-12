@@ -1,34 +1,45 @@
-<div class="flex flex-col justify-center gap-4 items-center">
-  <c-title css="title-2xl">Change password</c-title>
-  <div class="w-full flex flex-col gap-4">
-    <div class="relative">
-      <c-label>
-        Password
-        <c-input
-          css="input-primary"
-          type="password"
-          placeholder="*******"
-          [formControl]="passwordControl"
-          name="password"
-        />
-      </c-label>
+<form
+  [formGroup]="formReset"
+  (ngSubmit)="onReset()"
+  class="w-full flex flex-col gap-6 items-center h-full justify-center"
+>
+  <div class="flex flex-col justify-center gap-4 items-center">
+    <c-title css="title-2xl">Change password</c-title>
+    <div class="w-full flex flex-col gap-4">
+      <div class="relative">
+        <c-label>
+          Password
+          <c-input
+            css="input-primary"
+            type="password"
+            placeholder="*******"
+            [formControl]="formUtilities.getControl(formReset, 'password')"
+            name="password"
+          />
+        </c-label>
+      </div>
+      <div class="relative">
+        <c-label>
+          Repeat password
+          <c-input
+            css="input-primary"
+            type="password"
+            placeholder="*******"
+            [formControl]="formUtilities.getControl(formReset, 'passRepeat')"
+            name="passRepeat"
+          />
+        </c-label>
+      </div>
     </div>
-    <div class="relative">
-      <c-label>
-        Repeat password
-        <c-input
-          css="input-primary"
-          type="password"
-          placeholder="*******"
-          [formControl]="passRepeatControl"
-          name="passRepeat"
-        />
-      </c-label>
+    <div class="relative w-full">
+      <c-button
+        class="w-full"
+        css="button-primary"
+        color="t-white"
+        type="submit"
+      >
+        <c-title css="title-base">Done</c-title>
+      </c-button>
     </div>
   </div>
-  <div class="relative w-full">
-    <c-button class="w-full" css="button-primary" color="t-white" type="submit">
-      <c-title css="title-base">Done</c-title>
-    </c-button>
-  </div>
-</div>
+</form>
