@@ -25,7 +25,6 @@ export class Resp extends Error {
     customMessage?: string
   ): string {
     let message = customMessage || 'An unexpected error occurred';
-    console.log('Custom Message:', customMessage);
 
     // * Handle HttpException
     if (error instanceof HttpException) {

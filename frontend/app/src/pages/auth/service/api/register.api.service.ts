@@ -23,7 +23,7 @@ export class RegisterApiService {
 
     return this.http
       .post<BaseResponse<IUser | undefined>>(
-        `${this.BASE_API}/users/register`,
+        `${this.BASE_API}/user/register`,
         body
       )
       .pipe(

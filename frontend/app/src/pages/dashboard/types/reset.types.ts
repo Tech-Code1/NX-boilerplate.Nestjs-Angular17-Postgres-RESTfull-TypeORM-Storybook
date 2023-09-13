@@ -3,7 +3,6 @@ export interface IResetPassword {
 }
 
 export interface IResetData {
-  userId: string;
-  token: string;
-  password: string;
+  currentPassword: string;
+  newPassword: string;
 }

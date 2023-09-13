@@ -8,25 +8,27 @@
     <div class="w-full flex flex-col gap-4">
       <div class="relative">
         <c-label>
-          Password
+          Current password
           <c-input
             css="input-primary"
             type="password"
             placeholder="*******"
-            [formControl]="formUtilities.getControl(formReset, 'password')"
-            name="password"
+            [formControl]="
+              formUtilities.getControl(formReset, 'currentPassword')
+            "
+            name="currentPassword"
           />
         </c-label>
       </div>
       <div class="relative">
         <c-label>
-          Repeat password
+          New password
           <c-input
             css="input-primary"
             type="password"
             placeholder="*******"
-            [formControl]="formUtilities.getControl(formReset, 'passRepeat')"
-            name="passRepeat"
+            [formControl]="formUtilities.getControl(formReset, 'newPassword')"
+            name="newPassword"
           />
         </c-label>
       </div>

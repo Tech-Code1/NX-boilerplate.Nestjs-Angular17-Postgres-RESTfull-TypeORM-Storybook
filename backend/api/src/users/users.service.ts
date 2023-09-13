@@ -178,4 +178,38 @@ export class UsersService {
 
     return await this.userRepository.save(userToBlock);
   }
+
+  async changeKnownPassword(
+    id: string,
+    currentPassword: string,
+    newPassword: string
+  ) {
+    console.log('currentPassword, newPassword:', currentPassword, newPassword);
+
+    const user = await this.findUserById(id);
+
+    if (!user || !user.password) {
+      throw Resp.Error('BAD_REQUEST', 'Invalid user or password data.');
+    }
+
+    if (!currentPassword) {
+      throw Resp.Error('BAD_REQUEST', 'Password not provided.');
+    }
+
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isMatch) {
+      return Resp.Error('BAD_REQUEST', 'Current password is incorrect.');
+    }
+
+    if (currentPassword === newPassword) {
+      return Resp.Error(
+        'BAD_REQUEST',
+        'The passwords are the same, if you want to change it you should enter another password.'
+      );
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, HASH_SALT);
+    user.password = hashedPassword;
+    await this.userRepository.save(user);
+  }
 }

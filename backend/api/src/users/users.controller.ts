@@ -32,10 +32,11 @@ import {
   UserToProjectDTO,
   ValidRolesDTO,
 } from './dto';
+import { ChangePasswordDTO } from './dto/changePassword.dto';
 import { UsersService } from './users.service';
 
-@ApiTags('users')
-@Controller('users')
+@ApiTags('user')
+@Controller('user')
 @UseGuards(JwtAuthGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -125,5 +126,19 @@ export class UsersController {
     @CurrentUser([ROLES.ADMIN]) user: User
   ): Promise<User> {
     return await this.usersService.blockUser(id, timeBlocked, user);
+  }
+
+  @Post('change-password')
+  @UseGuards(JwtAuthGuard)
+  async changePassword(
+    @CurrentUser() { id }: User,
+    @Body() { currentPassword, newPassword }: ChangePasswordDTO
+  ): Promise<{ message: string }> {
+    await this.usersService.changeKnownPassword(
+      id,
+      currentPassword,
+      newPassword
+    );
+    return Resp.Success<object>({}, 'OK', 'Password changed successfully!');
   }
 }

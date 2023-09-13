@@ -30,11 +30,11 @@ export class FormResetPassComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.formReset = this.formBuilder.group({
-      password: [''],
-      passRepeat: [''],
+      currentPassword: [''],
+      newPassword: [''],
     });
 
-    this.passwordSubscription = this.password$.subscribe((pass) => {
+    /* this.passwordSubscription = this.password$.subscribe((pass) => {
       const control = this.formReset.get('password');
       if (control) {
         control.setValidators([
@@ -42,7 +42,7 @@ export class FormResetPassComponent implements OnInit, OnDestroy {
         ]);
         control.updateValueAndValidity();
       }
-    });
+    }); */
   }
 
   ngOnDestroy(): void {

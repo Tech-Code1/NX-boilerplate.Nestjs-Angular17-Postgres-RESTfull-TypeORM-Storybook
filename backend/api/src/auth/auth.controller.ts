@@ -54,10 +54,15 @@ export class AuthController {
   }
 
   @Post('change-password')
+  @UseGuards(JwtAuthGuard, AuthGuard)
   @ChangePassDoc()
-  async requestPasswordChange(@Body() changePass: ChangePassDTO) {
-    const { userId, token, password } = changePass;
-    await this.authService.changePassword(userId, token, password);
+  async requestPasswordChange(
+    @CurrentUser() { id }: User,
+    @Body() changePass: ChangePassDTO
+  ) {
+    const { token, password } = changePass;
+    console.log('token, password, id:', token, password, id);
+    await this.authService.changePassword(id, token, password);
 
     return Resp.Success<object>(
       {},

@@ -25,6 +25,8 @@ export class AuthGuard implements CanActivate {
         secret: JWT_SECRET,
       });
 
+      console.log('payload', payload);
+
       const user = await this.usersService.findUserById(payload.id);
 
       if (!user) Resp.Error('NOT_FOUND', 'User not found');
