@@ -11,8 +11,12 @@ export class Resp extends Error {
     throw this.createException(error, type, false, customMessage);
   }
 
-  public static Success<T>(data: T, type?: keyof typeof HttpStatus) {
-    const response = this.createResponse<T>(data, type, true);
+  public static Success<T>(
+    data: T,
+    type?: keyof typeof HttpStatus,
+    customMessage?: string
+  ) {
+    const response = this.createResponse<T>(data, type, true, customMessage);
     return { data, ...response };
   }
 

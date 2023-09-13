@@ -6,5 +6,5 @@ export * from './organisms/form-recover/form-recover.component';
 export * from './organisms/form-recover/form-recover.module';
 export * from './organisms/form-register/form-register.component';
 export * from './organisms/form-register/form-register.module';
-export * from './organisms/form-reset-pass/form-reset-pass.component';
-export * from './organisms/form-reset-pass/form-reset-pass.module';
+export * from '../../dashboard/components/organism/form-reset-pass/form-reset-pass.component';
+export * from '../../dashboard/components/organism/form-reset-pass/form-reset-pass.module';

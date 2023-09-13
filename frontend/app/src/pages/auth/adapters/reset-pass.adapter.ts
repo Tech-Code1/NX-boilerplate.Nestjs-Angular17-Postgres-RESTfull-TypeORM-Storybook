@@ -1,24 +1,25 @@
-/* import { BaseResponseType, IResetPassResponse } from '@types';
-import { Swal } from '@utils';
+/* import { BaseResponse } from '@types';
+import { managerError } from '@utils';
 
-export const ResetPassAdapter = async (
-  resp: IResetPassResponse
-): Promise<BaseResponseType | void> => {
-  const { error } = Swal();
-  const { success, code, status } = resp;
+export const ResetPassAdapter = (
+  resp: BaseResponse<object | undefined>
+): BaseResponse<object | undefined> => {
+  const { data, response } = resp;
+
+  const { code, message, status, success } = response;
 
   if (!success) {
-    return await error(resp.message);
+    return managerError(resp);
   }
 
-  const { Password_Change } = resp;
-  const { message } = Password_Change;
-
   return {
-    message,
-    status,
-    success,
-    code,
+    data: {},
+    response: {
+      status,
+      success,
+      code,
+      message,
+    },
   };
 };
  */

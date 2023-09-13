@@ -1,6 +1,7 @@
 import { User } from '@db/entities';
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { Resp } from '../utils';
 import { AuthService } from './auth.service';
 import {
   ChangePassDoc,
@@ -57,8 +58,11 @@ export class AuthController {
   async requestPasswordChange(@Body() changePass: ChangePassDTO) {
     const { userId, token, password } = changePass;
     await this.authService.changePassword(userId, token, password);
-    return {
-      message: 'Your password has been successfully changed',
-    };
+
+    return Resp.Success<object>(
+      {},
+      'ACCEPTED',
+      'Your password has been successfully changed'
+    );
   }
 }
