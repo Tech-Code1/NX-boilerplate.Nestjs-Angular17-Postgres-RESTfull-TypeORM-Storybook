@@ -43,14 +43,15 @@ export class AuthController {
     return result;
   }
 
-  @Post('reset-password')
+  @Post('recover')
   @ResetPassDoc()
   async requestPasswordReset(@Body('email') email: string) {
     await this.authService.requestPasswordReset(email);
-    return {
-      message:
-        'If an account with that email exists, we sent you an email to reset your password',
-    };
+    return Resp.Success<object>(
+      {},
+      'OK',
+      'If an account with that email exists, we sent you an email to reset your password'
+    );
   }
 
   @Post('change-password')

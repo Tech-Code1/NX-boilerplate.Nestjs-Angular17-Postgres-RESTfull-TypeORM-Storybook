@@ -1,26 +1,32 @@
-<div class="flex flex-col justify-center gap-4 items-center">
-  <c-title css="title-2xl">Recover password</c-title>
-  <div class="relative">
-    <c-label>
-      Email
-      <c-input
-        css="input-primary"
-        type="email"
-        placeholder="jhonDoe@example.com"
-        [formControl]="emailControl"
-        name="email"
-      />
-    </c-label>
+<form
+  [formGroup]="formRecover"
+  (ngSubmit)="onRecoverPassword()"
+  class="w-full flex flex-col gap-6 items-center h-full justify-center"
+>
+  <div class="flex flex-col justify-center gap-4 items-center">
+    <c-title css="title-2xl">Recover password</c-title>
+    <div class="relative">
+      <c-label>
+        Email
+        <c-input
+          css="input-primary"
+          type="email"
+          placeholder="jhonDoe@example.com"
+          [formControl]="formUtilities.getControl(formRecover, 'email')"
+          name="email"
+        />
+      </c-label>
+    </div>
+    <div class="relative w-full">
+      <c-button
+        [disabled]="!formRecover.value"
+        class="w-full"
+        css="button-primary"
+        color="t-white"
+        type="submit"
+      >
+        <c-title css="title-base">Send</c-title>
+      </c-button>
+    </div>
   </div>
-  <div class="relative w-full">
-    <c-button
-      [disabled]="!formRegister.value"
-      class="w-full"
-      css="button-primary"
-      color="t-white"
-      type="submit"
-    >
-      <c-title css="title-base">Send</c-title>
-    </c-button>
-  </div>
-</div>
+</form>

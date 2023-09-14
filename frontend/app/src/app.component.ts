@@ -28,6 +28,7 @@ export class AppComponent {
       '/auth/login',
       '/auth/register',
       '/auth/recover',
+      '/auth/change-password',
     ];
 
     console.log('authStatus:', this.authService.authStatus());
@@ -40,7 +41,7 @@ export class AppComponent {
         return;
 
       case AuthStatus.NOT_AUTHENTICATED:
-        if (allowedPublicRoutes.includes(currentRoute)) {
+        if (!allowedPublicRoutes.includes(currentRoute)) {
           this.router.navigateByUrl('/auth/login');
         }
         return;

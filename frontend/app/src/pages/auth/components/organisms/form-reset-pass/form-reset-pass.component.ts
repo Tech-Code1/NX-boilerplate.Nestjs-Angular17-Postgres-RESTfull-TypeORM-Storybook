@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormUtilitiesService } from '@utils';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
@@ -16,14 +16,6 @@ export class FormResetPassComponent implements OnInit, OnDestroy {
   private passwordSource = new BehaviorSubject<string | null>(null);
   formReset!: FormGroup;
   password$ = this.passwordSource.asObservable();
-
-  get passwordControl(): FormControl {
-    return this.formReset.get('password') as FormControl;
-  }
-
-  get passRepeatControl(): FormControl {
-    return this.formReset.get('passRepeat') as FormControl;
-  }
 
   ngOnInit(): void {
     this.formReset = this.formBuilder.group({

@@ -1,9 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup
-} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormUtilitiesService } from '@utils';
 
 @Component({
   selector: 'form-recover',
@@ -12,16 +9,19 @@ import {
 })
 export class FormRecoverComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
+  protected formUtilities = inject(FormUtilitiesService);
 
-  formRegister!: FormGroup;
-
-  get emailControl(): FormControl {
-    return this.formRegister.get('email') as FormControl;
-  }
+  formRecover!: FormGroup;
 
   ngOnInit(): void {
-    this.formRegister = this.formBuilder.group({
+    this.formRecover = this.formBuilder.group({
       email: [''],
     });
+  }
+
+  onRecoverPassword() {
+    if (!this.formRecover.valid) return;
+
+    //this.registerService.onRegister(this.formRegister);
   }
 }
