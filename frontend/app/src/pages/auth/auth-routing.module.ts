@@ -33,6 +33,11 @@ const routes: Routes = [
         path: 'recover',
         loadChildren: () => import('./').then((module) => module.RecoverModule),
       },
+      {
+        path: 'change-password',
+        loadChildren: () =>
+          import('./').then((module) => module.ResetPassModule),
+      },
     ],
   },
 ];

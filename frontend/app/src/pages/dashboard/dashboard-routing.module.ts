@@ -15,7 +15,7 @@ const routes: Routes = [
       {
         path: 'change-password',
         loadChildren: () =>
-          import('./').then((module) => module.ChangePassModule),
+          import('./').then((module) => module.ResetPassModule),
       },
     ],
   },

@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { BaseResponse } from '@types';
 import { Observable, catchError, of, switchMap, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { IResetData } from '../../types';
+import { IChangeData } from '../../types';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class ResetApiService {
   resetPassword({
     currentPassword,
     newPassword,
-  }: IResetData): Observable<BaseResponse<object | undefined>> {
+  }: IChangeData): Observable<BaseResponse<object | undefined>> {
     const token = localStorage.getItem('token');
 
     if (!token) {
@@ -27,7 +27,7 @@ export class ResetApiService {
     const body = { currentPassword, newPassword };
 
     return this.http
-      .post<BaseResponse<IResetData | undefined>>(
+      .post<BaseResponse<IChangeData | undefined>>(
         `${this.BASE_API}/user/change-password`,
         body,
         { headers }

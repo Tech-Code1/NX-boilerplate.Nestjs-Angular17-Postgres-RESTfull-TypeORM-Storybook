@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Swal } from '@utils';
 import { take } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { IResetData } from '../../types';
+import { IChangeData } from '../../types';
 import { ResetApiService } from '../api';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class ResetStateService {
   router = inject(Router);
   BASE_API: string = environment.baseUrl;
 
-  onResetPassword(form: AbstractControl<IResetData>): void {
+  onResetPassword(form: AbstractControl<IChangeData>): void {
     const { currentPassword, newPassword } = form.value;
 
     this.resetService

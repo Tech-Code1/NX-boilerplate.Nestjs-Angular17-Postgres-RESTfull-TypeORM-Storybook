@@ -1,3 +1,3 @@
 export * from './organism';
-export * from './organism/form-reset-pass/form-reset-pass.component';
-export * from './organism/form-reset-pass/form-reset-pass.module';
+export * from './organism/form-change-pass/form-change-pass.component';
+export * from './organism/form-change-pass/form-change-pass.module';

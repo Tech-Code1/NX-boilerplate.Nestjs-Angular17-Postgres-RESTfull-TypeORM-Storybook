@@ -1,5 +1,5 @@
-export * from '../../dashboard/containers/change-pass/change-pass.component';
-export * from '../../dashboard/containers/change-pass/change-pass.module';
+export * from '../../dashboard/containers/reset-pass/reset-pass.component';
+export * from '../../dashboard/containers/reset-pass/reset-pass.module';
 export * from './login/login.component';
 export * from './login/login.module';
 export * from './recover/recover.component';

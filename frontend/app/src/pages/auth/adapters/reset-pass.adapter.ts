@@ -1,4 +1,4 @@
-/* import { BaseResponse } from '@types';
+import { BaseResponse } from '@types';
 import { managerError } from '@utils';
 
 export const ResetPassAdapter = (
@@ -22,4 +22,3 @@ export const ResetPassAdapter = (
     },
   };
 };
- */

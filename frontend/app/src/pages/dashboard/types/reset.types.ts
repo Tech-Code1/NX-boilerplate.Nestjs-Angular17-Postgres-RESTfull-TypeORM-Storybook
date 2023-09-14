@@ -1,8 +1,8 @@
-export interface IResetPassword {
+export interface IChangePassword {
   password: string;
 }
 
-export interface IResetData {
+export interface IChangeData {
   currentPassword: string;
   newPassword: string;
 }

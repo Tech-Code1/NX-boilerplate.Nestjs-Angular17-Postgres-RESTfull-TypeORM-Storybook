@@ -1,2 +1,2 @@
-export * from './form-reset-pass/form-reset-pass.component';
-export * from './form-reset-pass/form-reset-pass.module';
+export * from './form-change-pass/form-change-pass.component';
+export * from './form-change-pass/form-change-pass.module';

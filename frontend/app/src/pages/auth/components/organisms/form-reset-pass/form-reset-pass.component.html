@@ -1,34 +1,32 @@
 <form
   [formGroup]="formReset"
-  (ngSubmit)="onReset()"
+  (ngSubmit)="onResetPassword()"
   class="w-full flex flex-col gap-6 items-center h-full justify-center"
 >
   <div class="flex flex-col justify-center gap-4 items-center">
-    <c-title css="title-2xl">Change password</c-title>
+    <c-title css="title-2xl">Reset password</c-title>
     <div class="w-full flex flex-col gap-4">
       <div class="relative">
         <c-label>
-          Current password
+          Password
           <c-input
             css="input-primary"
             type="password"
             placeholder="*******"
-            [formControl]="
-              formUtilities.getControl(formReset, 'currentPassword')
-            "
-            name="currentPassword"
+            [formControl]="formUtilities.getControl(formReset, 'password')"
+            name="password"
           />
         </c-label>
       </div>
       <div class="relative">
         <c-label>
-          New password
+          Repeat password
           <c-input
             css="input-primary"
             type="password"
             placeholder="*******"
-            [formControl]="formUtilities.getControl(formReset, 'newPassword')"
-            name="newPassword"
+            [formControl]="formUtilities.getControl(formReset, 'passRepeat')"
+            name="passRepeat"
           />
         </c-label>
       </div>
