@@ -45,6 +45,9 @@ export class AppComponent {
           this.router.navigateByUrl('/auth/login');
         }
         return;
+
+      case AuthStatus.RESETTING_PASSWORD:
+        return;
     }
   });
 }

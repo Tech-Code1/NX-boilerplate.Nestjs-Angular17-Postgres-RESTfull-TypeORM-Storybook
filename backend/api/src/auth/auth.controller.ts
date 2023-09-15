@@ -7,6 +7,7 @@ import {
   ChangePassDoc,
   CurrentUser,
   LoginDoc,
+  Public,
   ResetPassDoc,
   RevalidateDoc,
   SignupDoc,
@@ -55,7 +56,7 @@ export class AuthController {
   }
 
   @Post('change-password')
-  @UseGuards(JwtAuthGuard, AuthGuard)
+  @Public()
   @ChangePassDoc()
   async requestPasswordChange(
     @CurrentUser() { id }: User,

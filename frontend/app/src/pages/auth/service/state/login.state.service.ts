@@ -1,6 +1,6 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ILogin, IRevalidateTokenResponse } from '@types';
 import { Swal } from '@utils';
 import { of, take } from 'rxjs';
@@ -22,22 +22,32 @@ export class LoginStateService {
   public authStatus = computed(() => this._authStatus());
 
   constructor() {
-    this.loginService.checkAuthStatus().subscribe({
-      next: ({ data, response }) => {
-        this.setAuthtication(data);
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentRoute = event.url;
 
-        return true;
-      },
-      error: ({ response }) => {
-        console.log(response, 'error');
+        if (currentRoute.includes('/auth/change-password')) {
+          this._authStatus.set(AuthStatus.RESETTING_PASSWORD);
+        } else {
+          this.loginService.checkAuthStatus().subscribe({
+            next: ({ data, response }) => {
+              this.setAuthtication(data);
 
-        if (response?.message === 'Token not found') {
-          this.logout();
-          return of(false);
+              return true;
+            },
+            error: ({ response }) => {
+              console.log(response, 'error');
+
+              if (response?.message === 'Token not found') {
+                this.logout();
+                return of(false);
+              }
+              this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
+              return of(false);
+            },
+          });
         }
-        this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
-        return of(false);
-      },
+      }
     });
   }
 

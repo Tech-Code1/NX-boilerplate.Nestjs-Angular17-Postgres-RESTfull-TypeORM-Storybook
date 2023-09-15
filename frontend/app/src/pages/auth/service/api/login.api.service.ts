@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { ILogin, IRevalidateTokenResponse, IUser } from '@types';
 import { Observable, catchError, of, switchMap, throwError } from 'rxjs';
 import { BaseResponse } from '../../../../common';
@@ -12,6 +13,7 @@ import { ILoginData } from '../../types';
 })
 export class LoginApiService {
   private http = inject(HttpClient);
+  router = inject(Router);
   BASE_API: string = environment.baseUrl;
 
   loginUser({
@@ -37,6 +39,20 @@ export class LoginApiService {
     BaseResponse<IRevalidateTokenResponse | undefined>
   > {
     const token = localStorage.getItem('token');
+    const currentRoute = this.router.url;
+    console.log('currentRoute:', this.router);
+
+    if (currentRoute.includes('/auth/change-password')) {
+      return of({
+        data: {},
+        response: {
+          status: 202,
+          code: 'ACCEPTED',
+          success: true,
+          message: 'Resetting Password',
+        },
+      });
+    }
 
     if (!token) {
       return throwError(() => new Error('Token not found'));

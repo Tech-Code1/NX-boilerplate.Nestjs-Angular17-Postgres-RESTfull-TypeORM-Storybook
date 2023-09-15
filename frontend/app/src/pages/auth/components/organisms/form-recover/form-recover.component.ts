@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormUtilitiesService } from '@utils';
+import { RecoverStateService } from '../../../service/state';
 
 @Component({
   selector: 'form-recover',
@@ -9,6 +10,7 @@ import { FormUtilitiesService } from '@utils';
 })
 export class FormRecoverComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
+  recoverService = inject(RecoverStateService);
   protected formUtilities = inject(FormUtilitiesService);
 
   formRecover!: FormGroup;
@@ -22,6 +24,6 @@ export class FormRecoverComponent implements OnInit {
   onRecoverPassword() {
     if (!this.formRecover.valid) return;
 
-    //this.registerService.onRegister(this.formRegister);
+    this.recoverService.onRecoverPassword(this.formRecover);
   }
 }
