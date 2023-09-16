@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutLoginModule } from '../../common/layouts';
 import { LayoutAuthModule } from './components/layout/layout-auth.module';
+import { LoginStateService } from './service/state';
 
 @NgModule({
   imports: [
@@ -15,4 +16,8 @@ import { LayoutAuthModule } from './components/layout/layout-auth.module';
     LayoutAuthModule,
   ],
 })
-export class AuthModule {}
+export class AuthModule {
+  constructor(private loginStateService: LoginStateService) {
+    this.loginStateService.initialize();
+  }
+}

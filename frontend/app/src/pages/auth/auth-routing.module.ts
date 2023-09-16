@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChangePasswordGuard } from '../../common/guards';
 import { LayoutLoginComponent } from '../../common/layouts';
 import { LayoutAuthComponent } from './components/layout/layout-auth.component';
 
@@ -37,6 +38,7 @@ const routes: Routes = [
         path: 'change-password',
         loadChildren: () =>
           import('./').then((module) => module.ResetPassModule),
+        canActivate: [ChangePasswordGuard],
       },
     ],
   },
