@@ -12,7 +12,7 @@
           <c-input
             css="input-primary"
             type="password"
-            placeholder="*******"
+            placeholder="Old password"
             [formControl]="
               formUtilities.getControl(formChangePass, 'currentPassword')
             "
@@ -20,19 +20,28 @@
           />
         </c-label>
       </div>
-      <div class="relative">
+      <div class="relative flex flex-col gap-2">
         <c-label>
           New password
           <c-input
             css="input-primary"
             type="password"
-            placeholder="*******"
+            placeholder="New Password"
             [formControl]="
               formUtilities.getControl(formChangePass, 'newPassword')
             "
             name="newPassword"
           />
         </c-label>
+        <c-input
+          css="input-primary"
+          type="password"
+          placeholder="Repeat password"
+          [formControl]="
+            formUtilities.getControl(formChangePass, 'repeatPassword')
+          "
+          name="repeatPassword"
+        />
       </div>
     </div>
     <div class="relative w-full">
@@ -41,6 +50,7 @@
         css="button-primary"
         color="t-white"
         type="submit"
+        [disabled]="!this.formChangePass.valid"
       >
         <c-title css="title-base">Done</c-title>
       </c-button>

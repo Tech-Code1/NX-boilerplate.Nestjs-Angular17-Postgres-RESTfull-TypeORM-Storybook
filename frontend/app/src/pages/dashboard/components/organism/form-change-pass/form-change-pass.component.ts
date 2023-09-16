@@ -24,14 +24,15 @@ export class FormChangePassComponent implements OnInit {
 
   ngOnInit(): void {
     this.customValidator = this.validatorsService.similarInputs(
-      'currentPassword',
-      'newPassword'
+      'newPassword',
+      'repeatPassword'
     );
 
     this.formChangePass = this.formBuilder.group(
       {
         currentPassword: [''],
         newPassword: [''],
+        repeatPassword: [''],
       },
       {
         validators: this.customValidator,
