@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {
+  RouterModule,
+  Routes,
+  provideRouter,
+  withComponentInputBinding,
+} from '@angular/router';
 import { ChangePasswordGuard } from '../../common/guards';
 import { LayoutLoginComponent } from '../../common/layouts';
 import { LayoutAuthComponent } from './components/layout/layout-auth.component';
@@ -47,5 +52,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers: [provideRouter(routes, withComponentInputBinding())],
 })
 export class AuthRoutingModule {}

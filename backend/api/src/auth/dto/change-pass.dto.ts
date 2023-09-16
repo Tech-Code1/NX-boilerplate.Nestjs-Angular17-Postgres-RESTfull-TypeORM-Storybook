@@ -9,7 +9,7 @@ export class ChangePassDTO {
     type: String,
     format: 'uuid',
   })
-  userId!: string;
+  id!: string;
 
   @IsNotEmpty()
   @IsString()

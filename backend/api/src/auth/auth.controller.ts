@@ -58,11 +58,8 @@ export class AuthController {
   @Post('change-password')
   @Public()
   @ChangePassDoc()
-  async requestPasswordChange(
-    @CurrentUser() { id }: User,
-    @Body() changePass: ChangePassDTO
-  ) {
-    const { token, password } = changePass;
+  async requestPasswordChange(@Body() changePass: ChangePassDTO) {
+    const { id, token, password } = changePass;
     console.log('token, password, id:', token, password, id);
     await this.authService.changePassword(id, token, password);
 

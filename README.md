@@ -105,6 +105,7 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Exploring a Revolutionary Approach to Data Handling in Angular - A Walkthrough Video - Sebastian Persson](https://youtu.be/iMOsdz-T7_o?si=Dae0g0mURq1qncvf)
 - [Angular: De cero a experto - Edición 2023 - Fernando Herrera](https://www.udemy.com/course/angular-fernando-herrera/)
 - [Reusable Input and Select component with Control Value Accessor in Angular](https://youtu.be/N2nOUBwBwyU?si=qmBskNlQHmSF_dzB)
+- [Get params from URL using inputs in Angular 16 | Enable withComponentInputBinding() in Angular 16](https://youtu.be/4Bc7rHcarOc?si=qMl5718Bk-K7NEAz)
 
 ## Connect with us!
 

@@ -21,64 +21,6 @@ export class LoginStateService {
   public currentUser = computed(() => this._currentUser());
   public authStatus = computed(() => this._authStatus());
 
-  /* constructor() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const currentRoute = event.url;
-
-        if (currentRoute.includes('/auth/change-password')) {
-          this._authStatus.set(AuthStatus.RESETTING_PASSWORD);
-        } else {
-          this.loginService.checkAuthStatus().subscribe({
-            next: ({ data, response }) => {
-              this.setAuthtication(data);
-
-              return true;
-            },
-            error: ({ response }) => {
-              console.log(response, 'error');
-
-              if (response?.message === 'Token not found') {
-                this.logout();
-                return of(false);
-              }
-              this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
-              return of(false);
-            },
-          });
-        }
-      }
-    });
-  } */
-
-  public initialize(): void {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const currentRoute = event.url;
-
-        if (currentRoute.includes('/auth/change-password')) {
-          this._authStatus.set(AuthStatus.RESETTING_PASSWORD);
-        } else {
-          this.loginService.checkAuthStatus().subscribe({
-            next: ({ data, response }) => {
-              this.setAuthtication(data);
-              return true;
-            },
-            error: ({ response }) => {
-              console.log(response, 'error');
-              if (response?.message === 'Token not found') {
-                this.logout();
-                return of(false);
-              }
-              this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
-              return of(false);
-            },
-          });
-        }
-      }
-    });
-  }
-
   private setAuthtication(
     data: (object | IRevalidateTokenResponse) | (object | ILogin)
   ): boolean {
@@ -108,6 +50,34 @@ export class LoginStateService {
           Swal.error(response.message);
         },
       });
+  }
+
+  public initialize(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentRoute = event.url;
+
+        if (currentRoute.includes('/auth/change-password')) {
+          this._authStatus.set(AuthStatus.RESETTING_PASSWORD);
+        } else {
+          this.loginService.checkAuthStatus().subscribe({
+            next: ({ data, response }) => {
+              this.setAuthtication(data);
+              return true;
+            },
+            error: ({ response }) => {
+              console.log(response, 'error');
+              if (response?.message === 'Token not found') {
+                this.logout();
+                return of(false);
+              }
+              this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
+              return of(false);
+            },
+          });
+        }
+      }
+    });
   }
 
   logout(): void {

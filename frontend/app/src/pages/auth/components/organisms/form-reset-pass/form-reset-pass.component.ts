@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormUtilitiesService } from '@utils';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { ResetStateService } from '../../../service/state';
 
 @Component({
   selector: 'form-reset-pass',
@@ -10,7 +11,11 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 })
 export class FormResetPassComponent implements OnInit, OnDestroy {
   private formBuilder = inject(FormBuilder);
+  private resetStateService = inject(ResetStateService);
   protected formUtilities = inject(FormUtilitiesService);
+
+  @Input() token = '';
+  @Input() id = '';
 
   private passwordSubscription?: Subscription;
   private passwordSource = new BehaviorSubject<string | null>(null);
@@ -41,6 +46,6 @@ export class FormResetPassComponent implements OnInit, OnDestroy {
   onResetPassword(): void {
     if (!this.formReset.valid) return;
 
-    // this.resetStateService.onResetPassword(this.formReset);
+    this.resetStateService.onResetPassword(this.formReset, this.token, this.id);
   }
 }

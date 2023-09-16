@@ -13,11 +13,11 @@ export class ResetApiService {
   BASE_API: string = environment.baseUrl;
 
   resetPassword({
-    userId,
+    id,
     token,
     password,
   }: IResetData): Observable<BaseResponse<object | undefined>> {
-    const body = { userId, token, password };
+    const body = { id, token, password };
 
     return this.http
       .post<BaseResponse<IResetData | undefined>>(

@@ -28,8 +28,16 @@ export class AppComponent {
       '/auth/login',
       '/auth/register',
       '/auth/recover',
-      '/auth/change-password',
     ];
+
+    const isChangePasswordRoute = (route: string) => {
+      const segments = route.split('/');
+      return (
+        segments.length >= 5 &&
+        segments[1] === 'auth' &&
+        segments[2] === 'change-password'
+      );
+    };
 
     console.log('authStatus:', this.authService.authStatus());
     switch (this.authService.authStatus()) {
@@ -41,7 +49,10 @@ export class AppComponent {
         return;
 
       case AuthStatus.NOT_AUTHENTICATED:
-        if (!allowedPublicRoutes.includes(currentRoute)) {
+        if (
+          !allowedPublicRoutes.includes(currentRoute) &&
+          !isChangePasswordRoute(currentRoute)
+        ) {
           this.router.navigateByUrl('/auth/login');
         }
         return;
