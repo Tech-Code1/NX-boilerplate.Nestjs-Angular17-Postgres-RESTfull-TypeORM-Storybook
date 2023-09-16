@@ -14,6 +14,7 @@ export class FormChangePassComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   protected validatorsService = inject(ValidatorsService);
   protected formUtilities = inject(FormUtilitiesService);
+  customValidator!: ValidatorFn;
 
   private passwordSubscription?: Subscription;
   private passwordSource = new BehaviorSubject<string | null>(null);
@@ -22,16 +23,18 @@ export class FormChangePassComponent implements OnInit {
   currentPasswordValidators: ValidatorFn[] = [];
 
   ngOnInit(): void {
+    this.customValidator = this.validatorsService.similarInputs(
+      'currentPassword',
+      'newPassword'
+    );
+
     this.formChangePass = this.formBuilder.group(
       {
         currentPassword: [''],
         newPassword: [''],
       },
       {
-        validators: this.validatorsService.similarInputs(
-          'currentPassword',
-          'newPassword'
-        ),
+        validators: this.customValidator,
       }
     );
   }

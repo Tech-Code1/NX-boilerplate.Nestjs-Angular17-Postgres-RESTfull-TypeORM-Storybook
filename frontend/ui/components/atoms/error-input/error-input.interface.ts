@@ -12,5 +12,6 @@ export const DefaultErrorMessages: Record<string, ErrorFunction> = {
     `The field must have at least ${booleanValue.requiredLength} characters.`,
   maxlength: (booleanValue: BooleanValue = { requiredLength: 50 }) =>
     `The field must have a maximum of ${booleanValue.requiredLength} characters.`,
+  noSimilar: () => 'Passwords do not match.',
   // ... other errors can be added here
 };
