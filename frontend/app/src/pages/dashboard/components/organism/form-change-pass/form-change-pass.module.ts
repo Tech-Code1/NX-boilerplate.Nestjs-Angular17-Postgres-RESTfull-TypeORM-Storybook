@@ -30,4 +30,4 @@ const routes: Routes = [
   ],
   exports: [FormChangePassComponent],
 })
-export class FormResetPassModule {}
+export class FormChangePassModule {}

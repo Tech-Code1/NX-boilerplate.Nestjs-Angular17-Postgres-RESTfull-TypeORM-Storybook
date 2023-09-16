@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -7,11 +7,11 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 export class ValidatorsService {
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
 
-  similarInputs(
+  /* similarInputs(
     input1: string,
     input2: string
   ): (formGroup: AbstractControl) => ValidationErrors | null {
-    console.log(input1, input2);
+    console.log('Validador similarInputs llamado con', input1, input2);
 
     return (formGroup: AbstractControl): ValidationErrors | null => {
       const pass1 = input1;
@@ -27,6 +27,23 @@ export class ValidatorsService {
 
       formGroup.get(input2)?.setErrors({ noSimilar: true });
       return { noSimilar: true };
+    };
+  } */
+
+  similarInputs(input1: string, input2: string): ValidatorFn {
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      console.log('Inside similarInputs validator function');
+
+      const pass1 = formGroup.get(input1)?.value;
+      const pass2 = formGroup.get(input2)?.value;
+
+      console.log('pass1:', pass1, 'pass2:', pass2);
+
+      if (pass1 && pass2 && pass1 === pass2) {
+        console.log('Returning noSimilar error');
+        return { noSimilar: true };
+      }
+      return null;
     };
   }
 }

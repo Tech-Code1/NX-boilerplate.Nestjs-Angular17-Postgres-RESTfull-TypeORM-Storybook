@@ -40,7 +40,7 @@ const routes: Routes = [
         loadChildren: () => import('./').then((module) => module.RecoverModule),
       },
       {
-        path: 'change-password',
+        path: 'change-password/:token/:id',
         loadChildren: () =>
           import('./').then((module) => module.ResetPassModule),
         canActivate: [ChangePasswordGuard],

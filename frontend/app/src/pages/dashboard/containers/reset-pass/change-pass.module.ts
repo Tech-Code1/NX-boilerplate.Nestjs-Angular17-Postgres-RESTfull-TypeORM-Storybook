@@ -2,24 +2,24 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { FormResetPassModule } from '../../../auth/components';
-import { ResetPassComponent } from './reset-pass.component';
+import { FormChangePassModule } from '../../components';
+import { ChangePassComponent } from './change-pass.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ResetPassComponent,
+    component: ChangePassComponent,
   },
 ];
 
 @NgModule({
-  declarations: [ResetPassComponent],
+  declarations: [ChangePassComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormResetPassModule,
+    FormChangePassModule,
     RouterModule.forChild(routes),
   ],
-  exports: [ResetPassComponent, RouterModule],
+  exports: [ChangePassComponent, RouterModule],
 })
-export class ResetPassModule {}
+export class ChangePassModule {}
