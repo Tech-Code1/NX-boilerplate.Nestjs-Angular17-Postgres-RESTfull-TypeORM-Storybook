@@ -39,7 +39,6 @@ export class FormChangePassComponent implements OnInit {
       }
     );
   }
-
   onReset(): void {
     if (!this.formChangePass.valid) return;
 

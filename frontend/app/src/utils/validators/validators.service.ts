@@ -21,10 +21,18 @@ export class ValidatorsService {
       const pass2 = pass2Control.value;
 
       if (pass1 !== pass2) {
-        pass2Control.setErrors({ noSimilar: true });
+        // * Add the noSimilar error without modifying other existing errors
+        const existingErrors = pass2Control.errors || {};
+        pass2Control.setErrors({ ...existingErrors, noSimilar: true });
         return { noSimilar: true };
       } else {
-        pass2Control.setErrors(null);
+        // * If the password is similar, remove the noSimilar error but keep other errors
+        if (pass2Control.errors && pass2Control.errors?.['noSimilar']) {
+          delete pass2Control.errors?.['noSimilar'];
+          if (!Object.keys(pass2Control.errors).length) {
+            pass2Control.setErrors(null);
+          }
+        }
         return null;
       }
     };
