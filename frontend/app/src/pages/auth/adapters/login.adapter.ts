@@ -1,5 +1,6 @@
-import { BaseResponse, ILogin } from '@types';
+import { BaseResponse } from '@types';
 import { managerError } from '@utils';
+import { ILogin } from '../types';
 
 export const LoginAdapter = (
   resp: BaseResponse<ILogin | undefined>

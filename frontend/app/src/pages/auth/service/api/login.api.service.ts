@@ -1,12 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ILogin, IRevalidateTokenResponse, IUser } from '@types';
 import { Observable, catchError, of, switchMap, throwError } from 'rxjs';
 import { BaseResponse } from '../../../../common';
 import { environment } from '../../../../environments/environment';
 import { LoginAdapter, RevalidateAdapter } from '../../adapters';
-import { ILoginData } from '../../types';
+import {
+  ILogin,
+  ILoginData,
+  IRevalidateTokenResponse,
+  IUser,
+} from '../../types';
 
 @Injectable({
   providedIn: 'root',

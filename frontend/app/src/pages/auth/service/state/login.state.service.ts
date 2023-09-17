@@ -1,11 +1,15 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
-import { ILogin, IRevalidateTokenResponse } from '@types';
 import { Swal } from '@utils';
 import { take } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { AuthStatus, ILoginData } from '../../types';
+import {
+  AuthStatus,
+  ILogin,
+  ILoginData,
+  IRevalidateTokenResponse,
+} from '../../types';
 import { LoginApiService } from '../api';
 
 @Injectable({

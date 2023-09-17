@@ -1,3 +1,4 @@
+import { ROLES } from '@db/constants';
 import { IUser } from './login.types';
 
 export interface IRegisterData {
@@ -5,14 +6,6 @@ export interface IRegisterData {
   username: string;
   password: string;
 }
-
-export enum ROLES {
-  ADMIN = 'ADMIN',
-  PREMIUM = 'PREMIUM',
-  CREATOR = 'CREATOR',
-  USER = 'USER',
-}
-
 export interface IUserResponse {
   email: string;
   username: string;

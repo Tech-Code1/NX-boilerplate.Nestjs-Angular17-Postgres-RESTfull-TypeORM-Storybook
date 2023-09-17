@@ -1,5 +1,6 @@
-import { BaseResponse, IRevalidateTokenResponse } from '@types';
+import { BaseResponse } from '@types';
 import { managerError } from '@utils';
+import { IRevalidateTokenResponse } from '../types';
 
 export const RevalidateAdapter = (
   resp: BaseResponse<IRevalidateTokenResponse | undefined>

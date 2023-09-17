@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { ILogin, IUser } from '@types';
 import { Observable, catchError, of, switchMap } from 'rxjs';
 import { BaseResponse } from '../../../../common';
 import { environment } from '../../../../environments/environment';
 import { RegisterAdapter } from '../../adapters';
-import { IRegisterData } from '../../types';
+import { ILogin, IRegisterData, IUser } from '../../types';
 
 @Injectable({
   providedIn: 'root',

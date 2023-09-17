@@ -9,10 +9,11 @@ export interface IUser {
   isBlocked: boolean;
   roles: ROLES[];
 }
-/* export interface ILoginResponse {
-  data: IUser;
-  response: BaseResponseType;
-} */
+
+export interface ILogin {
+  token: string;
+  user: IUser;
+}
 
 export interface ILogin {
   token: string;
