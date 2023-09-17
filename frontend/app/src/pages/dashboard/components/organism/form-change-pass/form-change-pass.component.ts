@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ValidatorFn } from '@angular/forms';
 import { FormUtilitiesService, ValidatorsService } from '@utils';
-import { BehaviorSubject, Subscription } from 'rxjs';
 import { ResetStateService } from '../../../service/state';
 
 @Component({
@@ -14,13 +13,9 @@ export class FormChangePassComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   protected validatorsService = inject(ValidatorsService);
   protected formUtilities = inject(FormUtilitiesService);
-  customValidator!: ValidatorFn;
 
-  private passwordSubscription?: Subscription;
-  private passwordSource = new BehaviorSubject<string | null>(null);
+  customValidator!: ValidatorFn;
   formChangePass!: FormGroup;
-  password$ = this.passwordSource.asObservable();
-  currentPasswordValidators: ValidatorFn[] = [];
 
   ngOnInit(): void {
     this.customValidator = this.validatorsService.similarInputs(

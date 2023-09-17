@@ -51,7 +51,6 @@ export class ControlValueAccesorDirective<T>
   }
 
   updateValidators(): void {
-    console.log('Updating validators with:', this.additionalValidators);
     if (this.control) {
       const typeValidators = this.getValidatorsForType(this.type) || [];
       const combinedValidators = [
@@ -69,7 +68,6 @@ export class ControlValueAccesorDirective<T>
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('OnChanges:', changes);
     if (
       changes?.['type'] ||
       (changes?.['additionalValidators'] && this.control)
@@ -79,7 +77,7 @@ export class ControlValueAccesorDirective<T>
   }
 
   // ? Debug
-  observeValueChanges() {
+  /* observeValueChanges() {
     if (this.control) {
       this.control.valueChanges.subscribe(() => {
         this.getValidatorsForType(this.type);
@@ -88,7 +86,7 @@ export class ControlValueAccesorDirective<T>
         console.log('Errores después de cambio:', this.control!.errors);
       });
     }
-  }
+  } */
 
   setFormControl() {
     try {
@@ -109,7 +107,8 @@ export class ControlValueAccesorDirective<T>
       this.control = new FormControl();
     }
 
-    this.observeValueChanges();
+    // ? Debug
+    //this.observeValueChanges();
   }
 
   writeValue(value: T): void {

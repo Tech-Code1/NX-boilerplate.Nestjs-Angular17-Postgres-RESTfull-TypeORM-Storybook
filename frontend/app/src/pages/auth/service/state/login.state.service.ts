@@ -3,7 +3,7 @@ import { AbstractControl } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 import { ILogin, IRevalidateTokenResponse } from '@types';
 import { Swal } from '@utils';
-import { of, take } from 'rxjs';
+import { take } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { AuthStatus, ILoginData } from '../../types';
 import { LoginApiService } from '../api';
@@ -57,24 +57,24 @@ export class LoginStateService {
       if (event instanceof NavigationEnd) {
         const currentRoute = event.url;
 
-        if (currentRoute.includes('/auth/change-password')) {
+        if (currentRoute.includes('/auth/reset-password')) {
           this._authStatus.set(AuthStatus.RESETTING_PASSWORD);
-        } else {
+        } else if (localStorage.getItem('token')) {
           this.loginService.checkAuthStatus().subscribe({
             next: ({ data, response }) => {
               this.setAuthtication(data);
-              return true;
             },
             error: ({ response }) => {
               console.log(response, 'error');
               if (response?.message === 'Token not found') {
                 this.logout();
-                return of(false);
+              } else {
+                this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
               }
-              this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
-              return of(false);
             },
           });
+        } else {
+          this._authStatus.set(AuthStatus.NOT_AUTHENTICATED);
         }
       }
     });

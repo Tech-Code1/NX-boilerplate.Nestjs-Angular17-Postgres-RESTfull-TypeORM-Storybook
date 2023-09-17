@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject } from '@angular/core';
+import { Component, OnInit, computed, effect, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginStateService } from './pages/auth/service/state';
 import { AuthStatus } from './pages/auth/types';
@@ -8,11 +8,15 @@ import { AuthStatus } from './pages/auth/types';
   templateUrl: './app.component.html',
   styleUrls: [],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Template Angular';
 
   private authService = inject(LoginStateService);
   private router = inject(Router);
+
+  ngOnInit() {
+    this.authService.initialize();
+  }
 
   public finishedAuthCheck = computed<boolean>(() => {
     if (this.authService.authStatus() === AuthStatus.CHECKING) {
@@ -30,35 +34,41 @@ export class AppComponent {
       '/auth/recover',
     ];
 
-    const isChangePasswordRoute = (route: string) => {
+    const isChangePasswordRoute = (route: string): boolean => {
       const segments = route.split('/');
       return (
-        segments.length >= 5 &&
+        segments.length >= 4 &&
         segments[1] === 'auth' &&
-        segments[2] === 'change-password'
+        segments[2] === 'reset-password'
       );
     };
 
-    console.log('authStatus:', this.authService.authStatus());
     switch (this.authService.authStatus()) {
-      case AuthStatus.CHECKING:
-        return;
-
       case AuthStatus.AUTHENTICATED:
-        this.router.navigateByUrl('/dashboard');
-        return;
-
+        if (
+          allowedPublicRoutes.includes(currentRoute) ||
+          isChangePasswordRoute(currentRoute)
+        ) {
+          console.log('Redirecting to Dashboard...');
+          this.router.navigateByUrl('/dashboard');
+        }
+        break;
       case AuthStatus.NOT_AUTHENTICATED:
         if (
           !allowedPublicRoutes.includes(currentRoute) &&
           !isChangePasswordRoute(currentRoute)
         ) {
+          console.log('Redirecting to Login...');
           this.router.navigateByUrl('/auth/login');
         }
-        return;
-
+        break;
       case AuthStatus.RESETTING_PASSWORD:
-        return;
+        if (!isChangePasswordRoute(currentRoute)) {
+          console.log('Redirecting to Reset Password...');
+        }
+        break;
+      default:
+        break;
     }
   });
 }

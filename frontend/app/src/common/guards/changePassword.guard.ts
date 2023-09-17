@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
@@ -9,7 +8,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class ChangePasswordGuard implements CanActivate {
+export class ChangePasswordGuard {
   constructor(private router: Router) {}
 
   canActivate(
@@ -19,10 +18,15 @@ export class ChangePasswordGuard implements CanActivate {
     const token = route.queryParams['token'];
     const id = route.queryParams['id'];
 
+    console.log('Guard: token:', token);
+    console.log('Guard: id:', id);
+
     if (token && id) {
+      console.log('Guard: Access Allowed');
       return true;
     }
 
+    console.log('Guard: Access Denied, Redirecting...');
     this.router.navigateByUrl('/auth/login');
     return false;
   }
