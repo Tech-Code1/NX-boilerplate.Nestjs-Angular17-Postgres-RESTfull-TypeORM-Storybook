@@ -8,7 +8,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class ChangePasswordGuard {
+export class ResetPasswordGuard {
   constructor(private router: Router) {}
 
   canActivate(

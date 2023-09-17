@@ -5,7 +5,7 @@ import {
   provideRouter,
   withComponentInputBinding,
 } from '@angular/router';
-import { ChangePasswordGuard } from '../../common/guards';
+import { ResetPasswordGuard } from '../../common/guards';
 import { LayoutLoginComponent } from '../../common/layouts';
 import { LayoutAuthComponent } from './components/layout/layout-auth.component';
 
@@ -43,7 +43,7 @@ const routes: Routes = [
         path: 'reset-password',
         loadChildren: () =>
           import('./').then((module) => module.ResetPassModule),
-        canActivate: [ChangePasswordGuard],
+        canActivate: [ResetPasswordGuard],
       },
     ],
   },

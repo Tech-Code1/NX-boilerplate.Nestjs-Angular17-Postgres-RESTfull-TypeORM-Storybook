@@ -1,7 +1,6 @@
-import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { FormUtilitiesService } from '@utils';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ValidatorFn } from '@angular/forms';
+import { FormUtilitiesService, ValidatorsService } from '@utils';
 import { ResetStateService } from '../../../service/state';
 
 @Component({
@@ -9,38 +8,33 @@ import { ResetStateService } from '../../../service/state';
   templateUrl: './form-reset-pass.component.html',
   styleUrls: ['./form-reset-pass.component.scss'],
 })
-export class FormResetPassComponent implements OnInit, OnDestroy {
+export class FormResetPassComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   private resetStateService = inject(ResetStateService);
   protected formUtilities = inject(FormUtilitiesService);
+  protected validatorsService = inject(ValidatorsService);
 
   @Input() token = '';
   @Input() id = '';
 
-  private passwordSubscription?: Subscription;
-  private passwordSource = new BehaviorSubject<string | null>(null);
   formReset!: FormGroup;
-  password$ = this.passwordSource.asObservable();
+  customValidator!: ValidatorFn;
 
   ngOnInit(): void {
-    this.formReset = this.formBuilder.group({
-      password: [''],
-      passRepeat: [''],
-    });
+    this.customValidator = this.validatorsService.similarInputs(
+      'password',
+      'passRepeat'
+    );
 
-    /* this.passwordSubscription = this.password$.subscribe((pass) => {
-      const control = this.formReset.get('password');
-      if (control) {
-        control.setValidators([
-          this.validatorsService.similarInputs(pass!, 'passRepeat'),
-        ]);
-        control.updateValueAndValidity();
+    this.formReset = this.formBuilder.group(
+      {
+        password: [''],
+        passRepeat: [''],
+      },
+      {
+        validators: this.customValidator,
       }
-    }); */
-  }
-
-  ngOnDestroy(): void {
-    this.passwordSubscription?.unsubscribe();
+    );
   }
 
   onResetPassword(): void {

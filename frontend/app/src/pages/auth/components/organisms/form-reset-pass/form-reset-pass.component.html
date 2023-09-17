@@ -37,6 +37,7 @@
         css="button-primary"
         color="t-white"
         type="submit"
+        [disabled]="!this.formReset.valid"
       >
         <c-title css="title-base">Done</c-title>
       </c-button>
