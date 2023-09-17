@@ -65,7 +65,6 @@ export class LoginStateService {
               this.setAuthtication(data);
             },
             error: ({ response }) => {
-              console.log(response, 'error');
               if (response?.message === 'Token not found') {
                 this.logout();
               } else {

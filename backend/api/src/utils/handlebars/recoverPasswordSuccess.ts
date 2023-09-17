@@ -9,7 +9,6 @@ export function emailRecoverPassSuccessHTML(name: string, password: string) {
     '/../../../backend/api/src/template/',
     'requestResetPasswordSuccess.handlebars'
   );
-  console.log(templatePath);
 
   const source = fs.readFileSync(templatePath, 'utf8');
 

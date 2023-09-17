@@ -27,8 +27,8 @@ export class ResetStateService {
       .pipe(take(1))
       .subscribe({
         next: ({ data, response }) => {
-          this.router.navigateByUrl('/dashboard');
-          Swal.success(response.message);
+          this.router.navigateByUrl('auth/login');
+          Swal.success(response.message, true);
         },
         error: ({ response }) => {
           Swal.error(response.message);

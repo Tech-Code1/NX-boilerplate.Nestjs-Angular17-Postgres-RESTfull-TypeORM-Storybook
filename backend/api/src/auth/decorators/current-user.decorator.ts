@@ -7,8 +7,6 @@ export const CurrentUser = createParamDecorator(
     const request = context.switchToHttp().getRequest();
     const user = request.user;
 
-    console.log('Current user:', user);
-
     if (!user) {
       throw Resp.Error(
         'INTERNAL_SERVER_ERROR',

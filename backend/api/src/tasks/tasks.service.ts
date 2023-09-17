@@ -24,8 +24,6 @@ export class TasksService {
         project,
       });
     } catch (error) {
-      console.log(error, 'error');
-
       throw Resp.Error(error);
     }
   }

@@ -185,8 +185,6 @@ export class AuthService {
         );
       }
 
-      console.log(user.timeBlocked);
-
       const now = dayjs().valueOf();
       throw Resp.Error(
         'UNAUTHORIZED',

@@ -81,8 +81,6 @@ export class ProjectsService {
       }
       return project;
     } catch (error) {
-      console.log(error, 'error project');
-
       throw Resp.Error(error);
     }
   }

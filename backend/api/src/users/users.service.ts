@@ -18,7 +18,6 @@ export class UsersService {
 
   public async registerUser(registerUser: CreateUserDTO) {
     const { email, username } = registerUser;
-    console.log(registerUser);
 
     const findUserbyEmail = await this.userRepository.findOneBy({ email });
 
@@ -92,8 +91,6 @@ export class UsersService {
 
       return user;
     } catch (error) {
-      console.log(error, 'error');
-
       throw Resp.Error(error);
     }
   }
@@ -207,8 +204,6 @@ export class UsersService {
     currentPassword: string,
     newPassword: string
   ) {
-    console.log('currentPassword, newPassword:', currentPassword, newPassword);
-
     const user = await this.findUserById(id);
 
     if (!user || !user.password) {

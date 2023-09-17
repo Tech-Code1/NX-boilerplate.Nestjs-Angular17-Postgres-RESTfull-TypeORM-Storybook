@@ -37,10 +37,7 @@ export class AuthController {
   @UseGuards(JwtAuthGuard, AuthGuard)
   @RevalidateDoc()
   async revalidateToken(@CurrentUser() user: User) {
-    console.log('decorator user:', user);
-
     const result = this.authService.revalidateToken(user);
-    console.log('UserController: Result:', result);
     return result;
   }
 
@@ -60,7 +57,6 @@ export class AuthController {
   @ChangePassDoc()
   async requestPasswordChange(@Body() changePass: ChangePassDTO) {
     const { id, token, password } = changePass;
-    console.log('token, password, id:', token, password, id);
     await this.authService.changePassword(id, token, password);
 
     return Resp.Success<object>(

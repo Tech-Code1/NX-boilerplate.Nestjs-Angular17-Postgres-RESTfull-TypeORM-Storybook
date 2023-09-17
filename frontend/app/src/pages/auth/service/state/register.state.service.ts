@@ -22,8 +22,6 @@ export class RegisterStateService {
       .pipe(take(1))
       .subscribe({
         next: ({ data, response }) => {
-          console.log('response onRegister:', response);
-
           this.router.navigateByUrl('auth/login');
           Swal.success(response.message, true);
         },

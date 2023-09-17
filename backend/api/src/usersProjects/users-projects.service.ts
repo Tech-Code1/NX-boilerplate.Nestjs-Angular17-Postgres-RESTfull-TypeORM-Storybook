@@ -18,8 +18,6 @@ export class UsersProjectsService {
   }
 
   public async findProjectsByUser(userId: string): Promise<UsersProjects[]> {
-    console.log(userId);
-
     const result = await this.usersProjectsRepository.find({
       where: { user: { id: userId } },
       relations: ['user', 'project'],

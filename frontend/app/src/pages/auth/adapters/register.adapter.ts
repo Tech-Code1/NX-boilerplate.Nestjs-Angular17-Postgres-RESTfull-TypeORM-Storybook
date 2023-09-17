@@ -7,14 +7,11 @@ export const RegisterAdapter = (
 ): BaseResponse<IUserResponse | undefined> => {
   const { data, response } = resp;
 
-  console.log('Original Response:', resp);
-
   const { code, message, status, success } = response;
 
   if (!success) {
     return managerError(resp);
   }
-  console.log('Original Response:', resp);
 
   const {
     id,

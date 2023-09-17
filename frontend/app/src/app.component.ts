@@ -49,7 +49,6 @@ export class AppComponent implements OnInit {
           allowedPublicRoutes.includes(currentRoute) ||
           isChangePasswordRoute(currentRoute)
         ) {
-          console.log('Redirecting to Dashboard...');
           this.router.navigateByUrl('/dashboard');
         }
         break;
@@ -58,7 +57,6 @@ export class AppComponent implements OnInit {
           !allowedPublicRoutes.includes(currentRoute) &&
           !isChangePasswordRoute(currentRoute)
         ) {
-          console.log('Redirecting to Login...');
           this.router.navigateByUrl('/auth/login');
         }
         break;

@@ -39,7 +39,6 @@ export class LoginApiService {
     BaseResponse<IRevalidateTokenResponse | undefined>
   > {
     const token = localStorage.getItem('token');
-    console.log('currentRoute:', this.router);
 
     if (this.router.url.includes('/auth/reset-password')) {
       return of({

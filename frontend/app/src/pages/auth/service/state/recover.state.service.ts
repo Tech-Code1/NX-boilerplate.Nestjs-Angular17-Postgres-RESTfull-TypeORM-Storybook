@@ -22,7 +22,7 @@ export class RecoverStateService {
       .pipe(take(1))
       .subscribe({
         next: ({ data, response }) => {
-          //this.router.navigateByUrl('auth/login');
+          this.router.navigateByUrl('auth/login');
           Swal.success(response.message);
         },
         error: ({ response }) => {
