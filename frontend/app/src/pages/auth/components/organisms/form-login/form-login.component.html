@@ -1,5 +1,5 @@
 <form
-  [formGroup]="formRegister"
+  [formGroup]="formLogin"
   (ngSubmit)="onSubmit()"
   class="w-full flex flex-col gap-6 items-center"
 >
@@ -13,10 +13,10 @@
             css="input-primary"
             type="email"
             placeholder="jhonDoe@example.com"
-            [formControl]="formUtilities.getControl(formRegister, 'email')"
+            [formControl]="formUtilities.getControl(formLogin, 'email')"
             name="email"
             [additionalValidators]="
-              formUtilities.getValidators(formRegister, 'email')
+              formUtilities.getValidators(formLogin, 'email')
             "
           />
         </c-label>
@@ -28,7 +28,7 @@
             css="input-primary"
             type="password"
             placeholder="*******"
-            [formControl]="formUtilities.getControl(formRegister, 'password')"
+            [formControl]="formUtilities.getControl(formLogin, 'password')"
             name="password"
           />
         </c-label>
@@ -43,7 +43,7 @@
         css="button-primary"
         color="t-white"
         type="submit"
-        [disabled]="!formRegister.valid"
+        [disabled]="!formLogin.valid"
       >
         <c-title css="title-base">Login</c-title>
       </c-button>

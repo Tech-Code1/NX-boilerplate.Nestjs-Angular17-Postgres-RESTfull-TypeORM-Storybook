@@ -13,18 +13,18 @@ export class FormLoginComponent implements OnInit {
   private loginService = inject(LoginStateService);
   protected formUtilities = inject(FormUtilitiesService);
 
-  formRegister!: FormGroup;
+  formLogin!: FormGroup;
 
   ngOnInit(): void {
-    this.formRegister = this.formBuilder.group({
+    this.formLogin = this.formBuilder.group({
       email: [''],
       password: [''],
     });
   }
 
   onSubmit() {
-    if (!this.formRegister.valid) return;
+    if (!this.formLogin.valid) return;
 
-    this.loginService.onSubmit(this.formRegister);
+    this.loginService.onSubmit(this.formLogin);
   }
 }
