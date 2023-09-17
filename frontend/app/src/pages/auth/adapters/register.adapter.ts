@@ -1,29 +1,52 @@
 import { BaseResponse } from '@types';
 import { managerError } from '@utils';
-import { ILogin } from '../types';
+import { IUserResponse } from '../types';
 
 export const RegisterAdapter = (
-  resp: BaseResponse<ILogin | undefined>
-): BaseResponse<ILogin | undefined> => {
+  resp: BaseResponse<IUserResponse | undefined>
+): BaseResponse<IUserResponse | undefined> => {
   const { data, response } = resp;
+
+  console.log('Original Response:', resp);
 
   const { code, message, status, success } = response;
 
   if (!success) {
     return managerError(resp);
   }
+  console.log('Original Response:', resp);
 
-  const { token, user } = data as ILogin;
+  const {
+    id,
+    age,
+    email,
+    firstName,
+    lastName,
+    username,
+    isActive,
+    isBlocked,
+    timeBlocked,
+    roles,
+    createdAt,
+    deletedAt,
+    updatedAt,
+  } = data as IUserResponse;
 
   return {
     data: {
-      id: user.id,
-      email: user.email,
-      username: user.username,
-      isActive: user.isActive,
-      isBlocked: user.isBlocked,
-      roles: user.roles,
-      token: token,
+      id,
+      email,
+      username,
+      age,
+      firstName,
+      lastName,
+      isActive,
+      isBlocked,
+      timeBlocked,
+      roles,
+      createdAt,
+      deletedAt,
+      updatedAt,
     },
     response: {
       status,

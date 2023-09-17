@@ -59,7 +59,7 @@ export class AuthService {
       user,
     };
 
-    return Resp.Success<IAuthResponse>(data, 'OK');
+    return Resp.Success<IAuthResponse>(data, 'OK', 'Welcome back 😉');
   }
 
   public async getTokenDB(user: User) {

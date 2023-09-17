@@ -85,9 +85,7 @@ export class UsersController {
   @Public()
   @Post('register')
   @RegisterUserDoc()
-  public async registerUser(
-    @Body() registerUser: CreateUserDTO
-  ): Promise<User> {
+  public async registerUser(@Body() registerUser: CreateUserDTO) {
     return await this.usersService.registerUser(registerUser);
   }
 

@@ -1,13 +1,21 @@
 import swal from 'sweetalert2';
 
 export class Swal {
-  static async success(text = 'Success'): Promise<void> {
+  static async success(text = 'Success', time = false): Promise<void> {
+    const timeOptions = {
+      timer: 1000,
+      showConfirmButton: false,
+    };
+
+    const addOptions = time ? timeOptions : {};
+
     return new Promise((res, rej) => {
       swal
         .fire({
-          title: 'Succes',
+          title: 'Success',
           text: text,
           icon: 'success',
+          ...addOptions,
         })
         .then(() => res())
         .catch((ex) => rej(ex));

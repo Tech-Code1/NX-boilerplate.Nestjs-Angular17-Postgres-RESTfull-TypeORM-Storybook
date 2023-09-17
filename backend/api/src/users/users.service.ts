@@ -16,8 +16,29 @@ export class UsersService {
     private readonly userProjectRepository: Repository<UsersProjects>
   ) {}
 
-  public async registerUser(registerUser: CreateUserDTO): Promise<User> {
+  public async registerUser(registerUser: CreateUserDTO) {
+    const { email, username } = registerUser;
     console.log(registerUser);
+
+    const findUserbyEmail = await this.userRepository.findOneBy({ email });
+
+    if (findUserbyEmail) {
+      return Resp.Error(
+        'CONFLICT',
+        'There is already a user created with this email, try with another'
+      );
+    }
+
+    const findUserByUserName = await this.userRepository.findOneBy({
+      username,
+    });
+
+    if (findUserByUserName) {
+      return Resp.Error(
+        'CONFLICT',
+        `There is already a user created with this username, try with another`
+      );
+    }
 
     const { password } = registerUser;
     try {
@@ -26,7 +47,9 @@ export class UsersService {
         password: bcrypt.hashSync(password, HASH_SALT),
       });
 
-      return await this.userRepository.save(newUser);
+      const user = await this.userRepository.save(newUser);
+
+      return Resp.Success<User>(user, 'CREATED', 'User created successfully');
     } catch (error) {
       throw Resp.Error('BAD_REQUEST', 'Something went wrong');
     }

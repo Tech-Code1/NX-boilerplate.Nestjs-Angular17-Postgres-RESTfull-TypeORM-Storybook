@@ -44,7 +44,7 @@ export class LoginStateService {
           this.setAuthtication(data);
 
           this.router.navigateByUrl('/dashboard');
-          Swal.success(response.message);
+          Swal.success(response.message, true);
         },
         error: ({ response }) => {
           Swal.error(response.message);
