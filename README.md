@@ -92,6 +92,69 @@ NX-boilerplate.Nestjs-RESTfull-Angular16-Postgres
 └── yarn.lock
 ```
 
+<br />
+
+## Features
+
+### Frontend
+
+- [x] Frontend correctly set up to work with Angular 16.
+- [x] Tailwind fully configured for use in the UI library (This library is intended for creating individual components to be used in the frontend) as well as in the frontend.
+- [x] Service separation by endpoint in the frontend to keep components clean.
+- [x] Customized error handlers.
+- [x] Components created in a separate library for reusability and easy documentation with Storybook and Compodoc.
+- [x] Access to the library components from the frontend using a single path @ui/components.
+- [x] Typed components to accept certain properties.
+- [x] Components with predefined style autocompletion from the library.
+- [x] Reactive errors in forms.
+- [x] Centralized validators to avoid repeating each validation in every form.
+- [x] Directive created to centrally manage the ControlValueAccessor and extend it to reusable components that need it.
+- [x] Predefined error list for forms.
+- [x] Capability to create customized validators and send them through the custom component.
+- [x] Capability to create formGroup level validators.
+- [x] The following routes have been added to the frontend: auth/login, auth/revalidate, auth/reset-password, auth/recover, user/register, auth/change-password, user/change-password, dashboard, and the main route (./).
+- [x] Atomic design methodology used for component management (Atoms and molecules are managed in the library while organisms and pages are managed in the frontend).
+- [x] Documentation of some components in storybook as an example.
+- [x] Adapters added for the endpoints.
+- [x] Guards added to manage public routes, private routes, and the password reset route.
+- [x] Usage of signals to manage data.
+- [x] Custom Swal manager for handling notifications.
+- [x] Common services created with signals to delete, create, and change data.
+
+### Backend
+
+- [x] Database completely separated from the API for better scaling.
+- [x] Environments set up to be used anywhere, without using `process.env` and without the need to change their data type. Everything is done in a centralized manner and imported with the path @environments.
+- [x] Autocomplete for available environment variables in case `process.env` is used.
+- [x] Environments configured for both production and development, as well as for database environments found in a `.env` file.
+- [x] Environments automatically switch between production and development, this change is made just by running the project with the preconfigured scripts in `package.json`.
+- [x] TypeORM's synchronize functionality automatically activates in development and deactivates in production.
+- [x] Docker set up to mount the Postgres image.
+- [x] Guardian added in the backend to grant access only with a valid token.
+- [x] Backend interceptors that format the response sent to the client in case of error and in case of success.
+- [x] @Public decorator added to mark routes that don't need a token, like registration, login, etc.
+- [x] JWT strategy implemented.
+- [x] Fully customized response handler to format errors and successful responses.
+- [x] Decorator added for role management (Allow certain roles to handle certain endpoints).
+- [x] Handlebars added in the backend to manage templates sent to user's email.
+- [x] `class-validator` used to validate entity fields in DTOs.
+- [x] All main entities extend a base class to have the following fields: id, creation date, update date, deletion date, and id of the last user to edit the entity.
+- [x] Factory added to create fake data and automatically fill the database with the data needed for testing.
+- [x] Some endpoints have pagination ready.
+- [x] Commonly used endpoints added. We have the following: Query all users, query users by their roles, query a single user, query users and projects, query all projects, query a single project, revalidate token, query a user and all their projects, query users by project id, register user, add project, edit user, delete user, block user, add user to project, edit project, delete project, log in user, request password change, change password, create task, etc.
+- [x] Endpoint documentation with Swagger.
+- [x] Decorator added to manage Swagger documentation in a more organized manner.
+
+### General
+
+- [x] Scripts configured at the project root so that there's no need to switch to backend or frontend directories; everything is done from the root. The following scripts have been fully configured: to start the backend project in development, to start the backend project in production, to start the frontend project in development, to run migrations, to generate migrations, to revert migrations, to clear the entire database, and to run storybook.
+- [x] Commits can be made with a special format for documentation based on the type of change made. This can be done using the `git c` command.
+- [x] Email is sent when a password change is requested.
+- [x] Email is sent when the password is successfully changed.
+- [x] The sending and response of each endpoint is fully typed.
+
+<br />
+
 ## Credits and references
 
 - [Cómo estructurar tu project de ReactJs? - Gentleman Programming](https://youtu.be/5LqhlCd2_nE)
