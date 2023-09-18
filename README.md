@@ -33,6 +33,65 @@
 
 <br />
 
+## Global project structure
+
+```
+NX-boilerplate.Nestjs-RESTfull-Angular16-Postgres
+├── .gitattributes
+├── .gitconfig
+├── .gitignore
+├── .prettierignore
+├── .prettierrc
+├── .storybook
+│ ├── main.ts
+│ └── tsconfig.json
+├── .vscode
+│ ├── extensions.json
+│ └── settings.json
+├── backend
+│ ├── ...
+│ ├── api-e2e
+│ │ └── ...
+│ └── database
+│ └── ...
+├── config
+│ └── ...
+├── db
+│ └── init.sql
+├── dist
+│ ├── backend
+│ │ └── ...
+│ └── storybook
+│ └── ...
+├── docker-compose.yml
+├── environments
+│ └── ...
+├── frontend
+│ ├── ...
+│ ├── ui
+│ │ ├── ...
+│ │ └── stories
+│ │ └── ...
+├── libs
+│ └── tailwind-preset
+│ └── ...
+├── node_modules
+│ └── ...
+├── nx.json
+├── package.json
+├── README.md
+├── tools
+│ ├── tsconfig.tools.json
+├── tsconfig.base.json
+├── types
+│ ├── express-custom
+│ │ └── index.d.ts
+│ └── nodejs
+│ └── index.d.ts
+├── yarn-error.log
+└── yarn.lock
+```
+
 ## Credits and references
 
 - [Cómo estructurar tu project de ReactJs? - Gentleman Programming](https://youtu.be/5LqhlCd2_nE)
