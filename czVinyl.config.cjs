@@ -40,7 +40,8 @@ const czvinylConfig = {
       value: 'perf',
     },
     {
-      description: 'CI related changes',
+      description:
+        'Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)',
       emoji: '🚀',
       value: 'ci',
     },

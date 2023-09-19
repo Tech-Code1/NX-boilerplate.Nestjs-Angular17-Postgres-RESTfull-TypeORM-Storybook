@@ -13,6 +13,39 @@
 
 ---
 
+## Table of Contents
+
+- [Nx boilerplate Angular16/Postgres/Nest/RESTfullAPI/TypeORM/Storybook](#nx-boilerplate-angular16postgresnestrestfullapitypeormstorybook)
+  - [Table of Contents](#table-of-contents)
+  - [Technologies - Frontend](#technologies---frontend)
+  - [Technologies - Backend](#technologies---backend)
+  - [Project Initialization Guide](#project-initialization-guide)
+    - [1. Installation](#1-installation)
+    - [2. Git Configuration](#2-git-configuration)
+    - [3. Making Commits](#3-making-commits)
+    - [4. Running the Project](#4-running-the-project)
+    - [5. Further Documentation](#5-further-documentation)
+  - [Global project structure](#global-project-structure)
+  - [Global scripts](#global-scripts)
+    - [Git Configuration](#git-configuration)
+    - [Backend Commands](#backend-commands)
+    - [Database Migration Commands](#database-migration-commands)
+    - [Database Seeding and Clearing](#database-seeding-and-clearing)
+    - [Frontend Commands](#frontend-commands)
+    - [Storybook Commands](#storybook-commands)
+  - [Features](#features)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+    - [General](#general)
+  - [Credits and references](#credits-and-references)
+- [How can I contribute?](#how-can-i-contribute)
+  - [Support](#support)
+  - [Read the Contribution Guidelines](#read-the-contribution-guidelines)
+  - [Security](#security)
+  - [License](#license)
+  - [Contributors](#contributors)
+  - [Connect with us!](#connect-with-us)
+
 <br />
 
 ## Technologies - Frontend
@@ -287,6 +320,7 @@ Below is a detailed description of the configured scripts in the project:
 ## Credits and references
 
 - [Cómo estructurar tu project de ReactJs? - Gentleman Programming](https://youtu.be/5LqhlCd2_nE)
+- [Login Role con NestJS (jwt) - Parte I - Ruslan Gonzales](https://www.youtube.com/live/lTmGLgtgjdM?si=7GIrpN1RdDCL1TCk)
 - [Instalación de Storybook para React y Atomic Design - Guillermo Rodas](https://youtu.be/zfxP2VvP_Dw)
 - [Storybook](https://storybook.js.org/)
 - [Catch Type Errors at Runtime with Zod: An Intro to this JavaScript Library](https://youtu.be/evX18f-n4AI)
@@ -327,6 +361,56 @@ Below is a detailed description of the configured scripts in the project:
 - [Angular: De cero a experto - Edición 2023 - Fernando Herrera](https://www.udemy.com/course/angular-fernando-herrera/)
 - [Reusable Input and Select component with Control Value Accessor in Angular](https://youtu.be/N2nOUBwBwyU?si=qmBskNlQHmSF_dzB)
 - [Get params from URL using inputs in Angular 16 | Enable withComponentInputBinding() in Angular 16](https://youtu.be/4Bc7rHcarOc?si=qMl5718Bk-K7NEAz)
+
+<br>
+
+# How can I contribute?
+
+We welcome contributions from anyone who would like to help improve our project. Whether you're an experienced developer or just starting out, there are plenty of ways to get involved.
+
+<br>
+
+## Support
+
+If you need help using our project, please visit our [SUPPORT.md](./docs/SUPPORT.md) file. This document provides information on how to get help from the community, how to report issues, and where to find additional resources.
+
+<br>
+
+## Read the Contribution Guidelines
+
+Before you start contributing, please read our [CONTRIBUTING.md](./docs/CONTRIBUTING.md) file. This outlines the contribution guidelines and provides instructions for setting up your development environment, submitting pull requests, and more.
+
+<br>
+
+## Security
+
+We take the security of our project seriously. If you discover a security vulnerability, please let us know right away. We will investigate all legitimate reports and do our best to quickly address any issues.
+
+To learn more about our security practices, please read our [SECURITY.md](./docs/SECURITY.md) file.
+
+<br>
+
+## License
+
+[MIT License](./LICENSE)
+
+<br>
+
+## Contributors
+
+<a href="https://github.com/Tech-Code1/NX-boilerplate.Nestjs-Angular16-Postgres-RESTfull-TypeORM-Storybook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Tech-Code1/NX-boilerplate.Nestjs-Angular16-Postgres-RESTfull-TypeORM-Storybook" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
+<div align="right">
+
+[ [ ↑ to top ↑ ] ](#nx-boilerplate-angular16postgresnestrestfullapitypeormstorybook)
+
+</div>
+
+<br>
 
 ## Connect with us!
 
