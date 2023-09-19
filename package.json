@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "git:config": "git config --local include.path ../.gitconfig",
     "start": "cross-env NODE_ENV=develop nx serve api",
     "start:prod": "cross-env NODE_ENV=production nx serve api",
     "migrate:run": "cross-env NODE_ENV=none nx run database:mig-run",

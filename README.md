@@ -94,6 +94,63 @@ NX-boilerplate.Nestjs-RESTfull-Angular16-Postgres
 
 <br />
 
+## Global scripts
+
+Below is a detailed description of the configured scripts in the project:
+
+### Git Configuration
+
+- **`git:config`**:
+  - **Command**: `` `git config --local include.path ../.gitconfig` ``
+  - **Description**: Configures git to include a local `.gitconfig` file. This allows for project-specific git configurations.
+
+### Backend Commands
+
+- **`start`**:
+  - **Command**: `` `cross-env NODE_ENV=develop nx serve api` ``
+  - **Description**: Starts the backend (API) in development mode.
+- **`start:prod`**:
+  - **Command**: `` `cross-env NODE_ENV=production nx serve api` ``
+  - **Description**: Starts the backend (API) in production mode.
+
+### Database Migration Commands
+
+- **`migrate:run`**:
+  - **Command**: `` `cross-env NODE_ENV=none nx run database:mig-run` ``
+  - **Description**: Executes pending migrations on the database.
+- **`migrate:gen`**:
+  - **Command**: `` `cross-env NODE_ENV=none nx run database:mig-gen` ``
+  - **Description**: Generates a new migration based on detected changes in the entities.
+- **`migrate:revert`**:
+  - **Command**: `` `cross-env NODE_ENV=none nx run database:mig-rev` ``
+  - **Description**: Reverts the last migration executed on the database.
+
+### Database Seeding and Clearing
+
+- **`make:seed`**:
+  - **Command**: `` `cross-env NODE_ENV=none nx run database:seed` ``
+  - **Description**: Executes seeders to populate the database with test data.
+- **`clear:db`**:
+  - **Command**: `` `cross-env NODE_ENV=none nx run database:clear` ``
+  - **Description**: Clears the entire database, removing all records.
+
+### Frontend Commands
+
+- **`serve`**:
+  - **Command**: `` `cross-env NODE_ENV=develop nx run frontend-app:serve` ``
+  - **Description**: Starts the frontend in development mode.
+
+### Storybook Commands
+
+- **`story`**:
+  - **Command**: `` `nx run frontend-ui:storybook` ``
+  - **Description**: Starts Storybook for visualizing and developing UI components in an isolated environment.
+- **`story:build`**:
+  - **Command**: `` `nx run frontend-ui:build-storybook` ``
+  - **Description**: Builds a static version of Storybook that can be deployed.
+
+<br />
+
 ## Features
 
 ### Frontend
