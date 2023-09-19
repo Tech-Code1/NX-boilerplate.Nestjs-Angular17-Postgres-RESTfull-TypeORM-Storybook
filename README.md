@@ -330,9 +330,8 @@ Below is a detailed description of the configured scripts in the project:
 
 ## Connect with us!
 
-- [Join the community](https://nx.dev/community)
-- [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
-- [Follow us on Twitter](https://twitter.com/nxdevtools)
+- [Join the community](https://discord.gg/77guznJ8mZ)
+- [Follow us on Twitter](https://twitter.com/IndieCreatorsHQ)
 
 ---
 
