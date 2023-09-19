@@ -33,6 +33,78 @@
 
 <br />
 
+## Project Initialization Guide
+
+Welcome to our project! This guide will help you set up and understand the necessary steps to get started. Let's dive in.
+
+### 1. Installation
+
+Before you can start working on the project, you need to install all the required dependencies. We use `yarn` as our package manager. To install everything, simply run:
+
+```
+yarn install
+```
+
+This command will fetch and install all the necessary dependencies listed in the `package.json` file.
+
+### 2. Git Configuration
+
+To ensure consistent and well-formatted commit messages, we utilize the `czVinyl` library. Before making your first commit, execute the following command:
+
+```
+npm run git:config
+```
+
+This configures git to allow the use of the `git c` command for making commits. By doing so, your commits will be formatted according to the standards set by the `czVinyl` library.
+
+### 3. Making Commits
+
+Now that everything is set up, you can start making changes to the code. When you're ready to commit those changes, use:
+
+```
+git c
+```
+
+This will guide you through the process of creating a well-structured commit message.
+
+### 4. Running the Project
+
+To get the project up and running, use the following commands based on your needs:
+
+- **For the Backend (Development mode)**:
+
+```
+npm run start
+```
+
+- **For the Backend (Production mode)**:
+
+```
+npm run start:prod
+```
+
+- **For the Frontend**:
+
+```
+npm run serve
+```
+
+- **For Storybook**:
+
+```
+npm run story
+```
+
+### 5. Further Documentation
+
+Be sure to check out the provided documentation for detailed information about database migrations, seeding, and other advanced topics.
+
+---
+
+By following these steps, you should have a smooth experience as you begin your journey with our project. If you have any issues or questions, please refer to the project's documentation or reach out to the team. Happy coding!
+
+<br />
+
 ## Global project structure
 
 ```
