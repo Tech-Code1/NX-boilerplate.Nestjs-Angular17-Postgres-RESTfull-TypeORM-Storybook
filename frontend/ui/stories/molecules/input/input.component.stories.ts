@@ -1,5 +1,3 @@
-import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-//import { action } from '@storybook/addon-actions';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -7,20 +5,21 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import {
   ErrorInputComponent,
   InputComponent,
+  InputType,
   LabelComponent,
 } from '../../../components';
 
-type StoryLabel = LabelComponent & { text: string };
-type StoryError = { error: string; formContained: FormControl<string | null> };
-type Story = StoryObj<
-  InputComponent & { label: StoryLabel } & { errors: StoryError }
->;
-type StoryComponent = InputComponent & { label: StoryLabel } & {
-  errors: StoryError;
+type StoryDetails = {
+  label: LabelComponent & { text: string };
 };
+
+type StoryComponent = InputType & StoryDetails;
+
+type Story = StoryObj<StoryComponent>;
 
 const meta: Meta<StoryComponent> = {
   title: 'Components/Molecules/Input',
@@ -49,12 +48,13 @@ const meta: Meta<StoryComponent> = {
     },
   },
   render: (args: StoryComponent) => {
-    const { label, errors, ...inputProps } = args;
+    const { label, ...inputProps } = args;
     const { text, ...inputLabel } = label;
-    const { ...inputError } = errors;
+
+    const sharedFormControl = new FormControl('', Validators.required);
 
     return {
-      props: { inputProps, inputLabel, inputError },
+      props: { inputProps, inputLabel, sharedFormControl },
       template: `
       <c-label [css]="inputLabel.css">
         ${text}
@@ -62,8 +62,8 @@ const meta: Meta<StoryComponent> = {
         [css]="inputProps.css"
         [type]="inputProps.type"
         [placeholder]="inputProps.placeholder"
+        [formControl]="sharedFormControl"
         [disabled]="inputProps.disabled"
-        [formControl]="inputProps.formControl"
         [name]="inputProps.name"></c-input>
       </c-label>
 
@@ -73,21 +73,16 @@ const meta: Meta<StoryComponent> = {
 };
 export default meta;
 
-export const PrimaryButton: Story = {
+export const PrimaryInput: Story = {
   args: {
     css: 'input-primary',
     type: 'text',
     placeholder: 'Entry text',
     disabled: false,
     name: 'example',
-    formControl: new FormControl(''),
     label: {
       css: 'label-primary',
       text: 'Label text',
-    },
-    errors: {
-      error: 'example error',
-      formContained: new FormControl('', Validators.required),
     },
   },
 };

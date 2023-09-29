@@ -46,4 +46,8 @@ export class InputComponent<T>
   @Input() value?: string | number | undefined;
   @Input() customErrorMessages: Record<string, string> = {};
   @Input() name!: string;
+  @Input()
+  set disabled(value: boolean) {
+    this.setDisabledState(value);
+  }
 }
