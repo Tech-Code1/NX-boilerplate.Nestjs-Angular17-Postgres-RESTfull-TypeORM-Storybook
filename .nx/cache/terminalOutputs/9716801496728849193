@@ -1,0 +1,65 @@
+[1m[33mOption "browserTarget" is deprecated: Use 'buildTarget' instead.[39m[22m
+[36m⠋[39m Generating browser application bundles (phase: setup)...[2K[1G[36m⠙[39m Generating browser application bundles (phase: setup)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠴[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠦[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠧[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠇[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠏[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠋[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠙[39m Generating browser application bundles (phase: sealing)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m  [2m | [22m[1mNames[22m        [2m | [22m [1mRaw Size[22m[0m[39m
+[37m[0m[92mvendor.js[39m[37m            [2m | [22mvendor       [2m | [22m  [96m3.31 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mpolyfills.js[39m[37m         [2m | [22mpolyfills    [2m | [22m[96m333.17 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mstyles.css, styles.js[39m[37m[2m | [22mstyles       [2m | [22m[96m244.25 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mmain.js[39m[37m              [2m | [22mmain         [2m | [22m[96m164.77 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m           [2m | [22mruntime      [2m | [22m  [96m6.52 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1m [22m                    [2m | [22m[1mInitial Total[22m[2m | [22m  [1m4.04 MB[22m[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2023-11-12T03:26:52.737Z[39m[37m[22m - Hash: [1m[37m81905e535ae7c7cc[39m[37m[22m - Time: [1m[37m3809[39m[37m[22mms[0m[39m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m31[0m:[93m20[0m - [91merror[0m[90m TS2339: [0mProperty 'mutate' does not exist on type 'WritableSignal<ResourceType<T>[]>'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m31[0m     this.resources.mutate((resource) => (resource[index] = post));[39m[22m
+[1m[31m[7m  [0m [91m                   ~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m31[0m:[93m28[0m - [91merror[0m[90m TS7006: [0mParameter 'resource' implicitly has an 'any' type.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m31[0m     this.resources.mutate((resource) => (resource[index] = post));[39m[22m
+[1m[31m[7m  [0m [91m                           ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m35[0m:[93m20[0m - [91merror[0m[90m TS2339: [0mProperty 'mutate' does not exist on type 'WritableSignal<ResourceType<T>[]>'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m35[0m     this.resources.mutate((resources) =>[39m[22m
+[1m[31m[7m  [0m [91m                   ~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m35[0m:[93m28[0m - [91merror[0m[90m TS7006: [0mParameter 'resources' implicitly has an 'any' type.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m35[0m     this.resources.mutate((resources) =>[39m[22m
+[1m[31m[7m  [0m [91m                           ~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m36[0m:[93m25[0m - [91merror[0m[90m TS7006: [0mParameter 'resource' implicitly has an 'any' type.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m36[0m       resources.filter((resource) => resource.id !== id)[39m[22m
+[1m[31m[7m  [0m [91m                        ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[37m[39m
+[37m** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **[39m
+[37m[39m
+[37m[39m
+[37m[91m×[39m[37m Failed to compile.[39m
+[36m⠋[39m Generating browser application bundles...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠴[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠦[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠧[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠇[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠏[39m Generating browser application bundles (phase: building)...
+WARNING: There was an error creating glob patterns, returning an empty array
+createGlobPatternsForDependencies: Error when generating globs.
+ENOENT: no such file or directory, scandir 'F:\projects\BoilerplateAngular17\database'
+
+[2K[1G[36m⠋[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: sealing)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: emitting)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m[2m | [22m[1mNames[22m  [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m         [2m | [22mruntime[2m | [22m [96m6.52 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m4 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2023-11-12T03:32:01.422Z[39m[37m[22m - Hash: [1m[37m69bb91a0871749eb[39m[37m[22m - Time: [1m[37m2993[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m√[39m[37m Compiled successfully.[39m

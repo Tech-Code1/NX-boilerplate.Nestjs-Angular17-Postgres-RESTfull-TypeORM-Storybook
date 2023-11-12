@@ -1,0 +1,26 @@
+Failed to start or connect to the Nx Daemon process.
+
+Messages from the log:
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1129:15)
+    at Module._load (node:internal/modules/cjs/loader:974:27)
+    at f._load (node:electron/js2c/asar_bundle:2:13377)
+    at Module.require (node:internal/modules/cjs/loader:1195:19)
+    at require (node:internal/modules/cjs/helpers:110:18)
+    at Object.<anonymous> (f:\projects\Boilerplate Angular 17\node_modules\nx\src\native\index.js:66:29)
+    at Module._compile (node:internal/modules/cjs/loader:1316:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1371:10)
+    at Module.load (node:internal/modules/cjs/loader:1171:32)
+    at Module._load (node:internal/modules/cjs/loader:1012:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'f:\\projects\\Boilerplate Angular 17\\node_modules\\nx\\src\\native\\index.js',
+    'f:\\projects\\Boilerplate Angular 17\\node_modules\\nx\\src\\daemon\\server\\server.js',
+    'f:\\projects\\Boilerplate Angular 17\\node_modules\\nx\\src\\daemon\\server\\start.js'
+  ]
+}
+
+Node.js v18.15.0
+
+
+
+More information: f:\projects\Boilerplate Angular 17\.nx\cache\d\daemon.log

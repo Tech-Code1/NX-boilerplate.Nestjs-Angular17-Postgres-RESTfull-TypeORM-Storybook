@@ -19,20 +19,24 @@ export class ResourceService<T> {
   };
 
   protected insertResource = (post: ResourceType<T>) => {
-    const index = this.resources().findIndex(
-      (resource) => resource.id === post.id
-    );
+    this.resources.update((resources) => {
+      const index = resources.findIndex((resource) => resource.id === post.id);
 
-    if (index !== -1) {
-      this.resources.set([...this.resources(), post]);
-      return;
-    }
+      if (index !== -1) {
+        // Reemplaza el elemento en la posición encontrada
+        resources[index] = post;
+      } else {
+        // Agrega el nuevo elemento si no se encontró
+        resources.push(post);
+      }
 
-    this.resources.mutate((resource) => (resource[index] = post));
+      // Devuelve el array actualizado
+      return resources;
+    });
   };
 
   protected removeResource = (id: number) => {
-    this.resources.mutate((resources) =>
+    this.resources.update((resources) =>
       resources.filter((resource) => resource.id !== id)
     );
   };

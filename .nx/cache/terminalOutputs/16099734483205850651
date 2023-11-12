@@ -1,0 +1,6 @@
+[1m[33mOption "browserTarget" is deprecated: Use 'buildTarget' instead.[39m[22m
+
+ [31m>[39m [0m[7m[1m[31m NX [39m[22m[27m[0m  [31mCannot find package '@angular/compiler-cli' imported from F:\projects\Boilerplate Angular 17\node_modules\@angular-devkit\build-angular\src\utils\load-esm.js[39m
+
+   Pass --verbose to see the stacktrace.
+

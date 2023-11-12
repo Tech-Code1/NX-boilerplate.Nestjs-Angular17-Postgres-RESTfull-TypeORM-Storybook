@@ -1,0 +1,165 @@
+[1m[33mOption "browserTarget" is deprecated: Use 'buildTarget' instead.[39m[22m
+[36m⠋[39m Generating browser application bundles (phase: setup)...[2K[1G[36m⠙[39m Generating browser application bundles (phase: setup)...[2K[1G[36m⠹[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠸[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠼[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠴[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠦[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠧[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠇[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠏[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠋[39m Generating browser application bundles (phase: building)...[2K[1G[36m⠙[39m Generating browser application bundles (phase: building)...[2K[1G[32m✔[39m Browser application bundle generation complete.
+[37m[39m
+[37m[0m[1mInitial Chunk Files[22m[2m | [22m[1mNames[22m        [2m | [22m[1mRaw Size[22m[0m[39m
+[37m[0m[92mstyles.js[39m[37m          [2m | [22mstyles       [2m | [22m[96m19.83 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mpolyfills.js[39m[37m       [2m | [22mpolyfills    [2m | [22m [96m8.57 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mruntime.js[39m[37m         [2m | [22mruntime      [2m | [22m [96m4.97 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mvendor.js[39m[37m          [2m | [22mvendor       [2m | [22m [96m4.56 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[92mmain.js[39m[37m            [2m | [22mmain         [2m | [22m [96m4.13 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1m [22m                  [2m | [22m[1mInitial Total[22m[2m | [22m[1m42.07 kB[22m[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2023-11-12T01:22:51.392Z[39m[37m[22m - Hash: [1m[37mcb085009ec8caa97[39m[37m[22m - Time: [1m[37m4197[39m[37m[22mms[0m[39m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/main.ts[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/@angular-devkit/build-angular/src/tools/babel/webpack-loader.js):[39m[22m
+[1m[31mBrowserslistError: [BABEL] F:\projects\Boilerplate Angular 17\frontend\app\src\main.ts: Unknown version 119 of chrome (While processing: "base$0$0")[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./node_modules/webpack-dev-server/client/index.js?protocol=auto%3A&username=&password=&hostname=0.0.0.0&port=0&pathname=%2Fng-cli-ws&logging=info&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Afalse%2C%22runtimeErrors%22%3Afalse%7D&reconnect=10&hot=false&live-reload=true[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/@angular-devkit/build-angular/src/tools/babel/webpack-loader.js):[39m[22m
+[1m[31mBrowserslistError: [BABEL] F:\projects\Boilerplate Angular 17\node_modules\webpack-dev-server\client\index.js: Unknown version 119 of chrome (While processing: "base$0$0")[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./node_modules/zone.js/fesm2015/zone.js[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/@angular-devkit/build-angular/src/tools/babel/webpack-loader.js):[39m[22m
+[1m[31mBrowserslistError: [BABEL] F:\projects\Boilerplate Angular 17\node_modules\zone.js\fesm2015\zone.js: Unknown version 119 of chrome (While processing: "base$0$0")[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/styles.scss[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/common/layouts/auth-layouth/layout-login.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/auth/components/layout/layout-auth.component.scss?ngResource[39m[31m[39m[22m[1m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/auth/components/organisms/form-login/form-login.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/auth/components/organisms/form-recover/form-recover.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/auth/components/organisms/form-register/form-register.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/auth/components/organisms/form-reset-pass/form-reset-pass.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/auth/containers/login/login.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/s[39m[22m[1m[31mrc/pages/auth/containers/recover/recover.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/auth/containers/register/register.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/auth/containers/reset-pass/reset-pass.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/dashboard/components/organism/form-change-pass/form-change-pass.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/dashboard/containers/panel/panel.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/dashboard/containers/reset-pass/change-pass.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\[39m[22m[1m[31mtailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/pages/home/home.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/ui/components/atoms/error-input/error-input.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/ui/components/atoms/label/label.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/ui/components/atoms/title/title.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/ui/components/molecules/button/button.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/ui/components/molecules/input/input.component.scss?ngResource[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[36m./frontend/app/src/styles.scss?ngGlobalStyle[39m[31m[39m[22m[1m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):[39m[22m
+[1m[31mHookWebpackError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):[39m[22m
+[1m[31mError: Cannot find module '@nx/angular/tailwind'[39m[22m
+[1m[31mRequire stack:[39m[22m
+[1m[31m- F:\projects\Boilerplate Angular 17\frontend\app\tailwind.config.js[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m31[0m:[93m20[0m - [91merror[0m[90m TS2339: [0mProperty 'mutate' does not exist on type 'WritableSignal<ResourceType<T>[]>'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m31[0m     this.resources.mutate((resource) => (resource[index] = post));[39m[22m
+[1m[31m[7m  [0m [91m                   ~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m31[0m:[93m28[0m - [91merror[0m[90m TS7006: [0mParameter 'resource' implicitly has an 'any' type.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m31[0m     this.resources.mutate((resource) => (resource[index] = post));[39m[22m
+[1m[31m[7m  [0m [91m                           ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m35[0m:[93m20[0m - [91merror[0m[90m TS2339: [0mProperty 'mutate' does not exist on type 'WritableSignal<ResourceType<T>[]>'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m35[0m     this.resources.mutate((resources) =>[39m[22m
+[1m[31m[7m  [0m [91m                   ~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m35[0m:[93m28[0m - [91merror[0m[90m TS7006: [0mParameter 'resources' implicitly has an 'any' type.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m35[0m     this.resources.mutate((resources) =>[39m[22m
+[1m[31m[7m  [0m [91m                           ~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mfrontend/app/src/common/services/baseResorces.service.ts[0m:[93m36[0m:[93m25[0m - [91merror[0m[90m TS7006: [0mParameter 'resource' implicitly has an 'any' type.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m36[0m       resources.filter((resource) => resource.id !== id)[39m[22m
+[1m[31m[7m  [0m [91m                        ~~~~[39m[22m[1m[31m~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[37m[39m
+[37m** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **[39m
+[37m[39m
+[37m[39m
+[37m[91m×[39m[37m Failed to compile.[39m
