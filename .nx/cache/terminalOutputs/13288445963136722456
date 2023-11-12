@@ -1,0 +1,62 @@
+
+[32minfo[0m[35m[0m => Starting manager..
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @angular-eslint/eslint-plugin
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @angular-eslint/eslint-plugin-template
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @angular-eslint/template-parser
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @angular/cli
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @angular/language-service
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @nx/cypress
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @nx/storybook
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @nx/web
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @schematics/angular
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for @types/passport-jwt
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for cypress
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for eslint-plugin-cypress
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for jest-environment-jsdom
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for jest-preset-angular
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for prettier
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for ts-jest
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for vite-plugin-dts
+[0m[30;43mWARN[0m[35m[0m unable to find package.json for vite-tsconfig-paths
+[0m[31;40mERR![0m[35m[0m Error: Build failed with 1 error:
+[0m[31;40mERR![0m[35m[0m node_modules/@storybook/blocks/dist/index.mjs:20:19: ERROR: Could not resolve "tocbot"
+[0m[31;40mERR![0m[35m[0m     at failureErrorWithLog (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1649:15)
+[0m[31;40mERR![0m[35m[0m     at F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1058:25
+[0m[31;40mERR![0m[35m[0m     at runOnEndCallbacks (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1484:45)
+[0m[31;40mERR![0m[35m[0m     at buildResponseToResult (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1056:7)
+[0m[31;40mERR![0m[35m[0m     at F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1085:16
+[0m[31;40mERR![0m[35m[0m     at responseCallbacks.<computed> (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:703:9)
+[0m[31;40mERR![0m[35m[0m     at handleIncomingPacket (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:762:9)
+[0m[31;40mERR![0m[35m[0m     at Socket.readFromStdout (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:679:7)
+[0m[31;40mERR![0m[35m[0m     at Socket.emit (node:events:513:28)
+[0m[31;40mERR![0m[35m[0m     at addChunk (node:internal/streams/readable:324:12)
+[0m[31;40mERR![0m[35m[0m  Error: Build failed with 1 error:
+[0m[31;40mERR![0m[35m[0m node_modules/@storybook/blocks/dist/index.mjs:20:19: ERROR: Could not resolve "tocbot"
+[0m[31;40mERR![0m[35m[0m     at failureErrorWithLog (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1649:15)
+[0m[31;40mERR![0m[35m[0m     at F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1058:25
+[0m[31;40mERR![0m[35m[0m     at runOnEndCallbacks (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1484:45)
+[0m[31;40mERR![0m[35m[0m     at buildResponseToResult (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1056:7)
+[0m[31;40mERR![0m[35m[0m     at F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:1085:16
+[0m[31;40mERR![0m[35m[0m     at responseCallbacks.<computed> (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:703:9)
+[0m[31;40mERR![0m[35m[0m     at handleIncomingPacket (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:762:9)
+[0m[31;40mERR![0m[35m[0m     at Socket.readFromStdout (F:\projects\BoilerplateAngular17\node_modules\esbuild\lib\main.js:679:7)
+[0m[31;40mERR![0m[35m[0m     at Socket.emit (node:events:513:28)
+[0m[31;40mERR![0m[35m[0m     at addChunk (node:internal/streams/readable:324:12) {
+[0m[31;40mERR![0m[35m[0m   errors: [
+[0m[31;40mERR![0m[35m[0m     {
+[0m[31;40mERR![0m[35m[0m       detail: undefined,
+[0m[31;40mERR![0m[35m[0m       id: '',
+[0m[31;40mERR![0m[35m[0m       location: [Object],
+[0m[31;40mERR![0m[35m[0m       notes: [Array],
+[0m[31;40mERR![0m[35m[0m       pluginName: '',
+[0m[31;40mERR![0m[35m[0m       text: 'Could not resolve "tocbot"'
+[0m[31;40mERR![0m[35m[0m     }
+[0m[31;40mERR![0m[35m[0m   ],
+[0m[31;40mERR![0m[35m[0m   warnings: []
+[0m[31;40mERR![0m[35m[0m }
+[0m
+
+ [31m>[39m [0m[7m[1m[31m NX [39m[22m[27m[0m  [31mBroken build, fix the error above.[39m
+
+   You may need to refresh the browser.
+

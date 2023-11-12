@@ -1,0 +1,72 @@
+[1m[31mDebugger listening on ws://lo[39m[22m
+[1m[31mcalhost:9229/963d70c5-6353-4fc3-b8b9-bf75a88d6ab7[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/963d70c5-6353-4fc3-b8b9-bf75a88d6ab7[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 28760  - [39m[31m12/11/2023, 12:28:48 a. m. [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (1)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: la columna «email» de la relación «users» contiene valores null[39m[22m
+[1m[31m    at PostgresQueryRunner.query (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:299:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m[22m
+[1m[31m    at PostgresQueryRunner.executeQueries (F:\projects\BoilerplateAngular17\src\query-runner\BaseQueryRunner.ts:659:13)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumn (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2237:9)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumns (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2249:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.updateExistColumns (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:947:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.executeSchemaSyncOperationsInProperOrder (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:228:9)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.build (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:95:13)[39m[22m
+[1m[31m    at DataSource.synchronize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:335:9)[39m[22m
+[1m[31m    at DataSource.initialize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:273:43)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 28760  - [39m[31m12/11/2023, 12:28:51 a. m. [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (2)...[39m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mQueryFailedError: la columna «email» de la relación «users» contiene valores null[39m[22m
+[1m[31m    at PostgresQueryRunner.query (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:299:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m[22m
+[1m[31m    at PostgresQueryRunner.executeQueries (F:\projects\BoilerplateAngular17\src\query-runner\BaseQueryRunner.ts:659:13)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumn (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2237:9)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumns (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2249:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.updateExistColumns (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:947:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.executeSchemaSyncOperationsInProperOrder (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:228:9)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.build (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:95:13)[39m[22m
+[1m[31m    at DataSource.synchronize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:335:9)[39m[22m
+[1m[31m    at DataSource.initialize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:273:43)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 28760  - [39m[31m12/11/2023, 12:28:55 a. m. [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (3)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: la columna «email» de la relación «users» contiene valores null[39m[22m
+[1m[31m    at PostgresQueryRunner.query (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:299:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m[22m
+[1m[31m    at PostgresQueryRunner.executeQueries (F:\projects\BoilerplateAngular17\src\query-runner\BaseQueryRunner.ts:659:13)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumn (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2237:9)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumns (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2249:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.updateExistColumns (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:947:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.executeSchemaSyncOperationsInProperOrder (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:228:9)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.build (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:95:13)[39m[22m
+[1m[31m    at DataSource.synchronize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:335:9)[39m[22m
+[1m[31m    at DataSource.initialize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:273:43)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 28760  - [39m[31m12/11/2023, 12:28:58 a. m. [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (4)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: la columna «email» de la relación «users» contiene valores null[39m[22m
+[1m[31m    at PostgresQueryRunner.query (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:299:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m[22m
+[1m[31m    at PostgresQueryRunner.executeQueries (F:\projects\BoilerplateAngular17\src\query-runner\BaseQueryRunner.ts:659:13)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumn (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2237:9)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumns (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2249:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.updateExistColumns (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:947:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.executeSchemaSyncOperationsInProperOrder (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:228:9)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.build (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:95:13)[39m[22m
+[1m[31m    at DataSource.synchronize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:335:9)[39m[22m
+[1m[31m    at DataSource.initialize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:273:43)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m[Nest] 28760  - [39m[31m12/11/2023, 12:29:01 a. m. [31m  ERROR[39m[31m [38;5;3m[TypeOrmModule] [39m[31m[31mUnable to connect to the database. Retrying (5)...[39m[31m[39m[22m
+[1m[31mQueryFailedError: la columna «email» de la relación «users» contiene valores null[39m[22m
+[1m[31m    at PostgresQueryRunner.query (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:299:19)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m[22m
+[1m[31m    at PostgresQueryRunner.executeQueries (F:\projects\BoilerplateAngular17\src\query-runner\BaseQueryRunner.ts:659:13)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumn (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2237:9)[39m[22m
+[1m[31m    at PostgresQueryRunner.changeColumns (F:\projects\BoilerplateAngular17\src\driver\postgres\PostgresQueryRunner.ts:2249:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.updateExistColumns (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:947:13)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.executeSchemaSyncOperationsInProperOrder (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:228:9)[39m[22m
+[1m[31m    at RdbmsSchemaBuilder.build (F:\projects\BoilerplateAngular17\src\schema-builder\RdbmsSchemaBuilder.ts:95:13)[39m[22m
+[1m[31m    at DataSource.synchronize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:335:9)[39m[22m
+[1m[31m    at DataSource.initialize (F:\projects\BoilerplateAngular17\src\data-source\DataSource.ts:273:43)[39m[22m
+[1m[31m[39m[22m

@@ -1,0 +1,20 @@
+
+
+ [31m>[39m [0m[7m[1m[31m NX [39m[22m[27m[0m  [31mCannot find module 'spdx-license-ids'[39m
+
+   Require stack:
+   - F:\projects\BoilerplateAngular17\node_modules\spdx-expression-parse\scan.js
+   - F:\projects\BoilerplateAngular17\node_modules\spdx-expression-parse\index.js
+   - F:\projects\BoilerplateAngular17\node_modules\validate-npm-package-license\index.js
+   - F:\projects\BoilerplateAngular17\node_modules\normalize-package-data\lib\fixer.js
+   - F:\projects\BoilerplateAngular17\node_modules\normalize-package-data\lib\normalize.js
+   - F:\projects\BoilerplateAngular17\node_modules\read-pkg\index.js
+   - F:\projects\BoilerplateAngular17\node_modules\read-pkg-up\index.js
+   - F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\dist\builders\start-storybook\index.js
+   - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\node-modules-architect-host.js
+   - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\index.js
+   - F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\ngcli-adapter.js
+   - F:\projects\BoilerplateAngular17\node_modules\nx\src\command-line\run\run.js
+   - F:\projects\BoilerplateAngular17\node_modules\nx\bin\run-executor.js
+   Pass --verbose to see the stacktrace.
+

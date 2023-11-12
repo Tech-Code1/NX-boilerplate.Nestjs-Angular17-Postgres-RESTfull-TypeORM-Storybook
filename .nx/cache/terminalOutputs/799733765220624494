@@ -1,0 +1,157 @@
+
+[30;43mWARN[0m[35m[0m   Failed to load preset: {"name":"F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\addon-essentials\\dist\\docs\\preset.js"} on level 3
+[0m[31;40mERR![0m[35m[0m Error: Cannot find module 'remark-slug'
+[0m[31;40mERR![0m[35m[0m Require stack:
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-docs\dist\preset.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-essentials\dist\docs\preset.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\core-server\node_modules\@storybook\core-common\dist\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\core-server\dist\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\dist\builders\start-storybook\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\node-modules-architect-host.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\ngcli-adapter.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\src\command-line\run\run.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\bin\run-executor.js
+[0m[31;40mERR![0m[35m[0m     at Module._resolveFilename (node:internal/modules/cjs/loader:1075:15)
+[0m[31;40mERR![0m[35m[0m     at Module._load (node:internal/modules/cjs/loader:920:27)
+[0m[31;40mERR![0m[35m[0m     at Module.require (node:internal/modules/cjs/loader:1141:19)
+[0m[31;40mERR![0m[35m[0m     at Module.require (F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\compat.js:61:40)
+[0m[31;40mERR![0m[35m[0m     at require (node:internal/modules/cjs/helpers:110:18)
+[0m[31;40mERR![0m[35m[0m     at Object.<anonymous> (F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-docs\dist\preset.js:1:1178)
+[0m[31;40mERR![0m[35m[0m     at Module._compile (node:internal/modules/cjs/loader:1254:14)
+[0m[31;40mERR![0m[35m[0m     at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+[0m[31;40mERR![0m[35m[0m     at Object.newLoader (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:2262:9)
+[0m[31;40mERR![0m[35m[0m     at extensions..js (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:4838:24)
+[0m[31;40mERR![0m[35m[0m  Error: Cannot find module 'remark-slug'
+[0m[31;40mERR![0m[35m[0m Require stack:
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-docs\dist\preset.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-essentials\dist\docs\preset.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\core-server\node_modules\@storybook\core-common\dist\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\core-server\dist\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\dist\builders\start-storybook\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\node-modules-architect-host.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\ngcli-adapter.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\src\command-line\run\run.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\bin\run-executor.js
+[0m[31;40mERR![0m[35m[0m     at Module._resolveFilename (node:internal/modules/cjs/loader:1075:15)
+[0m[31;40mERR![0m[35m[0m     at Module._load (node:internal/modules/cjs/loader:920:27)
+[0m[31;40mERR![0m[35m[0m     at Module.require (node:internal/modules/cjs/loader:1141:19)
+[0m[31;40mERR![0m[35m[0m     at Module.require (F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\compat.js:61:40)
+[0m[31;40mERR![0m[35m[0m     at require (node:internal/modules/cjs/helpers:110:18)
+[0m[31;40mERR![0m[35m[0m     at Object.<anonymous> (F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-docs\dist\preset.js:1:1178)
+[0m[31;40mERR![0m[35m[0m     at Module._compile (node:internal/modules/cjs/loader:1254:14)
+[0m[31;40mERR![0m[35m[0m     at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+[0m[31;40mERR![0m[35m[0m     at Object.newLoader (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:2262:9)
+[0m[31;40mERR![0m[35m[0m     at extensions..js (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:4838:24) {
+[0m[31;40mERR![0m[35m[0m   code: 'MODULE_NOT_FOUND',
+[0m[31;40mERR![0m[35m[0m   requireStack: [
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\addon-docs\\dist\\preset.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\addon-essentials\\dist\\docs\\preset.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\core-server\\node_modules\\@storybook\\core-common\\dist\\index.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\core-server\\dist\\index.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\angular\\dist\\builders\\start-storybook\\index.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@angular-devkit\\architect\\node\\node-modules-architect-host.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@angular-devkit\\architect\\node\\index.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\nx\\src\\adapter\\ngcli-adapter.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\nx\\src\\command-line\\run\\run.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\nx\\bin\\run-executor.js'
+[0m[31;40mERR![0m[35m[0m   ]
+[0m[31;40mERR![0m[35m[0m }
+[0m[31;40mERR![0m[35m[0m Error: Cannot find module 'webpack-hot-middleware'
+[0m[31;40mERR![0m[35m[0m Require stack:
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\node_modules\@storybook\builder-webpack5\dist\index.js
+[0m[31;40mERR![0m[35m[0m     at Module._resolveFilename (node:internal/modules/cjs/loader:1075:15)
+[0m[31;40mERR![0m[35m[0m     at Module._load (node:internal/modules/cjs/loader:920:27)
+[0m[31;40mERR![0m[35m[0m     at Module.require (node:internal/modules/cjs/loader:1141:19)
+[0m[31;40mERR![0m[35m[0m     at Module.require (F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\compat.js:61:40)
+[0m[31;40mERR![0m[35m[0m     at require (node:internal/modules/cjs/helpers:110:18)
+[0m[31;40mERR![0m[35m[0m     at Object.<anonymous> (F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\node_modules\@storybook\builder-webpack5\dist\index.js:1:2853)
+[0m[31;40mERR![0m[35m[0m     at Module._compile (node:internal/modules/cjs/loader:1254:14)
+[0m[31;40mERR![0m[35m[0m     at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+[0m[31;40mERR![0m[35m[0m     at Object.newLoader (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:2262:9)
+[0m[31;40mERR![0m[35m[0m     at extensions..js (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:4838:24)
+[0m[31;40mERR![0m[35m[0m  Error: Cannot find module 'webpack-hot-middleware'
+[0m[31;40mERR![0m[35m[0m Require stack:
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\node_modules\@storybook\builder-webpack5\dist\index.js
+[0m[31;40mERR![0m[35m[0m     at Module._resolveFilename (node:internal/modules/cjs/loader:1075:15)
+[0m[31;40mERR![0m[35m[0m     at Module._load (node:internal/modules/cjs/loader:920:27)
+[0m[31;40mERR![0m[35m[0m     at Module.require (node:internal/modules/cjs/loader:1141:19)
+[0m[31;40mERR![0m[35m[0m     at Module.require (F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\compat.js:61:40)
+[0m[31;40mERR![0m[35m[0m     at require (node:internal/modules/cjs/helpers:110:18)
+[0m[31;40mERR![0m[35m[0m     at Object.<anonymous> (F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\node_modules\@storybook\builder-webpack5\dist\index.js:1:2853)
+[0m[31;40mERR![0m[35m[0m     at Module._compile (node:internal/modules/cjs/loader:1254:14)
+[0m[31;40mERR![0m[35m[0m     at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+[0m[31;40mERR![0m[35m[0m     at Object.newLoader (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:2262:9)
+[0m[31;40mERR![0m[35m[0m     at extensions..js (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:4838:24) {
+[0m[31;40mERR![0m[35m[0m   code: 'MODULE_NOT_FOUND',
+[0m[31;40mERR![0m[35m[0m   requireStack: [
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\angular\\node_modules\\@storybook\\builder-webpack5\\dist\\index.js'
+[0m[31;40mERR![0m[35m[0m   ]
+[0m[31;40mERR![0m[35m[0m }
+[0m
+[30;43mWARN[0m[35m[0m   Failed to load preset: {"name":"F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\addon-essentials\\dist\\docs\\preset.js"} on level 3
+[0m[31;40mERR![0m[35m[0m Error: Cannot find module 'remark-slug'
+[0m[31;40mERR![0m[35m[0m Require stack:
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-docs\dist\preset.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-essentials\dist\docs\preset.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\core-server\node_modules\@storybook\core-common\dist\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\core-server\dist\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\dist\builders\start-storybook\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\node-modules-architect-host.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\ngcli-adapter.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\src\command-line\run\run.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\bin\run-executor.js
+[0m[31;40mERR![0m[35m[0m     at Module._resolveFilename (node:internal/modules/cjs/loader:1075:15)
+[0m[31;40mERR![0m[35m[0m     at Module._load (node:internal/modules/cjs/loader:920:27)
+[0m[31;40mERR![0m[35m[0m     at Module.require (node:internal/modules/cjs/loader:1141:19)
+[0m[31;40mERR![0m[35m[0m     at Module.require (F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\compat.js:61:40)
+[0m[31;40mERR![0m[35m[0m     at require (node:internal/modules/cjs/helpers:110:18)
+[0m[31;40mERR![0m[35m[0m     at Object.<anonymous> (F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-docs\dist\preset.js:1:1178)
+[0m[31;40mERR![0m[35m[0m     at Module._compile (node:internal/modules/cjs/loader:1254:14)
+[0m[31;40mERR![0m[35m[0m     at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+[0m[31;40mERR![0m[35m[0m     at Object.newLoader (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:2262:9)
+[0m[31;40mERR![0m[35m[0m     at extensions..js (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:4838:24)
+[0m[31;40mERR![0m[35m[0m  Error: Cannot find module 'remark-slug'
+[0m[31;40mERR![0m[35m[0m Require stack:
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-docs\dist\preset.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-essentials\dist\docs\preset.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\core-server\node_modules\@storybook\core-common\dist\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\core-server\dist\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@storybook\angular\dist\builders\start-storybook\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\node-modules-architect-host.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\@angular-devkit\architect\node\index.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\ngcli-adapter.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\src\command-line\run\run.js
+[0m[31;40mERR![0m[35m[0m - F:\projects\BoilerplateAngular17\node_modules\nx\bin\run-executor.js
+[0m[31;40mERR![0m[35m[0m     at Module._resolveFilename (node:internal/modules/cjs/loader:1075:15)
+[0m[31;40mERR![0m[35m[0m     at Module._load (node:internal/modules/cjs/loader:920:27)
+[0m[31;40mERR![0m[35m[0m     at Module.require (node:internal/modules/cjs/loader:1141:19)
+[0m[31;40mERR![0m[35m[0m     at Module.require (F:\projects\BoilerplateAngular17\node_modules\nx\src\adapter\compat.js:61:40)
+[0m[31;40mERR![0m[35m[0m     at require (node:internal/modules/cjs/helpers:110:18)
+[0m[31;40mERR![0m[35m[0m     at Object.<anonymous> (F:\projects\BoilerplateAngular17\node_modules\@storybook\addon-docs\dist\preset.js:1:1178)
+[0m[31;40mERR![0m[35m[0m     at Module._compile (node:internal/modules/cjs/loader:1254:14)
+[0m[31;40mERR![0m[35m[0m     at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+[0m[31;40mERR![0m[35m[0m     at Object.newLoader (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:2262:9)
+[0m[31;40mERR![0m[35m[0m     at extensions..js (F:\projects\BoilerplateAngular17\node_modules\esbuild-register\dist\node.js:4838:24) {
+[0m[31;40mERR![0m[35m[0m   code: 'MODULE_NOT_FOUND',
+[0m[31;40mERR![0m[35m[0m   requireStack: [
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\addon-docs\\dist\\preset.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\addon-essentials\\dist\\docs\\preset.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\core-server\\node_modules\\@storybook\\core-common\\dist\\index.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\core-server\\dist\\index.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@storybook\\angular\\dist\\builders\\start-storybook\\index.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@angular-devkit\\architect\\node\\node-modules-architect-host.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\@angular-devkit\\architect\\node\\index.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\nx\\src\\adapter\\ngcli-adapter.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\nx\\src\\command-line\\run\\run.js',
+[0m[31;40mERR![0m[35m[0m     'F:\\projects\\BoilerplateAngular17\\node_modules\\nx\\bin\\run-executor.js'
+[0m[31;40mERR![0m[35m[0m   ]
+[0m[31;40mERR![0m[35m[0m }
+[0m[?25l[2K[1G[36m?[39m [1mWould you like to help improve Storybook by sending anonymous crash reports?[22m [90m»[39m [90m(Y/n)[39m[2K[G[2K[1G[31m×[39m [1mWould you like to help improve Storybook by sending anonymous crash reports?[22m [90m...[39m yes
+[?25h
+ [31m>[39m [0m[7m[1m[31m NX [39m[22m[27m[0m  [31mBroken build, fix the error above.[39m
+
+   You may need to refresh the browser.
+
