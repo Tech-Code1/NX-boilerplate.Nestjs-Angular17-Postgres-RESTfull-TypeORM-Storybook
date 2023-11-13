@@ -1,0 +1,6 @@
+
+ [31m>[39m [0m[7m[1m[31m NX [39m[22m[27m[0m  [31mUnable to resolve @nx/vite:browser.[39m
+
+   Cannot find executor 'browser' in F:\node_modules\@nx\vite\executors.json.
+   Pass --verbose to see the stacktrace.
+

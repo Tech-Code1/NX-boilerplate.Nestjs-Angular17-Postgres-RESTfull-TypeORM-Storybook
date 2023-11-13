@@ -12,6 +12,17 @@
 }
 
 .main-style {
+  position: relative;
   border-bottom: 10px solid var(--indie-creator-yellow);
-  border-top: 10px solid var(--angular-dark-purple);
+}
+
+.main-style::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-image: var(--border-gradient);
+  z-index: 1;
 }

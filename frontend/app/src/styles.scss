@@ -9,6 +9,15 @@
   --angular-light-purple: #dd0031;
   --angular-dark-purple: #c3002f;
   --indie-creator-yellow: #faff00;
+  --border-gradient: linear-gradient(
+    to right,
+    #e40035 0%,
+    #f60a48 24%,
+    #f20755 35.2%,
+    #dc087d 49.4%,
+    #9717e7 74.5%,
+    #6c00f5 100%
+  );
 }
 
 body {
@@ -17,6 +26,19 @@ body {
     sans-serif;
 }
 
-.shadown-quick {
-  box-shadow: 0px 0px 130px -50px var(--angular-light-purple);
+.shadown-angular {
+  position: relative;
+}
+
+.shadown-angular::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--border-gradient);
+  filter: blur(80px);
+  transform: scale(0.9);
 }

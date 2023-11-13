@@ -161,306 +161,6 @@
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
-      "frontend-ui": [
-        {
-          "file": "frontend/ui/.eslintrc.json",
-          "hash": "16804247736731791500"
-        },
-        {
-          "file": "frontend/ui/.storybook/main.ts",
-          "hash": "15471186915593460990",
-          "deps": [
-            "npm:@storybook/angular"
-          ]
-        },
-        {
-          "file": "frontend/ui/.storybook/preview-head.html",
-          "hash": "12938975720104263471"
-        },
-        {
-          "file": "frontend/ui/.storybook/preview.ts",
-          "hash": "16030516816875902250",
-          "deps": [
-            "npm:!style-loader!css-loader!sass-loader!./styles.scss",
-            "npm:@storybook/addon-docs"
-          ]
-        },
-        {
-          "file": "frontend/ui/.storybook/styles.scss",
-          "hash": "11827223589103615267"
-        },
-        {
-          "file": "frontend/ui/.storybook/tailwind-imports.scss",
-          "hash": "17540621932136269590"
-        },
-        {
-          "file": "frontend/ui/.storybook/tsconfig.json",
-          "hash": "10468501457130384447"
-        },
-        {
-          "file": "frontend/ui/README.md",
-          "hash": "13259357061157696285"
-        },
-        {
-          "file": "frontend/ui/assets/icon-error.svg",
-          "hash": "8742814213363542166"
-        },
-        {
-          "file": "frontend/ui/components/atoms/error-input/error-input.component.html",
-          "hash": "11338375106994606789"
-        },
-        {
-          "file": "frontend/ui/components/atoms/error-input/error-input.component.scss",
-          "hash": "4011407547271756067"
-        },
-        {
-          "file": "frontend/ui/components/atoms/error-input/error-input.component.ts",
-          "hash": "1110671046396824506",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/atoms/error-input/error-input.interface.ts",
-          "hash": "4493128345258276684"
-        },
-        {
-          "file": "frontend/ui/components/atoms/index.ts",
-          "hash": "12316114265057790404"
-        },
-        {
-          "file": "frontend/ui/components/atoms/label/label.component.html",
-          "hash": "12975557544971256693"
-        },
-        {
-          "file": "frontend/ui/components/atoms/label/label.component.scss",
-          "hash": "9774069718051975514"
-        },
-        {
-          "file": "frontend/ui/components/atoms/label/label.component.ts",
-          "hash": "608747382473004878",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/atoms/label/label.interface.ts",
-          "hash": "5908700527171594986"
-        },
-        {
-          "file": "frontend/ui/components/atoms/title/title.component.html",
-          "hash": "9993838804227658620"
-        },
-        {
-          "file": "frontend/ui/components/atoms/title/title.component.scss",
-          "hash": "11730045308073476015"
-        },
-        {
-          "file": "frontend/ui/components/atoms/title/title.component.ts",
-          "hash": "12024262005914797024",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/atoms/title/title.interface.ts",
-          "hash": "157869112040728519"
-        },
-        {
-          "file": "frontend/ui/components/index.ts",
-          "hash": "8736400962360922239"
-        },
-        {
-          "file": "frontend/ui/components/molecules/button/button.component.html",
-          "hash": "449516983864089555"
-        },
-        {
-          "file": "frontend/ui/components/molecules/button/button.component.scss",
-          "hash": "15507213052314369772"
-        },
-        {
-          "file": "frontend/ui/components/molecules/button/button.component.ts",
-          "hash": "2068931334893959156",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/molecules/button/button.interface.ts",
-          "hash": "11454847998320600935"
-        },
-        {
-          "file": "frontend/ui/components/molecules/input/input.component.html",
-          "hash": "13173622241491251263"
-        },
-        {
-          "file": "frontend/ui/components/molecules/input/input.component.scss",
-          "hash": "15286883737220280740"
-        },
-        {
-          "file": "frontend/ui/components/molecules/input/input.component.ts",
-          "hash": "1577779462537085591",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/molecules/input/input.interface.ts",
-          "hash": "14387765456770584633",
-          "deps": [
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/shared/directives/control-value-accesor.directive.ts",
-          "hash": "16613818533729422777",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/forms",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "frontend/ui/documentation.json",
-          "hash": "16571268102117710589"
-        },
-        {
-          "file": "frontend/ui/jest.config.ts",
-          "hash": "5619249371785640415"
-        },
-        {
-          "file": "frontend/ui/postcss.config.js",
-          "hash": "13598591179375906364",
-          "deps": [
-            "npm:path"
-          ]
-        },
-        {
-          "file": "frontend/ui/project.json",
-          "hash": "12418447492809600014"
-        },
-        {
-          "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
-          "hash": "17771484954861447492",
-          "deps": [
-            "npm:@storybook/angular"
-          ]
-        },
-        {
-          "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
-          "hash": "13948176402370144069",
-          "deps": [
-            "npm:@storybook/angular"
-          ]
-        },
-        {
-          "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
-          "hash": "13246924046839262577",
-          "deps": [
-            "npm:@storybook/angular",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
-          "hash": "8559369558696753965",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/forms",
-            "npm:@storybook/angular"
-          ]
-        },
-        {
-          "file": "frontend/ui/styles.scss",
-          "hash": "8747361217258818957"
-        },
-        {
-          "file": "frontend/ui/tailwind.config.js",
-          "hash": "12714176429375041039",
-          "deps": [
-            "npm:@nx/angular",
-            "npm:path",
-            "tailwind-preset"
-          ]
-        },
-        {
-          "file": "frontend/ui/tsconfig.json",
-          "hash": "16326414037910697106"
-        },
-        {
-          "file": "frontend/ui/tsconfig.lib.json",
-          "hash": "12496680018945969286"
-        },
-        {
-          "file": "frontend/ui/tsconfig.spec.json",
-          "hash": "8246693900492800589"
-        }
-      ],
-      "tailwind-preset": [
-        {
-          "file": "libs/tailwind-preset/ng-package.json",
-          "hash": "8442018886621289834"
-        },
-        {
-          "file": "libs/tailwind-preset/project.json",
-          "hash": "10139954266306851421"
-        },
-        {
-          "file": "libs/tailwind-preset/tailwind.config.js",
-          "hash": "12928815318102254535"
-        }
-      ],
-      "api-e2e": [
-        {
-          "file": "backend/api-e2e/.eslintrc.json",
-          "hash": "915344961052474398"
-        },
-        {
-          "file": "backend/api-e2e/jest.config.ts",
-          "hash": "2076893759250098545"
-        },
-        {
-          "file": "backend/api-e2e/project.json",
-          "hash": "1785820208333181515"
-        },
-        {
-          "file": "backend/api-e2e/src/api/api.spec.ts",
-          "hash": "110394728024017389",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "backend/api-e2e/src/support/global-setup.ts",
-          "hash": "2568409276037275290"
-        },
-        {
-          "file": "backend/api-e2e/src/support/global-teardown.ts",
-          "hash": "5275447082211835490"
-        },
-        {
-          "file": "backend/api-e2e/src/support/test-setup.ts",
-          "hash": "10984585515912236441",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "backend/api-e2e/tsconfig.json",
-          "hash": "15443990093475294480"
-        },
-        {
-          "file": "backend/api-e2e/tsconfig.spec.json",
-          "hash": "14226830188665428950"
-        }
-      ],
       "api": [
         {
           "file": "backend/api/.eslintrc.json",
@@ -1298,209 +998,260 @@
           ]
         }
       ],
-      "database": [
+      "frontend-ui": [
         {
-          "file": "backend/database/.eslintrc.json",
-          "hash": "11808533155536463924"
+          "file": "frontend/ui/.eslintrc.json",
+          "hash": "16804247736731791500"
         },
         {
-          "file": "backend/database/README.md",
-          "hash": "6441506021839928775"
-        },
-        {
-          "file": "backend/database/factories/index.ts",
-          "hash": "17293044874510935028"
-        },
-        {
-          "file": "backend/database/factories/project.factory.ts",
-          "hash": "10524872478326641227",
+          "file": "frontend/ui/.storybook/main.ts",
+          "hash": "15471186915593460990",
           "deps": [
-            "npm:typeorm-extension"
+            "npm:@storybook/angular"
           ]
         },
         {
-          "file": "backend/database/factories/task.factory.ts",
-          "hash": "14815261581480740596",
+          "file": "frontend/ui/.storybook/preview-head.html",
+          "hash": "12938975720104263471"
+        },
+        {
+          "file": "frontend/ui/.storybook/preview.ts",
+          "hash": "16030516816875902250",
           "deps": [
-            "npm:typeorm-extension"
+            "npm:!style-loader!css-loader!sass-loader!./styles.scss",
+            "npm:@storybook/addon-docs"
           ]
         },
         {
-          "file": "backend/database/factories/user.factory.ts",
-          "hash": "14669134207595852556",
+          "file": "frontend/ui/.storybook/styles.scss",
+          "hash": "11827223589103615267"
+        },
+        {
+          "file": "frontend/ui/.storybook/tailwind-imports.scss",
+          "hash": "17540621932136269590"
+        },
+        {
+          "file": "frontend/ui/.storybook/tsconfig.json",
+          "hash": "10468501457130384447"
+        },
+        {
+          "file": "frontend/ui/README.md",
+          "hash": "13259357061157696285"
+        },
+        {
+          "file": "frontend/ui/assets/icon-error.svg",
+          "hash": "8742814213363542166"
+        },
+        {
+          "file": "frontend/ui/components/atoms/error-input/error-input.component.html",
+          "hash": "11338375106994606789"
+        },
+        {
+          "file": "frontend/ui/components/atoms/error-input/error-input.component.scss",
+          "hash": "4011407547271756067"
+        },
+        {
+          "file": "frontend/ui/components/atoms/error-input/error-input.component.ts",
+          "hash": "1110671046396824506",
           "deps": [
-            "npm:bcrypt",
-            "npm:typeorm-extension"
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms"
           ]
         },
         {
-          "file": "backend/database/factories/usersProjects.factory.ts",
-          "hash": "16995291738332920436",
+          "file": "frontend/ui/components/atoms/error-input/error-input.interface.ts",
+          "hash": "4493128345258276684"
+        },
+        {
+          "file": "frontend/ui/components/atoms/index.ts",
+          "hash": "12316114265057790404"
+        },
+        {
+          "file": "frontend/ui/components/atoms/label/label.component.html",
+          "hash": "12975557544971256693"
+        },
+        {
+          "file": "frontend/ui/components/atoms/label/label.component.scss",
+          "hash": "9774069718051975514"
+        },
+        {
+          "file": "frontend/ui/components/atoms/label/label.component.ts",
+          "hash": "608747382473004878",
           "deps": [
-            "npm:typeorm-extension"
+            "npm:@angular/common",
+            "npm:@angular/core"
           ]
         },
         {
-          "file": "backend/database/jest.config.ts",
-          "hash": "5789169710423194275"
+          "file": "frontend/ui/components/atoms/label/label.interface.ts",
+          "hash": "5908700527171594986"
         },
         {
-          "file": "backend/database/project.json",
-          "hash": "14346910720650844901"
+          "file": "frontend/ui/components/atoms/title/title.component.html",
+          "hash": "9993838804227658620"
         },
         {
-          "file": "backend/database/seeders/clearDatabase.ts",
-          "hash": "4952837948124571844",
+          "file": "frontend/ui/components/atoms/title/title.component.scss",
+          "hash": "11730045308073476015"
+        },
+        {
+          "file": "frontend/ui/components/atoms/title/title.component.ts",
+          "hash": "12024262005914797024",
           "deps": [
-            "npm:../../../config/orm.config"
+            "npm:@angular/common",
+            "npm:@angular/core"
           ]
         },
         {
-          "file": "backend/database/seeders/index.ts",
-          "hash": "13421264233825917621"
+          "file": "frontend/ui/components/atoms/title/title.interface.ts",
+          "hash": "157869112040728519"
         },
         {
-          "file": "backend/database/seeders/init.seeders.ts",
-          "hash": "17994307243051536134",
+          "file": "frontend/ui/components/index.ts",
+          "hash": "8736400962360922239"
+        },
+        {
+          "file": "frontend/ui/components/molecules/button/button.component.html",
+          "hash": "449516983864089555"
+        },
+        {
+          "file": "frontend/ui/components/molecules/button/button.component.scss",
+          "hash": "15507213052314369772"
+        },
+        {
+          "file": "frontend/ui/components/molecules/button/button.component.ts",
+          "hash": "2068931334893959156",
           "deps": [
-            "npm:typeorm",
-            "npm:typeorm-extension"
+            "npm:@angular/common",
+            "npm:@angular/core"
           ]
         },
         {
-          "file": "backend/database/seeders/project.seeder.ts",
-          "hash": "10310100869887659116",
+          "file": "frontend/ui/components/molecules/button/button.interface.ts",
+          "hash": "11454847998320600935"
+        },
+        {
+          "file": "frontend/ui/components/molecules/input/input.component.html",
+          "hash": "11772191000993570442"
+        },
+        {
+          "file": "frontend/ui/components/molecules/input/input.component.scss",
+          "hash": "15286883737220280740"
+        },
+        {
+          "file": "frontend/ui/components/molecules/input/input.component.ts",
+          "hash": "1577779462537085591",
           "deps": [
-            "npm:typeorm",
-            "npm:typeorm-extension",
-            "npm:../../../config/constants"
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms"
           ]
         },
         {
-          "file": "backend/database/seeders/task.seeder.ts",
-          "hash": "5351921669587777580",
+          "file": "frontend/ui/components/molecules/input/input.interface.ts",
+          "hash": "14387765456770584633",
           "deps": [
-            "npm:typeorm",
-            "npm:typeorm-extension",
-            "npm:../../../config/constants"
+            "npm:@angular/forms"
           ]
         },
         {
-          "file": "backend/database/seeders/user.seeder.ts",
-          "hash": "10678654584316740254",
+          "file": "frontend/ui/components/shared/directives/control-value-accesor.directive.ts",
+          "hash": "16613818533729422777",
           "deps": [
-            "npm:typeorm",
-            "npm:typeorm-extension",
-            "npm:../../../config/constants"
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:rxjs"
           ]
         },
         {
-          "file": "backend/database/seeders/usersProjects.seeder.ts",
-          "hash": "2540246288126151909",
+          "file": "frontend/ui/documentation.json",
+          "hash": "16571268102117710589"
+        },
+        {
+          "file": "frontend/ui/jest.config.ts",
+          "hash": "5619249371785640415"
+        },
+        {
+          "file": "frontend/ui/postcss.config.js",
+          "hash": "13598591179375906364",
           "deps": [
-            "npm:typeorm",
-            "npm:typeorm-extension",
-            "npm:../../../config/constants"
+            "npm:path"
           ]
         },
         {
-          "file": "backend/database/src/constants/interfaces.entities.ts",
-          "hash": "10671478716920592074"
+          "file": "frontend/ui/project.json",
+          "hash": "12418447492809600014"
         },
         {
-          "file": "backend/database/src/decorators/lastUpdateBy.decorator.ts",
-          "hash": "4572965335664825957",
+          "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+          "hash": "17771484954861447492",
           "deps": [
-            "npm:typeorm"
+            "npm:@storybook/angular"
           ]
         },
         {
-          "file": "backend/database/src/index.ts",
-          "hash": "6090071860588022704"
-        },
-        {
-          "file": "backend/database/src/lib/database.module.ts",
-          "hash": "14360511402893014626",
+          "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+          "hash": "13948176402370144069",
           "deps": [
-            "npm:@environments",
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/typeorm"
+            "npm:@storybook/angular"
           ]
         },
         {
-          "file": "backend/database/src/lib/entities/base.entity.ts",
-          "hash": "2813724608735378632",
+          "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+          "hash": "13246924046839262577",
           "deps": [
-            "npm:typeorm"
+            "npm:@storybook/angular",
+            "npm:@angular/common"
           ]
         },
         {
-          "file": "backend/database/src/lib/entities/index.ts",
-          "hash": "13632713694017502581"
-        },
-        {
-          "file": "backend/database/src/lib/entities/project.entity.ts",
-          "hash": "9883453299998079489",
+          "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+          "hash": "8559369558696753965",
           "deps": [
-            "npm:typeorm"
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:@storybook/angular"
           ]
         },
         {
-          "file": "backend/database/src/lib/entities/task.entity.ts",
-          "hash": "2143349365649894863",
+          "file": "frontend/ui/styles.scss",
+          "hash": "8747361217258818957"
+        },
+        {
+          "file": "frontend/ui/tailwind.config.js",
+          "hash": "12714176429375041039",
           "deps": [
-            "npm:typeorm"
+            "npm:@nx/angular",
+            "npm:path",
+            "tailwind-preset"
           ]
         },
         {
-          "file": "backend/database/src/lib/entities/token.entity.ts",
-          "hash": "12114859599365602755",
-          "deps": [
-            "npm:typeorm"
-          ]
+          "file": "frontend/ui/tsconfig.json",
+          "hash": "16326414037910697106"
         },
         {
-          "file": "backend/database/src/lib/entities/user.entity.ts",
-          "hash": "11852117200025362692",
-          "deps": [
-            "npm:class-transformer",
-            "npm:typeorm"
-          ]
+          "file": "frontend/ui/tsconfig.lib.json",
+          "hash": "12496680018945969286"
         },
         {
-          "file": "backend/database/src/lib/entities/usersProjects.entity.ts",
-          "hash": "12430119645544425756",
-          "deps": [
-            "npm:typeorm"
-          ]
+          "file": "frontend/ui/tsconfig.spec.json",
+          "hash": "8246693900492800589"
+        }
+      ],
+      "tailwind-preset": [
+        {
+          "file": "libs/tailwind-preset/ng-package.json",
+          "hash": "8442018886621289834"
         },
         {
-          "file": "backend/database/src/lib/interfaces/project.interface.ts",
-          "hash": "11378361696322599253"
+          "file": "libs/tailwind-preset/project.json",
+          "hash": "10139954266306851421"
         },
         {
-          "file": "backend/database/src/lib/interfaces/user.interface.ts",
-          "hash": "3361026928032740791"
-        },
-        {
-          "file": "backend/database/src/lib/migrations/1687053374121-migration.ts",
-          "hash": "12530792810964465673",
-          "deps": [
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "backend/database/tsconfig.json",
-          "hash": "5840880287502376438"
-        },
-        {
-          "file": "backend/database/tsconfig.lib.json",
-          "hash": "14587288153021154776"
-        },
-        {
-          "file": "backend/database/tsconfig.spec.json",
-          "hash": "17313551537729802733"
+          "file": "libs/tailwind-preset/tailwind.config.js",
+          "hash": "12928815318102254535"
         }
       ],
       "frontend-app": [
@@ -1525,7 +1276,7 @@
         },
         {
           "file": "frontend/app/src/app.component.html",
-          "hash": "17031752450202809424"
+          "hash": "18370488400020582504"
         },
         {
           "file": "frontend/app/src/app.component.ts",
@@ -1537,11 +1288,11 @@
         },
         {
           "file": "frontend/app/src/app.module.ts",
-          "hash": "895425874613560548",
+          "hash": "833148375861257248",
           "deps": [
+            "npm:@angular/common",
             "npm:@angular/core",
-            "npm:@angular/platform-browser",
-            "npm:@angular/common"
+            "npm:@angular/platform-browser"
           ]
         },
         {
@@ -2332,6 +2083,255 @@
           "file": "frontend/app/tsconfig.spec.json",
           "hash": "2927375835638640771"
         }
+      ],
+      "database": [
+        {
+          "file": "backend/database/.eslintrc.json",
+          "hash": "11808533155536463924"
+        },
+        {
+          "file": "backend/database/README.md",
+          "hash": "6441506021839928775"
+        },
+        {
+          "file": "backend/database/factories/index.ts",
+          "hash": "17293044874510935028"
+        },
+        {
+          "file": "backend/database/factories/project.factory.ts",
+          "hash": "10524872478326641227",
+          "deps": [
+            "npm:typeorm-extension"
+          ]
+        },
+        {
+          "file": "backend/database/factories/task.factory.ts",
+          "hash": "14815261581480740596",
+          "deps": [
+            "npm:typeorm-extension"
+          ]
+        },
+        {
+          "file": "backend/database/factories/user.factory.ts",
+          "hash": "14669134207595852556",
+          "deps": [
+            "npm:bcrypt",
+            "npm:typeorm-extension"
+          ]
+        },
+        {
+          "file": "backend/database/factories/usersProjects.factory.ts",
+          "hash": "16995291738332920436",
+          "deps": [
+            "npm:typeorm-extension"
+          ]
+        },
+        {
+          "file": "backend/database/jest.config.ts",
+          "hash": "5789169710423194275"
+        },
+        {
+          "file": "backend/database/project.json",
+          "hash": "14346910720650844901"
+        },
+        {
+          "file": "backend/database/seeders/clearDatabase.ts",
+          "hash": "4952837948124571844",
+          "deps": [
+            "npm:../../../config/orm.config"
+          ]
+        },
+        {
+          "file": "backend/database/seeders/index.ts",
+          "hash": "13421264233825917621"
+        },
+        {
+          "file": "backend/database/seeders/init.seeders.ts",
+          "hash": "17994307243051536134",
+          "deps": [
+            "npm:typeorm",
+            "npm:typeorm-extension"
+          ]
+        },
+        {
+          "file": "backend/database/seeders/project.seeder.ts",
+          "hash": "10310100869887659116",
+          "deps": [
+            "npm:typeorm",
+            "npm:typeorm-extension",
+            "npm:../../../config/constants"
+          ]
+        },
+        {
+          "file": "backend/database/seeders/task.seeder.ts",
+          "hash": "5351921669587777580",
+          "deps": [
+            "npm:typeorm",
+            "npm:typeorm-extension",
+            "npm:../../../config/constants"
+          ]
+        },
+        {
+          "file": "backend/database/seeders/user.seeder.ts",
+          "hash": "10678654584316740254",
+          "deps": [
+            "npm:typeorm",
+            "npm:typeorm-extension",
+            "npm:../../../config/constants"
+          ]
+        },
+        {
+          "file": "backend/database/seeders/usersProjects.seeder.ts",
+          "hash": "2540246288126151909",
+          "deps": [
+            "npm:typeorm",
+            "npm:typeorm-extension",
+            "npm:../../../config/constants"
+          ]
+        },
+        {
+          "file": "backend/database/src/constants/interfaces.entities.ts",
+          "hash": "10671478716920592074"
+        },
+        {
+          "file": "backend/database/src/decorators/lastUpdateBy.decorator.ts",
+          "hash": "4572965335664825957",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/src/index.ts",
+          "hash": "6090071860588022704"
+        },
+        {
+          "file": "backend/database/src/lib/database.module.ts",
+          "hash": "14360511402893014626",
+          "deps": [
+            "npm:@environments",
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/src/lib/entities/base.entity.ts",
+          "hash": "2813724608735378632",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/src/lib/entities/index.ts",
+          "hash": "13632713694017502581"
+        },
+        {
+          "file": "backend/database/src/lib/entities/project.entity.ts",
+          "hash": "9883453299998079489",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/src/lib/entities/task.entity.ts",
+          "hash": "2143349365649894863",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/src/lib/entities/token.entity.ts",
+          "hash": "12114859599365602755",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/src/lib/entities/user.entity.ts",
+          "hash": "11852117200025362692",
+          "deps": [
+            "npm:class-transformer",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/src/lib/entities/usersProjects.entity.ts",
+          "hash": "12430119645544425756",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/src/lib/interfaces/project.interface.ts",
+          "hash": "11378361696322599253"
+        },
+        {
+          "file": "backend/database/src/lib/interfaces/user.interface.ts",
+          "hash": "3361026928032740791"
+        },
+        {
+          "file": "backend/database/src/lib/migrations/1687053374121-migration.ts",
+          "hash": "12530792810964465673",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/database/tsconfig.json",
+          "hash": "5840880287502376438"
+        },
+        {
+          "file": "backend/database/tsconfig.lib.json",
+          "hash": "14587288153021154776"
+        },
+        {
+          "file": "backend/database/tsconfig.spec.json",
+          "hash": "17313551537729802733"
+        }
+      ],
+      "api-e2e": [
+        {
+          "file": "backend/api-e2e/.eslintrc.json",
+          "hash": "915344961052474398"
+        },
+        {
+          "file": "backend/api-e2e/jest.config.ts",
+          "hash": "2076893759250098545"
+        },
+        {
+          "file": "backend/api-e2e/project.json",
+          "hash": "1785820208333181515"
+        },
+        {
+          "file": "backend/api-e2e/src/api/api.spec.ts",
+          "hash": "110394728024017389",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "backend/api-e2e/src/support/global-setup.ts",
+          "hash": "2568409276037275290"
+        },
+        {
+          "file": "backend/api-e2e/src/support/global-teardown.ts",
+          "hash": "5275447082211835490"
+        },
+        {
+          "file": "backend/api-e2e/src/support/test-setup.ts",
+          "hash": "10984585515912236441",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "backend/api-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "backend/api-e2e/tsconfig.spec.json",
+          "hash": "14226830188665428950"
+        }
       ]
     },
     "nonProjectFiles": [
@@ -2409,7 +2409,7 @@
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "15124504896383165180"
+        "hash": "7888256025544718970"
       },
       {
         "file": ".nx/cache/lockfile.hash",
@@ -2421,11 +2421,11 @@
       },
       {
         "file": ".nx/cache/project-graph.json",
-        "hash": "2078470329693277376"
+        "hash": "15013932226170757375"
       },
       {
         "file": ".nx/cache/run.json",
-        "hash": "3687869369150946841"
+        "hash": "5401653926822992939"
       },
       {
         "file": ".nx/cache/terminalOutputs/1005537619893860155",
@@ -2448,6 +2448,10 @@
         "hash": "12123699559909619187"
       },
       {
+        "file": ".nx/cache/terminalOutputs/10614391567368237979",
+        "hash": "540399568305402313"
+      },
+      {
         "file": ".nx/cache/terminalOutputs/10915348244190305348",
         "hash": "1848864327225962770"
       },
@@ -2456,20 +2460,32 @@
         "hash": "807458845746855124"
       },
       {
+        "file": ".nx/cache/terminalOutputs/11135400787946837484",
+        "hash": "9288657265663716854"
+      },
+      {
         "file": ".nx/cache/terminalOutputs/11370713399818692203",
         "hash": "12123699559909619187"
       },
       {
         "file": ".nx/cache/terminalOutputs/11670307094035386751",
-        "hash": "3244421341483603138"
+        "hash": "12350741551460159052"
       },
       {
         "file": ".nx/cache/terminalOutputs/11878901677888780693",
         "hash": "8029480949888050003"
       },
       {
+        "file": ".nx/cache/terminalOutputs/12507188677116545947",
+        "hash": "9288657265663716854"
+      },
+      {
         "file": ".nx/cache/terminalOutputs/12608735906023098570",
         "hash": "12123699559909619187"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/12631994976264075887",
+        "hash": "3244421341483603138"
       },
       {
         "file": ".nx/cache/terminalOutputs/12679938706373916259",
@@ -2518,6 +2534,10 @@
       {
         "file": ".nx/cache/terminalOutputs/13487137370877139663",
         "hash": "3502500289031951968"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/13518448918316200089",
+        "hash": "5706143334624493016"
       },
       {
         "file": ".nx/cache/terminalOutputs/13549278450907698309",
@@ -2616,6 +2636,10 @@
         "hash": "5706143334624493016"
       },
       {
+        "file": ".nx/cache/terminalOutputs/16191461745600566114",
+        "hash": "540399568305402313"
+      },
+      {
         "file": ".nx/cache/terminalOutputs/16319166739248650092",
         "hash": "15006306142715349609"
       },
@@ -2644,12 +2668,20 @@
         "hash": "16306639807985745825"
       },
       {
+        "file": ".nx/cache/terminalOutputs/16830445985629196292",
+        "hash": "540399568305402313"
+      },
+      {
         "file": ".nx/cache/terminalOutputs/16886067533867555615",
         "hash": "380729532078900663"
       },
       {
         "file": ".nx/cache/terminalOutputs/16902519269889942854",
         "hash": "9648052698673670086"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/17015247335488310115",
+        "hash": "9288657265663716854"
       },
       {
         "file": ".nx/cache/terminalOutputs/17061753488342882411",
@@ -2670,6 +2702,10 @@
       {
         "file": ".nx/cache/terminalOutputs/17377599810775208826",
         "hash": "3591095079239082251"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/17531629871267347919",
+        "hash": "9288657265663716854"
       },
       {
         "file": ".nx/cache/terminalOutputs/17547017617983065193",
@@ -2776,6 +2812,14 @@
         "hash": "12123699559909619187"
       },
       {
+        "file": ".nx/cache/terminalOutputs/4496061856842651382",
+        "hash": "8053279745809348453"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/4499903584083217415",
+        "hash": "8053279745809348453"
+      },
+      {
         "file": ".nx/cache/terminalOutputs/4570190390465153731",
         "hash": "13595163202040542097"
       },
@@ -2812,12 +2856,20 @@
         "hash": "15867327413345821713"
       },
       {
+        "file": ".nx/cache/terminalOutputs/5381234908180884254",
+        "hash": "9451890006476679997"
+      },
+      {
         "file": ".nx/cache/terminalOutputs/5393341191079758725",
         "hash": "8716701431581326150"
       },
       {
         "file": ".nx/cache/terminalOutputs/5771244860140963176",
         "hash": "12123699559909619187"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/5863382664076127019",
+        "hash": "3796786031998793546"
       },
       {
         "file": ".nx/cache/terminalOutputs/5878054875406662148",
@@ -2844,6 +2896,10 @@
         "hash": "12123699559909619187"
       },
       {
+        "file": ".nx/cache/terminalOutputs/6601668610862888132",
+        "hash": "11640180928691452500"
+      },
+      {
         "file": ".nx/cache/terminalOutputs/6626174713265704709",
         "hash": "12123699559909619187"
       },
@@ -2862,6 +2918,10 @@
       {
         "file": ".nx/cache/terminalOutputs/7469115165377618270",
         "hash": "12904075669863082957"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/7702371728655635359",
+        "hash": "5706143334624493016"
       },
       {
         "file": ".nx/cache/terminalOutputs/7816338713179230632",
@@ -2898,6 +2958,10 @@
       {
         "file": ".nx/cache/terminalOutputs/8765235942017741724",
         "hash": "297440727313336214"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/8983791696709032345",
+        "hash": "540399568305402313"
       },
       {
         "file": ".nx/cache/terminalOutputs/9029936061627259258",
