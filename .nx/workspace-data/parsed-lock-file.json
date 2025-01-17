@@ -9468,18 +9468,18 @@
         "hash": "sha512-GRMWDxpOB6Dgk2E5Uo+3eEBvtOOlimMmpbFiKuLFnQzYDavtLFY3K5ona41jgN/WdRZtG7utuVSVTL4HbZHGkw=="
       }
     },
-    "npm:cli-width@3.0.0": {
+    "npm:cli-width": {
       "type": "npm",
-      "name": "npm:cli-width@3.0.0",
+      "name": "npm:cli-width",
       "data": {
         "version": "3.0.0",
         "packageName": "cli-width",
         "hash": "sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw=="
       }
     },
-    "npm:cli-width": {
+    "npm:cli-width@4.1.0": {
       "type": "npm",
-      "name": "npm:cli-width",
+      "name": "npm:cli-width@4.1.0",
       "data": {
         "version": "4.1.0",
         "packageName": "cli-width",
@@ -13473,6 +13473,15 @@
         "hash": "sha512-bRs4PfQ7k+M3dDGadFo4//PlEYwWV/tKMNHV0m1jVHSGocyLvlRLuWrNgDuVAmXiEydM5QgfEEP7hbWNtgv0oA=="
       }
     },
+    "npm:inquirer": {
+      "type": "npm",
+      "name": "npm:inquirer",
+      "data": {
+        "version": "8.2.6",
+        "packageName": "inquirer",
+        "hash": "sha512-M1WuAmb7pn9zdFRtQYk26ZBoY043Sse0wVDdk4Bppr+JOXyQYybdtvK+l9wUibhtjdjvtoiNy8tk+EgsYIUqKg=="
+      }
+    },
     "npm:inquirer@8.2.5": {
       "type": "npm",
       "name": "npm:inquirer@8.2.5",
@@ -13489,15 +13498,6 @@
         "version": "5.2.0",
         "packageName": "inquirer",
         "hash": "sha512-E9BmnJbAKLPGonz0HeWHtbKf+EeSP93paWO3ZYoUpq/aowXvYGjjCSuashhXPpzbArIjBbji39THkxTz9ZeEUQ=="
-      }
-    },
-    "npm:inquirer": {
-      "type": "npm",
-      "name": "npm:inquirer",
-      "data": {
-        "version": "9.3.7",
-        "packageName": "inquirer",
-        "hash": "sha512-LJKFHCSeIRq9hanN14IlOtPSTe3lNES7TYDTE2xxdAy1LS5rYphajK1qtwvj3YmQXvvk0U2Vbmcni8P9EIQW9w=="
       }
     },
     "npm:ip-address": {
@@ -16056,18 +16056,18 @@
         "hash": "sha512-r65nCZhrbXXb6dXOACihYApHw2Q6pV0M3V0PSxd74N0+D8nzAdEAITq2oAjA1jVnKI+tGvEBUpqiMh0+rW6zDQ=="
       }
     },
-    "npm:mute-stream@0.0.8": {
+    "npm:mute-stream": {
       "type": "npm",
-      "name": "npm:mute-stream@0.0.8",
+      "name": "npm:mute-stream",
       "data": {
         "version": "0.0.8",
         "packageName": "mute-stream",
         "hash": "sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA=="
       }
     },
-    "npm:mute-stream": {
+    "npm:mute-stream@1.0.0": {
       "type": "npm",
-      "name": "npm:mute-stream",
+      "name": "npm:mute-stream@1.0.0",
       "data": {
         "version": "1.0.0",
         "packageName": "mute-stream",
@@ -18925,15 +18925,6 @@
         "version": "2.4.1",
         "packageName": "run-async",
         "hash": "sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ=="
-      }
-    },
-    "npm:run-async@3.0.0": {
-      "type": "npm",
-      "name": "npm:run-async@3.0.0",
-      "data": {
-        "version": "3.0.0",
-        "packageName": "run-async",
-        "hash": "sha512-540WwVDOMxA6dN6We19EcT9sc3hkXPw5mzRNGM3FkdN/vtE9NFvj5lFAPNwUDmJjXidm3v7TC1cTE7t17Ulm1Q=="
       }
     },
     "npm:run-parallel": {
@@ -28168,7 +28159,7 @@
     },
     {
       "source": "npm:@inquirer/core",
-      "target": "npm:cli-width",
+      "target": "npm:cli-width@4.1.0",
       "type": "static"
     },
     {
@@ -28213,7 +28204,7 @@
     },
     {
       "source": "npm:@inquirer/core",
-      "target": "npm:cli-width",
+      "target": "npm:cli-width@4.1.0",
       "type": "static"
     },
     {
@@ -28418,7 +28409,7 @@
     },
     {
       "source": "npm:@inquirer/type@1.5.5",
-      "target": "npm:mute-stream",
+      "target": "npm:mute-stream@1.0.0",
       "type": "static"
     },
     {
@@ -46787,6 +46778,31 @@
       "type": "static"
     },
     {
+      "source": "npm:inquirer-autocomplete-prompt",
+      "target": "npm:ansi-escapes",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer-autocomplete-prompt",
+      "target": "npm:figures",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer-autocomplete-prompt",
+      "target": "npm:picocolors",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer-autocomplete-prompt",
+      "target": "npm:run-async",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer-autocomplete-prompt",
+      "target": "npm:rxjs",
+      "type": "static"
+    },
+    {
       "source": "npm:inquirer-maxlength-input-prompt",
       "target": "npm:chalk@2.4.2",
       "type": "static"
@@ -46812,6 +46828,81 @@
       "type": "static"
     },
     {
+      "source": "npm:inquirer",
+      "target": "npm:ansi-escapes",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:chalk",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:cli-cursor",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:cli-width",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:external-editor",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:figures",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:lodash",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:mute-stream",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:ora",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:run-async",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:rxjs",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:string-width",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:strip-ansi",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:through",
+      "type": "static"
+    },
+    {
+      "source": "npm:inquirer",
+      "target": "npm:wrap-ansi@6.2.0",
+      "type": "static"
+    },
+    {
       "source": "npm:inquirer@8.2.5",
       "target": "npm:ansi-escapes",
       "type": "static"
@@ -46828,7 +46919,7 @@
     },
     {
       "source": "npm:inquirer@8.2.5",
-      "target": "npm:cli-width@3.0.0",
+      "target": "npm:cli-width",
       "type": "static"
     },
     {
@@ -46848,7 +46939,7 @@
     },
     {
       "source": "npm:inquirer@8.2.5",
-      "target": "npm:mute-stream@0.0.8",
+      "target": "npm:mute-stream",
       "type": "static"
     },
     {
@@ -46949,66 +47040,6 @@
     {
       "source": "npm:inquirer@5.2.0",
       "target": "npm:through",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:@inquirer/figures",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:ansi-escapes",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:cli-width",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:external-editor",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:mute-stream",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:ora",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:run-async@3.0.0",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:rxjs",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:string-width",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:strip-ansi",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:wrap-ansi@6.2.0",
-      "type": "static"
-    },
-    {
-      "source": "npm:inquirer",
-      "target": "npm:yoctocolors-cjs",
       "type": "static"
     },
     {
@@ -54152,11 +54183,6 @@
       "type": "static"
     },
     {
-      "source": "npm:rxjs",
-      "target": "npm:tslib",
-      "type": "static"
-    },
-    {
       "source": "npm:rxjs@5.5.12",
       "target": "npm:symbol-observable@1.0.1",
       "type": "static"
@@ -58213,6 +58239,21 @@
     },
     {
       "source": "npm:wrap-ansi",
+      "target": "npm:strip-ansi",
+      "type": "static"
+    },
+    {
+      "source": "npm:wrap-ansi@6.2.0",
+      "target": "npm:ansi-styles",
+      "type": "static"
+    },
+    {
+      "source": "npm:wrap-ansi@6.2.0",
+      "target": "npm:string-width",
+      "type": "static"
+    },
+    {
+      "source": "npm:wrap-ansi@6.2.0",
       "target": "npm:strip-ansi",
       "type": "static"
     },

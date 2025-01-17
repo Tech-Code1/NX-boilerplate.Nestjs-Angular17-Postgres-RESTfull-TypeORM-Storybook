@@ -21,6 +21,7 @@ export class User extends BaseEntity implements IUser {
   @Column({
     type: 'text',
     unique: true,
+    nullable: true,
   })
   email!: string;
 
@@ -31,7 +32,7 @@ export class User extends BaseEntity implements IUser {
     description: 'User password',
   }) */
   @Exclude()
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   password!: string;
 
   @Column({ type: 'boolean', default: true })
