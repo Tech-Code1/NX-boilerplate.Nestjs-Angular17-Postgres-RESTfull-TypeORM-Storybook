@@ -14,11 +14,13 @@ export const authRoutes: Routes = [
         children: [
           {
             path: 'login',
+            title: 'Login',
             loadComponent: () =>
               import('.').then((c) => c.LoginComponent),
           },
           {
             path: 'register',
+            title: 'Register',
             loadComponent: () =>
               import('.').then(
                 (c) => c.RegisterComponent
@@ -33,11 +35,13 @@ export const authRoutes: Routes = [
       },
       {
         path: 'recover',
+        title: 'Recover password',
         loadComponent: () =>
           import('.').then((c) => c.RecoverComponent),
       },
       {
         path: 'reset-password',
+        title: 'Reset password',
         loadComponent: () =>
           import('.').then(
             (c) => c.ResetPassComponent

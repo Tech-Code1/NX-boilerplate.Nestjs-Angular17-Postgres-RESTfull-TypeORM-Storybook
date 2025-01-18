@@ -1,19 +1,15 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ButtonComponent, InputComponent, LabelComponent, TitleComponent } from '@ui/components';
 import { FormUtilitiesService } from '@utils';
 import { BehaviorSubject } from 'rxjs';
 import { RegisterStateService } from '../../../service/state/register.state.service';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ButtonComponent, InputComponent, LabelComponent, TitleComponent } from '@ui/components';
 
 @Component({
   selector: 'form-register',
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.scss'],
   imports: [
-    CommonModule,
-    RouterModule,
     ReactiveFormsModule,
     TitleComponent,
     InputComponent,

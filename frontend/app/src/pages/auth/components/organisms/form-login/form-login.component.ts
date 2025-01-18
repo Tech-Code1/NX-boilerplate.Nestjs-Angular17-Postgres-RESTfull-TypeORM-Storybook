@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -11,7 +10,6 @@ import { LoginStateService } from '../../../service/state';
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.scss'],
   imports: [
-    CommonModule,
     RouterModule,
     ReactiveFormsModule,
     TitleComponent,

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { PrivateGuard, PublicGuard } from './common/guards';
+import { HomeComponent } from './pages';
 import { authRoutes } from './pages/auth';
 import { dashboardRoutes } from './pages/dashboard';
-import { homeRoutes } from './pages/home';
 
 export const routes: Route[] = [
   {
@@ -18,7 +18,8 @@ export const routes: Route[] = [
   },
   {
     path: '',
-    children: homeRoutes
+    title: 'Home',
+    component: HomeComponent
   },
   {
     path: '**',

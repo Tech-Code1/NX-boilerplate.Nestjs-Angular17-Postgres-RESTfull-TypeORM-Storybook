@@ -8,6 +8,7 @@ export const dashboardRoutes: Routes = [
     children: [
       {
         path: '',
+        title: 'Panel',
         loadComponent: () =>
           import('.').then(
             (c) => c.PanelComponent
@@ -15,6 +16,7 @@ export const dashboardRoutes: Routes = [
       },
       {
         path: 'change-password',
+        title: 'Change Password',
         loadComponent: () =>
           import('.').then(
             (c) => c.ChangePassComponent

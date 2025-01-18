@@ -57,7 +57,7 @@ export class Swal {
         .fire({
           title: code.toString(),
           icon: 'error',
-          text: message!,
+          text: message || 'An error has occurred',
         })
         .then(() => res())
         .catch((ex) => rej(ex));

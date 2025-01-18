@@ -1,4 +1,4 @@
-import { BaseResponse } from '../common';
+import { BaseResponse } from '../../common';
 
 export const managerError = (resp: BaseResponse): BaseResponse => {
   const { data, response } = resp;

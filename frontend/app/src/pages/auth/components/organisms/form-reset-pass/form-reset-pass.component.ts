@@ -1,7 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { ButtonComponent, InputComponent, LabelComponent, TitleComponent } from '@ui/components';
 import { FormUtilitiesService, ValidatorsService } from '@utils';
 import { ResetStateService } from '../../../service/state';
@@ -11,8 +9,6 @@ import { ResetStateService } from '../../../service/state';
   templateUrl: './form-reset-pass.component.html',
   styleUrls: ['./form-reset-pass.component.scss'],
   imports: [
-    CommonModule,
-    RouterModule,
     ReactiveFormsModule,
     TitleComponent,
     InputComponent,

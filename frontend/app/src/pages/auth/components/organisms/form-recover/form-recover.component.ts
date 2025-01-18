@@ -1,7 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { ButtonComponent, InputComponent, LabelComponent, TitleComponent } from '@ui/components';
 import { FormUtilitiesService } from '@utils';
 import { RecoverStateService } from '../../../service/state';
@@ -12,8 +10,6 @@ import { RecoverStateService } from '../../../service/state';
   styleUrls: ['./form-recover.component.scss'],
   standalone: true,
   imports: [
-    CommonModule,
-    RouterModule,
     ReactiveFormsModule,
     TitleComponent,
     InputComponent,
