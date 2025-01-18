@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { PrivateGuard, PublicGuard } from './common/guards';
 import { authRoutes } from './pages/auth';
+import { dashboardRoutes } from './pages/dashboard';
 
 export const routes: Route[] = [
   {
@@ -12,8 +13,7 @@ export const routes: Route[] = [
   {
     path: 'dashboard',
     canActivate: [PrivateGuard],
-    loadChildren: () =>
-      import('./pages/dashboard').then((module) => module.DashboardModule),
+    children: dashboardRoutes,
   },
   {
     path: '',

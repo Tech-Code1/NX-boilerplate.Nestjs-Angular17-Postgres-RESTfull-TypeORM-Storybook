@@ -1,11 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ButtonComponent, TitleComponent } from '@ui/components';
 import { LoginStateService } from '../../../auth/service/state';
 
 @Component({
-    selector: 'panel',
-    templateUrl: './panel.component.html',
-    styleUrls: ['./panel.component.scss'],
-    standalone: false
+  selector: 'panel',
+  templateUrl: './panel.component.html',
+  styleUrls: ['./panel.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    ButtonComponent,
+    TitleComponent,
+  ],
 })
 export class PanelComponent {
   private loginService = inject(LoginStateService);
