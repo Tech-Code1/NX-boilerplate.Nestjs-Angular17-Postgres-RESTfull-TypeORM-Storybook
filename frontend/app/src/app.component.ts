@@ -7,7 +7,6 @@ import { AuthStatus } from './pages/auth/types';
     selector: 'root',
     templateUrl: './app.component.html',
     styleUrls: [],
-    standalone: false
 })
 export class AppComponent implements OnInit {
   title = 'Template Angular';

@@ -1,15 +1,9 @@
-import { NgModule } from '@angular/core';
-import {
-  RouterModule,
-  Routes,
-  provideRouter,
-  withComponentInputBinding,
-} from '@angular/router';
+import { Routes } from '@angular/router';
 import { ResetPasswordGuard } from '../../common/guards';
 import { LayoutLoginComponent } from '../../common/layouts';
 import { LayoutAuthComponent } from './components/layout/layout-auth.component';
 
-const routes: Routes = [
+export const authRoutes: Routes = [
   {
     path: '',
     component: LayoutLoginComponent,
@@ -20,13 +14,15 @@ const routes: Routes = [
         children: [
           {
             path: 'login',
-            loadChildren: () =>
-              import('./').then((module) => module.LoginModule),
+            loadComponent: () =>
+              import('.').then((c) => c.LoginComponent),
           },
           {
             path: 'register',
-            loadChildren: () =>
-              import('./').then((module) => module.RegisterModule),
+            loadComponent: () =>
+              import('.').then(
+                (c) => c.RegisterComponent
+              ),
           },
           {
             path: '',
@@ -37,21 +33,17 @@ const routes: Routes = [
       },
       {
         path: 'recover',
-        loadChildren: () => import('./').then((module) => module.RecoverModule),
+        loadComponent: () =>
+          import('.').then((c) => c.RecoverComponent),
       },
       {
         path: 'reset-password',
-        loadChildren: () =>
-          import('./').then((module) => module.ResetPassModule),
+        loadComponent: () =>
+          import('.').then(
+            (c) => c.ResetPassComponent
+          ),
         canActivate: [ResetPasswordGuard],
       },
     ],
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  providers: [provideRouter(routes, withComponentInputBinding())],
-})
-export class AuthRoutingModule {}

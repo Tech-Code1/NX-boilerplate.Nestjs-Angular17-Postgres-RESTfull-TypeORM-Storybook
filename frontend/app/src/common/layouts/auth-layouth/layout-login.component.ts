@@ -1,11 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { IsActiveMatchOptions, Router } from '@angular/router';
+import { IsActiveMatchOptions, Router, RouterLinkActive, RouterModule } from '@angular/router';
 
 @Component({
     selector: 'layout-login',
     templateUrl: './layout-login.component.html',
     styleUrls: ['./layout-login.component.scss'],
-    standalone: false
+    imports: [CommonModule, RouterModule, RouterLinkActive],
 })
 export class LayoutLoginComponent {
   private router = inject(Router);

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { PrivateGuard, PublicGuard } from './common/guards';
+import { authRoutes } from './pages/auth';
 
 export const routes: Route[] = [
   {
     path: 'auth',
     canActivate: [PublicGuard],
-    loadChildren: () =>
-      import('./pages/auth').then((module) => module.AuthModule),
+    children: authRoutes,
   },
   {
     path: 'dashboard',

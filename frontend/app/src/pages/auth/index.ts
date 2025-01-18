@@ -1,6 +1,5 @@
 export * from './adapters';
-export * from './auth-routing.module';
-export * from './auth.module';
+export * from './auth.routes';
 export * from './components';
 export * from './components/layout/layout-auth.component';
 export * from './components/layout/layout-auth.module';
@@ -13,11 +12,9 @@ export * from './components/organisms/form-register/form-register.module';
 export * from './components/organisms/form-reset-pass/form-reset-pass.component';
 export * from './containers';
 export * from './containers/login/login.component';
-export * from './containers/login/login.module';
 export * from './containers/recover/recover.component';
-export * from './containers/recover/recover.module';
 export * from './containers/register/register.component';
-export * from './containers/register/register.module';
 export * from './service/api';
 export * from './service/state';
 export * from './types';
+
