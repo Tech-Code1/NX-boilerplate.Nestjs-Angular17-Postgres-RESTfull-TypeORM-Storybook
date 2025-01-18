@@ -1,13 +1,24 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ButtonComponent, InputComponent, LabelComponent, TitleComponent } from '@ui/components';
 import { FormUtilitiesService } from '@utils';
 import { LoginStateService } from '../../../service/state';
 
 @Component({
-    selector: 'form-login',
-    templateUrl: './form-login.component.html',
-    styleUrls: ['./form-login.component.scss'],
-    standalone: false
+  selector: 'form-login',
+  templateUrl: './form-login.component.html',
+  styleUrls: ['./form-login.component.scss'],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    TitleComponent,
+    InputComponent,
+    LabelComponent,
+    ButtonComponent,
+  ],
 })
 export class FormLoginComponent implements OnInit {
   private formBuilder = inject(FormBuilder);

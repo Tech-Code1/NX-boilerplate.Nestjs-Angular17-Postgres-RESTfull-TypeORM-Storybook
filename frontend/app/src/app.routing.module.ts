@@ -3,6 +3,7 @@ import { Route, RouterModule } from '@angular/router';
 import { PrivateGuard, PublicGuard } from './common/guards';
 import { authRoutes } from './pages/auth';
 import { dashboardRoutes } from './pages/dashboard';
+import { homeRoutes } from './pages/home';
 
 export const routes: Route[] = [
   {
@@ -17,8 +18,7 @@ export const routes: Route[] = [
   },
   {
     path: '',
-    loadChildren: () =>
-      import('./pages/home').then((module) => module.HomeModule),
+    children: homeRoutes
   },
   {
     path: '**',
