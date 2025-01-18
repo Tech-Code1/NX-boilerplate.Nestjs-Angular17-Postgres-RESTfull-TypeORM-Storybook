@@ -22765,6 +22765,11 @@
     "frontend-app": [
       {
         "source": "frontend-app",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "frontend-app",
         "target": "npm:@angular/core",
         "type": "static"
       },
@@ -22776,16 +22781,6 @@
       {
         "source": "frontend-app",
         "target": "npm:@angular/platform-browser",
-        "type": "static"
-      },
-      {
-        "source": "frontend-app",
-        "target": "npm:@angular/common",
-        "type": "static"
-      },
-      {
-        "source": "frontend-app",
-        "target": "npm:@angular/platform-browser-dynamic",
         "type": "static"
       },
       {
