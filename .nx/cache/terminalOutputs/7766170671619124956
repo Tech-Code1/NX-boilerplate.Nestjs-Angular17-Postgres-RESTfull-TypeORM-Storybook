@@ -1,0 +1,159 @@
+[2m> [22mts-node --project tsconfig.lib.json -r tsconfig-paths/register ../../node_modules/typeorm/cli migration:run -d ../../config/orm.config.ts
+
+[90m[4mquery:[24m[39m [94mSELECT[39m * [94mFROM[39m [95mcurrent_schema[39m()
+[90m[4mquery:[24m[39m [94mCREATE[39m EXTENSION IF [94mNOT[39m [94mEXISTS[39m "uuid-ossp"
+[90m[4mquery:[24m[39m [94mSELECT[39m version();
+[90m[4mquery:[24m[39m [94mSELECT[39m * [94mFROM[39m "information_schema"."tables" [94mWHERE[39m "table_schema" = [37m'public'[39m [94mAND[39m "table_name" = [37m'migration'[39m
+[90m[4mquery:[24m[39m [94mCREATE[39m [94mTABLE[39m "migration" ("id" SERIAL [94mNOT[39m [94mNULL[39m, "timestamp" [95mbigint[39m [94mNOT[39m [94mNULL[39m, "name" [95mcharacter[39m [95mvarying[39m [94mNOT[39m [94mNULL[39m, [94mCONSTRAINT[39m "PK_3043fc6b8af7c99b8b98830094f" [94mPRIMARY[39m KEY ("id"))
+[90m[4mquery:[24m[39m [94mSELECT[39m * [94mFROM[39m "migration" "migration" [94mORDER[39m [94mBY[39m "id" [94mDESC[39m
+[4m0 migrations are already loaded in the database.[24m
+[4m3 migrations were found in the source code.[24m
+[4m3 migrations are new migrations must be executed.[24m
+[90m[4mquery:[24m[39m [94mSTART[39m TRANSACTION
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m [94mTABLE[39m "projects" (
+                "id" uuid [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m uuid_generate_v4(),
+                "created_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "updated_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "deleted_at" [95mTIMESTAMP[39m,
+                "name" text [94mNOT[39m [94mNULL[39m,
+                "description" text [94mNOT[39m [94mNULL[39m,
+                [94mCONSTRAINT[39m "PK_6271df0a7aed1d6c0691ce6ac50" [94mPRIMARY[39m KEY ("id")
+            )
+        
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m TYPE "public"."task_status_enum" [94mAS[39m ENUM([37m'CREATED'[39m, [37m'IN_PROGRESS'[39m, [37m'FINISH'[39m)
+        
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m [94mTABLE[39m "task" (
+                "id" uuid [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m uuid_generate_v4(),
+                "created_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "updated_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "deleted_at" [95mTIMESTAMP[39m,
+                "task_name" [95mcharacter[39m [95mvarying[39m [94mNOT[39m [94mNULL[39m,
+                "task_description" [95mcharacter[39m [95mvarying[39m [94mNOT[39m [94mNULL[39m,
+                "status" "public"."task_status_enum" [94mNOT[39m [94mNULL[39m,
+                "responsable_name" [95mcharacter[39m [95mvarying[39m [94mNOT[39m [94mNULL[39m,
+                "project_id" uuid,
+                [94mCONSTRAINT[39m "PK_fb213f79ee45060ba925ecd576e" [94mPRIMARY[39m KEY ("id")
+            )
+        
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m TYPE "public"."users_projects_acces_level_enum" [94mAS[39m ENUM([37m'30'[39m, [37m'40'[39m, [37m'50'[39m)
+        
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m [94mTABLE[39m "users_projects" (
+                "id" uuid [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m uuid_generate_v4(),
+                "created_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "updated_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "deleted_at" [95mTIMESTAMP[39m,
+                "acces_level" "public"."users_projects_acces_level_enum" [94mNOT[39m [94mNULL[39m,
+                "user_id" uuid,
+                "project_id" uuid,
+                [94mCONSTRAINT[39m "PK_f3d2d1a584f1bbc6a91d7ea5773" [94mPRIMARY[39m KEY ("id")
+            )
+        
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m TYPE "public"."users_role_enum" [94mAS[39m ENUM([37m'ADMIN'[39m, [37m'PREMIUM'[39m, [37m'CREATOR'[39m, [37m'USER'[39m)
+        
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m [94mTABLE[39m "users" (
+                "id" uuid [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m uuid_generate_v4(),
+                "created_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "updated_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "deleted_at" [95mTIMESTAMP[39m,
+                "first_name" text [94mNOT[39m [94mNULL[39m,
+                "last_name" text [94mNOT[39m [94mNULL[39m,
+                "age" [95minteger[39m [94mNOT[39m [94mNULL[39m,
+                "email" text [94mNOT[39m [94mNULL[39m,
+                "username" text [94mNOT[39m [94mNULL[39m,
+                "password" text [94mNOT[39m [94mNULL[39m,
+                "is_active" [95mboolean[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m [94mtrue[39m,
+                "role" "public"."users_role_enum" [94mNOT[39m [94mNULL[39m,
+                [94mCONSTRAINT[39m "UQ_97672ac88f789774dd47f7c8be3" [94mUNIQUE[39m ("email"),
+                [94mCONSTRAINT[39m "UQ_fe0bb3f6520ee0469504521e710" [94mUNIQUE[39m ("username"),
+                [94mCONSTRAINT[39m "PK_a3ffb1c0c8416b9fc6f907b7433" [94mPRIMARY[39m KEY ("id")
+            )
+        
+[90m[4mquery:[24m[39m 
+            [94mALTER[39m [94mTABLE[39m "task"
+            [94mADD[39m [94mCONSTRAINT[39m "FK_1f53e7ffe94530f9e0221224d29" [94mFOREIGN[39m KEY ("project_id") [94mREFERENCES[39m "projects"("id") [94mON[39m [94mDELETE[39m [94mNO[39m ACTION [94mON[39m UPDATE [94mNO[39m ACTION
+        
+[90m[4mquery:[24m[39m 
+            [94mALTER[39m [94mTABLE[39m "users_projects"
+            [94mADD[39m [94mCONSTRAINT[39m "FK_0f280c70a3a6ab7f4cf3c658c4c" [94mFOREIGN[39m KEY ("user_id") [94mREFERENCES[39m "users"("id") [94mON[39m [94mDELETE[39m [94mNO[39m ACTION [94mON[39m UPDATE [94mNO[39m ACTION
+        
+[90m[4mquery:[24m[39m 
+            [94mALTER[39m [94mTABLE[39m "users_projects"
+            [94mADD[39m [94mCONSTRAINT[39m "FK_741210c246defe00ed877a98f2a" [94mFOREIGN[39m KEY ("project_id") [94mREFERENCES[39m "projects"("id") [94mON[39m [94mDELETE[39m [94mNO[39m ACTION [94mON[39m UPDATE [94mNO[39m ACTION
+        
+[90m[4mquery:[24m[39m [94mINSERT[39m [94mINTO[39m "migration"("timestamp", "name") [94mVALUES[39m ($[32m1[39m, $[32m2[39m) [90m-- PARAMETERS: [1687053374121,"Migration1687053374121"][39m
+[4mMigration Migration1687053374121 has been  executed successfully.[24m
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m [94mTABLE[39m "project" (
+                "id" uuid [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m uuid_generate_v4(),
+                "created_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "updated_at" [95mTIMESTAMP[39m [94mNOT[39m [94mNULL[39m [94mDEFAULT[39m now(),
+                "deleted_at" [95mTIMESTAMP[39m,
+                "name" text [94mNOT[39m [94mNULL[39m,
+                "description" text [94mNOT[39m [94mNULL[39m,
+                [94mCONSTRAINT[39m "PK_4d68b1358bb5b766d3e78f32f57" [94mPRIMARY[39m KEY ("id")
+            )
+        
+[90m[4mquery:[24m[39m 
+            [94mCREATE[39m TYPE "public"."task_status_enum" [94mAS[39m ENUM([37m'CREATED'[39m, [37m'IN_PROGRESS'[39m, [37m'FINISH'[39m)
+        
+[4m[31mquery failed:[39m[24m 
+            [94mCREATE[39m TYPE "public"."task_status_enum" [94mAS[39m ENUM([37m'CREATED'[39m, [37m'IN_PROGRESS'[39m, [37m'FINISH'[39m)
+        
+[4m[31merror:[39m[24m error: type "task_status_enum" already exists
+[4mMigration "Migration1737315111117" failed, error: type "task_status_enum" already exists[24m
+[90m[4mquery:[24m[39m [94mROLLBACK[39m
+[30m[41mError during migration run:[49m[39m
+QueryFailedError: type "task_status_enum" already exists
+    at PostgresQueryRunner.query (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4mtypeorm[24m\src\driver\postgres\PostgresQueryRunner.ts:331:19)
+[90m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m {
+  query: [32m'\n'[39m +
+    [32m`            CREATE TYPE "public"."task_status_enum" AS ENUM('CREATED', 'IN_PROGRESS', 'FINISH')\n`[39m +
+    [32m'        '[39m,
+  parameters: [90mundefined[39m,
+  driverError: error: type "task_status_enum" already exists
+      at F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4mpg[24m\lib\client.js:535:17
+  [90m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+      at async PostgresQueryRunner.query (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4mtypeorm[24m\src\driver\postgres\PostgresQueryRunner.ts:260:25) {
+    length: [33m96[39m,
+    severity: [32m'ERROR'[39m,
+    code: [32m'42710'[39m,
+    detail: [90mundefined[39m,
+    hint: [90mundefined[39m,
+    position: [90mundefined[39m,
+    internalPosition: [90mundefined[39m,
+    internalQuery: [90mundefined[39m,
+    where: [90mundefined[39m,
+    schema: [90mundefined[39m,
+    table: [90mundefined[39m,
+    column: [90mundefined[39m,
+    dataType: [90mundefined[39m,
+    constraint: [90mundefined[39m,
+    file: [32m'typecmds.c'[39m,
+    line: [32m'1167'[39m,
+    routine: [32m'DefineEnum'[39m
+  },
+  length: [33m96[39m,
+  severity: [32m'ERROR'[39m,
+  code: [32m'42710'[39m,
+  detail: [90mundefined[39m,
+  hint: [90mundefined[39m,
+  position: [90mundefined[39m,
+  internalPosition: [90mundefined[39m,
+  internalQuery: [90mundefined[39m,
+  where: [90mundefined[39m,
+  schema: [90mundefined[39m,
+  table: [90mundefined[39m,
+  column: [90mundefined[39m,
+  dataType: [90mundefined[39m,
+  constraint: [90mundefined[39m,
+  file: [32m'typecmds.c'[39m,
+  line: [32m'1167'[39m,
+  routine: [32m'DefineEnum'[39m
+}

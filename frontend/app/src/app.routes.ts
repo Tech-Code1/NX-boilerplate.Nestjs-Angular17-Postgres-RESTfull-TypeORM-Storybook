@@ -24,6 +24,7 @@ export const routes: Route[] = [
   {
     path: '**',
     redirectTo: '/',
+    pathMatch: 'full'
   },
 ];
 

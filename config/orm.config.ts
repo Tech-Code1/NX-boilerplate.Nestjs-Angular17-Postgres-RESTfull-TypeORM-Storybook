@@ -33,8 +33,8 @@ export const options = {
   seeds: [InitSeeder],
   // Activar SOLO MANUALMENTE en DESARROLLO SI ES NECESARIO (DESACTIVAR EN PRODUCCION).
   synchronize: DB_SYNC,
-  //logging: false,
-  //logger: 'file'
+  //logging: true,
+  //logger: 'file',
 };
 
 export const dataSource = new DataSource(

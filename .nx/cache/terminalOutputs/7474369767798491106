@@ -1,0 +1,3 @@
+[2m> [22mts-node --project tsconfig.lib.json -r tsconfig-paths/register ../../node_modules/typeorm/cli migration:generate -d ../../config/orm.config.ts --pretty src/lib/migrations/migration
+
+[32mMigration [34mF:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\backend\database\src\lib\migrations/1737316121895-migration.ts[39m[32m has been generated successfully.[39m

@@ -13,7 +13,9 @@
     "clear:db": "cross-env NODE_ENV=none nx run database:clear",
     "serve": "cross-env NODE_ENV=develop nx run frontend-app:serve",
     "story": "nx run frontend-ui:storybook",
-    "story:build": "nx run frontend-ui:build-storybook"
+    "story:build": "nx run frontend-ui:build-storybook",
+    "docker:up": "docker-compose --env-file ./environments/.develop.env up -d",
+    "docker:down": "docker-compose --env-file ./environments/.develop.env down"
   },
   "private": true,
   "devDependencies": {

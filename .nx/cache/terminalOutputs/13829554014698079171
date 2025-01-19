@@ -1,0 +1,79 @@
+[2m> [22mts-node --project tsconfig.lib.json -r tsconfig-paths/register ../../node_modules/typeorm/cli migration:run -d ../../config/orm.config.ts
+
+[90m[4mquery:[24m[39m [94mSELECT[39m * [94mFROM[39m [95mcurrent_schema[39m()
+[90m[4mquery:[24m[39m [94mCREATE[39m EXTENSION IF [94mNOT[39m [94mEXISTS[39m "uuid-ossp"
+[90m[4mquery:[24m[39m [94mSELECT[39m version();
+[90m[4mquery:[24m[39m [94mSELECT[39m * [94mFROM[39m "information_schema"."tables" [94mWHERE[39m "table_schema" = [37m'public'[39m [94mAND[39m "table_name" = [37m'migration'[39m
+[90m[4mquery:[24m[39m [94mSELECT[39m * [94mFROM[39m "migration" "migration" [94mORDER[39m [94mBY[39m "id" [94mDESC[39m
+[4m0 migrations are already loaded in the database.[24m
+[4m1 migrations were found in the source code.[24m
+[4m1 migrations are new migrations must be executed.[24m
+[90m[4mquery:[24m[39m [94mSTART[39m TRANSACTION
+[90m[4mquery:[24m[39m 
+            [94mDROP[39m SCHEMA public CASCADE;
+              [94mCREATE[39m SCHEMA public;
+              [94mGRANT[39m [94mALL[39m [94mON[39m SCHEMA public [94mTO[39m postgres;
+              [94mGRANT[39m [94mALL[39m [94mON[39m SCHEMA public [94mTO[39m public;
+        
+[90m[4mquery:[24m[39m [94mINSERT[39m [94mINTO[39m "migration"("timestamp", "name") [94mVALUES[39m ($[32m1[39m, $[32m2[39m) [90m-- PARAMETERS: [1737319955314,"Migration1737319955314"][39m
+[4m[31mquery failed:[39m[24m [94mINSERT[39m [94mINTO[39m "migration"("timestamp", "name") [94mVALUES[39m ($[32m1[39m, $[32m2[39m) [90m-- PARAMETERS: [1737319955314,"Migration1737319955314"][39m
+[4m[31merror:[39m[24m error: relation "migration" does not exist
+[90m[4mquery:[24m[39m [94mROLLBACK[39m
+[30m[41mError during migration run:[49m[39m
+QueryFailedError: relation "migration" does not exist
+    at PostgresQueryRunner.query (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4mtypeorm[24m\src\driver\postgres\PostgresQueryRunner.ts:331:19)
+[90m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async InsertQueryBuilder.execute (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\query-builder\InsertQueryBuilder.ts:163:33)
+    at async MigrationExecutor.insertExecutedMigration (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\migration\MigrationExecutor.ts:676:13)
+    at async F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\migration\MigrationExecutor.ts:347:25
+    at async MigrationExecutor.executePendingMigrations (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\migration\MigrationExecutor.ts:336:17)
+    at async DataSource.runMigrations (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\data-source\DataSource.ts:403:13)
+    at async Object.handler (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\commands\MigrationRunCommand.ts:76:13) {
+  query: [32m'INSERT INTO "migration"("timestamp", "name") VALUES ($1, $2)'[39m,
+  parameters: [ [33m1737319955314[39m, [32m'Migration1737319955314'[39m ],
+  driverError: error: relation "migration" does not exist
+      at F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4mpg[24m\lib\client.js:535:17
+  [90m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+      at async PostgresQueryRunner.query (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4mtypeorm[24m\src\driver\postgres\PostgresQueryRunner.ts:260:25)
+      at async InsertQueryBuilder.execute (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\query-builder\InsertQueryBuilder.ts:163:33)
+      at async MigrationExecutor.insertExecutedMigration (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\migration\MigrationExecutor.ts:676:13)
+      at async F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\migration\MigrationExecutor.ts:347:25
+      at async MigrationExecutor.executePendingMigrations (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\migration\MigrationExecutor.ts:336:17)
+      at async DataSource.runMigrations (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\data-source\DataSource.ts:403:13)
+      at async Object.handler (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\[4msrc[24m\commands\MigrationRunCommand.ts:76:13) {
+    length: [33m108[39m,
+    severity: [32m'ERROR'[39m,
+    code: [32m'42P01'[39m,
+    detail: [90mundefined[39m,
+    hint: [90mundefined[39m,
+    position: [32m'13'[39m,
+    internalPosition: [90mundefined[39m,
+    internalQuery: [90mundefined[39m,
+    where: [90mundefined[39m,
+    schema: [90mundefined[39m,
+    table: [90mundefined[39m,
+    column: [90mundefined[39m,
+    dataType: [90mundefined[39m,
+    constraint: [90mundefined[39m,
+    file: [32m'parse_relation.c'[39m,
+    line: [32m'1392'[39m,
+    routine: [32m'parserOpenTable'[39m
+  },
+  length: [33m108[39m,
+  severity: [32m'ERROR'[39m,
+  code: [32m'42P01'[39m,
+  detail: [90mundefined[39m,
+  hint: [90mundefined[39m,
+  position: [32m'13'[39m,
+  internalPosition: [90mundefined[39m,
+  internalQuery: [90mundefined[39m,
+  where: [90mundefined[39m,
+  schema: [90mundefined[39m,
+  table: [90mundefined[39m,
+  column: [90mundefined[39m,
+  dataType: [90mundefined[39m,
+  constraint: [90mundefined[39m,
+  file: [32m'parse_relation.c'[39m,
+  line: [32m'1392'[39m,
+  routine: [32m'parserOpenTable'[39m
+}
