@@ -83,7 +83,7 @@
       }
     },
     "test": {
-      "executor": "@nx/jest:jest",
+      "executor": "@angular-devkit/build-angular:karma",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "frontend/app/jest.config.ts",

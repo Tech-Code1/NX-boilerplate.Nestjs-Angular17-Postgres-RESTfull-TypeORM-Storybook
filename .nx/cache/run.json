@@ -1,18 +1,18 @@
 {
   "run": {
-    "command": "nx run database:mig-run",
-    "startTime": "2025-01-19T21:08:26.701Z",
-    "endTime": "2025-01-19T21:08:34.278Z",
+    "command": "nx run frontend-app:serve",
+    "startTime": "2025-01-25T21:57:28.133Z",
+    "endTime": "2025-01-25T21:57:49.781Z",
     "inner": false
   },
   "tasks": [
     {
-      "taskId": "database:mig-run",
-      "target": "mig-run",
-      "projectName": "database",
-      "hash": "13829554014698079171",
-      "startTime": "2025-01-19T21:08:26.715Z",
-      "endTime": "2025-01-19T21:08:34.278Z",
+      "taskId": "frontend-app:serve:development",
+      "target": "serve",
+      "projectName": "frontend-app",
+      "hash": "17092211091225373686",
+      "startTime": "2025-01-25T21:57:28.150Z",
+      "endTime": "2025-01-25T21:57:49.781Z",
       "params": "",
       "cacheStatus": "cache-miss",
       "status": 1
