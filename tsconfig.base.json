@@ -15,7 +15,7 @@
     "incremental": true,
     "importHelpers": true,
     "target": "es2015",
-    "module": "commonjs",
+    "module": "es2020",
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,

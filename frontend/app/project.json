@@ -7,12 +7,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nx/angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/frontend/app",
+        "outputPath": {
+          "base": "dist/frontend/app"
+        },
         "index": "frontend/app/src/index.html",
-        "main": "frontend/app/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "frontend/app/tsconfig.app.json",
         "assets": [
@@ -25,7 +26,10 @@
           }
         ],
         "styles": ["frontend/app/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "browser": "frontend/app/src/main.ts",
+        "prerender": true,
+        "server": "frontend/app/src/main.server.ts"
       },
       "configurations": {
         "production": {
@@ -44,18 +48,15 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "sourceMap": true
         }
       },
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nx/angular:dev-server",
       "options": {
         "buildTarget": "frontend-app:build"
       },
@@ -70,7 +71,7 @@
       "defaultConfiguration": "development"
     },
     "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "executor": "@nx/angular:extract-i18n",
       "options": {
         "browserTarget": "frontend-app:build"
       }

@@ -297,6 +297,15 @@
         "hash": "sha512-MWiToGy7Pa0rR61sgnEuu7dfZXpAw0g7nkSnw4xdjUf974OOOfI1LS9O9YevJibtdW8sPa1HaoXXwcb7N03B5A=="
       }
     },
+    "npm:@angular/platform-server": {
+      "type": "npm",
+      "name": "npm:@angular/platform-server",
+      "data": {
+        "version": "19.0.6",
+        "packageName": "@angular/platform-server",
+        "hash": "sha512-CjRr86gcyuqK4YRad5lCpDcsnvqjCftjuSU0LZLWiEkiD4CB+mpxmo+kgaWr1NRm+z9cM90NZIz2DQKY2OmcTw=="
+      }
+    },
     "npm:@angular/router": {
       "type": "npm",
       "name": "npm:@angular/router",
@@ -304,6 +313,15 @@
         "version": "19.0.6",
         "packageName": "@angular/router",
         "hash": "sha512-G1oz+TclPk48h6b6B4s5J3DfrDVJrrxKOA+KWeVQP4e1B8ld7/dCMf5nn3yqS4BGs4yLecxMxyvbOvOiZ//lxw=="
+      }
+    },
+    "npm:@angular/ssr": {
+      "type": "npm",
+      "name": "npm:@angular/ssr",
+      "data": {
+        "version": "19.0.6",
+        "packageName": "@angular/ssr",
+        "hash": "sha512-T9UfqqaWw9OKzJI+2RELMqPDD3uFtJt4CLBWDQIeG1GR51RFM4K7oeP+oQ14ohe9w/Ysyh1s1KyXAY+Vaaggbw=="
       }
     },
     "npm:@apollo/cache-control-types": {
@@ -21852,6 +21870,15 @@
         "hash": "sha512-jmTjYU0j60B+vHey6TfR3Z7RD61z/hmxBS3VMSGIrroOWXQEneK1zNuotOUrGyBHQj0yrpsLHPWtigEFd13ndA=="
       }
     },
+    "npm:xhr2": {
+      "type": "npm",
+      "name": "npm:xhr2",
+      "data": {
+        "version": "0.2.1",
+        "packageName": "xhr2",
+        "hash": "sha512-sID0rrVCqkVNUn8t6xuv9+6FViXjUVXq8H5rWOH2rz9fDNQEd4g0EA2XlcEdJXRz5BMEn4O1pJFdT+z4YHhoWw=="
+      }
+    },
     "npm:xml-name-validator": {
       "type": "npm",
       "name": "npm:xml-name-validator",
@@ -22978,7 +23005,22 @@
       "type": "static"
     },
     {
+      "source": "npm:@angular/platform-server",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@angular/platform-server",
+      "target": "npm:xhr2",
+      "type": "static"
+    },
+    {
       "source": "npm:@angular/router",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@angular/ssr",
       "target": "npm:tslib",
       "type": "static"
     },

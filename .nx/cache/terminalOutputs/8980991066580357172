@@ -1,0 +1,114 @@
+[33m❯[39m Building...
+
+WARNING: There was an error creating glob patterns, returning an empty array
+createGlobPatternsForDependencies: Error when generating globs.
+ENOENT: no such file or directory, scandir 'F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\database'
+
+[32m✔[39m Building...
+[37m[35mBrowser bundles[39m[37m     [39m
+[37m[1mInitial chunk files[22m [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m[39m
+[37m[32mpolyfills.js[39m[37m        [2m | [22m[2mpolyfills[22m       [2m | [22m [36m90.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-PNDN3U3N.js[39m[37m   [2m | [22m[2m-[22m               [2m | [22m [36m45.38 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-XRFILN5F.js[39m[37m   [2m | [22m[2m-[22m               [2m | [22m [36m27.33 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-TVGP3WH3.js[39m[37m   [2m | [22m[2m-[22m               [2m | [22m [36m12.00 kB[39m[37m[2m | [22m[39m
+[37m[32mstyles.css[39m[37m          [2m | [22m[2mstyles[22m          [2m | [22m  [36m8.25 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m             [2m | [22m[2mmain[22m            [2m | [22m  [36m6.35 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1m [22m                   [2m | [22m[1mInitial total[22m   [2m | [22m[1m189.51 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m    [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m[39m
+[37m[32mchunk-W76YPSCM.js[39m[37m   [2m | [22m[2mindex[22m           [2m | [22m  [36m1.04 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-UNDNZJUS.js[39m[37m   [2m | [22m[2mindex[22m           [2m | [22m[36m376 bytes[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[39m
+[37m[35mServer bundles[39m[37m      [39m
+[37m[1mInitial chunk files[22m [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m[39m
+[37m[32mpolyfills.server.mjs[39m[37m[2m | [22m[2mpolyfills.server[22m[2m | [22m[36m572.91 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-GMQMECIQ.mjs[39m[37m  [2m | [22m[2m-[22m               [2m | [22m [36m45.41 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-SLNW2QC3.mjs[39m[37m  [2m | [22m[2m-[22m               [2m | [22m [36m27.37 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-H2PI3RRP.mjs[39m[37m  [2m | [22m[2m-[22m               [2m | [22m [36m12.04 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.server.mjs[39m[37m     [2m | [22m[2mmain.server[22m     [2m | [22m  [36m7.34 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m    [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m[39m
+[37m[32m[39m[37mchunk-VQGSURON.mjs[39m[37m  [2m | [22m[2mindex[22m           [2m | [22m  [36m1.08 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-NC452HRC.mjs[39m[37m  [2m | [22m[2mindex[22m           [2m | [22m[36m412 bytes[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [6.082 seconds][39m
+[37m[39m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m    frontend/app/src/styles.scss:2:8:[39m[22m
+[1m[33m[37m      2 │ @import [32m[37m'tailwindcss/base';[39m[22m
+[1m[33m        ╵         [32m^[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[1m[33m  Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[1m[33m  [39m[22m
+[1m[33m  More info and automated migrator: [4mhttps://sass-lang.com/d/import[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m  The plugin "angular-sass" was triggered by this import[39m[22m
+[1m[33m[39m[22m
+[1m[33m    angular:styles/global:styles:1:8:[39m[22m
+[1m[33m[37m      1 │ @import [32m'frontend/app/src/styles.scss'[37m;[39m[22m
+[1m[33m        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m    frontend/app/src/styles.scss:3:8:[39m[22m
+[1m[33m[37m      3 │ @import [32m[37m'tailwindcss/components';[39m[22m
+[1m[33m        ╵         [32m^[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[1m[33m  Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[1m[33m  [39m[22m
+[1m[33m  More info and automated migrator: [4mhttps://sass-lang.com/d/import[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m  The plugin "angular-sass" was triggered by this import[39m[22m
+[1m[33m[39m[22m
+[1m[33m    angular:styles/global:styles:1:8:[39m[22m
+[1m[33m[37m      1 │ @import [32m'frontend/app/src/styles.scss'[37m;[39m[22m
+[1m[33m        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m    frontend/app/src/styles.scss:4:8:[39m[22m
+[1m[33m[37m      4 │ @import [32m[37m'tailwindcss/utilities';[39m[22m
+[1m[33m        ╵         [32m^[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[1m[33m  Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[1m[33m  [39m[22m
+[1m[33m  More info and automated migrator: [4mhttps://sass-lang.com/d/import[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m  The plugin "angular-sass" was triggered by this import[39m[22m
+[1m[33m[39m[22m
+[1m[33m    angular:styles/global:styles:1:8:[39m[22m
+[1m[33m[37m      1 │ @import [32m'frontend/app/src/styles.scss'[37m;[39m[22m
+[1m[33m        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[37mWatch mode enabled. Watching for file changes...[39m
+[37mNOTE: Raw file sizes do not reflect development server per-request transformations.[39m
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4200[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+NG0914: The application is using zoneless change detection, but is still loading Zone.js. Consider removing Zone.js to get the full benefits of zoneless. In applications using the Angular CLI, Zone.js is typically included in the "polyfills" section of the angular.json file.
+F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\zone.js\fesm2015\zone-node.js:163
+                        throw error;
+                        ^
+
+
+ReferenceError: localStorage is not defined
+    at Object.eval [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39mfrontend\app\src\pages\auth\service\state\login.state.service.ts:66:9[90m)[39m
+    at ConsumerObserver2.ConsumerObserver2.next [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-T4XHMJL2.js:567:29[90m)[39m
+    at SafeSubscriber2.Subscriber2._next [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-T4XHMJL2.js:536:26[90m)[39m
+    at SafeSubscriber2.Subscriber2.next [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-T4XHMJL2.js:509:16[90m)[39m
+    at eval [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-T4XHMJL2.js:1301:26[90m)[39m
+    at Object.errorContext [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-T4XHMJL2.js:437:9[90m)[39m
+    at Subject2.Subject2.next [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-T4XHMJL2.js:1291:24[90m)[39m
+    at Object.eval [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-BTRX53DY.js:4328:24[90m)[39m
+    at ConsumerObserver2.ConsumerObserver2.next [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-T4XHMJL2.js:567:29[90m)[39m
+    at SafeSubscriber2.Subscriber2._next [90m(F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\[39m.angular\cache\19.0.6\frontend-app\vite\deps_ssr\chunk-T4XHMJL2.js:536:26[90m)[39m
+
+Node.js v20.18.1

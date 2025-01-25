@@ -9,7 +9,9 @@
     "@angular/forms": "19.0.6",
     "@angular/platform-browser": "19.0.6",
     "@angular/platform-browser-dynamic": "19.0.6",
+    "@angular/platform-server": "19.0.6",
     "@angular/router": "19.0.6",
+    "@angular/ssr": "19.0.6",
     "@apollo/server": "^4.7.3",
     "@nestjs/apollo": "^12.0.10",
     "@nestjs/common": "^10.2.8",
@@ -819,257 +821,6 @@
           "hash": "2927375835638640771"
         }
       ],
-      "tailwind-preset": [
-        {
-          "file": "libs/tailwind-preset/ng-package.json",
-          "hash": "8442018886621289834"
-        },
-        {
-          "file": "libs/tailwind-preset/project.json",
-          "hash": "10139954266306851421"
-        },
-        {
-          "file": "libs/tailwind-preset/tailwind.config.js",
-          "hash": "12928815318102254535"
-        }
-      ],
-      "frontend-ui": [
-        {
-          "file": "frontend/ui/.eslintrc.json",
-          "hash": "16804247736731791500"
-        },
-        {
-          "file": "frontend/ui/.storybook/main.ts",
-          "hash": "15471186915593460990",
-          "deps": [
-            "npm:@storybook/angular"
-          ]
-        },
-        {
-          "file": "frontend/ui/.storybook/preview-head.html",
-          "hash": "12938975720104263471"
-        },
-        {
-          "file": "frontend/ui/.storybook/preview.ts",
-          "hash": "16030516816875902250",
-          "deps": [
-            "npm:@storybook/addon-docs"
-          ]
-        },
-        {
-          "file": "frontend/ui/.storybook/styles.scss",
-          "hash": "11827223589103615267"
-        },
-        {
-          "file": "frontend/ui/.storybook/tailwind-imports.scss",
-          "hash": "17540621932136269590"
-        },
-        {
-          "file": "frontend/ui/.storybook/tsconfig.json",
-          "hash": "10468501457130384447"
-        },
-        {
-          "file": "frontend/ui/README.md",
-          "hash": "13259357061157696285"
-        },
-        {
-          "file": "frontend/ui/assets/icon-error.svg",
-          "hash": "8742814213363542166"
-        },
-        {
-          "file": "frontend/ui/components/atoms/error-input/error-input.component.html",
-          "hash": "11338375106994606789"
-        },
-        {
-          "file": "frontend/ui/components/atoms/error-input/error-input.component.scss",
-          "hash": "4011407547271756067"
-        },
-        {
-          "file": "frontend/ui/components/atoms/error-input/error-input.component.ts",
-          "hash": "7458514014268421830",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/atoms/error-input/error-input.interface.ts",
-          "hash": "4493128345258276684"
-        },
-        {
-          "file": "frontend/ui/components/atoms/index.ts",
-          "hash": "12316114265057790404"
-        },
-        {
-          "file": "frontend/ui/components/atoms/label/label.component.html",
-          "hash": "12975557544971256693"
-        },
-        {
-          "file": "frontend/ui/components/atoms/label/label.component.scss",
-          "hash": "9774069718051975514"
-        },
-        {
-          "file": "frontend/ui/components/atoms/label/label.component.ts",
-          "hash": "6373845094743462756",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/atoms/label/label.interface.ts",
-          "hash": "5908700527171594986"
-        },
-        {
-          "file": "frontend/ui/components/atoms/title/title.component.html",
-          "hash": "9993838804227658620"
-        },
-        {
-          "file": "frontend/ui/components/atoms/title/title.component.scss",
-          "hash": "11730045308073476015"
-        },
-        {
-          "file": "frontend/ui/components/atoms/title/title.component.ts",
-          "hash": "11461260794639259468",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/atoms/title/title.interface.ts",
-          "hash": "157869112040728519"
-        },
-        {
-          "file": "frontend/ui/components/index.ts",
-          "hash": "8736400962360922239"
-        },
-        {
-          "file": "frontend/ui/components/molecules/button/button.component.html",
-          "hash": "449516983864089555"
-        },
-        {
-          "file": "frontend/ui/components/molecules/button/button.component.scss",
-          "hash": "15507213052314369772"
-        },
-        {
-          "file": "frontend/ui/components/molecules/button/button.component.ts",
-          "hash": "5159002177115942502",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/molecules/button/button.interface.ts",
-          "hash": "11454847998320600935"
-        },
-        {
-          "file": "frontend/ui/components/molecules/input/input.component.html",
-          "hash": "16182233562134050630"
-        },
-        {
-          "file": "frontend/ui/components/molecules/input/input.component.scss",
-          "hash": "15286883737220280740"
-        },
-        {
-          "file": "frontend/ui/components/molecules/input/input.component.ts",
-          "hash": "422546637834736108",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/molecules/input/input.interface.ts",
-          "hash": "14387765456770584633",
-          "deps": [
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "frontend/ui/components/shared/directives/control-value-accesor.directive.ts",
-          "hash": "16613818533729422777",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/forms",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "frontend/ui/documentation.json",
-          "hash": "12752765487543275317"
-        },
-        {
-          "file": "frontend/ui/jest.config.ts",
-          "hash": "5619249371785640415"
-        },
-        {
-          "file": "frontend/ui/postcss.config.js",
-          "hash": "13598591179375906364"
-        },
-        {
-          "file": "frontend/ui/project.json",
-          "hash": "12418447492809600014"
-        },
-        {
-          "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
-          "hash": "17771484954861447492",
-          "deps": [
-            "npm:@storybook/angular"
-          ]
-        },
-        {
-          "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
-          "hash": "13948176402370144069",
-          "deps": [
-            "npm:@storybook/angular"
-          ]
-        },
-        {
-          "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
-          "hash": "13246924046839262577",
-          "deps": [
-            "npm:@storybook/angular",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
-          "hash": "8559369558696753965",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/forms",
-            "npm:@storybook/angular"
-          ]
-        },
-        {
-          "file": "frontend/ui/styles.scss",
-          "hash": "8747361217258818957"
-        },
-        {
-          "file": "frontend/ui/tailwind.config.js",
-          "hash": "12714176429375041039",
-          "deps": [
-            "npm:@nx/angular",
-            "tailwind-preset"
-          ]
-        },
-        {
-          "file": "frontend/ui/tsconfig.json",
-          "hash": "16326414037910697106"
-        },
-        {
-          "file": "frontend/ui/tsconfig.lib.json",
-          "hash": "12496680018945969286"
-        },
-        {
-          "file": "frontend/ui/tsconfig.spec.json",
-          "hash": "8246693900492800589"
-        }
-      ],
       "database": [
         {
           "file": "backend/database/.eslintrc.json",
@@ -1258,50 +1009,6 @@
         {
           "file": "backend/database/tsconfig.spec.json",
           "hash": "17313551537729802733"
-        }
-      ],
-      "api-e2e": [
-        {
-          "file": "backend/api-e2e/.eslintrc.json",
-          "hash": "915344961052474398"
-        },
-        {
-          "file": "backend/api-e2e/jest.config.ts",
-          "hash": "2076893759250098545"
-        },
-        {
-          "file": "backend/api-e2e/project.json",
-          "hash": "1785820208333181515"
-        },
-        {
-          "file": "backend/api-e2e/src/api/api.spec.ts",
-          "hash": "110394728024017389",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "backend/api-e2e/src/support/global-setup.ts",
-          "hash": "2568409276037275290"
-        },
-        {
-          "file": "backend/api-e2e/src/support/global-teardown.ts",
-          "hash": "5275447082211835490"
-        },
-        {
-          "file": "backend/api-e2e/src/support/test-setup.ts",
-          "hash": "10984585515912236441",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "backend/api-e2e/tsconfig.json",
-          "hash": "15443990093475294480"
-        },
-        {
-          "file": "backend/api-e2e/tsconfig.spec.json",
-          "hash": "14226830188665428950"
         }
       ],
       "api": [
@@ -2123,6 +1830,301 @@
           "deps": [
             "npm:@nx/webpack"
           ]
+        }
+      ],
+      "frontend-ui": [
+        {
+          "file": "frontend/ui/.eslintrc.json",
+          "hash": "16804247736731791500"
+        },
+        {
+          "file": "frontend/ui/.storybook/main.ts",
+          "hash": "15471186915593460990",
+          "deps": [
+            "npm:@storybook/angular"
+          ]
+        },
+        {
+          "file": "frontend/ui/.storybook/preview-head.html",
+          "hash": "12938975720104263471"
+        },
+        {
+          "file": "frontend/ui/.storybook/preview.ts",
+          "hash": "16030516816875902250",
+          "deps": [
+            "npm:@storybook/addon-docs"
+          ]
+        },
+        {
+          "file": "frontend/ui/.storybook/styles.scss",
+          "hash": "11827223589103615267"
+        },
+        {
+          "file": "frontend/ui/.storybook/tailwind-imports.scss",
+          "hash": "17540621932136269590"
+        },
+        {
+          "file": "frontend/ui/.storybook/tsconfig.json",
+          "hash": "10468501457130384447"
+        },
+        {
+          "file": "frontend/ui/README.md",
+          "hash": "13259357061157696285"
+        },
+        {
+          "file": "frontend/ui/assets/icon-error.svg",
+          "hash": "8742814213363542166"
+        },
+        {
+          "file": "frontend/ui/components/atoms/error-input/error-input.component.html",
+          "hash": "11338375106994606789"
+        },
+        {
+          "file": "frontend/ui/components/atoms/error-input/error-input.component.scss",
+          "hash": "4011407547271756067"
+        },
+        {
+          "file": "frontend/ui/components/atoms/error-input/error-input.component.ts",
+          "hash": "7458514014268421830",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "frontend/ui/components/atoms/error-input/error-input.interface.ts",
+          "hash": "4493128345258276684"
+        },
+        {
+          "file": "frontend/ui/components/atoms/index.ts",
+          "hash": "12316114265057790404"
+        },
+        {
+          "file": "frontend/ui/components/atoms/label/label.component.html",
+          "hash": "12975557544971256693"
+        },
+        {
+          "file": "frontend/ui/components/atoms/label/label.component.scss",
+          "hash": "9774069718051975514"
+        },
+        {
+          "file": "frontend/ui/components/atoms/label/label.component.ts",
+          "hash": "6373845094743462756",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/ui/components/atoms/label/label.interface.ts",
+          "hash": "5908700527171594986"
+        },
+        {
+          "file": "frontend/ui/components/atoms/title/title.component.html",
+          "hash": "9993838804227658620"
+        },
+        {
+          "file": "frontend/ui/components/atoms/title/title.component.scss",
+          "hash": "11730045308073476015"
+        },
+        {
+          "file": "frontend/ui/components/atoms/title/title.component.ts",
+          "hash": "11461260794639259468",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/ui/components/atoms/title/title.interface.ts",
+          "hash": "157869112040728519"
+        },
+        {
+          "file": "frontend/ui/components/index.ts",
+          "hash": "8736400962360922239"
+        },
+        {
+          "file": "frontend/ui/components/molecules/button/button.component.html",
+          "hash": "449516983864089555"
+        },
+        {
+          "file": "frontend/ui/components/molecules/button/button.component.scss",
+          "hash": "15507213052314369772"
+        },
+        {
+          "file": "frontend/ui/components/molecules/button/button.component.ts",
+          "hash": "5159002177115942502",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/ui/components/molecules/button/button.interface.ts",
+          "hash": "11454847998320600935"
+        },
+        {
+          "file": "frontend/ui/components/molecules/input/input.component.html",
+          "hash": "16182233562134050630"
+        },
+        {
+          "file": "frontend/ui/components/molecules/input/input.component.scss",
+          "hash": "15286883737220280740"
+        },
+        {
+          "file": "frontend/ui/components/molecules/input/input.component.ts",
+          "hash": "422546637834736108",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "frontend/ui/components/molecules/input/input.interface.ts",
+          "hash": "14387765456770584633",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "frontend/ui/components/shared/directives/control-value-accesor.directive.ts",
+          "hash": "16613818533729422777",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "frontend/ui/documentation.json",
+          "hash": "12752765487543275317"
+        },
+        {
+          "file": "frontend/ui/jest.config.ts",
+          "hash": "5619249371785640415"
+        },
+        {
+          "file": "frontend/ui/postcss.config.js",
+          "hash": "13598591179375906364"
+        },
+        {
+          "file": "frontend/ui/project.json",
+          "hash": "12418447492809600014"
+        },
+        {
+          "file": "frontend/ui/stories/atoms/label/label.component.stories.ts",
+          "hash": "17771484954861447492",
+          "deps": [
+            "npm:@storybook/angular"
+          ]
+        },
+        {
+          "file": "frontend/ui/stories/atoms/title/title.component.stories.ts",
+          "hash": "13948176402370144069",
+          "deps": [
+            "npm:@storybook/angular"
+          ]
+        },
+        {
+          "file": "frontend/ui/stories/molecules/button/button.component.stories.ts",
+          "hash": "13246924046839262577",
+          "deps": [
+            "npm:@storybook/angular",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "frontend/ui/stories/molecules/input/input.component.stories.ts",
+          "hash": "8559369558696753965",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:@storybook/angular"
+          ]
+        },
+        {
+          "file": "frontend/ui/styles.scss",
+          "hash": "8747361217258818957"
+        },
+        {
+          "file": "frontend/ui/tailwind.config.js",
+          "hash": "12714176429375041039",
+          "deps": [
+            "npm:@nx/angular",
+            "tailwind-preset"
+          ]
+        },
+        {
+          "file": "frontend/ui/tsconfig.json",
+          "hash": "16326414037910697106"
+        },
+        {
+          "file": "frontend/ui/tsconfig.lib.json",
+          "hash": "12496680018945969286"
+        },
+        {
+          "file": "frontend/ui/tsconfig.spec.json",
+          "hash": "8246693900492800589"
+        }
+      ],
+      "tailwind-preset": [
+        {
+          "file": "libs/tailwind-preset/ng-package.json",
+          "hash": "8442018886621289834"
+        },
+        {
+          "file": "libs/tailwind-preset/project.json",
+          "hash": "10139954266306851421"
+        },
+        {
+          "file": "libs/tailwind-preset/tailwind.config.js",
+          "hash": "12928815318102254535"
+        }
+      ],
+      "api-e2e": [
+        {
+          "file": "backend/api-e2e/.eslintrc.json",
+          "hash": "915344961052474398"
+        },
+        {
+          "file": "backend/api-e2e/jest.config.ts",
+          "hash": "2076893759250098545"
+        },
+        {
+          "file": "backend/api-e2e/project.json",
+          "hash": "1785820208333181515"
+        },
+        {
+          "file": "backend/api-e2e/src/api/api.spec.ts",
+          "hash": "110394728024017389",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "backend/api-e2e/src/support/global-setup.ts",
+          "hash": "2568409276037275290"
+        },
+        {
+          "file": "backend/api-e2e/src/support/global-teardown.ts",
+          "hash": "5275447082211835490"
+        },
+        {
+          "file": "backend/api-e2e/src/support/test-setup.ts",
+          "hash": "10984585515912236441",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "backend/api-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "backend/api-e2e/tsconfig.spec.json",
+          "hash": "14226830188665428950"
         }
       ]
     },

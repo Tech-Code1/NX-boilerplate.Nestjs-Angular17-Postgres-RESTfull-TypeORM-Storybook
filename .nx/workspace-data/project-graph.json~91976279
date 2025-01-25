@@ -271,10 +271,9 @@
               "{options.outputPath}"
             ],
             "options": {
-              "outputPath": {
-                "base": "dist/frontend/app"
-              },
+              "outputPath": "dist/frontend/app",
               "index": "frontend/app/src/index.html",
+              "main": "frontend/app/src/main.ts",
               "polyfills": [
                 "zone.js"
               ],
@@ -292,8 +291,6 @@
                 "frontend/app/src/styles.scss"
               ],
               "scripts": [],
-              "browser": "frontend/app/src/main.ts",
-              "prerender": true,
               "server": "frontend/app/src/main.server.ts"
             },
             "configurations": {
@@ -313,9 +310,12 @@
                 "outputHashing": "all"
               },
               "development": {
+                "buildOptimizer": false,
                 "optimization": false,
+                "vendorChunk": true,
                 "extractLicenses": false,
-                "sourceMap": true
+                "sourceMap": true,
+                "namedChunks": true
               }
             },
             "defaultConfiguration": "production",
@@ -974,15 +974,6 @@
         "version": "19.0.6",
         "packageName": "@angular/router",
         "hash": "sha512-G1oz+TclPk48h6b6B4s5J3DfrDVJrrxKOA+KWeVQP4e1B8ld7/dCMf5nn3yqS4BGs4yLecxMxyvbOvOiZ//lxw=="
-      }
-    },
-    "npm:@angular/ssr": {
-      "type": "npm",
-      "name": "npm:@angular/ssr",
-      "data": {
-        "version": "19.0.6",
-        "packageName": "@angular/ssr",
-        "hash": "sha512-T9UfqqaWw9OKzJI+2RELMqPDD3uFtJt4CLBWDQIeG1GR51RFM4K7oeP+oQ14ohe9w/Ysyh1s1KyXAY+Vaaggbw=="
       }
     },
     "npm:@apollo/cache-control-types": {
@@ -23992,13 +23983,6 @@
     "npm:@angular/router": [
       {
         "source": "npm:@angular/router",
-        "target": "npm:tslib",
-        "type": "static"
-      }
-    ],
-    "npm:@angular/ssr": [
-      {
-        "source": "npm:@angular/ssr",
         "target": "npm:tslib",
         "type": "static"
       }

@@ -380,10 +380,25 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/platform-server@19.0.6":
+  version "19.0.6"
+  resolved "https://registry.npmjs.org/@angular/platform-server/-/platform-server-19.0.6.tgz#042711ca2657894b155e6179cde168a5f0afec4c"
+  integrity sha512-CjRr86gcyuqK4YRad5lCpDcsnvqjCftjuSU0LZLWiEkiD4CB+mpxmo+kgaWr1NRm+z9cM90NZIz2DQKY2OmcTw==
+  dependencies:
+    tslib "^2.3.0"
+    xhr2 "^0.2.0"
+
 "@angular/router@19.0.6":
   version "19.0.6"
   resolved "https://registry.npmjs.org/@angular/router/-/router-19.0.6.tgz#2b3a089b1430b2c42eef009bc9fb74ab695bba7d"
   integrity sha512-G1oz+TclPk48h6b6B4s5J3DfrDVJrrxKOA+KWeVQP4e1B8ld7/dCMf5nn3yqS4BGs4yLecxMxyvbOvOiZ//lxw==
+  dependencies:
+    tslib "^2.3.0"
+
+"@angular/ssr@19.0.6":
+  version "19.0.6"
+  resolved "https://registry.npmjs.org/@angular/ssr/-/ssr-19.0.6.tgz#8afcb2a6690cc50f08e6d3abd822e83523635274"
+  integrity sha512-T9UfqqaWw9OKzJI+2RELMqPDD3uFtJt4CLBWDQIeG1GR51RFM4K7oeP+oQ14ohe9w/Ysyh1s1KyXAY+Vaaggbw==
   dependencies:
     tslib "^2.3.0"
 
@@ -18956,6 +18971,11 @@ ws@^6.1.0:
   integrity sha512-jmTjYU0j60B+vHey6TfR3Z7RD61z/hmxBS3VMSGIrroOWXQEneK1zNuotOUrGyBHQj0yrpsLHPWtigEFd13ndA==
   dependencies:
     async-limiter "~1.0.0"
+
+xhr2@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/xhr2/-/xhr2-0.2.1.tgz#4e73adc4f9cfec9cbd2157f73efdce3a5f108a93"
+  integrity sha512-sID0rrVCqkVNUn8t6xuv9+6FViXjUVXq8H5rWOH2rz9fDNQEd4g0EA2XlcEdJXRz5BMEn4O1pJFdT+z4YHhoWw==
 
 xml-name-validator@^4.0.0:
   version "4.0.0"

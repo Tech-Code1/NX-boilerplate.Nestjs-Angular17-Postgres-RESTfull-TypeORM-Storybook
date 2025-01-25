@@ -1,0 +1,8 @@
+
+[0m[7m[1m[31m NX [39m[22m[27m[0m  [31mThe "server" option is required when enabling "ssr", "prerender" or "app-shell".[39m
+
+Error: The "server" option is required when enabling "ssr", "prerender" or "app-shell".
+    at normalizeOptions (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\@angular\build\src\builders\application\options.js:233:19)
+    at async buildApplicationInternal (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\@angular\build\src\builders\application\index.js:46:31)
+    at async serveWithVite (F:\projects\NX-boilerplate.Nestjs-RESTfull-Angular17-Postgres\node_modules\@angular\build\src\builders\dev-server\vite-server.js:135:22)
+
