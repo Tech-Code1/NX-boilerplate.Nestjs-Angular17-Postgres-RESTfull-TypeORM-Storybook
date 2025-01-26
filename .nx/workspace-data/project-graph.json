@@ -22808,6 +22808,11 @@
       },
       {
         "source": "frontend-app",
+        "target": "npm:@angular/platform-server",
+        "type": "static"
+      },
+      {
+        "source": "frontend-app",
         "target": "npm:@angular/platform-browser",
         "type": "static"
       },
@@ -22829,6 +22834,16 @@
       {
         "source": "frontend-app",
         "target": "database",
+        "type": "static"
+      },
+      {
+        "source": "frontend-app",
+        "target": "npm:@angular/ssr",
+        "type": "static"
+      },
+      {
+        "source": "frontend-app",
+        "target": "npm:express",
         "type": "static"
       },
       {

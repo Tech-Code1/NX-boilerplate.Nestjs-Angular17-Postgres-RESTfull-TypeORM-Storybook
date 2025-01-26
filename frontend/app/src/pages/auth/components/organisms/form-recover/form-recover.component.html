@@ -18,15 +18,17 @@
       </c-label>
     </div>
     <div class="relative w-full">
-      <c-button
-        [disabled]="!formRecover.value"
-        class="w-full"
-        css="button-primary"
-        color="t-white"
-        type="submit"
-      >
-        <c-title css="title-base">Send</c-title>
-      </c-button>
+      @defer (on idle; hydrate on interaction) {
+        <c-button
+          [disabled]="!formRecover.value"
+          class="w-full"
+          css="button-primary"
+          color="t-white"
+          type="submit"
+        >
+          <c-title css="title-base">Send</c-title>
+        </c-button>
+      }
     </div>
   </div>
 </form>

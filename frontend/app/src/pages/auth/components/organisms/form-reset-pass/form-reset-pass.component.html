@@ -32,15 +32,17 @@
       </div>
     </div>
     <div class="relative w-full">
-      <c-button
-        class="w-full"
-        css="button-primary"
-        color="t-white"
-        type="submit"
-        [disabled]="!this.formReset.valid"
-      >
-        <c-title css="title-base">Done</c-title>
-      </c-button>
+      @defer (on idle; hydrate on interaction) {
+        <c-button
+          class="w-full"
+          css="button-primary"
+          color="t-white"
+          type="submit"
+          [disabled]="!this.formReset.valid"
+        >
+          <c-title css="title-base">Done</c-title>
+        </c-button>
+      }
     </div>
   </div>
 </form>

@@ -1,14 +1,14 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
-import { provideClientHydration } from '@angular/platform-browser';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideClientHydration, withEventReplay, withIncrementalHydration } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideExperimentalZonelessChangeDetection(),
+    provideZoneChangeDetection({eventCoalescing: true}),
     provideHttpClient(withFetch()),
     provideRouter(routes, withComponentInputBinding()),
-    provideClientHydration()
+    provideClientHydration(withIncrementalHydration(), withEventReplay())
   ]
 };

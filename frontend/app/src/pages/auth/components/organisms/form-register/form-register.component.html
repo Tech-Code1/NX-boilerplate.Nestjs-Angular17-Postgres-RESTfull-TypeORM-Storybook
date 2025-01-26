@@ -44,15 +44,17 @@
       </div>
     </div>
     <div class="relative w-full">
-      <c-button
-        [disabled]="!formRegister.value"
-        class="w-full"
-        css="button-primary"
-        color="t-white"
-        type="submit"
-      >
-        <c-title css="title-base">Sign in</c-title>
-      </c-button>
+      @defer (on idle; hydrate on interaction) {
+        <c-button
+          [disabled]="!formRegister.value"
+          class="w-full"
+          css="button-primary"
+          color="t-white"
+          type="submit"
+        >
+          <c-title css="title-base">Sign in</c-title>
+        </c-button>
+      }
     </div>
   </div>
 </form>
